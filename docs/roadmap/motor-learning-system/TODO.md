@@ -4,6 +4,25 @@ Status: active draft.
 
 This checklist is the working implementation tracker. The reader-facing version is `docs/pages/roadmap/motor-learning-roadmap.md`.
 
+
+## Phase -1 — Runtime Event-Spine Preconditions
+
+### Task -1.1 — Complete prerequisite runtime tracks
+
+- [ ] Step -1.1.1 — Complete `docs/roadmap/runtime-event-spine/TODO.md` Phase 1 enough to publish and drain typed events.
+- [ ] Step -1.1.2 — Complete `docs/roadmap/adc-territory-richness/TODO.md` Phase 2 enough to produce `boundary_probe` and `novel_frontier`.
+- [ ] Step -1.1.3 — Complete `docs/roadmap/scout-map-ownership/TODO.md` Phase 2 enough for void walker products to reach global reducers.
+- [ ] Step -1.1.4 — Complete `docs/roadmap/memory-gdsp-territory/TODO.md` Phase 3 enough to prevent stale observation reuse.
+- [ ] Step -1.1.5 — Complete `docs/roadmap/loop-scan-reduction/TODO.md` Phase 1 enough to provide sparse cached metrics to new motor systems.
+
+### Task -1.2 — Add motor event reservations to the event spine
+
+- [ ] Step -1.2.1 — Reserve event kinds for actuator trace preparation.
+- [ ] Step -1.2.2 — Reserve event kinds for release/hold.
+- [ ] Step -1.2.3 — Reserve event kinds for rendered witness.
+- [ ] Step -1.2.4 — Reserve event kinds for reafferent feedback.
+- [ ] Step -1.2.5 — Reserve event kinds for motor residual/correction.
+
 ## Phase 0 — Runtime Ground
 
 ### Task 0.1 — Keep repo headless

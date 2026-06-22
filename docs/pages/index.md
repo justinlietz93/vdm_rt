@@ -29,7 +29,8 @@ measure skill development without ML training
 | Understand preserved boundaries | [Runtime boundaries](architecture/runtime-boundaries.md) |
 | Understand why the upgrade is urgent | [Neurobiology upgrade](architecture/neurobiology-upgrade.md) |
 | Understand the target motor-learning system | [Motor-learning system](architecture/motor-learning-system.md) |
-| Follow build phases | [Motor-learning roadmap](roadmap/motor-learning-roadmap.md) |
+| Follow motor-learning build phases | [Motor-learning roadmap](roadmap/motor-learning-roadmap.md) |
+| Follow runtime reboot build phases | [Runtime reboot roadmap](roadmap/runtime-reboot-roadmap.md) |
 | Inspect hard rules | [Runtime invariants](reference/runtime-invariants.md) |
 | Read evidence summary | [Aura distinction summary](evidence/aura-distinction-summary.md) |
 

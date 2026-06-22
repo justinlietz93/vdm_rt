@@ -11,6 +11,7 @@ It is inspired by SGDA, but narrowed for this project: the docs exist to protect
 - `pages/architecture/neurobiology-upgrade.md` — why the swap is urgent.
 - `pages/architecture/motor-learning-system.md` — target system shape for actuator-manifold learning.
 - `pages/roadmap/motor-learning-roadmap.md` — phase/task/step roadmap.
+- `pages/roadmap/runtime-reboot-roadmap.md` — event spine, ADC, scan-reduction, cleanup, and sparse-neurogenesis roadmap.
 - `pages/evidence/aura-distinction-summary.md` — distilled evidence map from the Aura run distinction inventory.
 - `pages/reference/runtime-invariants.md` — current hard invariants used to reject bad implementations.
 
