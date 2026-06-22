@@ -359,10 +359,299 @@ Useful next scanners:
 5. **Event-kind coverage tests generator**
    - Reads event dataclasses and adapters, then scaffolds tests for every supported kind.
 
-## Bottom line
+---
+
+## Addendum: Reboot Cleanup Policy, Legacy Substrate Finding, and Sparse Neurogenesis Target
+
+This repo should be treated as a fresh independent runtime reboot, not as a compatibility-preserving refactor of the larger VDM research repo.
+
+The goal is not to preserve every historical module. The goal is to preserve the living runtime organism, remove research-era debris, and recover dormant systems that belong in the runtime but were never correctly seated into the engine.
+
+The target identity is:
+
+```text
+VDM RT:
+  sparse runtime
+  zero-training
+  no dense scans as the default mechanism
+  no ML framing
+  no GPU dependency
+  no frontend/dashboard residue
+  no visualization adapter pretending to be engine
+  bus-visible runtime signals
+  void walkers/maps as core territory systems
+  ADC/SIE/GDSP/motor systems reading curated signals rather than rescanning the graph
+```
+
+### Cleanup categories
+
+Every suspicious file should be classified into one of four categories.
+
+```text
+Keep:
+  Active runtime path or core runtime invariant.
+
+Port:
+  Important dormant capability with the wrong implementation shape.
+
+Archive:
+  Useful historical/design reference that should not remain live runtime code.
+
+Delete:
+  Frontend, UI, GPU, dense-substrate, generated-output, or research-bundle residue.
+```
+
+This avoids both failure modes:
+
+1. Keeping stale code just because it once represented a real idea.
+2. Deleting buried capabilities just because they are not currently wired into the headless runtime path.
+
+### Void walkers and maps are core systems
+
+The void walkers and maps should remain first-class runtime systems.
+
+They are not visualization residue. They are part of the territory, scouting, event-map, and future motor-control substrate. The problem found in this report is not that these systems are unused or unimportant. The problem is that their products are not yet globally routed through a single event spine.
+
+The correct fix is:
+
+```text
+void walkers/maps stay
+their outputs become bus/event-spine visible
+ADC, SIE, GDSP, memory, maps, and motor reducers consume curated event products
+scan-heavy duplicate pathways are reduced or removed
+```
+
+### Torch and legacy substrate finding
+
+The torch references are concentrated in the old substrate/neurogenesis path. They do not appear to represent ML training code. There is no evidence from the inspected files of a training loop, optimizer, loss function, `backward()` loop, model fitting path, or language-model dependency.
+
+The issue is different:
+
+```text
+legacy dense/GPU substrate path
+hard torch dependency if imported
+old object model
+stale import style
+not current SparseConnectome runtime
+```
+
+So the concern is not “ML training contamination.” The concern is “legacy dense/GPU substrate contamination.”
+
+That distinction matters. The repo should reject torch/GPU reliance in the fresh runtime, but it should not discard the runtime capability that the old files were trying to express.
+
+### Legacy substrate files encode a real missing capability
+
+The old `core/substrate/` files appear to represent an earlier implementation of dynamic substrate management.
+
+They include or imply:
+
+```text
+dynamic neuron population growth
+node-count management between configured minimum and maximum bounds
+growth debt accumulation
+stability arbitration
+new-neuron seeding
+structural homeostasis
+edge pruning
+bridge growth
+cluster repair
+```
+
+That is a real VDM RT capability. It belongs in the rebooted runtime.
+
+The problem is that the old implementation expects a dense substrate object with matrix-style state and optional torch backend behavior. The current runtime uses `SparseConnectome` as the active substrate. Therefore the old implementation should not remain as live runtime code.
+
+The correct handling is:
+
+```text
+extract the invariant
+preserve the design notes
+remove the torch/dense implementation from live runtime
+rebuild the capability sparse-first
+```
+
+### Recommended handling for `core/substrate/`
+
+The cleanest reboot move is:
+
+```text
+1. Move old `core/substrate/` out of live runtime code.
+2. Preserve it under a docs/archive or legacy design-source directory.
+3. Add a short extraction note explaining:
+   - what capability it represented
+   - why it is not runtime-native now
+   - what sparse replacement must preserve
+4. Add guard tests:
+   - no torch imports under live `vdm_rt/`
+   - no dense substrate imports in runtime path
+   - no frontend/visualization imports in runtime path
+5. Add a sparse neurogenesis roadmap item.
+```
+
+Suggested archive location:
+
+```text
+docs/sources/legacy-substrate-neurogenesis/
+```
+
+or:
+
+```text
+archive/legacy-substrate-neurogenesis/
+```
+
+The preferred fresh-runtime replacement should be a new sparse-native module, not a direct port of the old class.
+
+### Sparse neurogenesis target
+
+The rebooted runtime should eventually contain a sparse-native node population system.
+
+Suggested module shape:
+
+```text
+vdm_rt/core/neurogenesis/
+  population_policy.py
+  sparse_node_growth.py
+  sparse_node_pruning.py
+  node_lifecycle_events.py
+```
+
+The system should manage neuron population between configured bounds:
+
+```text
+min_neurons
+max_neurons
+growth_enabled
+culling_enabled
+grow_budget_per_tick
+cull_budget_per_tick
+growth_pressure_threshold
+cull_pressure_threshold
+```
+
+The runtime pathway should be:
+
+```text
+ADC + SIE + void maps + bus/event spine
+        ↓
+population pressure signal
+        ↓
+growth/cull arbiter
+        ↓
+SparseConnectome node add/remove/retire
+        ↓
+bus-visible node lifecycle events
+        ↓
+ADC / maps / SIE / GDSP / motor systems consume the structural change
+```
+
+This preserves the original intent of dynamic self-management while removing the old dense/GPU dependency shape.
+
+### Node lifecycle events must be global
+
+Node growth and pruning should not be hidden private mutations.
+
+They should produce runtime-visible events:
+
+```text
+node_growth
+node_cull
+node_retire
+node_reseed
+territory_expanded
+territory_contracted
+population_pressure
+population_stability
+```
+
+These events should be routed through the same runtime event spine recommended earlier in this report.
+
+That gives ADC, SIE, GDSP, event maps, memory fields, and the future motor system a shared view of structural change.
+
+### New guardrails for the reboot repo
+
+Add guard tests that protect the fresh runtime identity:
+
+```text
+tests/guards/test_no_frontend_residue.py
+tests/guards/test_no_torch_runtime_dependency.py
+tests/guards/test_no_ml_training_language.py
+tests/guards/test_no_visualization_runtime_path.py
+tests/guards/test_void_maps_remain_core_runtime.py
+tests/guards/test_sparse_connectome_is_runtime_substrate.py
+```
+
+Expected policy:
+
+```text
+Allowed:
+  SparseConnectome
+  void walkers
+  void maps
+  ADC
+  SIE
+  GDSP/REVGSP
+  bus/event spine
+  headless runtime
+  motor-control roadmap
+
+Disallowed in live runtime:
+  Dash/frontend
+  visualization adapters
+  WebSocket map streaming
+  torch
+  GPU substrate backend
+  dense substrate as runtime owner
+  ML/training vocabulary
+  generated research bundles
+```
+
+### Updated implementation priority
+
+The cleanup and integration path should be:
+
+```text
+Phase A — Preserve the real runtime
+  Keep SparseConnectome, void walkers, maps, ADC, SIE, bus, GDSP/REVGSP, runtime loop, and headless launcher.
+
+Phase B — Remove live contamination
+  Remove frontend, visualization, torch, dense substrate runtime path, generated output, and research-pack residue.
+
+Phase C — Archive dormant capabilities
+  Move legacy substrate/neurogenesis source into documentation or archive, with extraction notes.
+
+Phase D — Build the event spine
+  Route connectome observations, scout events, ADC observations, map events, memory events, and future motor events through a single typed runtime event spine.
+
+Phase E — Port sparse neurogenesis
+  Rebuild dynamic neuron growth/culling against SparseConnectome, bounded by min/max neuron policy and fed by ADC/SIE/void-map pressure.
+
+Phase F — Reduce dense scans
+  Replace repeated full-graph metrics with cached sparse snapshots and reducer-fed metrics.
+
+Phase G — Motor learning upgrade
+  Build the motor-control path only after the event spine and territory systems are coherent.
+```
+
+### Corrected bottom line
+
+The fresh `vdm_rt` repo should be more aggressive than a normal refactor, but not careless.
 
 The current runtime is not broken in a simple way. It is halfway through a good migration: from scan-heavy global metrics toward event-fed local reducers.
 
-The missing step is to make the event spine explicit.
+The refinements should make the event spine explicit.
+
+Old substrate files should not remain as live runtime code because they encode a stale dense/GPU implementation. But they should be left recognized as evidence of a real missing runtime feature: dynamic self-managing neuron population.
+
+The right surgical refinement:
+
+```text
+remove the dense/GPU implementation
+preserve the capability as design source
+rebuild it sparse-first
+route all structural changes through the event spine
+```
 
 Once that is done, ADC can become rich enough to produce meaningful territories, SIE can stop depending on repeated scan-derived density, GDSP can receive current territory indices, and the main loop can be cut down to a small orchestration shell.
+
+This keeps the reboot aligned with the original runtime intent: sparse, zero-training, self-organizing, event-fed, and independent of the old research repo’s frontend and analysis debris.
