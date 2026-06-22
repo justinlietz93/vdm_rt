@@ -42,7 +42,6 @@ from vdm_rt.core.signals import (
 )
 
 # Local helpers (telemetry-only; remain inside core boundary)
-from .maps_frame import stage_maps_frame
 from .evt_snapshot import build_evt_snapshot
 
 
@@ -50,7 +49,7 @@ class CoreEngine:
     """
     Temporary adapter (seam) to the current runtime.
 
-    - step(): folds event-driven reducers (no IO/logging) and stages maps/frame for telemetry.
+    - step(): folds event-driven reducers (no IO/logging).
     - snapshot(): exposes a minimal, safe snapshot using current metrics.
     - engram_load(): pass-through to the legacy loader.
     - engram_save(): pass-through to the legacy saver (saves into run_dir; path argument is advisory).
@@ -222,22 +221,6 @@ class CoreEngine:
                     self._trail_map.fold(collected_events, int(fold_tick))
                 except Exception:
                     pass
-        except Exception:
-            pass
-
-        # 2.75) stage maps/frame payload for UI bus (header JSON + Float32 LE payload)
-        try:
-            stage_maps_frame(
-                nx=self._nx,
-                heat_map=self._heat_map,
-                exc_map=self._exc_map,
-                inh_map=self._inh_map,
-                fold_tick=int(
-                    latest_tick
-                    if latest_tick is not None
-                    else (int(getattr(self._nx, "_emit_step", -1)) + 1)
-                ),
-            )
         except Exception:
             pass
 

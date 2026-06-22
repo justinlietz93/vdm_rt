@@ -18,7 +18,7 @@ vdm_rt/nexus.py              runtime facade and Nexus host object
 vdm_rt/cli/                  CLI argument definitions
 vdm_rt/control/              headless process-control boundary
 vdm_rt/core/                 retained engine, sparse connectome, ADC, SIE, maps, scouts, memory, signals
-vdm_rt/io/                   runtime transduction, lexicon, logging, visualization adapters
+vdm_rt/io/                   runtime transduction, lexicon, and logging adapters
 vdm_rt/runtime/              loop, stepper, telemetry, phase, checkpointing, status helpers
 vdm_rt/utils/                logging utilities
 vdm_rt/tests/                retained engine/runtime/control/guard tests
@@ -33,6 +33,7 @@ vdm_rt/ck/                   accelerator experiment folder
 vdm_rt/physics/              standalone physics/cosmology harnesses and generated outputs
 vdm_rt/data/                 unused corpus/data-manager folder
 vdm_rt/io/sensors/           empty sensor stubs with no runtime imports
+vdm_rt/io/visualization/     obsolete maps/WebSocket visualization adapter
 unused actuator stubs        motor_control/symbols/visualize/vocalizer
 vdm_rt/core/cosmology/       physics-harness-only core support module
 vdm_rt/core/tests/           stale in-package tests for removed dense connectome path
@@ -55,8 +56,7 @@ Artifacts land in `runs/<timestamp>/` by default:
 ```text
 events.jsonl          structured runtime logs
 utd_events.jsonl      transduction output events
-connectome.png        graph snapshot when visualization runs
-dashboard.png         metric dashboard when visualization runs
+phase.json           optional external control-plane input when present
 state_<step>.h5       checkpoint when --checkpoint-every is enabled and h5py is available
 state_<step>.npz      checkpoint fallback
 ```
@@ -68,7 +68,7 @@ The retained architecture is deliberately headless:
 ```text
 core      numeric/state machinery, SIE, sparse connectome, maps, scouts, memory, signals
 runtime   loop orchestration, per-tick helpers, telemetry, checkpoint/status emission
-io        UTE/UTD, lexicon, logging, visualization adapters
+io        UTE/UTD, lexicon, logging
 control   subprocess/process boundary for future clients
 frontend  removed
 ```
@@ -96,7 +96,7 @@ PYTHONPATH=. pytest -q vdm_rt/tests
 Expected result for this cut:
 
 ```text
-38 passed
+36 passed
 ```
 
 
@@ -104,3 +104,7 @@ Expected result for this cut:
 ## Future frontend rule
 
 A future frontend should not own runtime launch, filesystem mutation, log tailing, or engine control directly. It should use a thin API/client boundary over `vdm_rt.control`, `vdm_rt.runtime`, and run artifacts.
+
+## Visualization removal note
+
+The previous maps/WebSocket visualization adapter was removed from this runtime-only repo. The retained event maps in `core/cortex/maps/` are not UI code; they are bounded event reducers used by the runtime and void-walker systems. A future frontend should consume stable status/run artifacts or a new explicit control API, not resurrect the old visualization adapter.

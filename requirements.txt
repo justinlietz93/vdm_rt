@@ -1,5 +1,4 @@
 numpy # For numerical operations
-networkx # For graph operations
-matplotlib # For graph operations and visualization
-scipy # For graph operations and visualization
+networkx # Graph operations for sparse connectome snapshots
+scipy # Sparse matrix operations
 h5py # Engram, saves the models brain

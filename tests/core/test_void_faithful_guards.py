@@ -12,7 +12,7 @@ import os
 import re
 
 # CI guard: Ensure void-faithful reducers do not peek global structures
-# and CoreEngine wiring does not scan W/CSR/adjacency for maps.
+# and CoreEngine wiring does not scan W/CSR/adjacency for event maps.
 
 REPO_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
 
@@ -44,18 +44,13 @@ def test_engine_maps_wiring_no_scans():
     eng = os.path.join(REPO_ROOT, "core", "engine", "core_engine.py")
     src = _read(eng)
     banned = re.compile(r"(synaptic_weights|eligibility_traces|\.adj\b|toarray|tocsr|csr|coo)", re.IGNORECASE)
-    assert not banned.search(src), "CoreEngine must not scan W/CSR/adjacency when building maps/frame"
+    assert not banned.search(src), "CoreEngine must not scan W/CSR/adjacency when folding event maps"
 
     # Ensure we actually fold the three reducers
     assert "self._heat_map.fold" in src
     assert "self._exc_map.fold" in src
     assert "self._inh_map.fold" in src
 
-    # Header tokens are defined in maps_frame builder, validate there
-    mf = os.path.join(REPO_ROOT, "core", "engine", "maps_frame.py")
-    src_mf = _read(mf)
-    for token in ('"topic": "maps/frame"', '"channels": ["heat", "exc", "inh"]', '"dtype": "f32"', '"endianness": "LE"'):
-        assert token in src_mf, f"Missing header token in maps/frame builder: {token}"
 
 def test_memory_kernel_no_laplacian_or_matmul():
     """

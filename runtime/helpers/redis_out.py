@@ -8,20 +8,17 @@ Commercial use of proprietary VDM code requires written permission from Justin K
 See LICENSE file for full terms.
 
 
-Redis publishing helpers (optional, bounded, void-faithful).
+Redis status publishing helper (optional, bounded, void-faithful).
 
-- Publishes status metrics and/or latest maps/frame from the in-process ring to Redis Streams.
+- Publishes compact runtime status metrics to a Redis Stream.
 - No schedulers or background threads here; caller invokes once per tick from the runtime loop.
-- Uses MAXLEN trimming to keep Redis bounded (drop-oldest), mirroring in-memory ring semantics.
+- Uses MAXLEN trimming to keep Redis bounded.
 
 Enable via env:
   REDIS_URL=redis://127.0.0.1:6379/0
   ENABLE_REDIS_STATUS=1
-  ENABLE_REDIS_MAPS=1
   REDIS_STREAM_STATUS=fum:status         (optional; default shown)
-  REDIS_STREAM_MAPS=fum:maps             (optional; default shown)
   REDIS_STATUS_MAXLEN=2000               (approximate trim)
-  REDIS_MAPS_MAXLEN=3                    (approximate trim)
 """
 
 from __future__ import annotations
@@ -111,59 +108,4 @@ def maybe_publish_status_redis(nx: Any, metrics: Dict[str, Any], step: int) -> N
         pass
 
 
-def maybe_publish_maps_redis(nx: Any, step: int) -> None:
-    """
-    Publish the latest maps/frame (u8 preferred) to a bounded Redis Stream once per tick.
-
-    - Reads the newest frame from nx._maps_ring (if present).
-    - Skips if no new frame (seq unchanged).
-    - Writes XADD with MAXLEN ~ REDIS_MAPS_MAXLEN (default 3) to keep memory bounded.
-    - Fields: { 'header': b'{"tick":...}', 'payload': <raw-bytes> }
-    """
-    try:
-        if not _truthy(os.getenv("ENABLE_REDIS_MAPS", "0")):
-            return
-        cli = _get_client(nx)
-        if cli is None:
-            return
-        ring = getattr(nx, "_maps_ring", None)
-        if ring is None:
-            return
-        fr = ring.latest()
-        if fr is None:
-            return
-
-        # Skip if we've already published this seq
-        try:
-            last_seq = int(getattr(nx, "_maps_last_seq_redis", 0))
-        except Exception:
-            last_seq = 0
-        if getattr(fr, "seq", 0) == last_seq:
-            return
-
-        stream = os.getenv("REDIS_STREAM_MAPS", "fum:maps")
-        try:
-            maxlen = int(os.getenv("REDIS_MAPS_MAXLEN", "3"))
-        except Exception:
-            maxlen = 3
-
-        # Serialize header compactly; payload is raw bytes (u8 preferred)
-        try:
-            hdr_text = json.dumps(fr.header, separators=(",", ":"), ensure_ascii=False).encode("utf-8")
-        except Exception:
-            hdr_text = json.dumps({"topic": "maps/frame", "tick": int(getattr(fr, "tick", step))}, separators=(",", ":")).encode("utf-8")
-
-        payload_bytes = bytes(getattr(fr, "payload", b"") or b"")
-        cli.xadd(stream, {"header": hdr_text, "payload": payload_bytes}, maxlen=maxlen, approximate=True)
-
-        # Mark as published
-        try:
-            setattr(nx, "_maps_last_seq_redis", int(getattr(fr, "seq", 0)))
-        except Exception:
-            pass
-    except Exception:
-        # Never disrupt runtime parity
-        pass
-
-
-__all__ = ["maybe_publish_status_redis", "maybe_publish_maps_redis"]
+__all__ = ["maybe_publish_status_redis"]

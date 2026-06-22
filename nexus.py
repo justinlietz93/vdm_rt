@@ -23,7 +23,6 @@ from .io.utd import UTD
 # emitters moved to runtime.emitters.initialize_emitters
 from .core import text_utils
 from .core.metrics import StreamingZEMA
-from .core.visualizer import Visualizer
 from .core.void_dynamics_adapter import get_domain_modulation
 from .core.fum_sie import SelfImprovementEngine
 from .core.bus import AnnounceBus
@@ -70,6 +69,7 @@ class Nexus:
         self.dt = 1.0 / max(1, hz)
         self.domain = domain
         self.use_time_dynamics = use_time_dynamics
+        # Retained as a no-op compatibility setting after visualization adapters were removed.
         self.viz_every = viz_every
         self.log_every = log_every
         self.checkpoint_every = checkpoint_every
@@ -169,7 +169,6 @@ class Nexus:
         # Load engram if provided (after backend selection)
         # Defer engram loading until after ADC is initialized to avoid spurious errors/logs.
         # The actual load (with logging) happens below after ADC is constructed.
-        self.vis = Visualizer(run_dir=self.run_dir)
         # Status emission cadence for UTD
         self.status_every = max(1, int(status_interval))
         # Self-Improvement Engine (Rule 3): produces signed total_reward and legacy valence_01
