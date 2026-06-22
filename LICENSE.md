@@ -1,6 +1,6 @@
 <!--
 SPDX-License-Identifier: LicenseRef-Neuroca-PRL-2.1
-Copyright © 2025 Justin K. Lietz, Neuroca, Inc. All Rights Reserved.
+Copyright @ 2026 Justin K. Lietz, Neuroca, Inc. All Rights Reserved.
 
 This repository uses a proprietary dual-license to promote open academic and personal (non-commercial) use,
 while ensuring commercial applications align with ethical standards and protect proprietary inventions.
@@ -10,7 +10,7 @@ while ensuring commercial applications align with ethical standards and protect 
 **Version:** 2.1  
 **Last updated:** November 11, 2025
 
-**Copyright © 2025  
+**Copyright @ 2026  
 Justin K. Lietz & Neuroca, Inc.  
 All Rights Reserved.**
 
@@ -204,7 +204,7 @@ Preserve required notices (e.g., MPL-2.0, Apache-2.0) when distributing modified
 **Neuroca-Authored Files**
 ```
 SPDX-License-Identifier: LicenseRef-Neuroca-PRL-2.1
-Copyright © 2025 Justin K. Lietz, Neuroca, Inc.
+Copyright @ 2026 Justin K. Lietz, Neuroca, Inc.
 Licensed under the Neuroca Proprietary Dual License (Academic + Commercial). See LICENSE.md for terms.
 ```
 

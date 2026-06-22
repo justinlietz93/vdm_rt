@@ -1,5 +1,5 @@
 """
-Copyright © 2025 Justin K. Lietz, Neuroca, Inc. All Rights Reserved.
+Copyright @ 2026 Justin K. Lietz, Neuroca, Inc. All Rights Reserved.
 
 This research is protected under a dual-license to foster open academic
 research while ensuring commercial applications are aligned with the project's ethical principles. Commercial use requires written permission from Justin K. Lietz.
@@ -9,7 +9,7 @@ Disjoint Set Union (Union-Find) primitive with O(1) component counting
 and optional masked counting for rare telemetry.
 
 Void-faithful: event-folded unions only; no global scans in hot path.
-Copyright © 2025 Justin K. Lietz, Neuroca, Inc.
+Copyright @ 2026 Justin K. Lietz, Neuroca, Inc.
 """
 from __future__ import annotations
 

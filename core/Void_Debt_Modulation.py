@@ -1,6 +1,6 @@
 """
 FUM Universal Domain Modulation System
-Copyright © 2025 Justin K. Lietz, Neuroca, Inc. All Rights Reserved.
+Copyright @ 2026 Justin K. Lietz, Neuroca, Inc. All Rights Reserved.
 
 Universal derivation of domain_modulation factors based on void debt theory
 and learning stability principles. This replaces arbitrary scaling with 

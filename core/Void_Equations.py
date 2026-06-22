@@ -1,6 +1,6 @@
 """
 FUM Void Dynamics Library
-Copyright © 2025 Justin K. Lietz, Neuroca, Inc. All Rights Reserved.
+Copyright @ 2026 Justin K. Lietz, Neuroca, Inc. All Rights Reserved.
 
 This library contains the main functions governing the Void Dynamics Model.
 These functions represent the unchanging laws of the system.

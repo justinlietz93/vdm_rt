@@ -1,6 +1,6 @@
 # vdm_rt/core/substrate/growth_arbiter.py
 """
-Copyright © 2025 Justin K. Lietz, Neuroca, Inc. All Rights Reserved.
+Copyright @ 2026 Justin K. Lietz, Neuroca, Inc. All Rights Reserved.
 
 This module contains the GrowthArbiter, a class responsible for deciding
 when and *how much* to grow the network. It implements the "super saturation" 
