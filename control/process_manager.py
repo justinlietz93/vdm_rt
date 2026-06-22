@@ -81,9 +81,7 @@ class ProcessManager:
             cmd.append("--use-time-dynamics")
         else:
             cmd.append("--no-time-dynamics")
-        # sparse / structure
-        if profile.get("sparse_mode", False):
-            cmd.append("--sparse-mode")
+        # structure
         add("--threshold", profile.get("threshold"), str)
         add("--lambda-omega", profile.get("lambda_omega"), str)
         add("--candidates", profile.get("candidates"), str)

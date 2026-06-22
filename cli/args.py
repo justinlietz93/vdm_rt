@@ -35,13 +35,6 @@ def make_parser() -> argparse.ArgumentParser:
     p.set_defaults(use_time_dynamics=True)
     p.add_argument('--seed', type=int, default=0)
 
-    # Ultra-scale/sparse flags
-    p.add_argument('--sparse-mode', dest='sparse_mode', action='store_true')
-    p.add_argument('--dense-mode', dest='sparse_mode', action='store_false')
-    # Aliases
-    p.add_argument('--sparse', dest='sparse_mode', action='store_true')
-    p.add_argument('--dense', dest='sparse_mode', action='store_false')
-    p.set_defaults(sparse_mode=None)
     p.add_argument('--threshold', type=float, default=0.15)
     p.add_argument('--lambda-omega', dest='lambda_omega', type=float, default=0.1)
     p.add_argument('--candidates', type=int, default=64)

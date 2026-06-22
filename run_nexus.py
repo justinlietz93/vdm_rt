@@ -65,7 +65,6 @@ def main():
                use_time_dynamics=args.use_time_dynamics,
                log_every=args.log_every,
                checkpoint_every=args.checkpoint_every, seed=args.seed,
-               sparse_mode=(args.sparse_mode if args.sparse_mode is not None else (args.neurons >= 20000)),
                threshold=getattr(args, 'threshold', 0.15),
                lambda_omega=getattr(args, 'lambda_omega', 0.1),
                candidates=getattr(args, 'candidates', 64),

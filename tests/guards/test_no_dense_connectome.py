@@ -1,37 +1,32 @@
-import importlib
-import sys
-
-import pytest
+from pathlib import Path
 
 
-def _import_dense_connectome():
-    importlib.invalidate_caches()
-    if "vdm_rt.core.connectome" in sys.modules:
-        del sys.modules["vdm_rt.core.connectome"]
-    return importlib.import_module("vdm_rt.core.connectome")
+def _repo_root() -> Path:
+    return Path(__file__).resolve().parents[2]
 
 
-def test_dense_connectome_module_is_absent_or_guarded_by_default(monkeypatch):
-    monkeypatch.delenv("FORCE_DENSE", raising=False)
-    try:
-        _import_dense_connectome()
-    except ModuleNotFoundError:
-        return
-    except RuntimeError:
-        return
-    raise AssertionError("Dense connectome module imported without guard")
+def test_dense_connectome_module_is_absent():
+    assert not (_repo_root() / "core" / "connectome.py").exists()
 
 
-def test_dense_branch_raises_when_forced_but_no_dense_policy(monkeypatch):
-    monkeypatch.setenv("FORCE_DENSE", "1")
-    monkeypatch.setenv("NO_DENSE_CONNECTOME", "1")
-    monkeypatch.delenv("ALLOW_DENSE_VALIDATION", raising=False)
-
-    try:
-        mod = _import_dense_connectome()
-    except ModuleNotFoundError:
-        return
-
-    C = mod.Connectome(N=64, k=8, structural_mode="dense")
-    with pytest.raises(RuntimeError):
-        C.step(t=0.0, domain_modulation=1.0, sie_drive=1.0, use_time_dynamics=True)
+def test_dense_runtime_selection_flags_are_removed():
+    root = _repo_root()
+    live_files = [
+        root / "nexus.py",
+        root / "run_nexus.py",
+        root / "cli" / "args.py",
+        root / "control" / "process_manager.py",
+    ]
+    forbidden = (
+        "FORCE_DENSE",
+        "--dense",
+        "--dense-mode",
+        "--sparse",
+        "--sparse-mode",
+        "sparse_mode",
+        "dense_mode",
+    )
+    for path in live_files:
+        text = path.read_text(encoding="utf-8")
+        hits = [token for token in forbidden if token in text]
+        assert not hits, f"{path.relative_to(root)} still contains dense/sparse selection tokens: {hits}"

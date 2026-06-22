@@ -78,3 +78,21 @@ This checklist protects the fresh independent runtime identity. It is allowed to
 - [ ] Step 3.2.2 — Prove `import vdm_rt.core.sparse_connectome` works without torch.
 - [ ] Step 3.2.3 — Prove `import vdm_rt.run_nexus` works from the fresh repo root.
 - [ ] Step 3.2.4 — Add these import checks to CI.
+
+## Phase 4 — TODO Comment Hygiene
+
+### Task 4.1 — Classify live-code TODOs
+
+- [x] Step 4.1.1 — Remove stale `TODO REMOVE DENSE SCANS` comments from `nexus.py`.
+- [x] Step 4.1.2 — Rewrite the scan-reduction TODO in `core/metrics.py` to point at `SparseConnectome.metrics_snapshot()` and event-spine reducers.
+- [x] Step 4.1.3 — Rewrite the legacy SIE TODO in `core/global_system.py` as a keep/port/archive/delete classification task.
+- [ ] Step 4.1.4 — Add a TODO scanner that reports every live-code TODO with file, line, category, and owner.
+- [ ] Step 4.1.5 — Require each live-code TODO to be classified as `bug`, `cleanup`, `port`, `archive`, `performance`, or `roadmap-linked`.
+
+### Task 4.2 — Remove stale dense backend compatibility
+
+- [x] Step 4.2.1 — Remove `FORCE_DENSE` runtime backend switching from `nexus.py`.
+- [x] Step 4.2.2 — Remove CLI dense/sparse selection flags.
+- [x] Step 4.2.3 — Remove `sparse_mode` forwarding from the runtime launcher and process manager.
+- [x] Step 4.2.4 — Update the dense-connectome guard so dense backend selection cannot reappear silently.
+- [ ] Step 4.2.5 — Add a scan report that distinguishes runtime dense scans from accurate comments saying a module avoids dense scans.

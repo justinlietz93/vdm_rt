@@ -69,3 +69,46 @@ This checklist fixes ownership and timing issues around memory fields, territory
 - [ ] Step 3.2.2 — Emit `adc_folded_this_tick` per tick.
 - [ ] Step 3.2.3 — Emit `territory_folded_this_tick` per tick.
 - [ ] Step 3.2.4 — Emit `gdsp_territory_source` per GDSP invocation.
+
+## Phase 4 — Engram Resume Integrity
+
+### Task 4.1 — Reproduce the Aura reload failure mode
+
+- [ ] Step 4.1.1 — Create a short run with checkpointing enabled and nontrivial connectome, ADC, memory, map, SIE, and lexicon state.
+- [ ] Step 4.1.2 — Stop the run, reload from the checkpoint with `--load-engram`, and continue for a small number of ticks.
+- [ ] Step 4.1.3 — Compare pre-stop state against post-load state before the first continued tick.
+- [ ] Step 4.1.4 — Record whether only config-like values are restored while state history is lost.
+- [ ] Step 4.1.5 — Preserve an Aura-style regression fixture once the exact failure is reproduced.
+
+### Task 4.2 — Audit checkpoint save coverage
+
+- [ ] Step 4.2.1 — List every field saved by `core/memory/engram_io.py` for sparse checkpoints.
+- [ ] Step 4.2.2 — List every live runtime state field needed to resume a run without semantic reset.
+- [ ] Step 4.2.3 — Compare saved fields against `SparseConnectome`, ADC, memory field, trail/map reducers, SIE, phase, lexicon, and runtime counters.
+- [ ] Step 4.2.4 — Mark each field as `required`, `optional`, `derived`, or `do_not_resume`.
+- [ ] Step 4.2.5 — Add a manifest section to every checkpoint describing what was saved and what was intentionally omitted.
+
+### Task 4.3 — Audit checkpoint load behavior
+
+- [ ] Step 4.3.1 — Trace `runtime/helpers/engram.py::maybe_load_engram`.
+- [ ] Step 4.3.2 — Trace `core/memory/engram_io.py::load_engram`.
+- [ ] Step 4.3.3 — Trace phase-file hot loading through `runtime/phase.py`.
+- [ ] Step 4.3.4 — Verify load restores arrays, adjacency, active-state trackers, ADC territories, memory fields, and reducer state instead of only applying config.
+- [ ] Step 4.3.5 — Make incomplete restore fail loudly unless explicitly requested as config-only import.
+
+### Task 4.4 — Separate config load from state resume
+
+- [ ] Step 4.4.1 — Define `resume_state` semantics for full state restoration.
+- [ ] Step 4.4.2 — Define `load_config` semantics for importing run parameters without state history.
+- [ ] Step 4.4.3 — Prevent `--load-engram` from silently behaving like config-only load.
+- [ ] Step 4.4.4 — Add telemetry field `resume_mode` with values `none`, `state`, `config_only`, or `failed`.
+- [ ] Step 4.4.5 — Add telemetry field `resume_state_fields_loaded` listing restored sections.
+
+### Task 4.5 — Add resume parity tests
+
+- [ ] Step 4.5.1 — Save a checkpoint from a deterministic synthetic sparse runtime.
+- [ ] Step 4.5.2 — Load the checkpoint into a fresh runtime object.
+- [ ] Step 4.5.3 — Assert structural parity for node count, adjacency, active weights, stimulation state, and traversal state.
+- [ ] Step 4.5.4 — Assert ADC parity for territories, boundaries, cycle hits, TTL, and split state.
+- [ ] Step 4.5.5 — Assert memory/map parity for memory field, trail state, and event-map heads where those systems are enabled.
+- [ ] Step 4.5.6 — Assert continued tick numbering and checkpoint retention do not overwrite or prune the resumed history incorrectly.

@@ -51,7 +51,7 @@ class Nexus:
     def __init__(self, run_dir: str, N:int=1000, k:int=12, hz:int=10,
                  domain:str='biology_consciousness', use_time_dynamics:bool=True,
                  log_every:int=1, checkpoint_every:int=0, seed:int=0,
-                 sparse_mode:bool=False, threshold:float=0.15, lambda_omega:float=0.1,
+                 threshold:float=0.15, lambda_omega:float=0.1,
                  candidates:int=64, walkers:int=256, hops:int=3, status_interval:int=1,
                  bundle_size:int=3, prune_factor:float=0.10,
                  speak_auto:bool=True, speak_z:float=1.0, speak_hysteresis:float=1.0,
@@ -121,49 +121,14 @@ class Nexus:
         self._ng2 = {}  # bigram: w1 -> {w2: count}
         self._ng3 = {}  # trigram: (w1,w2) -> {w3: count}
 
-        # Sparse-first backend policy (void-faithful, no scans):
-        # Runtime uses SparseConnectome by default. Dense is validation-only via FORCE_DENSE=1.
-        use_dense = str(os.getenv("FORCE_DENSE", "0")).strip().lower() in ("1", "true", "yes", "on", "y", "t")
+        from vdm_rt.core.sparse_connectome import SparseConnectome
 
-        # Keep 'sparse_mode' arg for compatibility but ignore it; log once.
-        if sparse_mode:
-            try:
-                self.logger.info("deprecated_arg_sparse_mode_ignored", extra={"extra": {"arg": bool(sparse_mode)}})
-            except Exception:
-                pass
-
-        # Select implementation with dynamic import to avoid accidental dense usage
-        try:
-            if use_dense: # TODO REMOVE DENSE SCANS
-                from vdm_rt.core.connectome import Connectome as _Conn  # validation-only
-            else:
-                from vdm_rt.core.sparse_connectome import SparseConnectome as _Conn
-        except Exception:
-            # Fallback to sparse on any import failure
-            from vdm_rt.core.sparse_connectome import SparseConnectome as _Conn
-
-        # Instantiate connectome (both backends accept the same constructor args here)
-        try: # TODO REMOVE DENSE SCANS
-            self.connectome = _Conn(
-                N=self.N, k=self.k, seed=self.seed,
-                threshold=threshold, lambda_omega=lambda_omega,
-                candidates=candidates, traversal_walkers=walkers, traversal_hops=hops,
-                bundle_size=bundle_size, prune_factor=prune_factor
-            )
-            if use_dense:
-                try:
-                    self.logger.info("backend_dense_forced", extra={"extra": {"reason": "FORCE_DENSE"}})
-                except Exception:
-                    pass
-        except Exception:
-            # Ensure we have a working sparse connectome if constructor failed
-            from vdm_rt.core.sparse_connectome import SparseConnectome as _SConn
-            self.connectome = _SConn(
-                N=self.N, k=self.k, seed=self.seed,
-                threshold=threshold, lambda_omega=lambda_omega,
-                candidates=candidates, traversal_walkers=walkers, traversal_hops=hops,
-                bundle_size=bundle_size, prune_factor=prune_factor
-            )
+        self.connectome = SparseConnectome(
+            N=self.N, k=self.k, seed=self.seed,
+            threshold=threshold, lambda_omega=lambda_omega,
+            candidates=candidates, traversal_walkers=walkers, traversal_hops=hops,
+            bundle_size=bundle_size, prune_factor=prune_factor
+        )
         # Load engram if provided (after backend selection)
         # Defer engram loading until after ADC is initialized to avoid spurious errors/logs.
         # The actual load (with logging) happens below after ADC is constructed.
@@ -179,7 +144,7 @@ class Nexus:
         self.stim_group_size = int(max(1, stim_group_size))
         self.stim_amp = float(stim_amp)
         self.stim_max_symbols = int(max(1, stim_max_symbols))
-        try:  # TODO REMOVE DENSE SCANS
+        try:
             if hasattr(self.connectome, "_stim_decay"):
                 self.connectome._stim_decay = float(stim_decay)
         except Exception:
@@ -236,7 +201,7 @@ class Nexus:
         self.adc = ADC(r_attach=float(r_attach), ttl_init=int(ttl_init), split_patience=int(split_patience))
         # Attach bus to connectome so walkers can publish Observation events
         try:
-            self.connectome.bus = self.bus # TODO REMOVE DENSE SCANS
+            self.connectome.bus = self.bus
         except Exception:
             pass
 
