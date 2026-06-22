@@ -1,5 +1,5 @@
 """
-FUM Universal Domain Modulation System
+Void Dynamics Universal Domain Modulation System
 Copyright @ 2026 Justin K. Lietz, Neuroca, Inc. All Rights Reserved.
 
 Universal derivation of domain_modulation factors based on void debt theory
@@ -81,7 +81,7 @@ class VoidDebtModulation:
         modulations = self.get_all_domain_modulations()
         
         print("="*80)
-        print("FUM UNIVERSAL DOMAIN MODULATION FACTORS")
+        print("UNIVERSAL DOMAIN MODULATION FACTORS")
         print("Derived from Void Debt Theory: modulation = 1.0 + (sparsity²)/(β/α)")
         print("="*80)
         print(f"{'Domain':<20} {'Target %':<10} {'Modulation':<12} {'Formula Application'}")

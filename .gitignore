@@ -9,3 +9,5 @@ venv/
 runs/
 *.log
 .DS_Store
+reports
+.arachnid_scans

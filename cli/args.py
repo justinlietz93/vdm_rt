@@ -10,7 +10,7 @@ See LICENSE file for full terms.
 from __future__ import annotations
 
 """
-CLI argument parser for the FUM runtime.
+CLI argument parser for the VDM runtime.
 
 Behavior:
 - Mirrors the legacy make_parser() previously defined in vdm_rt/nexus.py exactly.

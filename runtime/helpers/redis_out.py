@@ -17,7 +17,7 @@ Redis status publishing helper (optional, bounded, void-faithful).
 Enable via env:
   REDIS_URL=redis://127.0.0.1:6379/0
   ENABLE_REDIS_STATUS=1
-  REDIS_STREAM_STATUS=fum:status         (optional; default shown)
+  REDIS_STREAM_STATUS=runtime:status     (optional; default shown)
   REDIS_STATUS_MAXLEN=2000               (approximate trim)
 """
 
@@ -72,7 +72,7 @@ def maybe_publish_status_redis(nx: Any, metrics: Dict[str, Any], step: int) -> N
     Publish a compact status JSON to a bounded Redis Stream once per tick.
 
     Fields:
-      stream = REDIS_STREAM_STATUS (default 'fum:status')
+      stream = REDIS_STREAM_STATUS (default 'runtime:status')
       MAXLEN  = REDIS_STATUS_MAXLEN (default 2000, approximate)
       entry   = { 'json': b'{"type":"status",...}' }
     """
@@ -82,7 +82,7 @@ def maybe_publish_status_redis(nx: Any, metrics: Dict[str, Any], step: int) -> N
         cli = _get_client(nx)
         if cli is None:
             return
-        stream = os.getenv("REDIS_STREAM_STATUS", "fum:status")
+        stream = os.getenv("REDIS_STREAM_STATUS", "runtime:status")
         try:
             maxlen = int(os.getenv("REDIS_STATUS_MAXLEN", "2000"))
         except Exception:

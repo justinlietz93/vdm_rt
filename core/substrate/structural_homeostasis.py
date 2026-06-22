@@ -15,7 +15,7 @@ def perform_structural_homeostasis(W: csc_matrix, ccc_metrics: dict) -> csc_matr
     
     This is a purpose-driven, self-regulating process that uses TDA metrics
     (Cohesion and Complexity) to maintain the network's topological health,
-    ensuring the FUM remains in a stable and efficient state.
+    ensuring the runtime remains in a stable and efficient state.
 
     Args:
         W (csc_matrix): The current sparse weight matrix representing the UKG.

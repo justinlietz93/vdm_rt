@@ -10,12 +10,12 @@ import numpy as np
 import torch
 from scipy.sparse import csc_matrix, find
 
-# FUM Modules
-from fum_initialization import create_knn_graph
+# External initialization seam
+from initialization import create_knn_graph
 
 class Substrate:
     """
-    Represents the FUM's computational medium or "Substrate".
+    Represents the runtime's computational medium or "Substrate".
     
     VERSION 4 (MERGED): This version combines the stable V3 architecture with
     the GPU acceleration and Growth features from the V9 refactor.

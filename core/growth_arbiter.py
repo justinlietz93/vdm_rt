@@ -1,4 +1,4 @@
-# fum_growth_arbiter.py
+# growth_arbiter.py
 """
 Copyright @ 2026 Justin K. Lietz, Neuroca, Inc. All Rights Reserved.
 

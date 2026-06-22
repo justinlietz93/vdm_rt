@@ -45,10 +45,10 @@ old no-op viz flags
 
 The repo intentionally retains multiple SIE/substrate-adjacent systems because they have different roles:
 
-- `core/fum_sie.py`
+- `core/sie.py`
 - `core/sie_v2.py`
-- `core/fum_growth_arbiter.py`
-- `core/fum_structural_homeostasis.py`
+- `core/growth_arbiter.py`
+- `core/structural_homeostasis.py`
 - `core/substrate/`
 - `core/neuroplasticity/`
 - `core/cortex/void_walkers/`

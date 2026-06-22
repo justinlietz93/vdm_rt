@@ -1,4 +1,4 @@
-# fum_sie.py
+# sie.py
 """
 Copyright @ 2026 Justin K. Lietz, Neuroca, Inc. All Rights Reserved.
 
@@ -9,21 +9,6 @@ See LICENSE file for full terms.
 import numpy as np
 from scipy.sparse import csc_matrix
 
-# --- FUM Modules (optional external helpers) ---
-# Keep copyright and your original API intact; add robust fallbacks so vdm_rt
-# does not depend on external paths being on PYTHONPATH.
-try:
-    from fum_validated_math import (
-        calculate_modulation_factor as _ext_calculate_modulation_factor,
-        calculate_stabilized_reward as _ext_calculate_stabilized_reward,
-    )
-    _HAVE_VALIDATED_MATH = True
-except Exception:
-    _HAVE_VALIDATED_MATH = False
-    _ext_calculate_modulation_factor = None
-    _ext_calculate_stabilized_reward = None
-
-
 def _sigmoid(x: float) -> float:
     x = float(np.clip(x, -500.0, 500.0))
     return 1.0 / (1.0 + np.exp(-x))
@@ -32,27 +17,15 @@ def _sigmoid(x: float) -> float:
 def _calculate_modulation_factor(total_reward: float) -> float:
     """
     Blueprint Rule 3 helper: squash to [-1, 1].
-    Falls back to internal implementation if the external helper is not available.
+    Uses the package-local runtime rule.
     """
-    if _HAVE_VALIDATED_MATH and _ext_calculate_modulation_factor is not None:
-        try:
-            return float(_ext_calculate_modulation_factor(total_reward))
-        except Exception:
-            pass
     return 2.0 * _sigmoid(total_reward) - 1.0
 
 
 def _calculate_stabilized_reward(td_error, novelty, habituation, self_benefit, external_reward):
     """
     Blueprint Rule 3 helper: stabilized reward blend (weights + damping).
-    Mirrors early_FUM_tests/FUM_Demo/fum_validated_math.py semantics when available.
     """
-    if _HAVE_VALIDATED_MATH and _ext_calculate_stabilized_reward is not None:
-        try:
-            return float(_ext_calculate_stabilized_reward(td_error, novelty, habituation, self_benefit, external_reward))
-        except Exception:
-            pass
-    # Internal fallback (mirrors the reference file)
     W_TD, W_NOVELTY, W_HABITUATION, W_SELF_BENEFIT, W_EXTERNAL = 0.5, 0.2, 0.1, 0.2, 0.8
     td_norm = float(np.clip(td_error, -1.0, 1.0))
     alpha_damping = 1.0 - np.tanh(abs(novelty - self_benefit))
@@ -67,7 +40,7 @@ def _calculate_stabilized_reward(td_error, novelty, habituation, self_benefit, e
 
 class SelfImprovementEngine:
     """
-    The FUM's Self-Improvement Engine (SIE).
+    The runtime Self-Improvement Engine (SIE).
     
     This module is the system's intrinsic motivation. It generates the
     internal, multi-objective valence signal that guides all learning and

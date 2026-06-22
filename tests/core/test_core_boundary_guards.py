@@ -141,7 +141,7 @@ def test_core_files_exist_expected_brain_modules():
         "metrics.py",
         "signals.py",
         "proprioception/events.py",
-        "fum_sie.py",
+        "sie.py",
         "sie_v2.py",
     ]
     missing = []

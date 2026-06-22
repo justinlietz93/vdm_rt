@@ -24,7 +24,7 @@ from .io.utd import UTD
 from .core import text_utils
 from .core.metrics import StreamingZEMA
 from .core.void_dynamics_adapter import get_domain_modulation
-from .core.fum_sie import SelfImprovementEngine
+from .core.sie import SelfImprovementEngine
 from .core.bus import AnnounceBus
 from .core.adc import ADC
 # Modularized lexicon/phrase store (behavior-preserving)

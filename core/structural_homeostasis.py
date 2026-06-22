@@ -1,4 +1,4 @@
-# fum_structural_homeostasis.py
+# structural_homeostasis.py
 """
 Copyright @ 2026 Justin K. Lietz, Neuroca, Inc. All Rights Reserved.
 

@@ -33,7 +33,7 @@ class UTD:
         use_zip = True
         try:
             # Allow explicit opt-out via env
-            use_zip = str(os.getenv("FUM_ZIP_SPOOL", "1")).strip().lower() in ("1", "true", "yes", "on", "y")
+            use_zip = str(os.getenv("ZIP_SPOOL", "1")).strip().lower() in ("1", "true", "yes", "on", "y")
         except Exception:
             use_zip = True
         try:

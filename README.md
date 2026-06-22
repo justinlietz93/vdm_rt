@@ -75,6 +75,12 @@ frontend  removed
 
 The runtime should continue to launch without Dash or any frontend dependency.
 
+## Runtime naming
+
+Internal modules, symbols, channels, and environment variables use role names.
+`vdm_rt` remains the package boundary; runtime configuration uses names such as
+`EVENTS_MAX_MB`, `UTD_MAX_MB`, `ZIP_SPOOL`, and `runtime:status`.
+
 ## Void equations and domain modulation
 
 `vdm_rt/core/void_dynamics_adapter.py` resolves equations in this order:

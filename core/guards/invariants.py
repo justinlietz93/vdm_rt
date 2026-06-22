@@ -19,11 +19,12 @@ Purpose
 - Intended for CI tests and optional runtime warnings (callers decide policy).
 
 Included
-- check_site_constant_of_motion: sample-based drift check of a simple constant-of-motion proxy Q_FUM.
+- check_site_constant_of_motion: sample-based drift check of a simple constant-of-motion proxy.
+- check_logistic_motion_invariant: sample-based drift check of the logistic-law invariant.
 - compute_memory_groups: expose dimensionless memory steering groups from MemoryField.
 
 Notes
-- Q_FUM here uses a conservative, implementation-agnostic proxy over the on-site state vector W:
+- The generic proxy uses the on-site state vector W:
     Q_i = 0.5 * W_i^2 + α * W_i + β
   The exact analytical form depends on the chosen on-site law; callers can tune (alpha, beta) and tolerances.
 - Sampling is caller-controlled and bounded; no global scans required.
@@ -166,7 +167,7 @@ def compute_memory_groups(field: object) -> Dict[str, float]:
 
 # --- Physics invariants additions (CI helpers; pure numeric, no scans) ---
 
-def qfum_logistic_value(w: float, t: float, *, alpha: float, beta: float, eps: float = 1e-12) -> float:
+def logistic_motion_invariant_value(w: float, t: float, *, alpha: float, beta: float, eps: float = 1e-12) -> float:
     """
     Closed-form on-site invariant for the logistic law:
         dW/dt = (α - β) W - α W^2  ≡  k W (1 - W/K)
@@ -203,7 +204,7 @@ def qfum_logistic_value(w: float, t: float, *, alpha: float, beta: float, eps: f
         return 0.0
 
 
-def check_qfum_logistic(
+def check_logistic_motion_invariant(
     W_prev: Sequence[float],
     W_curr: Sequence[float],
     *,
@@ -216,7 +217,7 @@ def check_qfum_logistic(
     tol_p99: float = 1e-5,
 ) -> Dict[str, float | int | bool]:
     """
-    Sample-based drift check for the analytic Q_FUM constant of motion under the logistic on-site law.
+    Sample-based drift check for the analytic constant of motion under the logistic on-site law.
 
     Definitions:
       Q_i(t, W) = t - (1/α) ln( W / (K - W) ), with K = (α - β)/α, α>0.
@@ -247,8 +248,8 @@ def check_qfum_logistic(
             ii = int(i)
             if ii < 0 or ii >= n_prev:
                 continue
-            q0 = qfum_logistic_value(float(W_prev[ii]), float(t_prev), alpha=alpha, beta=beta)
-            q1 = qfum_logistic_value(float(W_curr[ii]), float(t_curr), alpha=alpha, beta=beta)
+            q0 = logistic_motion_invariant_value(float(W_prev[ii]), float(t_prev), alpha=alpha, beta=beta)
+            q1 = logistic_motion_invariant_value(float(W_curr[ii]), float(t_curr), alpha=alpha, beta=beta)
             dq = float(q1 - q0)
             dqs_abs.append(abs(dq))
             s += dq
@@ -298,8 +299,8 @@ def kinetic_c2_from_J(J: float, a: float) -> float:
 __all__ = [
     "check_site_constant_of_motion",
     "compute_memory_groups",
-    "qfum_logistic_value",
-    "check_qfum_logistic",
+    "logistic_motion_invariant_value",
+    "check_logistic_motion_invariant",
     "kinetic_c2_from_kappa",
     "kinetic_c2_from_J",
 ]

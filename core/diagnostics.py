@@ -5,7 +5,7 @@ This research is protected under a dual-license to foster open academic
 research while ensuring commercial applications are aligned with the project's ethical principles. Commercial use requires written permission from Justin K. Lietz.
 See LICENSE file for full terms.
 
-Physics-informed diagnostics for the FUM runtime.
+Physics-informed diagnostics for the VDM runtime.
 
 This module provides:
 - Mass-gap estimation from two-point correlations on the runtime graph
@@ -15,7 +15,6 @@ References:
 - [Derivation/discrete_to_continuum.md](Derivation/discrete_to_continuum.md:125-193)
 - [Derivation/kinetic_term_derivation.md](Derivation/kinetic_term_derivation.md:117-134)
 - [Derivation/finite_tube_mode_analysis.md](Derivation/finite_tube_mode_analysis.md:1)
-- [Derivation/fum_voxtrium_mapping.md](Derivation/fum_voxtrium_mapping.md:44-121)
 
 Conventions:
 - We treat graph shortest-path distance (in hops) as the discrete spatial metric r

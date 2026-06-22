@@ -21,17 +21,17 @@ Rolling JSONL writer with bounded main file and archival segments.
 
 Configuration (env):
 - For events.jsonl (category="EVENTS"):
-    FUM_EVENTS_MAX_MB                  (default: 256)
-    FUM_EVENTS_MAX_LINES               (default: unset; bytes cap used)
-    FUM_EVENTS_ARCHIVE_SEGMENT_MB      (default: 512)
-    FUM_EVENTS_ARCHIVE_SEGMENT_LINES   (default: unset; bytes cap used)
+    EVENTS_MAX_MB                      (default: 256)
+    EVENTS_MAX_LINES                   (default: unset; bytes cap used)
+    EVENTS_ARCHIVE_SEGMENT_MB          (default: 512)
+    EVENTS_ARCHIVE_SEGMENT_LINES       (default: unset; bytes cap used)
 - For utd_events.jsonl (category="UTD"):
-    FUM_UTD_MAX_MB                     (default: 256)
-    FUM_UTD_MAX_LINES                  (default: unset; bytes cap used)
-    FUM_UTD_ARCHIVE_SEGMENT_MB         (default: 512)
-    FUM_UTD_ARCHIVE_SEGMENT_LINES      (default: unset; bytes cap used)
+    UTD_MAX_MB                         (default: 256)
+    UTD_MAX_LINES                      (default: unset; bytes cap used)
+    UTD_ARCHIVE_SEGMENT_MB             (default: 512)
+    UTD_ARCHIVE_SEGMENT_LINES          (default: unset; bytes cap used)
 - Global:
-    FUM_LOG_ROLL_CHECK_EVERY           (default: 200)  # enforce cadence (per write)
+    LOG_ROLL_CHECK_EVERY               (default: 200)  # enforce cadence (per write)
 
 Notes:
 - Uses a cross-process advisory lock via <base_path>.lock to serialize trimming with writers.
@@ -113,20 +113,20 @@ class RollingJsonlWriter:
 
         if max_main_bytes is None:
             if cat == "EVENTS":
-                max_main_bytes = _env_int("FUM_EVENTS_MAX_MB", 256)
+                max_main_bytes = _env_int("EVENTS_MAX_MB", 256)
             elif cat == "UTD":
-                max_main_bytes = _env_int("FUM_UTD_MAX_MB", 256)
+                max_main_bytes = _env_int("UTD_MAX_MB", 256)
             else:
-                max_main_bytes = _env_int("FUM_LOG_MAX_MB", 128)
+                max_main_bytes = _env_int("LOG_MAX_MB", 128)
             max_main_bytes = int(max_main_bytes) * 1024 * 1024 if max_main_bytes else None
 
         if max_main_lines is None:
             if cat == "EVENTS":
-                max_main_lines = _env_int("FUM_EVENTS_MAX_LINES", None)
+                max_main_lines = _env_int("EVENTS_MAX_LINES", None)
             elif cat == "UTD":
-                max_main_lines = _env_int("FUM_UTD_MAX_LINES", None)
+                max_main_lines = _env_int("UTD_MAX_LINES", None)
             else:
-                max_main_lines = _env_int("FUM_LOG_MAX_LINES", None)
+                max_main_lines = _env_int("LOG_MAX_LINES", None)
 
         if archive_dir is None:
             archive_dir = os.path.join(os.path.dirname(self.base_path), "archived")
@@ -134,22 +134,22 @@ class RollingJsonlWriter:
 
         if archive_segment_max_bytes is None:
             if cat == "EVENTS":
-                archive_segment_max_bytes = _env_int("FUM_EVENTS_ARCHIVE_SEGMENT_MB", 512)
+                archive_segment_max_bytes = _env_int("EVENTS_ARCHIVE_SEGMENT_MB", 512)
             elif cat == "UTD":
-                archive_segment_max_bytes = _env_int("FUM_UTD_ARCHIVE_SEGMENT_MB", 512)
+                archive_segment_max_bytes = _env_int("UTD_ARCHIVE_SEGMENT_MB", 512)
             else:
-                archive_segment_max_bytes = _env_int("FUM_LOG_ARCHIVE_SEGMENT_MB", 256)
+                archive_segment_max_bytes = _env_int("LOG_ARCHIVE_SEGMENT_MB", 256)
             archive_segment_max_bytes = (
                 int(archive_segment_max_bytes) * 1024 * 1024 if archive_segment_max_bytes else None
             )
 
         if archive_segment_max_lines is None:
             if cat == "EVENTS":
-                archive_segment_max_lines = _env_int("FUM_EVENTS_ARCHIVE_SEGMENT_LINES", None)
+                archive_segment_max_lines = _env_int("EVENTS_ARCHIVE_SEGMENT_LINES", None)
             elif cat == "UTD":
-                archive_segment_max_lines = _env_int("FUM_UTD_ARCHIVE_SEGMENT_LINES", None)
+                archive_segment_max_lines = _env_int("UTD_ARCHIVE_SEGMENT_LINES", None)
             else:
-                archive_segment_max_lines = _env_int("FUM_LOG_ARCHIVE_SEGMENT_LINES", None)
+                archive_segment_max_lines = _env_int("LOG_ARCHIVE_SEGMENT_LINES", None)
 
         self.max_main_bytes = max_main_bytes
         self.max_main_lines = max_main_lines
@@ -157,7 +157,7 @@ class RollingJsonlWriter:
         self.archive_segment_max_lines = archive_segment_max_lines
 
         if check_every is None:
-            check_every = _env_int("FUM_LOG_ROLL_CHECK_EVERY", 200) or 200
+            check_every = _env_int("LOG_ROLL_CHECK_EVERY", 200) or 200
         self._check_every = int(check_every)
         self._ops = 0
 
@@ -422,12 +422,12 @@ class RollingZipJsonlWriter:
         # Defaults (env-overridable)
         try:
             if max_buffer_bytes is None:
-                max_buffer_bytes = int(os.getenv("FUM_ZIP_BUFFER_BYTES", "1048576"))  # 1 MiB
+                max_buffer_bytes = int(os.getenv("ZIP_BUFFER_BYTES", "1048576"))  # 1 MiB
         except Exception:
             max_buffer_bytes = 1_048_576
         try:
             if ring_bytes is None:
-                ring_bytes = int(os.getenv("FUM_ZIP_RING_BYTES", "65536"))  # 64 KiB
+                ring_bytes = int(os.getenv("ZIP_RING_BYTES", "65536"))  # 64 KiB
         except Exception:
             ring_bytes = 65_536
         self.max_buffer_bytes = int(max(32 * 1024, max_buffer_bytes or 1_048_576))

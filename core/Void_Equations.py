@@ -1,5 +1,5 @@
 """
-FUM Void Dynamics Library
+Void Dynamics Library
 Copyright @ 2026 Justin K. Lietz, Neuroca, Inc. All Rights Reserved.
 
 This library contains the main functions governing the Void Dynamics Model.

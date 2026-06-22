@@ -2,7 +2,7 @@
 """
 Copyright @ 2026 Justin K. Lietz, Neuroca, Inc. All Rights Reserved.
 
-This module handles the growth of the FUM substrate, including the addition
+This module handles growth of the runtime substrate, including the addition
 of new computational units (neurons) and the formation of their initial
 connections based on void dynamics.
 """

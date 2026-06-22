@@ -35,6 +35,12 @@ aura-distinction-summary.md
 
 Imported source files may preserve their original names under `docs/sources/`.
 
+## Runtime naming
+
+Internal runtime modules use role names. A package or external integration may
+carry a boundary-specific name, but internal filenames, symbols, channels, and
+environment variables should identify their role directly.
+
 ## Front matter
 
 Every file under `docs/pages/` should start with:

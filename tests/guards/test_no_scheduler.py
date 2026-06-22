@@ -29,10 +29,10 @@ Scope:
 
 HERE = os.path.abspath(os.path.dirname(__file__))
 REPO_ROOT = os.path.abspath(os.path.join(HERE, "..", "..", ".."))
-FUM_ROOT = os.path.join(REPO_ROOT, "vdm_rt")
+PACKAGE_ROOT = os.path.join(REPO_ROOT, "vdm_rt")
 
-CORE_DIR = os.path.join(FUM_ROOT, "core")
-RUNTIME_DIR = os.path.join(FUM_ROOT, "runtime")
+CORE_DIR = os.path.join(PACKAGE_ROOT, "core")
+RUNTIME_DIR = os.path.join(PACKAGE_ROOT, "runtime")
 
 DENY_FILE = os.path.join(CORE_DIR, "cortex", "void_walkers", "scheduler.py")
 

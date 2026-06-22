@@ -7,5 +7,5 @@ research while ensuring commercial applications are aligned with the project's e
 Commercial use of proprietary VDM code requires written permission from Justin K. Lietz.
 See LICENSE file for full terms.
 """
-# FUM real-time runtime package
+# VDM real-time runtime package
 __all__ = ["*"]

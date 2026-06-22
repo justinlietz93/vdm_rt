@@ -45,7 +45,7 @@ This checklist protects the fresh independent runtime identity. It is allowed to
 - [ ] Step 1.3.2 — Add `tests/guards/test_sparse_connectome_is_runtime_substrate.py`.
 - [ ] Step 1.3.3 — Verify `core/cortex/void_walkers/` remains importable.
 - [ ] Step 1.3.4 — Verify `core/cortex/maps/` remains importable.
-- [ ] Step 1.3.5 — Verify `core/sparse_connectome.py`, `core/adc.py`, `core/fum_sie.py`, and `core/sie_v2.py` remain importable without frontend dependencies.
+- [ ] Step 1.3.5 — Verify `core/sparse_connectome.py`, `core/adc.py`, `core/sie.py`, and `core/sie_v2.py` remain importable without frontend dependencies.
 
 ## Phase 2 — Archive Without Losing Capability
 
