@@ -1,1 +1,0 @@
-### vdm_rt/core/README.md
