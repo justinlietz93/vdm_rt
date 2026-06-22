@@ -1,0 +1,37 @@
+version: 0.1.0
+status: active
+layers:
+  core:
+    may_import:
+      - vdm_rt.core
+      - numpy
+      - scipy
+      - networkx
+      - h5py
+    must_not_import:
+      - dash
+      - flask
+      - fastapi
+      - vdm_rt.frontend
+      - vdm_rt.io.visualization
+      - matplotlib
+  runtime:
+    may_import:
+      - vdm_rt.core
+      - vdm_rt.runtime
+      - vdm_rt.io
+    must_not_author:
+      - live prose
+      - phrase completion
+      - renderer repair
+  control:
+    may_do:
+      - launch_runtime_process
+      - stop_runtime_process
+      - inspect_run_artifacts
+    must_not_do:
+      - mutate_core_state_directly
+      - author_output
+  frontend:
+    status: removed
+    rule: future frontend must be a client, not a runtime owner

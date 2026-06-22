@@ -1,0 +1,20 @@
+version: 0.1.0
+status: active
+sources:
+  hard_matrix_v0_1:
+    path: docs/sources/neurobiology-upgrade/VDM_Hard_Implementation_Matrix_v0.1.md
+    role: first hard UTE/UTD boundary matrix
+  hard_matrix_motor_v0_2:
+    path: docs/sources/neurobiology-upgrade/VDM_Hard_Implementation_Matrix_v0.2_motor_addendum.md
+    role: hard matrix plus motor-learning addendum rows M26-M37
+  motor_decoder_addendum:
+    path: docs/sources/neurobiology-upgrade/VDM_Motor_Learning_Decoder_Matrix_Addendum_v0.1.md
+    role: motor-learning rationale for decoder removal
+  aura_distinction_inventory:
+    path: docs/sources/neurobiology-upgrade/Aura_Distinction_Inventory_v0.7.md
+    role: atomized Aura evidence inventory
+external_missing:
+  runtime_papers:
+    count_expected: 8
+    status: not_included_in_this_repo
+    rule: do not cite as included evidence until added to docs/sources or linked in an evidence registry
