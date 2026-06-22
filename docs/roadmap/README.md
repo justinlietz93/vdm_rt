@@ -23,7 +23,7 @@ reports/20260622/vdm_rt_void_bus_adc_loop_analysis.md
 3. `adc-territory-richness/TODO.md` — make ADC territory and boundary production meaningful.
 4. `scout-map-ownership/TODO.md` — make void walkers/maps first-class producers and remove duplicate ownership.
 5. `loop-scan-reduction/TODO.md` — replace repeated graph scans with cached sparse snapshots and reducer-fed metrics.
-6. `memory-gdsp-territory/TODO.md` — fix memory ownership, GDSP timing, stale observations, territory availability, and engram resume integrity.
+6. `memory-gdsp-territory/TODO.md` — fix memory ownership, GDSP timing, stale observations, and territory availability, and engram resume integrity.
 7. `sparse-neurogenesis/TODO.md` — preserve legacy growth/pruning intent while removing dense/GPU substrate code.
 8. `repo-scan-upgrades/TODO.md` — improve Arachnid/repo-scan tooling for runtime dataflow analysis.
 9. `motor-learning-system/TODO.md` — motor-learning / decoder-removal upgrade path.
