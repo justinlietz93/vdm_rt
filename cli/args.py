@@ -26,7 +26,6 @@ def make_parser() -> argparse.ArgumentParser:
     p.add_argument('--k', type=int, default=12)
     p.add_argument('--hz', type=int, default=10)
     p.add_argument('--domain', type=str, default='biology_consciousness')
-    p.add_argument('--viz-every', type=int, default=10)
     p.add_argument('--log-every', type=int, default=1)
     p.add_argument('--checkpoint-every', type=int, default=0)
     p.add_argument('--checkpoint-keep', type=int, default=5)

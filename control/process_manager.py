@@ -107,8 +107,7 @@ class ProcessManager:
         add("--speak-cooldown-ticks", profile.get("speak_cooldown_ticks"), str)
         add("--speak-valence-thresh", profile.get("speak_valence_thresh"), str)
         add("--b1-half-life-ticks", profile.get("b1_half_life_ticks"), str)
-        # viz/log
-        add("--viz-every", profile.get("viz_every"), str)
+        # logging
         add("--log-every", profile.get("log_every"), str)
         # checkpoints
         add("--checkpoint-every", profile.get("checkpoint_every"), str)

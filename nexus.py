@@ -50,7 +50,7 @@ except Exception:
 class Nexus:
     def __init__(self, run_dir: str, N:int=1000, k:int=12, hz:int=10,
                  domain:str='biology_consciousness', use_time_dynamics:bool=True,
-                 viz_every:int=10, log_every:int=1, checkpoint_every:int=0, seed:int=0,
+                 log_every:int=1, checkpoint_every:int=0, seed:int=0,
                  sparse_mode:bool=False, threshold:float=0.15, lambda_omega:float=0.1,
                  candidates:int=64, walkers:int=256, hops:int=3, status_interval:int=1,
                  bundle_size:int=3, prune_factor:float=0.10,
@@ -69,8 +69,6 @@ class Nexus:
         self.dt = 1.0 / max(1, hz)
         self.domain = domain
         self.use_time_dynamics = use_time_dynamics
-        # Retained as a no-op compatibility setting after visualization adapters were removed.
-        self.viz_every = viz_every
         self.log_every = log_every
         self.checkpoint_every = checkpoint_every
         self.seed = seed
