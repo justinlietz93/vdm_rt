@@ -26,9 +26,12 @@ from __future__ import annotations
 
 from typing import Any, Dict, Iterable, List, Optional, Set
 
+from vdm_rt.config import config_int
+
 
 class TerritoryUF:
-    def __init__(self, head_k: int = 512) -> None:
+    def __init__(self, head_k: Optional[int] = None) -> None:
+        head_k = config_int("territory.head_k", 512) if head_k is None else int(head_k)
         self.parent: Dict[int, int] = {}
         self.size: Dict[int, int] = {}
         # bounded head members per root (kept small; no scans)

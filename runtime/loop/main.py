@@ -272,13 +272,13 @@ def run_loop(nx: Any, t0: float, step: int, duration_s: Optional[int] = None) ->
         if getattr(nx, "_void_scout", None) is None:
             if config_bool("scouts.enable_cold_probe", True):
                 try:
-                    _sv = config_int("scouts.visits", int(getattr(nx, "scout_visits", 16)))
+                    _sv = config_int("scouts.visits", int(getattr(nx, "scout_visits", config_int("scouts.visits", 16))))
                 except Exception:
-                    _sv = 16
+                    _sv = config_int("scouts.visits", 16)
                 try:
-                    _se = config_int("scouts.edges", int(getattr(nx, "scout_edges", 8)))
+                    _se = config_int("scouts.edges", int(getattr(nx, "scout_edges", config_int("scouts.edges", 8))))
                 except Exception:
-                    _se = 8
+                    _se = config_int("scouts.edges", 8)
                 try:
                     _seed = int(getattr(nx, "seed", 0))
                 except Exception:
@@ -400,11 +400,10 @@ def run_loop(nx: Any, t0: float, step: int, duration_s: Optional[int] = None) ->
                 if terr is None:
                     try:
                         from vdm_rt.core.proprioception.territory import TerritoryUF as _TerrUF  # lazy import
-                        head_k = 512
                         try:
-                            head_k = config_int("territory.head_k", head_k)
+                            head_k = config_int("territory.head_k", 512)
                         except Exception:
-                            head_k = 512
+                            head_k = config_int("territory.head_k", 512)
                         nx._territories = _TerrUF(head_k=int(max(8, head_k)))
                         terr = nx._territories
                     except Exception:
@@ -515,7 +514,7 @@ def run_loop(nx: Any, t0: float, step: int, duration_s: Optional[int] = None) ->
                         try:
                             _seed_cap = config_int("scouts.seed_max", 64)
                         except Exception:
-                            _seed_cap = 64
+                            _seed_cap = config_int("scouts.seed_max", 64)
                         try:
                             seeds = sorted({int(s) for s in (stim_idxs or []) if isinstance(s, int)})[: max(0, _seed_cap)]
                         except Exception:
@@ -523,17 +522,17 @@ def run_loop(nx: Any, t0: float, step: int, duration_s: Optional[int] = None) ->
 
                         # Budgets (bounded)
                         try:
-                            sv = config_int("scouts.visits", int(getattr(nx, "scout_visits", 16)))
+                            sv = config_int("scouts.visits", int(getattr(nx, "scout_visits", config_int("scouts.visits", 16))))
                         except Exception:
-                            sv = 16
+                            sv = config_int("scouts.visits", 16)
                         try:
-                            se = config_int("scouts.edges", int(getattr(nx, "scout_edges", 8)))
+                            se = config_int("scouts.edges", int(getattr(nx, "scout_edges", config_int("scouts.edges", 8))))
                         except Exception:
-                            se = 8
+                            se = config_int("scouts.edges", 8)
                         try:
                             ttlv = config_int("scouts.ttl", 64)
                         except Exception:
-                            ttlv = 64
+                            ttlv = config_int("scouts.ttl", 64)
                         budget = {
                             "visits": max(0, sv),
                             "edges": max(0, se),
@@ -681,9 +680,9 @@ def run_loop(nx: Any, t0: float, step: int, duration_s: Optional[int] = None) ->
                             raise
 
                     try:
-                        dt_ms = int(max(1, float(getattr(nx, "dt", 0.1)) * 1000.0))
+                        dt_ms = int(max(1, float(getattr(nx, "dt", config_float("runtime.default_dt_seconds", 0.1))) * 1000.0))
                     except Exception:
-                        dt_ms = 100
+                        dt_ms = int(max(1, config_float("runtime.default_dt_seconds", 0.1) * 1000.0))
                     try:
                         eng.step(dt_ms, evs)
                     except Exception:

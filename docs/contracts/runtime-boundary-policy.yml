@@ -6,7 +6,6 @@ layers:
       - vdm_rt.core
       - numpy
       - scipy
-      - networkx
       - h5py
     must_not_import:
       - dash

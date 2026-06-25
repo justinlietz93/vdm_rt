@@ -21,6 +21,8 @@ Design constraints:
 from typing import Iterable, Mapping
 import math
 
+from vdm_rt.config import config_float
+
 def _safe_log(x: float) -> float:
     try:
         return math.log(x) if x > 0 else 0.0
@@ -40,7 +42,14 @@ def idf(df: int, doc_count: int) -> float:
     except Exception:
         return 1.0
 
-def compute_idf_scale(tokens: Iterable[str], lexicon: Mapping[str, int], doc_count: int, default: float = 1.0, min_scale: float = 0.5, max_scale: float = 2.0) -> float:
+def compute_idf_scale(
+    tokens: Iterable[str],
+    lexicon: Mapping[str, int],
+    doc_count: int,
+    default: float | None = None,
+    min_scale: float | None = None,
+    max_scale: float | None = None,
+) -> float:
     """
     Compute a bounded novelty scale from token set and a DF-style lexicon.
 
@@ -54,6 +63,9 @@ def compute_idf_scale(tokens: Iterable[str], lexicon: Mapping[str, int], doc_cou
     Returns:
     - Scale in [min_scale, max_scale], or default if insufficient information
     """
+    default = config_float("composer.idf_default", 1.0) if default is None else float(default)
+    min_scale = config_float("composer.idf_min_scale", 0.5) if min_scale is None else float(min_scale)
+    max_scale = config_float("composer.idf_max_scale", 2.0) if max_scale is None else float(max_scale)
     try:
         if tokens is None:
             return float(default)

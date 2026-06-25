@@ -57,6 +57,7 @@ import math
 import random
 
 from vdm_rt.core.proprioception.events import VTTouchEvent, EdgeOnEvent, SpikeEvent, DeltaWEvent
+from vdm_rt.config import config_float, config_int
 
 
 class MemoryField:
@@ -89,25 +90,33 @@ class MemoryField:
 
     def __init__(
         self,
-        head_k: int = 256,
+        head_k: int | None = None,
         keep_max: int | None = None,
         seed: int = 0,
         *,
-        gamma: float = 0.05,
-        delta: float = 0.01,
-        kappa: float = 0.10,
-        touch_gain: float = 1.0,
-        spike_gain: float = 0.20,
-        dW_gain: float = 0.10,
+        gamma: float | None = None,
+        delta: float | None = None,
+        kappa: float | None = None,
+        touch_gain: float | None = None,
+        spike_gain: float | None = None,
+        dW_gain: float | None = None,
     ) -> None:
+        head_k = config_int("maps.head_k", 256) if head_k is None else int(head_k)
         self.head_k = int(max(8, head_k))
-        km = int(keep_max) if keep_max is not None else self.head_k * 16
+        mult = max(1, config_int("maps.keep_max_multiplier", 16))
+        km = int(keep_max) if keep_max is not None else self.head_k * mult
         self.keep_max = int(max(self.head_k, km))
         self.rng = random.Random(int(seed))
         self._m: Dict[int, float] = {}
         self._last_tick: Dict[int, int] = {}
 
         # dynamics
+        gamma = config_float("maps.memory.gamma", 0.05) if gamma is None else float(gamma)
+        delta = config_float("maps.memory.delta", 0.01) if delta is None else float(delta)
+        kappa = config_float("maps.memory.kappa", 0.10) if kappa is None else float(kappa)
+        touch_gain = config_float("maps.memory.touch_gain", 1.0) if touch_gain is None else float(touch_gain)
+        spike_gain = config_float("maps.memory.spike_gain", 0.20) if spike_gain is None else float(spike_gain)
+        dW_gain = config_float("maps.memory.delta_w_gain", 0.10) if dW_gain is None else float(dW_gain)
         self.gamma = float(max(0.0, gamma))
         self.delta = float(max(0.0, min(1.0, delta)))
         self.kappa = float(max(0.0, kappa))
@@ -231,7 +240,9 @@ class MemoryField:
                 if len(self._m) > self.keep_max:
                     self._prune()
 
-    def snapshot(self, head_n: int = 16) -> Dict[str, object]:
+    def snapshot(self, head_n: int | None = None) -> Dict[str, object]:
+        if head_n is None:
+            head_n = config_int("maps.snapshot_head_n", 16)
         """
         Return bounded snapshot of the field.
         """
@@ -314,10 +325,11 @@ class MemoryField:
         head = snap.get("memory_head", []) if isinstance(snap, dict) else []
         return head or []
 
-    def snapshot_dict(self, cap: int = 2048) -> Dict[int, float]:
+    def snapshot_dict(self, cap: int | None = None) -> Dict[int, float]:
         """
         Convenience: return a bounded dict {node:value}.
         """
+        cap = config_int("maps.memory.dict_cap", 2048) if cap is None else int(cap)
         snap = self.snapshot(head_n=self.head_k)
         dct = snap.get("memory_dict", {}) if isinstance(snap, dict) else {}
         if not isinstance(dct, dict):

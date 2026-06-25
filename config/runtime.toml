@@ -13,12 +13,37 @@ log_every_override = 0
 # Stored on Nexus for compatibility; no active runtime consumer currently uses it.
 emergent_macros = false
 
+# Fallback used only when a Nexus-like object does not expose dt.
+default_dt_seconds = 0.1
+
+[runtime.buffers]
+recent_text_maxlen = 256
+ring_maxlen = 512
+recent_why_maxlen = 256
+recent_status_maxlen = 128
+scout_stats_maxlen = 256
+auditor_stats_maxlen = 128
+
 [events]
 # Event-driven reducer telemetry. This was previously enabled by default.
 event_metrics = true
 
 # Synthesize bounded delta-W events from current tick stimulation.
 synth_delta_w = false
+
+# Event metric sketch and detector defaults used when a caller omits them.
+vt_width = 256
+vt_depth = 3
+vt_head_k = 256
+b1_min_interval_ticks = 1
+ewma_alpha = 0.05
+
+# Generic topology-delta detector defaults used by StreamingZEMA when callers
+# do not pass detector-specific overrides.
+streaming_z_half_life_ticks = 50
+streaming_z_spike = 3.0
+streaming_z_hysteresis = 1.0
+streaming_z_min_interval_ticks = 10
 
 [territory]
 # Head size for event-folded cohesion territories.
@@ -27,3 +52,6 @@ head_k = 512
 [composer]
 # Composer-local scoring only; does not affect core dynamics.
 idf_k = 0.0
+idf_default = 1.0
+idf_min_scale = 0.5
+idf_max_scale = 2.0

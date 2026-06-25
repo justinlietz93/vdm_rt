@@ -36,11 +36,13 @@ from typing import Any, Dict, Optional, Set, Sequence, List
 import math
 import random
 
+from vdm_rt.config import config_float, config_int
 from vdm_rt.core.cortex.void_walkers.base import BaseScout
 from vdm_rt.core.proprioception.events import BaseEvent, VTTouchEvent, EdgeOnEvent
 
 
-def _head_to_set(maps: Optional[Dict[str, Any]], keys: Sequence[str], cap: int = 512) -> Set[int]:
+def _head_to_set(maps: Optional[Dict[str, Any]], keys: Sequence[str], cap: Optional[int] = None) -> Set[int]:
+    cap = config_int("scouts.head_cap", 512) if cap is None else int(cap)
     out: Set[int] = set()
     if not isinstance(maps, dict):
         return out
@@ -117,15 +119,17 @@ class MemoryRayScout(BaseScout):
 
     def __init__(
         self,
-        budget_visits: int = 16,
-        budget_edges: int = 8,
-        ttl: int = 64,
+        budget_visits: Optional[int] = None,
+        budget_edges: Optional[int] = None,
+        ttl: Optional[int] = None,
         seed: int = 0,
         *,
-        theta_mem: float = 0.8,
-        tau: float = 1.0,
+        theta_mem: Optional[float] = None,
+        tau: Optional[float] = None,
     ) -> None:
         super().__init__(budget_visits=budget_visits, budget_edges=budget_edges, ttl=ttl, seed=seed)
+        theta_mem = config_float("scouts.weights.memory_ray.theta_mem", 0.8) if theta_mem is None else float(theta_mem)
+        tau = config_float("scouts.weights.memory_ray.tau", 1.0) if tau is None else float(tau)
         self.theta_mem = float(theta_mem)
         self.tau = float(max(1e-6, tau))
 

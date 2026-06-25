@@ -1,5 +1,4 @@
 numpy # For numerical operations
-networkx # Legacy feature from sparse_connectome.py, check if we can remove
 scipy # Sparse matrix operations
 h5py # Engram, saves the models brain
 pytest

@@ -29,6 +29,8 @@ from typing import Dict, Iterable, List
 import math
 import random
 
+from vdm_rt.config import config_int
+
 
 class BaseDecayMap:
     """
@@ -46,10 +48,19 @@ class BaseDecayMap:
 
     __slots__ = ("head_k", "half_life", "keep_max", "rng", "_val", "_last_tick")
 
-    def __init__(self, head_k: int = 256, half_life_ticks: int = 200, keep_max: int | None = None, seed: int = 0) -> None:
+    def __init__(
+        self,
+        head_k: int | None = None,
+        half_life_ticks: int | None = None,
+        keep_max: int | None = None,
+        seed: int = 0,
+    ) -> None:
+        head_k = config_int("maps.head_k", 256) if head_k is None else int(head_k)
+        half_life_ticks = config_int("maps.half_life_ticks", 200) if half_life_ticks is None else int(half_life_ticks)
         self.head_k = int(max(8, head_k))
         self.half_life = int(max(1, half_life_ticks))
-        km = int(keep_max) if keep_max is not None else self.head_k * 16
+        mult = max(1, config_int("maps.keep_max_multiplier", 16))
+        km = int(keep_max) if keep_max is not None else self.head_k * mult
         self.keep_max = int(max(self.head_k, km))
         self.rng = random.Random(int(seed))
         self._val: Dict[int, float] = {}
@@ -111,7 +122,9 @@ class BaseDecayMap:
         """
         raise NotImplementedError
 
-    def snapshot(self, head_n: int = 16) -> dict:
+    def snapshot(self, head_n: int | None = None) -> dict:
+        if head_n is None:
+            head_n = config_int("maps.snapshot_head_n", 16)
         if not self._val:
             return {"head": [], "p95": 0.0, "p99": 0.0, "max": 0.0, "count": 0}
         # head top-k by score

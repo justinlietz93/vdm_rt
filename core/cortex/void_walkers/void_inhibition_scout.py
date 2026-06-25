@@ -26,15 +26,17 @@ Physics alignment (docs in /derivation):
 
 from typing import Any, Dict, List, Optional, Set
 
+from vdm_rt.config import config_int
 from vdm_rt.core.cortex.void_walkers.base import BaseScout
 from vdm_rt.core.proprioception.events import BaseEvent, SpikeEvent
 
 
-def _head_lookup(maps: Optional[Dict[str, Any]], key: str, cap: int = 512) -> Dict[int, float]:
+def _head_lookup(maps: Optional[Dict[str, Any]], key: str, cap: Optional[int] = None) -> Dict[int, float]:
     """
     Build a bounded lookup {node: norm_score in [0,1]} from a head list [[node, score], ...].
     Normalization: divide by max(score) over the truncated head; empty -> {}.
     """
+    cap = config_int("scouts.head_cap", 512) if cap is None else int(cap)
     if not isinstance(maps, dict):
         return {}
     try:
@@ -57,10 +59,11 @@ def _head_lookup(maps: Optional[Dict[str, Any]], key: str, cap: int = 512) -> Di
         return {}
 
 
-def _extract_head_nodes(maps: Optional[Dict[str, Any]], key: str, cap: int = 512) -> Set[int]:
+def _extract_head_nodes(maps: Optional[Dict[str, Any]], key: str, cap: Optional[int] = None) -> Set[int]:
     """
     Extract bounded set of node ids from a head list [[node, score], ...].
     """
+    cap = config_int("scouts.head_cap", 512) if cap is None else int(cap)
     out: Set[int] = set()
     if not isinstance(maps, dict):
         return out

@@ -31,6 +31,7 @@ from typing import Iterable, List, Tuple, Dict, Any, Optional
 
 import numpy as np
 from .primitives.dsu import DSU as _DSU
+from vdm_rt.config import config_int
 
 
 def _count_intersection_sorted(a: np.ndarray, b: np.ndarray) -> int:
@@ -97,7 +98,9 @@ class VoidB1Meter:
     - sample_edges: maximum number of active edges sampled per tick
     - half_life_ticks: EMA half-life for void_b1 smoothing
     """
-    def __init__(self, sample_edges: int = 4096, half_life_ticks: int = 50):
+    def __init__(self, sample_edges: int | None = None, half_life_ticks: int | None = None):
+        sample_edges = config_int("b1.sample_edges", 4096) if sample_edges is None else int(sample_edges)
+        half_life_ticks = config_int("b1.half_life_ticks", 50) if half_life_ticks is None else int(half_life_ticks)
         self.sample_edges = int(max(32, sample_edges))
         self.alpha = _alpha_from_half_life(half_life_ticks)
         self._ema_b1: Optional[float] = None
@@ -366,7 +369,7 @@ class VoidB1Meter:
 _GLOBAL_B1_METER: Optional[VoidB1Meter] = None
 
 
-def update_void_b1(connectome, sample_edges: int = 4096, half_life_ticks: int = 50) -> Dict[str, Any]:
+def update_void_b1(connectome, sample_edges: int | None = None, half_life_ticks: int | None = None) -> Dict[str, Any]:
     """
     Module-level helper to update and return the topology packet.
     Lazily initializes a process-local meter.

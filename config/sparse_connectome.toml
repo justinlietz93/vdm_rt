@@ -5,6 +5,7 @@
 threshold = 0.15
 lambda_omega = 0.1
 candidates = 64
+structural_mode = "alias"
 traversal_walkers = 256
 traversal_hops = 3
 bundle_size = 3

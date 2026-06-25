@@ -34,11 +34,13 @@ References:
 from typing import Any, Dict, Optional, Set, Sequence, List
 import math
 
+from vdm_rt.config import config_float, config_int
 from vdm_rt.core.cortex.void_walkers.base import BaseScout
 from vdm_rt.core.proprioception.events import BaseEvent, VTTouchEvent, EdgeOnEvent
 
 
-def _head_to_set(maps: Optional[Dict[str, Any]], key: str, cap: int = 512) -> Set[int]:
+def _head_to_set(maps: Optional[Dict[str, Any]], key: str, cap: Optional[int] = None) -> Set[int]:
+    cap = config_int("scouts.head_cap", 512) if cap is None else int(cap)
     out: Set[int] = set()
     if not isinstance(maps, dict):
         return out
@@ -89,16 +91,19 @@ class VoidRayScout(BaseScout):
 
     def __init__(
         self,
-        budget_visits: int = 16,
-        budget_edges: int = 8,
-        ttl: int = 64,
+        budget_visits: int | None = None,
+        budget_edges: int | None = None,
+        ttl: int | None = None,
         seed: int = 0,
         *,
-        lambda_phi: float = 1.0,
-        theta_mem: float = 0.0,
-        tau: float = 1.0,
+        lambda_phi: float | None = None,
+        theta_mem: float | None = None,
+        tau: float | None = None,
     ) -> None:
         super().__init__(budget_visits=budget_visits, budget_edges=budget_edges, ttl=ttl, seed=seed)
+        lambda_phi = config_float("scouts.weights.void_ray.lambda_phi", 1.0) if lambda_phi is None else float(lambda_phi)
+        theta_mem = config_float("scouts.weights.void_ray.theta_mem", 0.0) if theta_mem is None else float(theta_mem)
+        tau = config_float("scouts.weights.void_ray.tau", 1.0) if tau is None else float(tau)
         self.lambda_phi = float(lambda_phi)
         self.theta_mem = float(theta_mem)
         self.tau = float(max(1e-6, tau))

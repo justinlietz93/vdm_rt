@@ -78,9 +78,6 @@ def novelty_and_score(
                     tokens,
                     dict(lexicon or {}),
                     int(doc_count or 0),
-                    default=1.0,
-                    min_scale=0.5,
-                    max_scale=2.0,
                 )
             )
     except Exception:

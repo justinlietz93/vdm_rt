@@ -31,14 +31,27 @@ from collections import deque
 import time
 import random
 
+from vdm_rt.config import config_int
+
+
+def _cfg_ring(key: str, default: int) -> int:
+    return max(1, config_int(key, default))
+
 
 @dataclass
 class RuntimeRing:
     """
     Small bounded ring buffer for lightweight signals (e.g., recent 'why' ticks, scout stats).
     """
-    maxlen: int = 512
-    buf: Deque[Any] = field(default_factory=lambda: deque(maxlen=512))
+    maxlen: int = field(default_factory=lambda: _cfg_ring("runtime.buffers.ring_maxlen", 512))
+    buf: Deque[Any] = field(default_factory=deque)
+
+    def __post_init__(self) -> None:
+        try:
+            if self.buf.maxlen != int(self.maxlen):
+                self.buf = deque(self.buf, maxlen=int(max(1, self.maxlen)))
+        except Exception:
+            self.buf = deque(maxlen=int(max(1, self.maxlen)))
 
     def append(self, item: Any) -> None:
         try:
@@ -63,10 +76,10 @@ class RuntimeState:
     t0: float = field(default_factory=time.time)
 
     # Small rings available to helpers
-    recent_why: RuntimeRing = field(default_factory=lambda: RuntimeRing(maxlen=256))
-    recent_status: RuntimeRing = field(default_factory=lambda: RuntimeRing(maxlen=128))
-    scout_stats: RuntimeRing = field(default_factory=lambda: RuntimeRing(maxlen=256))
-    auditor_stats: RuntimeRing = field(default_factory=lambda: RuntimeRing(maxlen=128))
+    recent_why: RuntimeRing = field(default_factory=lambda: RuntimeRing(maxlen=_cfg_ring("runtime.buffers.recent_why_maxlen", 256)))
+    recent_status: RuntimeRing = field(default_factory=lambda: RuntimeRing(maxlen=_cfg_ring("runtime.buffers.recent_status_maxlen", 128)))
+    scout_stats: RuntimeRing = field(default_factory=lambda: RuntimeRing(maxlen=_cfg_ring("runtime.buffers.scout_stats_maxlen", 256)))
+    auditor_stats: RuntimeRing = field(default_factory=lambda: RuntimeRing(maxlen=_cfg_ring("runtime.buffers.auditor_stats_maxlen", 128)))
 
     # Scratchpad for helpers (e.g., last budget metrics), kept minimal
     scratch: Dict[str, Any] = field(default_factory=dict)

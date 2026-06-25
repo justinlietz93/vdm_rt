@@ -46,6 +46,7 @@ import math
 import random
 
 from vdm_rt.core.proprioception.events import VTTouchEvent, EdgeOnEvent, SpikeEvent, DeltaWEvent
+from vdm_rt.config import config_float, config_int
 
 
 class MemoryMap:
@@ -80,22 +81,25 @@ class MemoryMap:
         self,
         field: Any | None = None,
         *,
-        head_k: int = 256,
-        dict_cap: int = 2048,
+        head_k: int | None = None,
+        dict_cap: int | None = None,
         keep_max: int | None = None,
         seed: int = 0,
         # proxy-mode dynamics
-        gamma: float = 0.05,
-        delta: float = 0.01,
-        kappa: float = 0.10,
-        touch_gain: float = 1.0,
-        spike_gain: float = 0.20,
-        dW_gain: float = 0.10,
+        gamma: float | None = None,
+        delta: float | None = None,
+        kappa: float | None = None,
+        touch_gain: float | None = None,
+        spike_gain: float | None = None,
+        dW_gain: float | None = None,
     ) -> None:
         self.field = field
+        head_k = config_int("maps.head_k", 256) if head_k is None else int(head_k)
+        dict_cap = config_int("maps.memory.dict_cap", 2048) if dict_cap is None else int(dict_cap)
         self.head_k = int(max(8, head_k))
         self.dict_cap = int(max(8, dict_cap))
-        km = int(keep_max) if keep_max is not None else self.head_k * 16
+        mult = max(1, config_int("maps.keep_max_multiplier", 16))
+        km = int(keep_max) if keep_max is not None else self.head_k * mult
         self.keep_max = int(max(self.head_k, km))
         self.rng = random.Random(int(seed))
 
@@ -104,6 +108,12 @@ class MemoryMap:
         self._last_tick: Dict[int, int] = {}
 
         # proxy-mode parameters
+        gamma = config_float("maps.memory.gamma", 0.05) if gamma is None else float(gamma)
+        delta = config_float("maps.memory.delta", 0.01) if delta is None else float(delta)
+        kappa = config_float("maps.memory.kappa", 0.10) if kappa is None else float(kappa)
+        touch_gain = config_float("maps.memory.touch_gain", 1.0) if touch_gain is None else float(touch_gain)
+        spike_gain = config_float("maps.memory.spike_gain", 0.20) if spike_gain is None else float(spike_gain)
+        dW_gain = config_float("maps.memory.delta_w_gain", 0.10) if dW_gain is None else float(dW_gain)
         self.gamma = float(max(0.0, gamma))
         self.delta = float(max(0.0, min(1.0, delta)))
         self.kappa = float(max(0.0, kappa))
@@ -270,7 +280,9 @@ class MemoryMap:
                 if len(self._m) > self.keep_max:
                     self._prune()
 
-    def snapshot(self, head_n: int = 16) -> Dict[str, object]:
+    def snapshot(self, head_n: int | None = None) -> Dict[str, object]:
+        if head_n is None:
+            head_n = config_int("maps.snapshot_head_n", 16)
         """
         Return bounded snapshot dictionary per contract.
         - If field is present: adapt its snapshot and cap dict to dict_cap.

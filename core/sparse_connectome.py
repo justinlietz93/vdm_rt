@@ -30,9 +30,8 @@ Note: Stage‑1 healing/pruning here omits dense S_ij bridging to avoid NxN;
 
 from __future__ import annotations
 import numpy as np
-import networkx as nx
-from typing import List, Set
-from vdm_rt.config import config_float, config_int
+from typing import List, Optional, Set
+from vdm_rt.config import config_float, config_int, config_str
 from .void_dynamics_adapter import universal_void_dynamics, delta_re_vgsp, delta_gdsp
 from .announce import Observation
 
@@ -40,12 +39,58 @@ from .announce import Observation
 from .primitives.dsu import DSU as _DSU
 
 
+class _SnapshotGraph:
+    """
+    Minimal graph container for active-subgraph snapshots.
+
+    It intentionally covers only the small inspection surface the runtime needs,
+    avoiding a hard NetworkX dependency for core imports.
+    """
+    __slots__ = ("_nodes", "_edges")
+
+    def __init__(self) -> None:
+        self._nodes: Set[int] = set()
+        self._edges: Set[tuple[int, int]] = set()
+
+    def add_nodes_from(self, nodes) -> None:
+        for n in nodes:
+            self._nodes.add(int(n))
+
+    def add_edge(self, u: int, v: int) -> None:
+        a = int(u)
+        b = int(v)
+        self._nodes.add(a)
+        self._nodes.add(b)
+        self._edges.add((a, b) if a <= b else (b, a))
+
+    def number_of_nodes(self) -> int:
+        return len(self._nodes)
+
+    def number_of_edges(self) -> int:
+        return len(self._edges)
+
+    def nodes(self) -> list[int]:
+        return sorted(self._nodes)
+
+    def edges(self) -> list[tuple[int, int]]:
+        return sorted(self._edges)
+
+
 class SparseConnectome:
-    def __init__(self, N: int, k: int, seed: int = 0,
-                 threshold: float = 0.15, lambda_omega: float = 0.1,
-                 candidates: int = 64, structural_mode: str = "alias",
-                 traversal_walkers: int = 256, traversal_hops: int = 3,
-                 bundle_size: int = 3, prune_factor: float = 0.10):
+    def __init__(self, N: int, k: int, seed: Optional[int] = None,
+                 threshold: Optional[float] = None, lambda_omega: Optional[float] = None,
+                 candidates: Optional[int] = None, structural_mode: Optional[str] = None,
+                 traversal_walkers: Optional[int] = None, traversal_hops: Optional[int] = None,
+                 bundle_size: Optional[int] = None, prune_factor: Optional[float] = None):
+        seed = config_int("launch.seed", 0) if seed is None else int(seed)
+        threshold = config_float("sparse_connectome.threshold", 0.15) if threshold is None else float(threshold)
+        lambda_omega = config_float("sparse_connectome.lambda_omega", 0.1) if lambda_omega is None else float(lambda_omega)
+        candidates = config_int("sparse_connectome.candidates", 64) if candidates is None else int(candidates)
+        structural_mode = config_str("sparse_connectome.structural_mode", "alias") if structural_mode is None else str(structural_mode)
+        traversal_walkers = config_int("sparse_connectome.traversal_walkers", 256) if traversal_walkers is None else int(traversal_walkers)
+        traversal_hops = config_int("sparse_connectome.traversal_hops", 3) if traversal_hops is None else int(traversal_hops)
+        bundle_size = config_int("sparse_connectome.bundle_size", 3) if bundle_size is None else int(bundle_size)
+        prune_factor = config_float("sparse_connectome.prune_factor", 0.10) if prune_factor is None else float(prune_factor)
         self.N = int(N)
         self.k = int(k)
         self.rng = np.random.default_rng(seed)
@@ -73,7 +118,7 @@ class SparseConnectome:
         self._tick = 0
         # External stimulation buffer (deterministic symbol→group; decays each tick)
         self._stim = np.zeros(self.N, dtype=np.float32)
-        self._stim_decay = 0.90
+        self._stim_decay = config_float("stimulus.decay", 0.90)
 
         # Sparse cohesion bridging budget and degree heterogeneity controls
         self.bridge_budget = config_int("sparse_connectome.bridge_budget", 24)
@@ -130,13 +175,14 @@ class SparseConnectome:
         out[choose_alias] = alias[k[choose_alias]]
         return out.astype(np.int64)
 
-    def stimulate_indices(self, idxs, amp: float = 0.05):
+    def stimulate_indices(self, idxs, amp: Optional[float] = None):
         """
         Deterministic stimulus injection for sparse backend:
         - idxs: iterable of neuron indices to stimulate
         - amp: additive boost to the stimulus buffer (decays each tick)
         """
         try:
+            amp = config_float("stimulus.amp", 0.05) if amp is None else float(amp)
             if idxs is None:
                 return
             arr = np.asarray(list(set(int(i) % self.N for i in idxs)), dtype=np.int64)
@@ -625,12 +671,12 @@ class SparseConnectome:
 
     def snapshot_graph(self):
         """
-        Build a NetworkX graph of the active subgraph for visualization.
+        Build a small graph-like snapshot of the active subgraph for visualization.
         Guarded for scale: returns empty graph if N is large.
         """
+        G = _SnapshotGraph()
         if self.N > 5000:
-            return nx.Graph()
-        G = nx.Graph()
+            return G
         G.add_nodes_from(range(self.N))
         for (i, j) in self._active_edge_iter():
             G.add_edge(int(i), int(j))

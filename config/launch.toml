@@ -4,7 +4,7 @@
 neurons = 1000
 k = 12
 hz = 10
-domain = "biology_consciousness"
+domain = "biology_consciousness" # TODO These domains can be renamed, they're actually sort of arbitrary right now.
 use_time_dynamics = true
 seed = 0
 

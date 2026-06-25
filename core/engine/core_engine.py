@@ -23,7 +23,7 @@ Separation policy:
 
 from typing import Any, Dict, Optional, Tuple
 
-from vdm_rt.config import config_int
+from vdm_rt.config import config_float, config_int
 from vdm_rt.core.metrics import compute_metrics
 from vdm_rt.core.memory import (
     load_engram as _load_engram_state,
@@ -269,13 +269,13 @@ class CoreEngine:
         # VOID scout
         if getattr(self, "_void_scout", None) is None:
             try:
-                sv = int(getattr(self._nx, "scout_visits", 16))
+                sv = int(getattr(self._nx, "scout_visits", config_int("scouts.visits", 16)))
             except Exception:
-                sv = 16
+                sv = config_int("scouts.visits", 16)
             try:
-                se = int(getattr(self._nx, "scout_edges", 8))
+                se = int(getattr(self._nx, "scout_edges", config_int("scouts.edges", 8)))
             except Exception:
-                se = 8
+                se = config_int("scouts.edges", 8)
             try:
                 seed = int(getattr(self._nx, "seed", 0))
             except Exception:
@@ -371,8 +371,9 @@ class CoreEngine:
                 self._trail_map = None
 
     # --- Connectome interface (single entrypoint for runtime) ---
-    def stimulate_indices(self, indices, amp: float = 0.05) -> None:
+    def stimulate_indices(self, indices, amp: Optional[float] = None) -> None:
         try:
+            amp = config_float("stimulus.amp", 0.05) if amp is None else float(amp)
             self._nx.connectome.stimulate_indices(list(indices), amp=float(amp))
         except Exception:
             pass

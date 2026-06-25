@@ -14,6 +14,7 @@ Current files:
 - `runtime.toml` - cross-cutting loop, event, territory, and composer knobs.
 - `sparse_connectome.toml` - sparse graph maintenance controls.
 - `adc.toml` - announcement bus and ADC defaults.
+- `b1.toml` - Void B1 topology meter defaults.
 - `stimulus.toml` - text-to-connectome stimulation defaults.
 - `speech.toml` - autonomous speech and B1 detector defaults.
 - `maps.toml` - event map and memory/trail view defaults.

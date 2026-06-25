@@ -40,6 +40,7 @@ This module defines the common, safe scaffolding. Heuristics live in subclasses.
 from typing import Any, Iterable, List, Optional, Sequence, Set, Dict
 import random
 
+from vdm_rt.config import config_int
 from vdm_rt.core.proprioception.events import (
     BaseEvent,
     VTTouchEvent,
@@ -53,11 +54,14 @@ class BaseScout:
 
     def __init__(
         self,
-        budget_visits: int = 16,
-        budget_edges: int = 8,
-        ttl: int = 64,
+        budget_visits: int | None = None,
+        budget_edges: int | None = None,
+        ttl: int | None = None,
         seed: int = 0,
     ) -> None:
+        budget_visits = config_int("scouts.visits", 16) if budget_visits is None else int(budget_visits)
+        budget_edges = config_int("scouts.edges", 8) if budget_edges is None else int(budget_edges)
+        ttl = config_int("scouts.ttl", 64) if ttl is None else int(ttl)
         self.budget_visits = int(max(0, budget_visits))
         self.budget_edges = int(max(0, budget_edges))
         self.ttl = int(max(1, ttl))

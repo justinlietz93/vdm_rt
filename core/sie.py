@@ -9,6 +9,8 @@ See LICENSE file for full terms.
 import numpy as np
 from scipy.sparse import csc_matrix
 
+from vdm_rt.config import config_float
+
 def _sigmoid(x: float) -> float:
     x = float(np.clip(x, -500.0, 500.0))
     return 1.0 / (1.0 + np.exp(-x))
@@ -129,13 +131,14 @@ class SelfImprovementEngine:
 
     # --- Blueprint Rule 3 canonical helpers (kept additive to your API) ---
 
-    def _compute_hsi_norm(self, firing_var: float = None, target_var: float = 0.15) -> float:
+    def _compute_hsi_norm(self, firing_var: float = None, target_var: float = None) -> float:
         """
         Rule 3 HSI component: higher when firing variance is close to target.
         Returns value in [-1, 1].
         """
         if firing_var is None:
             return 0.0
+        target_var = config_float("sie.target_var", 0.15) if target_var is None else float(target_var)
         target = max(1e-6, float(target_var))
         # Map proximity to target into [-1,1] where exact match -> +1, far -> negative
         prox = 1.0 - min(1.0, abs(float(firing_var) - target) / target)
@@ -143,7 +146,7 @@ class SelfImprovementEngine:
         return float(2.0 * prox - 1.0)
 
     def get_drive(self, W: csc_matrix, external_signal: float, time_step: int,
-                  firing_var: float = None, target_var: float = 0.15,
+                  firing_var: float = None, target_var: float = None,
                   weights: dict | None = None,
                   density_override: float | None = None,
                   novelty_idf_scale: float = 1.0) -> dict:

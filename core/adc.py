@@ -37,6 +37,15 @@ from dataclasses import dataclass, field
 from typing import Dict, Tuple, Optional, Iterable
 import math
 from .announce import Observation
+from vdm_rt.config import config_float, config_int
+
+
+def _cfg_float(key: str, default: float) -> float:
+    return config_float(key, default)
+
+
+def _cfg_int(key: str, default: int) -> int:
+    return config_int(key, default)
 
 
 @dataclass
@@ -66,9 +75,9 @@ class Territory:
     id: int
     mass: float = 0.0
     conf: float = 0.0
-    ttl: int = 120
-    w_stats: _EWMA = field(default_factory=lambda: _EWMA(alpha=0.15))
-    s_stats: _EWMA = field(default_factory=lambda: _EWMA(alpha=0.15))
+    ttl: int = field(default_factory=lambda: _cfg_int("adc.territory_default_ttl", 120))
+    w_stats: _EWMA = field(default_factory=lambda: _EWMA(alpha=_cfg_float("adc.ewma.territory_weight_alpha", 0.15)))
+    s_stats: _EWMA = field(default_factory=lambda: _EWMA(alpha=_cfg_float("adc.ewma.territory_size_alpha", 0.15)))
 
     def reinforce(self, w_mean: float, s_mean: float, add_mass: float, add_conf: float, ttl_init: int):
         self.w_stats.update(w_mean)
@@ -82,9 +91,9 @@ class Territory:
 class Boundary:
     a: int
     b: int
-    cut_stats: _EWMA = field(default_factory=lambda: _EWMA(alpha=0.2))
-    churn: _EWMA = field(default_factory=lambda: _EWMA(alpha=0.2))
-    ttl: int = 120
+    cut_stats: _EWMA = field(default_factory=lambda: _EWMA(alpha=_cfg_float("adc.ewma.boundary_cut_alpha", 0.20)))
+    churn: _EWMA = field(default_factory=lambda: _EWMA(alpha=_cfg_float("adc.ewma.boundary_churn_alpha", 0.20)))
+    ttl: int = field(default_factory=lambda: _cfg_int("adc.boundary_default_ttl", 120))
 
     def reinforce(self, cut_strength: float, ttl_init: int):
         prev = float(self.cut_stats.mean) if self.cut_stats.init else 0.0
@@ -94,10 +103,15 @@ class Boundary:
 
 
 class ADC:
-    def __init__(self, r_attach: float = 0.25, ttl_init: int = 120, split_patience: int = 6):
-        self.r_attach = float(r_attach)
-        self.ttl_init = int(max(1, ttl_init))
-        self.split_patience = int(max(1, split_patience))
+    def __init__(
+        self,
+        r_attach: float | None = None,
+        ttl_init: int | None = None,
+        split_patience: int | None = None,
+    ):
+        self.r_attach = float(_cfg_float("adc.r_attach", 0.25) if r_attach is None else r_attach)
+        self.ttl_init = int(max(1, _cfg_int("adc.ttl_init", 120) if ttl_init is None else ttl_init))
+        self.split_patience = int(max(1, _cfg_int("adc.split_patience", 6) if split_patience is None else split_patience))
 
         self._territories: Dict[Tuple[str, int], Territory] = {}
         self._id_seq: int = 1

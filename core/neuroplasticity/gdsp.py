@@ -30,6 +30,8 @@ Design constraints
 from typing import Any
 import numpy as np
 
+from vdm_rt.config import config_float, config_int
+
 
 class GDSPActuator:
     """
@@ -46,20 +48,25 @@ class GDSPActuator:
 
     class _AdaptiveThresholds:
         def __init__(self) -> None:
-            self.reward_threshold = 0.8
-            self.td_error_threshold = 0.5
-            self.novelty_threshold = 0.7
-            self.sustained_window_size = 10
+            self.reward_threshold = config_float("learning.gdsp.reward_threshold", 0.8)
+            self.td_error_threshold = config_float("learning.gdsp.td_error_threshold", 0.5)
+            self.novelty_threshold = config_float("learning.gdsp.novelty_threshold", 0.7)
+            self.sustained_window_size = config_int("learning.gdsp.sustained_window_size", 10)
+            self.history_maxlen = config_int("learning.gdsp.history_maxlen", 100)
+            self.stagnation_ticks = config_int("learning.gdsp.stagnation_ticks", 500)
+            self.stagnation_b1_threshold = config_float("learning.gdsp.stagnation_b1_threshold", 0.001)
+            self.activity_high_count = config_int("learning.gdsp.activity_high_count", 20)
+            self.threshold_adapt_alpha = config_float("learning.gdsp.threshold_adapt_alpha", 0.05)
 
             self.structural_activity_counter = 0
             self.timesteps_since_growth = 0
 
-            self.min_reward_threshold = 0.3
-            self.max_reward_threshold = 0.9
-            self.min_td_threshold = 0.1
-            self.max_td_threshold = 0.8
-            self.min_novelty_threshold = 0.2
-            self.max_novelty_threshold = 0.9
+            self.min_reward_threshold = config_float("learning.gdsp.min_reward_threshold", 0.3)
+            self.max_reward_threshold = config_float("learning.gdsp.max_reward_threshold", 0.9)
+            self.min_td_threshold = config_float("learning.gdsp.min_td_threshold", 0.1)
+            self.max_td_threshold = config_float("learning.gdsp.max_td_threshold", 0.8)
+            self.min_novelty_threshold = config_float("learning.gdsp.min_novelty_threshold", 0.2)
+            self.max_novelty_threshold = config_float("learning.gdsp.max_novelty_threshold", 0.9)
 
             self.reward_history: list[float] = []
             self.td_error_history: list[float] = []
@@ -71,21 +78,22 @@ class GDSPActuator:
             self.novelty_history.append(float(sie_report.get("novelty", 0.0)))
 
             # truncate
-            if len(self.reward_history) > 100:
-                self.reward_history = self.reward_history[-100:]
-                self.td_error_history = self.td_error_history[-100:]
-                self.novelty_history = self.novelty_history[-100:]
+            history_maxlen = int(max(1, self.history_maxlen))
+            if len(self.reward_history) > history_maxlen:
+                self.reward_history = self.reward_history[-history_maxlen:]
+                self.td_error_history = self.td_error_history[-history_maxlen:]
+                self.novelty_history = self.novelty_history[-history_maxlen:]
 
             self.timesteps_since_growth += 1
 
             # encourage growth when stagnant
-            if self.timesteps_since_growth > 500 and float(b1_persistence) <= 0.001:
+            if self.timesteps_since_growth > self.stagnation_ticks and float(b1_persistence) <= self.stagnation_b1_threshold:
                 self.reward_threshold = max(self.min_reward_threshold, self.reward_threshold * 0.95)
                 self.td_error_threshold = max(self.min_td_threshold, self.td_error_threshold * 0.95)
                 self.novelty_threshold = max(self.min_novelty_threshold, self.novelty_threshold * 0.95)
 
             # dampen when activity is high
-            elif self.structural_activity_counter > 20:
+            elif self.structural_activity_counter > self.activity_high_count:
                 self.reward_threshold = min(self.max_reward_threshold, self.reward_threshold * 1.05)
                 self.td_error_threshold = min(self.max_td_threshold, self.td_error_threshold * 1.05)
                 self.novelty_threshold = min(self.max_novelty_threshold, self.novelty_threshold * 1.05)
@@ -101,15 +109,21 @@ class GDSPActuator:
                 target_td = max(self.min_td_threshold, min(self.max_td_threshold, td90))
                 target_nov = max(self.min_novelty_threshold, min(self.max_novelty_threshold, n75))
 
-                self.reward_threshold = 0.95 * self.reward_threshold + 0.05 * target_reward
-                self.td_error_threshold = 0.95 * self.td_error_threshold + 0.05 * target_td
-                self.novelty_threshold = 0.95 * self.novelty_threshold + 0.05 * target_nov
+                alpha = max(0.0, min(1.0, self.threshold_adapt_alpha))
+                self.reward_threshold = (1.0 - alpha) * self.reward_threshold + alpha * target_reward
+                self.td_error_threshold = (1.0 - alpha) * self.td_error_threshold + alpha * target_td
+                self.novelty_threshold = (1.0 - alpha) * self.novelty_threshold + alpha * target_nov
 
         def record_structural_activity(self) -> None:
             self.structural_activity_counter += 1
             self.timesteps_since_growth = 0
 
-    def __init__(self, bridge_budget_nodes: int = 128, bridge_budget_pairs: int = 2048, rng_seed: int = 0) -> None:
+    def __init__(
+        self,
+        bridge_budget_nodes: int | None = None,
+        bridge_budget_pairs: int | None = None,
+        rng_seed: int | None = None,
+    ) -> None:
         self._thr = GDSPActuator._AdaptiveThresholds()
         # Per-territory histories (keyed by frozenset(indices))
         from collections import deque
@@ -118,6 +132,9 @@ class GDSPActuator:
         self._deque = deque  # constructor for deques
 
         # Budgets for homeostatic repairs
+        bridge_budget_nodes = config_int("learning.gdsp.bridge_budget_nodes", 128) if bridge_budget_nodes is None else int(bridge_budget_nodes)
+        bridge_budget_pairs = config_int("learning.gdsp.bridge_budget_pairs", 2048) if bridge_budget_pairs is None else int(bridge_budget_pairs)
+        rng_seed = config_int("learning.gdsp.rng_seed", 0) if rng_seed is None else int(rng_seed)
         self._bridge_nodes = int(max(1, int(bridge_budget_nodes)))
         self._bridge_pairs = int(max(1, int(bridge_budget_pairs)))
         self._rng = np.random.default_rng(int(rng_seed))
@@ -390,12 +407,14 @@ class GDSPActuator:
     # ---------------- Maintenance pruning ----------------
 
     @staticmethod
-    def trigger_maintenance_pruning(substrate: Any, T_prune: int, pruning_threshold: float = 0.01) -> Any:
+    def trigger_maintenance_pruning(substrate: Any, T_prune: int | None, pruning_threshold: float | None = None) -> Any:
         """
         Increment timers for weak, non-persistent synapses and prune when exceeding T_prune.
         """
         try:
             from scipy.sparse import csr_matrix
+            T_prune = config_int("learning.gdsp.prune_ticks", 100) if T_prune is None else int(T_prune)
+            pruning_threshold = config_float("learning.gdsp.prune_threshold", 0.01) if pruning_threshold is None else float(pruning_threshold)
             W = substrate.synaptic_weights
             timers = substrate.synapse_pruning_timers.copy()
             P = substrate.persistent_synapses
@@ -441,8 +460,8 @@ class GDSPActuator:
         introspection_report: dict | None = None,
         sie_report: dict | None = None,
         territory_indices: np.ndarray | None = None,
-        T_prune: int = 100,
-        pruning_threshold: float = 0.01,
+        T_prune: int | None = None,
+        pruning_threshold: float | None = None,
     ) -> Any:
         b1_persistence = float(introspection_report.get("b1_persistence", 0.0)) if introspection_report else 0.0
         if introspection_report is not None and bool(introspection_report.get("repair_triggered", False)):
@@ -453,7 +472,7 @@ class GDSPActuator:
         if sie_report is not None and territory_indices is not None and len(territory_indices) > 0:
             substrate = self.trigger_performance_growth(substrate, sie_report, territory_indices, b1_persistence)
 
-        substrate = self.trigger_maintenance_pruning(substrate, int(T_prune), float(pruning_threshold))
+        substrate = self.trigger_maintenance_pruning(substrate, T_prune, pruning_threshold)
         return substrate
 
     @staticmethod
@@ -492,8 +511,8 @@ def run_gdsp_synaptic_actuator(
     introspection_report: dict | None = None,
     sie_report: dict | None = None,
     territory_indices: Any | None = None,
-    T_prune: int = 100,
-    pruning_threshold: float = 0.01,
+    T_prune: int | None = None,
+    pruning_threshold: float | None = None,
 ) -> Any:
     """
     Legacy-compatible wrapper (emergent-only trigger, no schedulers).
@@ -511,8 +530,8 @@ def run_gdsp_synaptic_actuator(
             introspection_report=introspection_report or {},
             sie_report=sie_report or {},
             territory_indices=territory_indices,
-            T_prune=int(T_prune),
-            pruning_threshold=float(pruning_threshold),
+            T_prune=T_prune,
+            pruning_threshold=pruning_threshold,
         )
     except Exception:
         return substrate

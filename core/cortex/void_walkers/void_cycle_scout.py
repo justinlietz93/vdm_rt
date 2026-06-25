@@ -32,6 +32,7 @@ from typing import Any, Dict, Optional, Sequence, Set, List, Deque
 from collections import deque
 import random
 
+from vdm_rt.config import config_int
 from vdm_rt.core.cortex.void_walkers.base import BaseScout
 from vdm_rt.core.proprioception.events import BaseEvent, VTTouchEvent, EdgeOnEvent
 
@@ -45,14 +46,15 @@ class CycleHunterScout(BaseScout):
 
     def __init__(
         self,
-        budget_visits: int = 16,
-        budget_edges: int = 8,
-        ttl: int = 64,
+        budget_visits: Optional[int] = None,
+        budget_edges: Optional[int] = None,
+        ttl: Optional[int] = None,
         seed: int = 0,
         *,
-        window: int = 5,
+        window: Optional[int] = None,
     ) -> None:
         super().__init__(budget_visits=budget_visits, budget_edges=budget_edges, ttl=ttl, seed=seed)
+        window = config_int("scouts.cycle_window", 5) if window is None else int(window)
         self.window = int(max(2, window))
 
     def _priority_set(self, maps: Optional[Dict[str, Any]]) -> Set[int]:

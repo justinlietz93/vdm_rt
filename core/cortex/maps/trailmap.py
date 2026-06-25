@@ -33,6 +33,7 @@ from typing import Iterable, Dict
 
 from .base_decay_map import BaseDecayMap
 from vdm_rt.core.proprioception.events import VTTouchEvent, EdgeOnEvent, SpikeEvent, DeltaWEvent
+from vdm_rt.config import config_float, config_int
 
 
 class TrailMap(BaseDecayMap):
@@ -50,16 +51,21 @@ class TrailMap(BaseDecayMap):
 
     def __init__(
         self,
-        head_k: int = 256,
-        half_life_ticks: int = 50,
+        head_k: int | None = None,
+        half_life_ticks: int | None = None,
         keep_max: int | None = None,
         seed: int = 0,
-        vt_touch_gain: float = 0.15,
-        edge_gain: float = 0.05,
-        spike_gain: float = 0.05,
-        dW_gain: float = 0.02,
+        vt_touch_gain: float | None = None,
+        edge_gain: float | None = None,
+        spike_gain: float | None = None,
+        dW_gain: float | None = None,
     ):
+        half_life_ticks = config_int("maps.trail_half_life_ticks", 50) if half_life_ticks is None else int(half_life_ticks)
         super().__init__(head_k, half_life_ticks, keep_max, seed)
+        vt_touch_gain = config_float("maps.trail.vt_touch_gain", 0.15) if vt_touch_gain is None else float(vt_touch_gain)
+        edge_gain = config_float("maps.trail.edge_gain", 0.05) if edge_gain is None else float(edge_gain)
+        spike_gain = config_float("maps.trail.spike_gain", 0.05) if spike_gain is None else float(spike_gain)
+        dW_gain = config_float("maps.trail.delta_w_gain", 0.02) if dW_gain is None else float(dW_gain)
         self.vt_touch_gain = float(vt_touch_gain)
         self.edge_gain = float(edge_gain)
         self.spike_gain = float(spike_gain)
@@ -91,7 +97,7 @@ class TrailMap(BaseDecayMap):
             elif k == "delta_w" and isinstance(e, DeltaWEvent):
                 self.add(int(e.node), t, self.dW_gain * abs(float(e.dw)))
 
-    def snapshot(self, head_n: int = 16) -> dict:
+    def snapshot(self, head_n: int | None = None) -> dict:
         """
         Export a bounded snapshot including both head list and the working-set dictionary.
         """

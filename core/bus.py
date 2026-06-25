@@ -27,11 +27,14 @@ from __future__ import annotations
 from collections import deque
 from typing import Deque, List, Any, Optional
 
+from vdm_rt.config import config_int
+
 
 class AnnounceBus:
     """Bounded, overwrite-on-full FIFO for Observation events."""
-    def __init__(self, capacity: int = 65536):
-        self._q: Deque[Any] = deque(maxlen=int(max(1, capacity)))
+    def __init__(self, capacity: int | None = None):
+        cap = config_int("bus.capacity", 65536) if capacity is None else int(capacity)
+        self._q: Deque[Any] = deque(maxlen=int(max(1, cap)))
 
     @property
     def capacity(self) -> int:
@@ -47,10 +50,12 @@ class AnnounceBus:
         """
         self._q.append(obs)
 
-    def drain(self, max_items: int = 2048) -> List[Any]:
+    def drain(self, max_items: int | None = None) -> List[Any]:
         """
         Pop up to max_items from the left, returning them in arrival order.
         """
+        if max_items is None:
+            max_items = config_int("bus.drain", 2048)
         n = min(int(max_items), len(self._q))
         out: List[Any] = []
         append = out.append

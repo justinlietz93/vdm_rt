@@ -14,6 +14,8 @@ import threading
 import subprocess
 from typing import Any, Dict, List, Tuple
 
+from vdm_rt.config import config_float
+
 
 class ProcessManager:
     """
@@ -285,7 +287,9 @@ class ProcessManager:
             except Exception:
                 return False
 
-    def feed_file(self, path: str, rate_lps: float = 20.0):
+    def feed_file(self, path: str, rate_lps: float | None = None):
+        if rate_lps is None:
+            rate_lps = config_float("control.feed_file_rate_lps", 20.0)
         if not os.path.exists(path):
             return False
         if not self.proc or self.proc.stdin is None:

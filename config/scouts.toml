@@ -10,6 +10,10 @@ seed_max = 64
 ttl = 64
 max_us = 2000
 per_scout_us = 0
+head_cap = 512
+cycle_window = 5
+sentinel_ttl = 1
+frontier_shared_neighbors_cap = 128
 
 [scouts.types]
 heat = true
@@ -21,3 +25,25 @@ memory_ray = true
 frontier = true
 cycle = true
 sentinel = true
+
+[scouts.weights.heat]
+theta_mem = 0.0
+rho_trail = 0.0
+gamma_heat = 1.0
+tau = 1.0
+
+[scouts.weights.void_ray]
+lambda_phi = 1.0
+theta_mem = 0.0
+tau = 1.0
+
+[scouts.weights.memory_ray]
+theta_mem = 0.8
+tau = 1.0
+
+[scouts.weights.frontier]
+w_cold = 1.0
+w_heat = 0.5
+w_shared_neighbors = 0.25
+w_degree = 0.5
+tau = 1.0

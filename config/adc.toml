@@ -8,3 +8,11 @@ drain = 2048
 r_attach = 0.25
 ttl_init = 120
 split_patience = 6
+territory_default_ttl = 120
+boundary_default_ttl = 120
+
+[adc.ewma]
+territory_weight_alpha = 0.15
+territory_size_alpha = 0.15
+boundary_cut_alpha = 0.20
+boundary_churn_alpha = 0.20

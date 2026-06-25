@@ -2,3 +2,6 @@
 
 [control]
 server_enabled = false
+server_host = "127.0.0.1"
+server_port = 8765
+feed_file_rate_lps = 20.0

@@ -4,3 +4,33 @@
 head_k = 256
 half_life_ticks = 200
 trail_half_life_ticks = 50
+keep_max_multiplier = 16
+snapshot_head_n = 16
+
+[maps.memory]
+dict_cap = 2048
+gamma = 0.05
+delta = 0.01
+kappa = 0.10
+touch_gain = 1.0
+spike_gain = 0.20
+delta_w_gain = 0.10
+
+[maps.heat]
+vt_touch_gain = 0.25
+spike_gain = 1.0
+delta_w_gain = 0.5
+
+[maps.excitation]
+spike_gain = 1.0
+delta_w_gain = 0.5
+
+[maps.inhibition]
+spike_gain = 1.0
+delta_w_gain = 0.5
+
+[maps.trail]
+vt_touch_gain = 0.15
+edge_gain = 0.05
+spike_gain = 0.05
+delta_w_gain = 0.02

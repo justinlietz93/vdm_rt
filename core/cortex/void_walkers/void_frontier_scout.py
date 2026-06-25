@@ -34,11 +34,13 @@ Guardrails:
 from typing import Any, Dict, Optional, Set, Sequence, List
 import math
 
+from vdm_rt.config import config_float, config_int
 from vdm_rt.core.cortex.void_walkers.base import BaseScout
 from vdm_rt.core.proprioception.events import BaseEvent, VTTouchEvent, EdgeOnEvent
 
 
-def _head_to_dict(maps: Optional[Dict[str, Any]], key: str, cap: int = 1024) -> Dict[int, float]:
+def _head_to_dict(maps: Optional[Dict[str, Any]], key: str, cap: Optional[int] = None) -> Dict[int, float]:
+    cap = config_int("scouts.head_cap", 512) if cap is None else int(cap)
     out: Dict[int, float] = {}
     if not isinstance(maps, dict):
         return out
@@ -76,18 +78,23 @@ class FrontierScout(BaseScout):
 
     def __init__(
         self,
-        budget_visits: int = 16,
-        budget_edges: int = 8,
-        ttl: int = 64,
+        budget_visits: Optional[int] = None,
+        budget_edges: Optional[int] = None,
+        ttl: Optional[int] = None,
         seed: int = 0,
         *,
-        w_cold: float = 1.0,
-        w_heat: float = 0.5,
-        w_shn: float = 0.25,
-        w_deg: float = 0.5,
-        tau: float = 1.0,
+        w_cold: Optional[float] = None,
+        w_heat: Optional[float] = None,
+        w_shn: Optional[float] = None,
+        w_deg: Optional[float] = None,
+        tau: Optional[float] = None,
     ) -> None:
         super().__init__(budget_visits=budget_visits, budget_edges=budget_edges, ttl=ttl, seed=seed)
+        w_cold = config_float("scouts.weights.frontier.w_cold", 1.0) if w_cold is None else float(w_cold)
+        w_heat = config_float("scouts.weights.frontier.w_heat", 0.5) if w_heat is None else float(w_heat)
+        w_shn = config_float("scouts.weights.frontier.w_shared_neighbors", 0.25) if w_shn is None else float(w_shn)
+        w_deg = config_float("scouts.weights.frontier.w_degree", 0.5) if w_deg is None else float(w_deg)
+        tau = config_float("scouts.weights.frontier.tau", 1.0) if tau is None else float(tau)
         self.w_cold = float(max(0.0, w_cold))
         self.w_heat = float(max(0.0, w_heat))
         self.w_shn = float(max(0.0, w_shn))
@@ -113,7 +120,8 @@ class FrontierScout(BaseScout):
         return out
 
     @staticmethod
-    def _shared_neighbors(connectome: Any, u: int, v: int, cap: int = 128) -> int:
+    def _shared_neighbors(connectome: Any, u: int, v: int, cap: Optional[int] = None) -> int:
+        cap = config_int("scouts.frontier_shared_neighbors_cap", 128) if cap is None else int(cap)
         try:
             nu = set(int(x) for x in (connectome.neighbors(u) or []))  # type: ignore[attr-defined]
         except Exception:

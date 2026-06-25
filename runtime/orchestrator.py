@@ -24,6 +24,7 @@ Policy:
 
 from typing import Any, Dict, List, Optional
 
+from vdm_rt.config import config_int
 from vdm_rt.core.engine import CoreEngine
 
 
@@ -70,7 +71,7 @@ class Orchestrator:
         """
         return self._engine.snapshot()
 
-    def read_bus(self, max_items: int = 2048) -> List[Any]:
+    def read_bus(self, max_items: Optional[int] = None) -> List[Any]:
         """
         Drain announcement bus from the underlying Nexus for ADC folding at higher layers.
         This keeps ADC I/O inside the runtime layer and core strictly numeric.
@@ -79,6 +80,7 @@ class Orchestrator:
             bus = getattr(self._nx, "bus", None)
             if bus is None:
                 return []
+            max_items = config_int("bus.drain", 2048) if max_items is None else int(max_items)
             return list(bus.drain(max_items=int(max_items)) or [])
         except Exception:
             return []

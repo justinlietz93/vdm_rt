@@ -9,20 +9,33 @@ See LICENSE file for full terms.
 """
 
 import sys, time, queue, threading, os, json
+from vdm_rt.config import config_bool, config_float, config_int
 
 class UTE:
     """Universal Temporal Encoder.
     Feeds inbound messages into a queue the Nexus can poll every tick.
     Sources implemented: stdin (lines) and synthetic 'tick' generator.
     """
-    def __init__(self, use_stdin=True, inbox_path=None):
-        self.q = queue.Queue(maxsize=1024)
+    def __init__(
+        self,
+        use_stdin: bool | None = None,
+        inbox_path=None,
+        queue_maxsize: int | None = None,
+        poll_max_items: int | None = None,
+        inbox_poll_seconds: float | None = None,
+        ticker_interval_seconds: float | None = None,
+    ):
+        queue_size = config_int("ute.queue_maxsize", 1024) if queue_maxsize is None else int(queue_maxsize)
+        self.q = queue.Queue(maxsize=max(1, queue_size))
         self._stop = threading.Event()
-        self.use_stdin = use_stdin
+        self.use_stdin = config_bool("ute.use_stdin", True) if use_stdin is None else bool(use_stdin)
         self._threads = []
         # Optional run-local chat inbox (JSONL), e.g. runs/<ts>/chat_inbox.jsonl
         self.inbox_path = inbox_path
         self._inbox_size = 0
+        self.poll_max_items = max(1, config_int("ute.poll_max_items", 32) if poll_max_items is None else int(poll_max_items))
+        self.inbox_poll_seconds = max(0.01, config_float("ute.inbox_poll_seconds", 0.5) if inbox_poll_seconds is None else float(inbox_poll_seconds))
+        self.ticker_interval_seconds = max(0.01, config_float("ute.ticker_interval_seconds", 1.0) if ticker_interval_seconds is None else float(ticker_interval_seconds))
 
     def start(self):
         if self.use_stdin:
@@ -55,14 +68,14 @@ class UTE:
             try:
                 path = self.inbox_path
                 if not path or not os.path.exists(path):
-                    time.sleep(0.5)
+                    time.sleep(self.inbox_poll_seconds)
                     continue
                 size = os.path.getsize(path)
                 # handle truncation/rotation
                 if size < self._inbox_size:
                     self._inbox_size = 0
                 if size == self._inbox_size:
-                    time.sleep(0.5)
+                    time.sleep(self.inbox_poll_seconds)
                     continue
                 with open(path, "rb") as f:
                     f.seek(self._inbox_size)
@@ -85,15 +98,17 @@ class UTE:
                             self.q.put(rec)
             except Exception:
                 # Keep runtime alive on any error
-                time.sleep(0.5)
+                time.sleep(self.inbox_poll_seconds)
 
     def _ticker(self):
         # 1 Hz ticker (used as heartbeat input)
         while not self._stop.is_set():
             self.q.put({'type':'tick', 'msg':'tick'})
-            time.sleep(1.0)
+            time.sleep(self.ticker_interval_seconds)
 
-    def poll(self, max_items=32):
+    def poll(self, max_items=None):
+        if max_items is None:
+            max_items = self.poll_max_items
         out = []
         while len(out) < max_items:
             try:

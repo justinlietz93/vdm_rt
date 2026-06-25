@@ -38,11 +38,13 @@ from typing import Any, Dict, Optional, Set, Sequence, List
 import math
 import random
 
+from vdm_rt.config import config_float, config_int
 from vdm_rt.core.cortex.void_walkers.base import BaseScout
 from vdm_rt.core.proprioception.events import BaseEvent, VTTouchEvent, EdgeOnEvent
 
 
-def _head_to_set(maps: Optional[Dict[str, Any]], key: str, cap: int = 512) -> Set[int]:
+def _head_to_set(maps: Optional[Dict[str, Any]], key: str, cap: Optional[int] = None) -> Set[int]:
+    cap = config_int("scouts.head_cap", 512) if cap is None else int(cap)
     out: Set[int] = set()
     if not isinstance(maps, dict):
         return out
@@ -60,7 +62,8 @@ def _head_to_set(maps: Optional[Dict[str, Any]], key: str, cap: int = 512) -> Se
     return out
 
 
-def _head_to_dict(maps: Optional[Dict[str, Any]], key: str, cap: int = 2048) -> Dict[int, float]:
+def _head_to_dict(maps: Optional[Dict[str, Any]], key: str, cap: Optional[int] = None) -> Dict[int, float]:
+    cap = config_int("scouts.head_cap", 512) if cap is None else int(cap)
     d: Dict[int, float] = {}
     if not isinstance(maps, dict):
         return d
@@ -120,17 +123,21 @@ class HeatScout(BaseScout):
 
     def __init__(
         self,
-        budget_visits: int = 16,
-        budget_edges: int = 8,
-        ttl: int = 64,
+        budget_visits: int | None = None,
+        budget_edges: int | None = None,
+        ttl: int | None = None,
         seed: int = 0,
         *,
-        theta_mem: float = 0.0,
-        rho_trail: float = 0.0,
-        gamma_heat: float = 1.0,
-        tau: float = 1.0,
+        theta_mem: float | None = None,
+        rho_trail: float | None = None,
+        gamma_heat: float | None = None,
+        tau: float | None = None,
     ) -> None:
         super().__init__(budget_visits=budget_visits, budget_edges=budget_edges, ttl=ttl, seed=seed)
+        theta_mem = config_float("scouts.weights.heat.theta_mem", 0.0) if theta_mem is None else float(theta_mem)
+        rho_trail = config_float("scouts.weights.heat.rho_trail", 0.0) if rho_trail is None else float(rho_trail)
+        gamma_heat = config_float("scouts.weights.heat.gamma_heat", 1.0) if gamma_heat is None else float(gamma_heat)
+        tau = config_float("scouts.weights.heat.tau", 1.0) if tau is None else float(tau)
         self.theta_mem = float(theta_mem)
         self.rho_trail = float(max(0.0, rho_trail))
         self.gamma_heat = float(max(0.0, gamma_heat))

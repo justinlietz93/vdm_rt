@@ -1,0 +1,5 @@
+# B1 topology meter defaults.
+
+[b1]
+sample_edges = 4096
+half_life_ticks = 50

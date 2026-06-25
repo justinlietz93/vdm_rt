@@ -8,6 +8,8 @@ See LICENSE file for full terms.
 
 import numpy as np
 
+from vdm_rt.config import config_float, config_int
+
 def compute_metrics(connectome):
    """
    Rule Ref: Blueprint Rule 4.1 (Pathology Detection Mechanisms)
@@ -63,7 +65,17 @@ class StreamingZEMA:
     - hysteresis: subtract from z_spike to exit spiking (prevents chatter)
     - min_interval_ticks: minimum ticks between spike fires (cooldown)
     """
-    def __init__(self, half_life_ticks: int = 50, z_spike: float = 3.0, hysteresis: float = 1.0, min_interval_ticks: int = 10):
+    def __init__(
+        self,
+        half_life_ticks: int | None = None,
+        z_spike: float | None = None,
+        hysteresis: float | None = None,
+        min_interval_ticks: int | None = None,
+    ):
+        half_life_ticks = config_int("events.streaming_z_half_life_ticks", 50) if half_life_ticks is None else int(half_life_ticks)
+        z_spike = config_float("events.streaming_z_spike", 3.0) if z_spike is None else float(z_spike)
+        hysteresis = config_float("events.streaming_z_hysteresis", 1.0) if hysteresis is None else float(hysteresis)
+        min_interval_ticks = config_int("events.streaming_z_min_interval_ticks", 10) if min_interval_ticks is None else int(min_interval_ticks)
         self.alpha = 1.0 - _math.exp(_math.log(0.5) / float(max(1, int(half_life_ticks))))
         self.z_spike = float(z_spike)
         self.hysteresis = float(max(0.0, hysteresis))

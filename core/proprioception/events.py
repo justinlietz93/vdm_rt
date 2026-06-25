@@ -49,6 +49,7 @@ from typing import Any, Dict, Iterable, List, Optional, Tuple
 import math
 import random
 
+from vdm_rt.config import config_float, config_int
 # Allowed core import
 from vdm_rt.core.metrics import StreamingZEMA  # existing Z detector in core
 
@@ -199,7 +200,8 @@ class EWMA:
     """
     __slots__ = ("alpha", "y")
 
-    def __init__(self, alpha: float = 0.05, init: float = 0.0) -> None:
+    def __init__(self, alpha: float | None = None, init: float = 0.0) -> None:
+        alpha = config_float("events.ewma_alpha", 0.05) if alpha is None else float(alpha)
         self.alpha = float(max(0.0, min(1.0, alpha)))
         self.y = float(init)
 
@@ -220,7 +222,16 @@ class CountMinSketchHead:
 
     Note: This is a lightweight approximation; an auditor can reconcile periodically.
     """
-    def __init__(self, width: int = 256, depth: int = 3, head_k: int = 256, seed: int = 0) -> None:
+    def __init__(
+        self,
+        width: int | None = None,
+        depth: int | None = None,
+        head_k: int | None = None,
+        seed: int = 0,
+    ) -> None:
+        width = config_int("events.vt_width", 256) if width is None else int(width)
+        depth = config_int("events.vt_depth", 3) if depth is None else int(depth)
+        head_k = config_int("events.vt_head_k", 256) if head_k is None else int(head_k)
         self.w = max(8, int(width))
         self.d = max(1, int(depth))
         self.head_k = max(8, int(head_k))
@@ -363,19 +374,22 @@ class EventDrivenMetrics:
     """
     def __init__(
         self,
-        z_half_life_ticks: int = 50,
-        z_spike: float = 1.0,
-        hysteresis: float = 1.0,
-        vt_width: int = 256,
-        vt_depth: int = 3,
-        vt_head_k: int = 256,
+        z_half_life_ticks: int | None = None,
+        z_spike: float | None = None,
+        hysteresis: float | None = None,
+        vt_width: int | None = None,
+        vt_depth: int | None = None,
+        vt_head_k: int | None = None,
         seed: int = 0,
     ) -> None:
+        z_half_life_ticks = config_int("speech.b1.half_life_ticks", 50) if z_half_life_ticks is None else int(z_half_life_ticks)
+        z_spike = config_float("speech.z", 1.0) if z_spike is None else float(z_spike)
+        hysteresis = config_float("speech.hysteresis", 1.0) if hysteresis is None else float(hysteresis)
         self.b1_detector = StreamingZEMA(
             half_life_ticks=int(max(1, z_half_life_ticks)),
             z_spike=float(z_spike),
             hysteresis=float(hysteresis),
-            min_interval_ticks=1,
+            min_interval_ticks=config_int("events.b1_min_interval_ticks", 1),
         )
         self._b1_value = 0.0
         self._b1_last: Dict[str, float] = {}

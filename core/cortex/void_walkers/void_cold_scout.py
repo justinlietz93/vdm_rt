@@ -22,14 +22,16 @@ Compatibility:
 """
 
 from typing import Any, Dict, List, Optional, Sequence, Set
+from vdm_rt.config import config_int
 from vdm_rt.core.cortex.void_walkers.base import BaseScout
 from vdm_rt.core.proprioception.events import BaseEvent
 
 
-def _extract_head_nodes(maps: Optional[Dict[str, Any]], key: str, cap: int = 512) -> Set[int]:
+def _extract_head_nodes(maps: Optional[Dict[str, Any]], key: str, cap: Optional[int] = None) -> Set[int]:
     """
     Extract bounded head nodes from map snapshot structure: [[node, score], ...]
     """
+    cap = config_int("scouts.head_cap", 512) if cap is None else int(cap)
     out: Set[int] = set()
     if not isinstance(maps, dict):
         return out

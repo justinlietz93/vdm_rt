@@ -23,6 +23,7 @@ Purpose: Recency-weighted activity map (short half-life), event-driven only (no 
 from typing import Iterable
 from .base_decay_map import BaseDecayMap
 from vdm_rt.core.proprioception.events import VTTouchEvent, SpikeEvent, DeltaWEvent
+from vdm_rt.config import config_float
 
 
 class HeatMap(BaseDecayMap):
@@ -42,15 +43,18 @@ class HeatMap(BaseDecayMap):
 
     def __init__(
         self,
-        head_k: int = 256,
-        half_life_ticks: int = 200,
+        head_k: int | None = None,
+        half_life_ticks: int | None = None,
         keep_max: int | None = None,
         seed: int = 0,
-        vt_touch_gain: float = 0.25,
-        spike_gain: float = 1.0,
-        dW_gain: float = 0.5,
+        vt_touch_gain: float | None = None,
+        spike_gain: float | None = None,
+        dW_gain: float | None = None,
     ):
         super().__init__(head_k, half_life_ticks, keep_max, seed)
+        vt_touch_gain = config_float("maps.heat.vt_touch_gain", 0.25) if vt_touch_gain is None else float(vt_touch_gain)
+        spike_gain = config_float("maps.heat.spike_gain", 1.0) if spike_gain is None else float(spike_gain)
+        dW_gain = config_float("maps.heat.delta_w_gain", 0.5) if dW_gain is None else float(dW_gain)
         self.vt_touch_gain = float(vt_touch_gain)
         self.spike_gain = float(spike_gain)
         self.dW_gain = float(dW_gain)

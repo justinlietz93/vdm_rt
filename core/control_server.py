@@ -19,6 +19,8 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 import socketserver
 from urllib.parse import urlparse
 
+from vdm_rt.config import config_int, config_str
+
 _HTML = r'''<!doctype html>
 <html lang="en">
 <head>
@@ -252,9 +254,11 @@ class ControlServer:
       - url: http://127.0.0.1:<port>/
       - stop(): shutdown server
     """
-    def __init__(self, run_dir: str, host: str = "127.0.0.1", port: int = 8765):
+    def __init__(self, run_dir: str, host: str | None = None, port: int | None = None):
         self.run_dir = run_dir
         self.phase_file = os.path.join(run_dir, "phase.json")
+        host = config_str("control.server_host", "127.0.0.1") if host is None else str(host)
+        port = config_int("control.server_port", 8765) if port is None else int(port)
         self.host = host
         self.port = None
         self._server = None

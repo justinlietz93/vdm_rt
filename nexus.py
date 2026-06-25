@@ -136,7 +136,7 @@ class Nexus:
         os.makedirs(self.run_dir, exist_ok=True)
         self.logger = get_logger("nexus", os.path.join(self.run_dir, "events.jsonl"))
         inbox_path = os.path.join(self.run_dir, "chat_inbox.jsonl")
-        self.ute = UTE(use_stdin=True, inbox_path=inbox_path)
+        self.ute = UTE(inbox_path=inbox_path)
         self.utd = UTD(self.run_dir)
         # Macro/Thought emitters (delegated)
         self.emitter, self.thoughts = _init_emitters(self.utd, self.run_dir, why_provider=lambda: self._emit_why())
@@ -272,7 +272,7 @@ class Nexus:
         self._macros_smoke_done = False
         self._thoughts_smoke_done = False
         # Rolling buffer of recent inbound text for composing human-friendly “say” content
-        self.recent_text = deque(maxlen=256)
+        self.recent_text = deque(maxlen=config_int("runtime.buffers.recent_text_maxlen", 256))
         # Track vt_entropy over time for SIE TD proxy (void-native signal)
         self._prev_vt_entropy = None
         self._last_vt_entropy = None

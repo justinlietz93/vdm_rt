@@ -29,6 +29,8 @@ from typing import Any, Dict, List, Tuple
 import math
 import numpy as np
 
+from vdm_rt.config import config_float, config_int
+
 
 class RevGSP:
     """
@@ -40,10 +42,10 @@ class RevGSP:
 
     def __init__(
         self,
-        reward_sigmoid_scale: float = 1.5,
+        reward_sigmoid_scale: float | None = None,
         pi_params: dict | None = None,
         rng_seed: int | None = None,
-        max_pairs: int = 2048,
+        max_pairs: int | None = None,
         sample_spikes_cap: int | None = None,
     ) -> None:
         """
@@ -54,12 +56,18 @@ class RevGSP:
           - max_pairs: hard cap on pre/post spike candidate evaluations per tick
           - sample_spikes_cap: optional cap on filtered spike list (down-sample before pairing)
         """
+        reward_sigmoid_scale = config_float("learning.revgsp.reward_sigmoid_scale", 1.5) if reward_sigmoid_scale is None else float(reward_sigmoid_scale)
+        max_pairs = config_int("learning.revgsp.max_pairs", 2048) if max_pairs is None else int(max_pairs)
+        if sample_spikes_cap is None:
+            configured_cap = config_int("learning.revgsp.sample_spikes_cap", 0)
+            sample_spikes_cap = None if configured_cap <= 0 else int(configured_cap)
+
         self.reward_sigmoid_scale = float(reward_sigmoid_scale)
         self.pi_params = pi_params or {
-            "a_plus_base": 0.1,
-            "a_minus_base": 0.1,
-            "tau_plus_base": 20.0,
-            "tau_minus_base": 20.0,
+            "a_plus_base": config_float("learning.revgsp.pi.a_plus_base", 0.1),
+            "a_minus_base": config_float("learning.revgsp.pi.a_minus_base", 0.1),
+            "tau_plus_base": config_float("learning.revgsp.pi.tau_plus_base", 20.0),
+            "tau_minus_base": config_float("learning.revgsp.pi.tau_minus_base", 20.0),
         }
         self.rng = np.random.default_rng(rng_seed)
         self.max_pairs = int(max(1, int(max_pairs)))
@@ -106,12 +114,14 @@ class RevGSP:
         return 0.0
 
     @staticmethod
-    def _gamma_from_plv(plv: float, base_decay: float = 0.95, sensitivity: float = 0.1) -> float:
+    def _gamma_from_plv(plv: float, base_decay: float | None = None, sensitivity: float | None = None) -> float:
         """
         PLV‑gated eligibility trace decay:
             gamma = base_decay + sensitivity*(PLV - 0.5)
         Clamp to [0, 1] for stability under noisy PLV estimates.
         """
+        base_decay = config_float("learning.revgsp.gamma_base_decay", 0.95) if base_decay is None else float(base_decay)
+        sensitivity = config_float("learning.revgsp.gamma_sensitivity", 0.1) if sensitivity is None else float(sensitivity)
         g = float(base_decay + sensitivity * (float(plv) - 0.5))
         if g < 0.0:
             g = 0.0
@@ -120,7 +130,8 @@ class RevGSP:
         return g
 
     @staticmethod
-    def _temporal_filter(spike_times: List[Tuple[int, int]], window_size: int = 5) -> List[Tuple[int, float]]:
+    def _temporal_filter(spike_times: List[Tuple[int, int]], window_size: int | None = None) -> List[Tuple[int, float]]:
+        window_size = config_int("learning.revgsp.temporal_filter_window", 5) if window_size is None else int(window_size)
         if len(spike_times) < window_size:
             return spike_times
         out: List[Tuple[int, float]] = []
@@ -152,7 +163,7 @@ class RevGSP:
         total_reward: float,
         plv: float,
         network_latency_estimate: Dict[str, float],
-        time_window_ms: int = 20,
+        time_window_ms: int | None = None,
     ) -> tuple[Any, dict]:
         """
         Update substrate in‑place using REV‑GSP rule; returns (substrate, metrics).
@@ -165,6 +176,7 @@ class RevGSP:
             return substrate, {"eta_effective": 0.0, "gamma": 0.0}
 
         filtered = self._temporal_filter(spike_train)
+        time_window_ms = config_int("learning.revgsp.time_window_ms", 20) if time_window_ms is None else int(time_window_ms)
         win = self._adaptive_window(int(time_window_ms), float(network_latency_estimate.get("max", 0.0)))
 
         # Optional down‑sample of filtered spikes to respect complexity cap
@@ -272,10 +284,10 @@ class RevGSP:
         max_pairs: int | None = None,
         spike_sampling_cap: int | None = None,
         pi_params: dict | None = None,
-        lambda_decay: float = 1e-3,
-        base_lr: float = 1e-2,
+        lambda_decay: float | None = None,
+        base_lr: float | None = None,
         plv: float | None = None,
-        time_window_ms: int = 20,
+        time_window_ms: int | None = None,
     ) -> tuple[Any, dict]:
         """
         Thin compatibility wrapper:
@@ -290,6 +302,9 @@ class RevGSP:
         old_pi = dict(self.pi_params) if isinstance(self.pi_params, dict) else self.pi_params
 
         try:
+            lambda_decay = config_float("learning.revgsp.lambda_decay", 0.99) if lambda_decay is None else float(lambda_decay)
+            base_lr = config_float("learning.revgsp.eta", 0.001) if base_lr is None else float(base_lr)
+            time_window_ms = config_int("learning.revgsp.time_window_ms", 20) if time_window_ms is None else int(time_window_ms)
             if max_pairs is not None:
                 self.max_pairs = int(max(1, int(max_pairs)))
             if spike_sampling_cap is not None:

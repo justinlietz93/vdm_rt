@@ -27,11 +27,13 @@ Optional inputs (maps):
 """
 
 from typing import Any, Dict, Optional, Sequence, Set, List
+from vdm_rt.config import config_int
 from vdm_rt.core.cortex.void_walkers.base import BaseScout
 from vdm_rt.core.proprioception.events import BaseEvent, VTTouchEvent, EdgeOnEvent
 
 
-def _head_to_set(maps: Optional[Dict[str, Any]], keys: Sequence[str], cap: int = 512) -> Set[int]:
+def _head_to_set(maps: Optional[Dict[str, Any]], keys: Sequence[str], cap: Optional[int] = None) -> Set[int]:
+    cap = config_int("scouts.head_cap", 512) if cap is None else int(cap)
     out: Set[int] = set()
     if not isinstance(maps, dict):
         return out
@@ -59,11 +61,12 @@ class SentinelScout(BaseScout):
 
     def __init__(
         self,
-        budget_visits: int = 16,
-        budget_edges: int = 8,
-        ttl: int = 1,   # one hop per seed by default
+        budget_visits: Optional[int] = None,
+        budget_edges: Optional[int] = None,
+        ttl: Optional[int] = None,   # one hop per seed by default
         seed: int = 0,
     ) -> None:
+        ttl = config_int("scouts.sentinel_ttl", 1) if ttl is None else int(ttl)
         super().__init__(budget_visits=budget_visits, budget_edges=budget_edges, ttl=ttl, seed=seed)
 
     def _priority_set(self, maps: Optional[Dict[str, Any]]) -> Set[int]:
