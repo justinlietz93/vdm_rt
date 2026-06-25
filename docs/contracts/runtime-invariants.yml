@@ -1,0 +1,40 @@
+version: 0.1.0
+status: active
+hard:
+  - id: M01
+    rule: Interface-only coupling
+  - id: M03
+    rule: No completion-branch authorship in live path
+  - id: M04
+    rule: Endogenous cognitive time is sovereign
+  - id: M17
+    rule: Actuator basis belongs to the device, not input history
+  - id: M18
+    rule: Articulation must be model-authored before release
+  - id: M19
+    rule: Release gate is release-only
+  - id: M26
+    rule: Output is actuator-manifold control, not text decoding
+  - id: M27
+    rule: Articulation buffer stores actuator-trace preparation
+  - id: M28
+    rule: Serial output unfolds through execution
+  - id: M29
+    rule: Reafferent feedback is mandatory for motor learning
+  - id: M31
+    rule: Motor routines are emergent internal synergies, not installed tables
+  - id: M35
+    rule: Device basis is external and bounded; skill is internal
+  - id: M36
+    rule: Output timing is endogenous release over prepared trace
+  - id: M37
+    rule: Renderer is a body surface, not an author
+strong:
+  - id: M30
+    rule: Motor equivalence is allowed and expected
+  - id: M32
+    rule: Selection/release and correction are separate channels
+  - id: M33
+    rule: Skill develops by integration, differentiation, refinement
+  - id: M34
+    rule: Communicative actuation is modality-flexible
