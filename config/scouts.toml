@@ -1,0 +1,23 @@
+# Void-walker scout execution.
+
+[scouts]
+# Controls the lightweight cold-scout fallback.
+enabled = true
+enable_cold_probe = true
+visits = 16
+edges = 8
+seed_max = 64
+ttl = 64
+max_us = 2000
+per_scout_us = 0
+
+[scouts.types]
+heat = true
+cold = true
+excitation = true
+inhibition = true
+void_ray = true
+memory_ray = true
+frontier = true
+cycle = true
+sentinel = true

@@ -8,6 +8,7 @@ Commercial use of proprietary VDM code requires written permission from Justin K
 See LICENSE file for full terms.
 """
 import sys, json, os
+from vdm_rt.config import config_bool
 from vdm_rt.io.logging.rolling_jsonl import RollingJsonlWriter
 try:
     # Prefer zip spooler when available
@@ -30,12 +31,7 @@ class UTD:
         os.makedirs(self.run_dir, exist_ok=True)
         self.path = os.path.join(self.run_dir, 'utd_events.jsonl')
         # Prefer zip-spooled writer to bound disk pressure; fallback to rolling JSONL
-        use_zip = True
-        try:
-            # Allow explicit opt-out via env
-            use_zip = str(os.getenv("ZIP_SPOOL", "1")).strip().lower() in ("1", "true", "yes", "on", "y")
-        except Exception:
-            use_zip = True
+        use_zip = config_bool("logging.zip_spool", True)
         try:
             if use_zip and RollingZipJsonlWriter is not None:  # type: ignore
                 self._writer = RollingZipJsonlWriter(self.path)  # type: ignore

@@ -14,18 +14,15 @@ Redis status publishing helper (optional, bounded, void-faithful).
 - No schedulers or background threads here; caller invokes once per tick from the runtime loop.
 - Uses MAXLEN trimming to keep Redis bounded.
 
-Enable via env:
-  REDIS_URL=redis://127.0.0.1:6379/0
-  ENABLE_REDIS_STATUS=1
-  REDIS_STREAM_STATUS=runtime:status     (optional; default shown)
-  REDIS_STATUS_MAXLEN=2000               (approximate trim)
+Enable via config/io.toml [redis].
 """
 
 from __future__ import annotations
 
 from typing import Any, Dict, Optional
-import os
 import json
+
+from vdm_rt.config import config_bool, config_int, config_str
 
 try:
     import redis  # type: ignore
@@ -33,20 +30,10 @@ except Exception:  # pragma: no cover
     redis = None  # lazy-fail if missing
 
 
-def _truthy(x: Any) -> bool:
-    try:
-        if isinstance(x, (int, float, bool)):
-            return bool(x)
-        s = str(x).strip().lower()
-        return s in ("1", "true", "yes", "on", "y", "t")
-    except Exception:
-        return False
-
-
 def _get_client(nx: Any) -> Optional["redis.Redis"]:
     """
     Lazy-initialize and cache a Redis client on nx._redis_client.
-    Returns None if redis-py is unavailable or the URL/env is missing.
+    Returns None if redis-py is unavailable or the configured URL is missing.
     """
     if redis is None:
         return None
@@ -57,7 +44,7 @@ def _get_client(nx: Any) -> Optional["redis.Redis"]:
     except Exception:
         cli = None
     try:
-        url = os.getenv("REDIS_URL", "").strip()
+        url = config_str("redis.url", "").strip()
         if not url:
             return None
         cli = redis.from_url(url, decode_responses=False)  # keep bytes payloads raw
@@ -72,21 +59,18 @@ def maybe_publish_status_redis(nx: Any, metrics: Dict[str, Any], step: int) -> N
     Publish a compact status JSON to a bounded Redis Stream once per tick.
 
     Fields:
-      stream = REDIS_STREAM_STATUS (default 'runtime:status')
-      MAXLEN  = REDIS_STATUS_MAXLEN (default 2000, approximate)
+      stream = redis.stream_status (default 'runtime:status')
+      MAXLEN  = redis.status_maxlen (default 2000, approximate)
       entry   = { 'json': b'{"type":"status",...}' }
     """
     try:
-        if not _truthy(os.getenv("ENABLE_REDIS_STATUS", "0")):
+        if not config_bool("redis.enabled", False):
             return
         cli = _get_client(nx)
         if cli is None:
             return
-        stream = os.getenv("REDIS_STREAM_STATUS", "runtime:status")
-        try:
-            maxlen = int(os.getenv("REDIS_STATUS_MAXLEN", "2000"))
-        except Exception:
-            maxlen = 2000
+        stream = config_str("redis.stream_status", "runtime:status")
+        maxlen = config_int("redis.status_maxlen", 2000)
 
         # Select a compact subset to keep bandwidth low
         m = metrics or {}

@@ -10,6 +10,7 @@ See LICENSE file for full terms.
 from __future__ import annotations
 import json, os, threading, time
 from typing import Any, Dict, Iterable, Optional
+from vdm_rt.config import config_bool
 from vdm_rt.io.logging.rolling_jsonl import RollingJsonlWriter
 try:
     # Prefer zip spooler when available
@@ -41,11 +42,7 @@ class MacroEmitter:
         # ensure directory exists
         os.makedirs(os.path.dirname(os.path.abspath(self.path)), exist_ok=True)
         # Prefer zip-spooled writer (bounded disk pressure); fallback to rolling JSONL
-        use_zip = True
-        try:
-            use_zip = str(os.getenv("ZIP_SPOOL", "1")).strip().lower() in ("1", "true", "yes", "on", "y")
-        except Exception:
-            use_zip = True
+        use_zip = config_bool("logging.zip_spool", True)
         try:
             if use_zip and (RollingZipJsonlWriter is not None):  # type: ignore
                 self._writer = RollingZipJsonlWriter(self.path)  # type: ignore

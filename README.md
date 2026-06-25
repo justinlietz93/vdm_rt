@@ -77,9 +77,22 @@ The runtime should continue to launch without Dash or any frontend dependency.
 
 ## Runtime naming
 
-Internal modules, symbols, channels, and environment variables use role names.
-`vdm_rt` remains the package boundary; runtime configuration uses names such as
-`EVENTS_MAX_MB`, `UTD_MAX_MB`, `ZIP_SPOOL`, and `runtime:status`.
+Internal modules, symbols, channels, config keys, and external stream names use
+role names. `vdm_rt` remains the package boundary. Runtime configuration lives
+in tracked, operator-visible TOML files under `config/`, split by subsystem so
+the config surface stays readable.
+
+```text
+config/runtime.toml            cross-cutting loop, event, territory, composer knobs
+config/sparse_connectome.toml  sparse graph maintenance controls
+config/learning.toml           optional REVGSP/GDSP adapter controls
+config/scouts.toml             void-walker scout budgets and enable flags
+config/io.toml                 emitters, smoke checks, HTTP status, Redis status
+config/logging.toml            JSONL and zip spool limits
+```
+
+Environment variables are not the normal runtime flag surface. The retained
+external Redis stream name is role-named as `runtime:status`.
 
 ## Void equations and domain modulation
 

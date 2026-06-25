@@ -10,9 +10,7 @@ See LICENSE file for full terms.
 
 Runtime helper: optional one-shot smoke tests (macros and thought ledger).
 
-- Controlled by env flags:
-  - ENABLE_MACROS_TEST
-  - ENABLE_THOUGHTS_TEST
+- Controlled by config/io.toml smoke flags.
 
 Behavior:
 - Mirrors legacy Nexus logic exactly; guarded and fail-soft.
@@ -20,18 +18,19 @@ Behavior:
 
 from __future__ import annotations
 
-import os
 from typing import Any, Dict
+
+from vdm_rt.config import config_bool
 
 
 def maybe_smoke_tests(nx: Any, m: Dict[str, Any], step: int) -> None:
     """
-    One-shot emitters test for macros and thought ledger when ENABLE_*_TEST env flags are set.
+    One-shot emitters test for macros and thought ledger when smoke config flags are set.
     Mirrors Nexus inline behavior and guards with booleans on nx.
     """
     # Macro smoke
     try:
-        if (not getattr(nx, "_macros_smoke_done", False)) and str(os.getenv("ENABLE_MACROS_TEST", "0")).lower() in ("1", "true", "yes", "on"):
+        if (not getattr(nx, "_macros_smoke_done", False)) and config_bool("smoke.enable_macros_test", False):
             if getattr(nx, "emitter", None):
                 nx.emitter.vars({"N": "neural", "G": "global_access", "E": "experience", "B": "behavior"})
                 nx.emitter.edges(["N->G", "G->B", "E->B?"])
@@ -48,7 +47,7 @@ def maybe_smoke_tests(nx: Any, m: Dict[str, Any], step: int) -> None:
 
     # Thought ledger smoke
     try:
-        if (not getattr(nx, "_thoughts_smoke_done", False)) and str(os.getenv("ENABLE_THOUGHTS_TEST", "0")).lower() in ("1", "true", "yes", "on"):
+        if (not getattr(nx, "_thoughts_smoke_done", False)) and config_bool("smoke.enable_thoughts_test", False):
             if getattr(nx, "thoughts", None):
                 nx.thoughts.observation("vt_entropy", float(m.get("vt_entropy", 0.0)))
                 nx.thoughts.motif("cycle_probe", nodes=[1, 2, 3])

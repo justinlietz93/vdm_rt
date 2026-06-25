@@ -28,8 +28,8 @@ Returns:
 
 from typing import Any, Dict, Set, Tuple, Optional
 import time
-import os
 
+from vdm_rt.config import config_bool, config_float, config_int
 from vdm_rt.runtime.stepper import compute_step_and_metrics as _compute_step_and_metrics
 from vdm_rt.runtime.telemetry import tick_fold as _tick_fold
 from vdm_rt.runtime.events_adapter import (
@@ -66,30 +66,20 @@ from vdm_rt.core.cortex.maps.memorymap import MemoryMap
 from vdm_rt.core.cortex.maps.trailmap import TrailMap
 from vdm_rt.core.memory import MemoryField
 
-# ---------- Optional Learning/Actuator Adapters (default-off, safe) ----------
-def _truthy(x) -> bool:
-    try:
-        if isinstance(x, (int, float)):
-            return bool(x)
-        s = str(x).strip().lower()
-        return s in ("1", "true", "yes", "on", "y", "t")
-    except Exception:
-        return False
-
 # Development strictness gate: raise swallowed exceptions when enabled
-STRICT = _truthy(os.getenv("VOID_STRICT", "0"))
+STRICT = config_bool("runtime.strict", False)
 
 
 def _maybe_run_revgsp(nx: Any, metrics: Dict[str, Any], step: int) -> None:
     """
     Best-effort adapter to call RE-VGSP adapt_connectome if available and enabled.
-    - Enabled via ENABLE_REVGSP=1 (default off).
+    - Enabled by config learning.revgsp.enabled (default off).
     - Auto-detects compatible substrate (nx.substrate or nx.connectome with expected fields).
     - Filters kwargs to the function signature to avoid mismatches.
     - Silent no-op on any error or incompatibility.
     """
-    import os, inspect  # local to avoid module-level dependency
-    if not _truthy(os.getenv("ENABLE_REVGSP", "0")):
+    import inspect  # local to avoid module-level dependency
+    if not config_bool("learning.revgsp.enabled", False):
         return
 
     # Use current in-repo implementation only (void-faithful, budgeted)
@@ -121,9 +111,9 @@ def _maybe_run_revgsp(nx: Any, metrics: Dict[str, Any], step: int) -> None:
         latency = {"max": float(getattr(nx, "latency_max", 0.0)), "error": float(getattr(nx, "latency_err", 0.0))}
 
     # Possible kwargs (include aliases so legacy and new signatures both work)
-    eta_val = float(os.getenv("REV_GSP_ETA", getattr(nx, "rev_gsp_eta", 1e-3)))
-    lam_val = float(os.getenv("REV_GSP_LAMBDA", getattr(nx, "rev_gsp_lambda", 0.99)))
-    twin_ms = int(os.getenv("REV_GSP_TWIN_MS", "20"))
+    eta_val = config_float("learning.revgsp.eta", float(getattr(nx, "rev_gsp_eta", 1e-3)))
+    lam_val = config_float("learning.revgsp.lambda_decay", float(getattr(nx, "rev_gsp_lambda", 0.99)))
+    twin_ms = config_int("learning.revgsp.time_window_ms", 20)
     candidates = {
         "substrate": s,
         "spike_train": getattr(nx, "recent_spikes", None),
@@ -155,14 +145,14 @@ def _maybe_run_revgsp(nx: Any, metrics: Dict[str, Any], step: int) -> None:
 def _maybe_run_gdsp(nx: Any, metrics: Dict[str, Any], step: int) -> None:
     """
     Best-effort adapter to call GDSP synaptic actuator if available and enabled.
-    - Enabled via ENABLE_GDSP=1 (default off).
-    - Emergent triggers only (no fixed cadence): activates on b1_spike, |td_signal| >= GDSP_TD_THRESH, or cohesion_components > 1.
+    - Enabled by config learning.gdsp.enabled (default off).
+    - Emergent triggers only (no fixed cadence): activates on b1_spike,
+      |td_signal| >= learning.gdsp.td_threshold, or cohesion_components > 1.
     - Requires a substrate-like object with the expected sparse fields; else no-op.
     - Executes homeostatic repairs (if repair_triggered present), growth (when territory provided),
       and maintenance pruning with T_prune and pruning_threshold.
     """
-    import os  # local import
-    if not _truthy(os.getenv("ENABLE_GDSP", "0")):
+    if not config_bool("learning.gdsp.enabled", False):
         return
 
     # Emergent gating only (no fixed cadence or schedulers)
@@ -175,10 +165,7 @@ def _maybe_run_gdsp(nx: Any, metrics: Dict[str, Any], step: int) -> None:
         comp = int(metrics.get("cohesion_components", metrics.get("evt_cohesion_components", 1)))
     except Exception:
         comp = 1
-    try:
-        td_thr = float(os.getenv("GDSP_TD_THRESH", "0.2"))
-    except Exception:
-        td_thr = 0.2
+    td_thr = config_float("learning.gdsp.td_threshold", 0.2)
     if not (b1_spike or abs(td) >= td_thr or comp > 1):
         return
 
@@ -232,7 +219,7 @@ def _maybe_run_gdsp(nx: Any, metrics: Dict[str, Any], step: int) -> None:
     try:
         terr = getattr(nx, "_territories", None)
         if terr is not None:
-            k_sel = int(os.getenv("GDSP_K", "64"))
+            k_sel = config_int("learning.gdsp.territory_sample_k", 64)
             sel = terr.sample_any(int(max(0, k_sel)))
             if isinstance(sel, list) and sel:
                 territory_indices = sel
@@ -252,14 +239,8 @@ def _maybe_run_gdsp(nx: Any, metrics: Dict[str, Any], step: int) -> None:
         pass
 
     # Pruning parameters
-    try:
-        T_prune = int(os.getenv("GDSP_T_PRUNE", "100"))
-    except Exception:
-        T_prune = 100
-    try:
-        pruning_threshold = float(os.getenv("GDSP_PRUNE_THRESHOLD", "0.01"))
-    except Exception:
-        pruning_threshold = 0.01
+    T_prune = config_int("learning.gdsp.prune_ticks", 100)
+    pruning_threshold = config_float("learning.gdsp.prune_threshold", 0.01)
 
     try:
         _run_gdsp(
@@ -287,16 +268,15 @@ def run_loop(nx: Any, t0: float, step: int, duration_s: Optional[int] = None) ->
             except Exception:
                 nx._engine = None
 
-        # Lazy-init VOID cold scout (enabled by default; disable via ENABLE_COLD_SCOUTS=0)
+        # Lazy-init VOID cold scout (enabled by config scouts.enable_cold_probe)
         if getattr(nx, "_void_scout", None) is None:
-            _sc_flag = str(os.getenv("ENABLE_COLD_SCOUTS", os.getenv("ENABLE_SCOUTS", "1"))).lower()
-            if _sc_flag in ("1", "true", "yes", "on"):
+            if config_bool("scouts.enable_cold_probe", True):
                 try:
-                    _sv = int(os.getenv("SCOUT_VISITS", str(getattr(nx, "scout_visits", 16))))
+                    _sv = config_int("scouts.visits", int(getattr(nx, "scout_visits", 16)))
                 except Exception:
                     _sv = 16
                 try:
-                    _se = int(os.getenv("SCOUT_EDGES", str(getattr(nx, "scout_edges", 8))))
+                    _se = config_int("scouts.edges", int(getattr(nx, "scout_edges", 8)))
                 except Exception:
                     _se = 8
                 try:
@@ -308,10 +288,9 @@ def run_loop(nx: Any, t0: float, step: int, duration_s: Optional[int] = None) ->
                 except Exception:
                     nx._void_scout = None
 
-        # Lazy-init event-driven metrics aggregator (enabled by default; disable via ENABLE_EVENT_METRICS=0)
+        # Lazy-init event-driven metrics aggregator (enabled by config events.event_metrics)
         if getattr(nx, "_evt_metrics", None) is None:
-            _evtm_flag = str(os.getenv("ENABLE_EVENT_METRICS", "1")).lower()
-            if _evtm_flag in ("1", "true", "yes", "on"):
+            if config_bool("events.event_metrics", True):
                 try:
                     det = getattr(nx, "b1_detector", None)
                     z_spike = float(getattr(det, "z_spike", 1.0)) if det is not None else 1.0
@@ -423,8 +402,7 @@ def run_loop(nx: Any, t0: float, step: int, duration_s: Optional[int] = None) ->
                         from vdm_rt.core.proprioception.territory import TerritoryUF as _TerrUF  # lazy import
                         head_k = 512
                         try:
-                            import os as _os
-                            head_k = int(_os.getenv("TERRITORY_HEAD_K", str(head_k)))
+                            head_k = config_int("territory.head_k", head_k)
                         except Exception:
                             head_k = 512
                         nx._territories = _TerrUF(head_k=int(max(8, head_k)))
@@ -535,7 +513,7 @@ def run_loop(nx: Any, t0: float, step: int, duration_s: Optional[int] = None) ->
 
                         # Seeds from recent stimulation (bounded)
                         try:
-                            _seed_cap = int(os.getenv("SCOUT_SEEDS_MAX", "64"))
+                            _seed_cap = config_int("scouts.seed_max", 64)
                         except Exception:
                             _seed_cap = 64
                         try:
@@ -545,15 +523,15 @@ def run_loop(nx: Any, t0: float, step: int, duration_s: Optional[int] = None) ->
 
                         # Budgets (bounded)
                         try:
-                            sv = int(os.getenv("SCOUT_VISITS", str(getattr(nx, "scout_visits", 16))))
+                            sv = config_int("scouts.visits", int(getattr(nx, "scout_visits", 16)))
                         except Exception:
                             sv = 16
                         try:
-                            se = int(os.getenv("SCOUT_EDGES", str(getattr(nx, "scout_edges", 8))))
+                            se = config_int("scouts.edges", int(getattr(nx, "scout_edges", 8)))
                         except Exception:
                             se = 8
                         try:
-                            ttlv = int(os.getenv("SCOUT_TTL", "64"))
+                            ttlv = config_int("scouts.ttl", 64)
                         except Exception:
                             ttlv = 64
                         budget = {
@@ -566,29 +544,29 @@ def run_loop(nx: Any, t0: float, step: int, duration_s: Optional[int] = None) ->
 
                         # Per-tick micro time budget across all scouts (µs)
                         try:
-                            max_us = int(os.getenv("SCOUTS_MAX_US", "2000"))
+                            max_us = config_int("scouts.max_us", 2000)
                         except Exception:
                             max_us = 2000
 
                         scouts_list = []
-                        # Per-scout env toggles (void-faithful; default on)
-                        if _truthy(os.getenv("ENABLE_SCOUT_HEAT", "1")):
+                        # Per-scout config toggles (void-faithful; default on)
+                        if config_bool("scouts.types.heat", True):
                             scouts_list.append(HeatScout())
-                        if _truthy(os.getenv("ENABLE_SCOUT_COLD", "1")):
+                        if config_bool("scouts.types.cold", True):
                             scouts_list.append(ColdScout())
-                        if _truthy(os.getenv("ENABLE_SCOUT_EXC", "1")):
+                        if config_bool("scouts.types.excitation", True):
                             scouts_list.append(ExcitationScout())
-                        if _truthy(os.getenv("ENABLE_SCOUT_INH", "1")):
+                        if config_bool("scouts.types.inhibition", True):
                             scouts_list.append(InhibitionScout())
-                        if _truthy(os.getenv("ENABLE_SCOUT_VOIDRAY", "1")):
+                        if config_bool("scouts.types.void_ray", True):
                             scouts_list.append(VoidRayScout())
-                        if _truthy(os.getenv("ENABLE_SCOUT_MEMRAY", "1")):
+                        if config_bool("scouts.types.memory_ray", True):
                             scouts_list.append(MemoryRayScout())
-                        if _truthy(os.getenv("ENABLE_SCOUT_FRONTIER", "1")):
+                        if config_bool("scouts.types.frontier", True):
                             scouts_list.append(FrontierScout())
-                        if _truthy(os.getenv("ENABLE_SCOUT_CYCLE", "1")):
+                        if config_bool("scouts.types.cycle", True):
                             scouts_list.append(CycleHunterScout())
-                        if _truthy(os.getenv("ENABLE_SCOUT_SENTINEL", "1")):
+                        if config_bool("scouts.types.sentinel", True):
                             scouts_list.append(SentinelScout())
 
                         scout_evs = _run_scouts_once(
@@ -837,9 +815,9 @@ def run_loop(nx: Any, t0: float, step: int, duration_s: Optional[int] = None) ->
 
             # Structured tick log (batchable via LOG_EVERY to reduce I/O)
             try:
-                _log_every_env = os.getenv("LOG_EVERY", None)
-                if _log_every_env is not None:
-                    nx.log_every = int(max(1, int(_log_every_env)))
+                _log_every_cfg = config_int("runtime.log_every_override", 0)
+                if _log_every_cfg > 0:
+                    nx.log_every = int(max(1, _log_every_cfg))
             except Exception:
                 pass
             if (step % int(getattr(nx, "log_every", 1))) == 0:

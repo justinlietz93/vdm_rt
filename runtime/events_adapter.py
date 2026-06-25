@@ -14,7 +14,7 @@ Runtime adapter: Convert connectome Observation events into core event-driven me
 Design:
 - Pure adapter: no logging/IO; small and deterministic.
 - Safe: returns an empty list for unknown/unsupported events.
-- Behavior-preserving by default: only used when ENABLE_EVENT_METRICS=1.
+- Behavior-preserving by default: only used when events.event_metrics is true.
 """
 
 from typing import Any, Dict, Iterable, List

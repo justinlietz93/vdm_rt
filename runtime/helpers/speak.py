@@ -17,9 +17,9 @@ Behavior:
 
 from __future__ import annotations
 
-import os
 from typing import Any, Dict, Set
 
+from vdm_rt.config import config_float
 from vdm_rt.core import text_utils
 from vdm_rt.io.cognition.composer import compose_say_text as _compose_say_text_impl
 from vdm_rt.io.cognition.speaker import should_speak as _speak_gate, novelty_and_score as _novelty_and_score
@@ -84,7 +84,7 @@ def maybe_auto_speak(
 
     # Composer IDF gain (local to composer; does not affect dynamics)
     try:
-        composer_k = float(getattr(nx, "_phase", {}).get("composer_idf_k", float(os.getenv("COMPOSER_IDF_K", "0.0"))))
+        composer_k = float(getattr(nx, "_phase", {}).get("composer_idf_k", config_float("composer.idf_k", 0.0)))
     except Exception:
         composer_k = 0.0
 

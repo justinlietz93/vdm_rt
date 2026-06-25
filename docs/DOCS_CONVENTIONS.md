@@ -39,7 +39,11 @@ Imported source files may preserve their original names under `docs/sources/`.
 
 Internal runtime modules use role names. A package or external integration may
 carry a boundary-specific name, but internal filenames, symbols, channels, and
-environment variables should identify their role directly.
+config keys should identify their role directly.
+
+Runtime configuration belongs in named `config/*.toml` files. Environment
+variables are not the normal runtime flag surface; do not add hidden env gates
+for runtime behavior when a visible config key would do.
 
 ## Front matter
 

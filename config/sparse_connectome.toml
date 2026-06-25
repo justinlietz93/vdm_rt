@@ -1,0 +1,12 @@
+# Sparse connectome maintenance.
+
+[sparse_connectome]
+# Max symmetric bridge proposals per sparse maintenance pass.
+bridge_budget = 24
+
+# Minimum target-degree fraction for low-activity nodes.
+min_k_frac = 0.5
+
+# Budgeted active-fragment audit controls.
+frag_audit_edges = 200000
+frag_audit_every = 50

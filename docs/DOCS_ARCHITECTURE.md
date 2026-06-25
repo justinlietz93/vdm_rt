@@ -28,6 +28,14 @@ docs/
 └─ archive/                     historical material, not current truth
 ```
 
+Runtime configuration is intentionally outside `docs/`:
+
+```text
+config/                         tracked operator-visible runtime TOML files
+```
+
+Docs may explain config keys, but `config/*.toml` owns the executable defaults.
+
 ## Authority rules
 
 - `docs/pages/` owns reader-facing truth.

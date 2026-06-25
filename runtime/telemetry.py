@@ -22,7 +22,8 @@ Policy:
 """
 
 from typing import Any, Dict, Iterable, Set, Callable, Optional, Tuple, List
-import os
+
+from vdm_rt.config import config_bool
 
 
 def macro_why_base(nx: Any, metrics: Dict[str, Any], step: int) -> Dict[str, Any]:
@@ -150,10 +151,7 @@ def tick_fold(
                     # Publish neutral 'delta' for b1/why folding
                     bus.publish(_DynObs(tick=int(step), kind="delta", nodes=[], meta=meta))
                     # Optionally synthesize bounded ΔW events to drive Exc/Inh maps without scans
-                    try:
-                        synth_flag = str(os.getenv("SYNTH_DELTA_W", "0")).strip().lower() in ("1", "true", "yes", "on", "y")
-                    except Exception:
-                        synth_flag = False
+                    synth_flag = config_bool("events.synth_delta_w", False)
                     if synth_flag:
                         # Select a tiny working set of nodes from this tick's symbol→index map (bounded fan-out)
                         try:

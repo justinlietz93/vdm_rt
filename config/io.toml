@@ -1,0 +1,22 @@
+# Runtime IO and optional external status outputs.
+
+[emitters]
+# Empty paths use run-directory defaults.
+utd_out = ""
+enable_thoughts = false
+thought_out = ""
+
+[smoke]
+enable_macros_test = false
+enable_thoughts_test = false
+
+[status_http]
+enabled = false
+host = "127.0.0.1"
+port = 8787
+
+[redis]
+enabled = false
+url = ""
+stream_status = "runtime:status"
+status_maxlen = 2000

@@ -29,8 +29,8 @@ Notes:
 
 from typing import Any, Dict, Iterable, List, Optional, Sequence
 from time import perf_counter_ns
-import os as _os
 
+from vdm_rt.config import config_int
 from vdm_rt.core.proprioception.events import BaseEvent
 
 
@@ -98,10 +98,7 @@ def run_scouts_once(
 
     # Optional per-scout micro-slice (still one-shot runner; no schedulers)
     per_us = 0
-    try:
-        per_us = int(_os.getenv("SCOUTS_PER_SCOUT_US", "0"))
-    except Exception:
-        per_us = 0
+    per_us = config_int("scouts.per_scout_us", 0)
     if per_us <= 0 and max_us > 0 and n_sc > 0:
         per_us = int(max_us // max(1, n_sc))
 

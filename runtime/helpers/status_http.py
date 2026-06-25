@@ -17,29 +17,17 @@ Optional in-process HTTP status endpoint (void-faithful; no schedulers).
 - Endpoint:
     GET /status  -> 200 JSON of nx._emit_last_metrics (latest per-tick status) or 204 if not yet available
     GET /health  -> 200 {"ok": true}
-- Enable via:
-    ENABLE_STATUS_HTTP=1
-    STATUS_HTTP_HOST=127.0.0.1
-    STATUS_HTTP_PORT=8787
+- Enable via config/io.toml [status_http].
 - Safety:
     - If any error occurs (port busy, etc.), remain a no-op.
     - Never mutates core dynamics; purely IO.
 """
 
-import os
 import json
 import threading
 from typing import Any, Optional
 
-
-def _truthy(x: Any) -> bool:
-    try:
-        if isinstance(x, (int, float, bool)):
-            return bool(x)
-        s = str(x).strip().lower()
-        return s in ("1", "true", "yes", "on", "y", "t")
-    except Exception:
-        return False
+from vdm_rt.config import config_bool, config_int, config_str
 
 
 def maybe_start_status_http(nx: Any, force: bool = False) -> None:
@@ -50,8 +38,8 @@ def maybe_start_status_http(nx: Any, force: bool = False) -> None:
       nx._status_http_thread (threading.Thread)
       nx._status_http_started (bool)
     Gate:
-      - If force is True, start regardless of env.
-      - If force is False, start only when ENABLE_STATUS_HTTP is truthy.
+      - If force is True, start regardless of config.
+      - If force is False, start only when status_http.enabled is true.
     """
     # Idempotence: already running or previously started
     try:
@@ -62,7 +50,7 @@ def maybe_start_status_http(nx: Any, force: bool = False) -> None:
     # Env gate unless forced
     if not force:
         try:
-            if not _truthy(os.getenv("ENABLE_STATUS_HTTP", "0")):
+            if not config_bool("status_http.enabled", False):
                 return
         except Exception:
             return
@@ -82,11 +70,11 @@ def maybe_start_status_http(nx: Any, force: bool = False) -> None:
 
     # Configuration
     try:
-        host = os.getenv("STATUS_HTTP_HOST", "127.0.0.1").strip() or "127.0.0.1"
+        host = config_str("status_http.host", "127.0.0.1").strip() or "127.0.0.1"
     except Exception:
         host = "127.0.0.1"
     try:
-        port = int(os.getenv("STATUS_HTTP_PORT", "8787"))
+        port = config_int("status_http.port", 8787)
     except Exception:
         port = 8787
 

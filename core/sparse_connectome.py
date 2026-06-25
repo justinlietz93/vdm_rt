@@ -32,7 +32,7 @@ from __future__ import annotations
 import numpy as np
 import networkx as nx
 from typing import List, Set
-import os as _os
+from vdm_rt.config import config_float, config_int
 from .void_dynamics_adapter import universal_void_dynamics, delta_re_vgsp, delta_gdsp
 from .announce import Observation
 
@@ -76,14 +76,8 @@ class SparseConnectome:
         self._stim_decay = 0.90
 
         # Sparse cohesion bridging budget and degree heterogeneity controls
-        try:
-            self.bridge_budget = int(_os.getenv("SPARSE_BRIDGE_BUDGET", "24"))
-        except Exception:
-            self.bridge_budget = 24
-        try:
-            self.min_k_frac = float(_os.getenv("MIN_K_FRAC", "0.5"))
-        except Exception:
-            self.min_k_frac = 0.5
+        self.bridge_budget = config_int("sparse_connectome.bridge_budget", 24)
+        self.min_k_frac = config_float("sparse_connectome.min_k_frac", 0.5)
         # Active-edge/fragment trackers (incremental; void-faithful)
         self._edges_active = 0
         self._vertices_active = 0
@@ -405,10 +399,7 @@ class SparseConnectome:
             comp_count = int(getattr(self, "_frag_components_lb", 1))
             _dirty = getattr(self, "_frag_dirty_since", None)
             # Optionally early-audit with a small budget to refresh active components
-            try:
-                _budget = int(_os.getenv("FRAG_AUDIT_EDGES", "200000"))
-            except Exception:
-                _budget = 200000
+            _budget = config_int("sparse_connectome.frag_audit_edges", 200000)
             try:
                 if _dirty is not None and _budget > 0:
                     # Best-effort refresh of active components (bounded)
@@ -511,14 +502,8 @@ class SparseConnectome:
             self._edges_active = int(E_new)
             self._vertices_active = int(V_new)
             # optional budgeted audit
-            try:
-                _audit_every = int(_os.getenv("FRAG_AUDIT_EVERY", "50"))
-            except Exception:
-                _audit_every = 50
-            try:
-                _budget = int(_os.getenv("FRAG_AUDIT_EDGES", "200000"))
-            except Exception:
-                _budget = 200000
+            _audit_every = config_int("sparse_connectome.frag_audit_every", 50)
+            _budget = config_int("sparse_connectome.frag_audit_edges", 200000)
             if (getattr(self, "_frag_dirty_since", None) is not None or (int(getattr(self, "_tick", 0)) % max(1, _audit_every) == 0)) and _budget > 0:
                 self._maybe_audit_frag(int(_budget))
             # cycles estimate

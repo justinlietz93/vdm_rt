@@ -19,19 +19,7 @@ Rolling JSONL writer with bounded main file and archival segments.
 - When the current archive segment exceeds its cap, a new timestamped segment
   directory is created and subsequent archival lines are appended there.
 
-Configuration (env):
-- For events.jsonl (category="EVENTS"):
-    EVENTS_MAX_MB                      (default: 256)
-    EVENTS_MAX_LINES                   (default: unset; bytes cap used)
-    EVENTS_ARCHIVE_SEGMENT_MB          (default: 512)
-    EVENTS_ARCHIVE_SEGMENT_LINES       (default: unset; bytes cap used)
-- For utd_events.jsonl (category="UTD"):
-    UTD_MAX_MB                         (default: 256)
-    UTD_MAX_LINES                      (default: unset; bytes cap used)
-    UTD_ARCHIVE_SEGMENT_MB             (default: 512)
-    UTD_ARCHIVE_SEGMENT_LINES          (default: unset; bytes cap used)
-- Global:
-    LOG_ROLL_CHECK_EVERY               (default: 200)  # enforce cadence (per write)
+Configuration lives in config/logging.toml [logging].
 
 Notes:
 - Uses a cross-process advisory lock via <base_path>.lock to serialize trimming with writers.
@@ -45,6 +33,8 @@ import os
 import time
 import threading
 from typing import Optional, Tuple
+
+from vdm_rt.config import config_int
 
 try:
     import fcntl as _fcntl
@@ -101,32 +91,29 @@ class RollingJsonlWriter:
         else:
             cat = "LOG"
 
-        # Defaults via env (prefer bytes caps unless specific line caps are set)
-        def _env_int(name: str, default: Optional[int]) -> Optional[int]:
-            v = os.environ.get(name, None)
-            if v is None or str(v).strip() == "":
-                return default
-            try:
-                return int(v)
-            except Exception:
-                return default
+        # Defaults via config/logging.toml (prefer bytes caps unless line caps are set).
+        def _cfg_int(key: str, default: Optional[int]) -> Optional[int]:
+            if default is None:
+                value = config_int(key, 0)
+                return None if value <= 0 else value
+            return config_int(key, int(default))
 
         if max_main_bytes is None:
             if cat == "EVENTS":
-                max_main_bytes = _env_int("EVENTS_MAX_MB", 256)
+                max_main_bytes = _cfg_int("logging.events_max_mb", 256)
             elif cat == "UTD":
-                max_main_bytes = _env_int("UTD_MAX_MB", 256)
+                max_main_bytes = _cfg_int("logging.utd_max_mb", 256)
             else:
-                max_main_bytes = _env_int("LOG_MAX_MB", 128)
+                max_main_bytes = _cfg_int("logging.log_max_mb", 128)
             max_main_bytes = int(max_main_bytes) * 1024 * 1024 if max_main_bytes else None
 
         if max_main_lines is None:
             if cat == "EVENTS":
-                max_main_lines = _env_int("EVENTS_MAX_LINES", None)
+                max_main_lines = _cfg_int("logging.events_max_lines", None)
             elif cat == "UTD":
-                max_main_lines = _env_int("UTD_MAX_LINES", None)
+                max_main_lines = _cfg_int("logging.utd_max_lines", None)
             else:
-                max_main_lines = _env_int("LOG_MAX_LINES", None)
+                max_main_lines = _cfg_int("logging.log_max_lines", None)
 
         if archive_dir is None:
             archive_dir = os.path.join(os.path.dirname(self.base_path), "archived")
@@ -134,22 +121,22 @@ class RollingJsonlWriter:
 
         if archive_segment_max_bytes is None:
             if cat == "EVENTS":
-                archive_segment_max_bytes = _env_int("EVENTS_ARCHIVE_SEGMENT_MB", 512)
+                archive_segment_max_bytes = _cfg_int("logging.events_archive_segment_mb", 512)
             elif cat == "UTD":
-                archive_segment_max_bytes = _env_int("UTD_ARCHIVE_SEGMENT_MB", 512)
+                archive_segment_max_bytes = _cfg_int("logging.utd_archive_segment_mb", 512)
             else:
-                archive_segment_max_bytes = _env_int("LOG_ARCHIVE_SEGMENT_MB", 256)
+                archive_segment_max_bytes = _cfg_int("logging.log_archive_segment_mb", 256)
             archive_segment_max_bytes = (
                 int(archive_segment_max_bytes) * 1024 * 1024 if archive_segment_max_bytes else None
             )
 
         if archive_segment_max_lines is None:
             if cat == "EVENTS":
-                archive_segment_max_lines = _env_int("EVENTS_ARCHIVE_SEGMENT_LINES", None)
+                archive_segment_max_lines = _cfg_int("logging.events_archive_segment_lines", None)
             elif cat == "UTD":
-                archive_segment_max_lines = _env_int("UTD_ARCHIVE_SEGMENT_LINES", None)
+                archive_segment_max_lines = _cfg_int("logging.utd_archive_segment_lines", None)
             else:
-                archive_segment_max_lines = _env_int("LOG_ARCHIVE_SEGMENT_LINES", None)
+                archive_segment_max_lines = _cfg_int("logging.log_archive_segment_lines", None)
 
         self.max_main_bytes = max_main_bytes
         self.max_main_lines = max_main_lines
@@ -157,7 +144,7 @@ class RollingJsonlWriter:
         self.archive_segment_max_lines = archive_segment_max_lines
 
         if check_every is None:
-            check_every = _env_int("LOG_ROLL_CHECK_EVERY", 200) or 200
+            check_every = _cfg_int("logging.roll_check_every", 200) or 200
         self._check_every = int(check_every)
         self._ops = 0
 
@@ -419,15 +406,15 @@ class RollingZipJsonlWriter:
     ) -> None:
         self.base_path = os.path.abspath(base_path)
         _ensure_dir(os.path.dirname(self.base_path))
-        # Defaults (env-overridable)
+        # Defaults from config/logging.toml.
         try:
             if max_buffer_bytes is None:
-                max_buffer_bytes = int(os.getenv("ZIP_BUFFER_BYTES", "1048576"))  # 1 MiB
+                max_buffer_bytes = config_int("logging.zip_buffer_bytes", 1048576)  # 1 MiB
         except Exception:
             max_buffer_bytes = 1_048_576
         try:
             if ring_bytes is None:
-                ring_bytes = int(os.getenv("ZIP_RING_BYTES", "65536"))  # 64 KiB
+                ring_bytes = config_int("logging.zip_ring_bytes", 65536)  # 64 KiB
         except Exception:
             ring_bytes = 65_536
         self.max_buffer_bytes = int(max(32 * 1024, max_buffer_bytes or 1_048_576))

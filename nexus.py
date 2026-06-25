@@ -14,9 +14,9 @@ import time, os, sys
 # - Inline orchestrator logic inside Nexus is deprecated; equivalent functionality lives in runtime/*.
 # - External integrations continue to import Nexus and make_parser from this module (no change required).
 # - No functional changes: IDF remains composer/telemetry-only; SIE/ADC/connectome unaffected.
-# - Event-driven metrics are enabled by default (telemetry-only); disable via ENABLE_EVENT_METRICS=0.
-# - Void cold scouts are enabled by default (telemetry-only); disable via ENABLE_COLD_SCOUTS=0.
+# - Event-driven metrics and void cold scouts are controlled by config/*.toml.
 from collections import deque
+from .config import config_bool, config_get
 from .utils.logging_setup import get_logger
 from .io.ute import UTE
 from .io.utd import UTD
@@ -154,21 +154,19 @@ class Nexus:
         self.speak_auto = bool(speak_auto)
         self.speak_valence_thresh = float(speak_valence_thresh)
         # Persist half-life for void_b1 meter to keep UX consistent with detector
-        # Allow environment overrides to reduce inertia without changing CLI args
-        try:
-            import os as _os_b1
-            _b1_hl_env = _os_b1.getenv("B1_HALF_LIFE_TICKS", None)
-            if _b1_hl_env is not None:
-                b1_half_life_ticks = int(_b1_hl_env)
-        except Exception:
-            pass
-        try:
-            import os as _os_hys
-            _b1_hys_env = _os_hys.getenv("B1_HYSTERESIS", None)
-            if _b1_hys_env is not None:
-                speak_hysteresis = float(_b1_hys_env)
-        except Exception:
-            pass
+        # Optional config overrides reduce inertia without changing CLI args.
+        _b1_hl_cfg = config_get("runtime.b1.half_life_ticks", None)
+        if _b1_hl_cfg is not None:
+            try:
+                b1_half_life_ticks = int(_b1_hl_cfg)
+            except Exception:
+                pass
+        _b1_hys_cfg = config_get("runtime.b1.hysteresis", None)
+        if _b1_hys_cfg is not None:
+            try:
+                speak_hysteresis = float(_b1_hys_cfg)
+            except Exception:
+                pass
         self.b1_half_life_ticks = int(max(1, b1_half_life_ticks))
         self.b1_detector = StreamingZEMA(
             half_life_ticks=self.b1_half_life_ticks,
@@ -176,18 +174,18 @@ class Nexus:
             hysteresis=float(speak_hysteresis),
             min_interval_ticks=int(max(1, speak_cooldown_ticks)),
         )
-        # Optional event-driven metrics aggregator (disabled by default; parity preserved)
+        # Optional event-driven metrics aggregator, controlled by config events.event_metrics.
         self._evt_metrics = None
-        try:
-            if str(os.getenv("ENABLE_EVENT_METRICS", "0")).lower() in ("1", "true", "yes", "on"):
+        if config_bool("events.event_metrics", True):
+            try:
                 self._evt_metrics = _EvtMetrics(
                     z_half_life_ticks=self.b1_half_life_ticks,
                     z_spike=float(speak_z),
                     hysteresis=float(speak_hysteresis),
                     seed=int(self.seed),
                 )
-        except Exception:
-            self._evt_metrics = None
+            except Exception:
+                self._evt_metrics = None
         # External control plane: phase file and cache (void-faithful: gates only)
         self.phase_file = os.path.join(self.run_dir, "phase.json")
         self._phase = {"phase": 0}

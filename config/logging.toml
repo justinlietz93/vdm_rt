@@ -1,0 +1,25 @@
+# Runtime file logging and spool limits.
+
+[logging]
+# Use zip-spooled JSONL writers for bounded disk pressure.
+zip_spool = true
+
+# Rolling JSONL caps, in MiB where the name says mb. Zero line caps mean
+# "unset; use byte caps".
+events_max_mb = 256
+events_max_lines = 0
+events_archive_segment_mb = 512
+events_archive_segment_lines = 0
+utd_max_mb = 256
+utd_max_lines = 0
+utd_archive_segment_mb = 512
+utd_archive_segment_lines = 0
+log_max_mb = 128
+log_max_lines = 0
+log_archive_segment_mb = 256
+log_archive_segment_lines = 0
+roll_check_every = 200
+
+# Zip spooler byte caps.
+zip_buffer_bytes = 1048576
+zip_ring_bytes = 65536

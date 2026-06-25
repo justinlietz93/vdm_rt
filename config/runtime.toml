@@ -1,0 +1,32 @@
+# VDM RT runtime flow.
+#
+# Keep this file for cross-cutting tick-loop and event-spine switches. Put
+# subsystem-specific knobs in their named TOML files.
+
+[runtime]
+# Raise selected fail-soft runtime exceptions during development.
+strict = false
+
+# 0 keeps CLI/logging cadence. Set a positive integer to override per-tick logs.
+log_every_override = 0
+
+[runtime.b1]
+# Optional constructor overrides for the B1 detector. Leave unset to use CLI or
+# Nexus constructor arguments.
+# half_life_ticks = 50
+# hysteresis = 1.0
+
+[events]
+# Event-driven reducer telemetry. This was previously enabled by default.
+event_metrics = true
+
+# Synthesize bounded delta-W events from current tick stimulation.
+synth_delta_w = false
+
+[territory]
+# Head size for event-folded cohesion territories.
+head_k = 512
+
+[composer]
+# Composer-local scoring only; does not affect core dynamics.
+idf_k = 0.0

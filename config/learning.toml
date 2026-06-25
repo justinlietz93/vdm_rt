@@ -1,0 +1,17 @@
+# Optional plasticity/learning adapters.
+#
+# These adapters are disabled by default. They must stay explicit because they
+# change runtime behavior beyond telemetry.
+
+[learning.revgsp]
+enabled = false
+eta = 0.001
+lambda_decay = 0.99
+time_window_ms = 20
+
+[learning.gdsp]
+enabled = false
+td_threshold = 0.2
+territory_sample_k = 64
+prune_ticks = 100
+prune_threshold = 0.01
