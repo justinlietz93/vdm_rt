@@ -1,0 +1,7 @@
+# Text-to-connectome stimulation defaults.
+
+[stimulus]
+group_size = 4
+amp = 0.05
+decay = 0.90
+max_symbols = 64

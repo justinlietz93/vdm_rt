@@ -1,0 +1,10 @@
+# Announcement bus and ADC defaults.
+
+[bus]
+capacity = 65536
+drain = 2048
+
+[adc]
+r_attach = 0.25
+ttl_init = 120
+split_patience = 6

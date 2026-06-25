@@ -1,0 +1,5 @@
+# Self-Improvement Engine runtime defaults.
+
+[sie]
+# Target firing variance used by the runtime stepper's HSI component.
+target_var = 0.15

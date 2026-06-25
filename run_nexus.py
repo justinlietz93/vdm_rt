@@ -65,33 +65,39 @@ def main():
                use_time_dynamics=args.use_time_dynamics,
                log_every=args.log_every,
                checkpoint_every=args.checkpoint_every, seed=args.seed,
-               threshold=getattr(args, 'threshold', 0.15),
-               lambda_omega=getattr(args, 'lambda_omega', 0.1),
-               candidates=getattr(args, 'candidates', 64),
-               walkers=getattr(args, 'walkers', 256),
-               hops=getattr(args, 'hops', 3),
-               status_interval=getattr(args, 'status_interval', 1),
-               bundle_size=getattr(args, 'bundle_size', 3),
-               prune_factor=getattr(args, 'prune_factor', 0.10),
+               threshold=args.threshold,
+               lambda_omega=args.lambda_omega,
+               candidates=args.candidates,
+               walkers=args.walkers,
+               hops=args.hops,
+               status_interval=args.status_interval,
+               bundle_size=args.bundle_size,
+               prune_factor=args.prune_factor,
                # Checkpoint retention / format (format optional)
-               checkpoint_format=getattr(args, 'checkpoint_format', 'h5') if hasattr(args, 'checkpoint_format') else 'h5',
-               checkpoint_keep=getattr(args, 'checkpoint_keep', 5),
+               checkpoint_format=args.checkpoint_format,
+               checkpoint_keep=args.checkpoint_keep,
                # Text→connectome stimulation (symbol→group)
-               stim_group_size=getattr(args, 'stim_group_size', 4),
-               stim_amp=getattr(args, 'stim_amp', 0.05),
-               stim_decay=getattr(args, 'stim_decay', 0.90),
-               stim_max_symbols=getattr(args, 'stim_max_symbols', 64),
+               stim_group_size=args.stim_group_size,
+               stim_amp=args.stim_amp,
+               stim_decay=args.stim_decay,
+               stim_max_symbols=args.stim_max_symbols,
                # Self-speak / topology spike detection
-               speak_auto=getattr(args, 'speak_auto', True),
-               speak_z=getattr(args, 'speak_z', 1.0),
-               speak_hysteresis=getattr(args, 'speak_hysteresis', 1.0),
-               speak_cooldown_ticks=getattr(args, 'speak_cooldown_ticks', 10),
-               speak_valence_thresh=getattr(args, 'speak_valence_thresh', 0.01),
-               b1_half_life_ticks=getattr(args, 'b1_half_life_ticks', 50),
+               speak_auto=args.speak_auto,
+               speak_z=args.speak_z,
+               speak_hysteresis=args.speak_hysteresis,
+               speak_cooldown_ticks=args.speak_cooldown_ticks,
+               speak_valence_thresh=args.speak_valence_thresh,
+               b1_half_life_ticks=args.b1_half_life_ticks,
+               # Announcement bus / ADC tuning
+               bus_capacity=args.bus_capacity,
+               bus_drain=args.bus_drain,
+               r_attach=args.r_attach,
+               ttl_init=args.ttl_init,
+               split_patience=args.split_patience,
                # Engram loader (forward normalized path into Nexus)
                load_engram_path=load_path,
                # Optional embedded control server (default off)
-               start_control_server=getattr(args, 'control_server', False))
+               start_control_server=args.control_server)
     nx.run(duration_s=args.duration)
 
 if __name__ == '__main__':

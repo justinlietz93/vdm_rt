@@ -1,0 +1,4 @@
+# Embedded control-plane defaults.
+
+[control]
+server_enabled = false

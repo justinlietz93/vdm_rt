@@ -23,6 +23,7 @@ Separation policy:
 
 from typing import Any, Dict, Optional, Tuple
 
+from vdm_rt.config import config_int
 from vdm_rt.core.metrics import compute_metrics
 from vdm_rt.core.memory import (
     load_engram as _load_engram_state,
@@ -288,13 +289,13 @@ class CoreEngine:
         # Cold-map reducer
         if getattr(self, "_cold_map", None) is None:
             try:
-                ck = int(getattr(self._nx, "cold_head_k", 256))
+                ck = int(getattr(self._nx, "cold_head_k", config_int("maps.head_k", 256)))
             except Exception:
-                ck = 256
+                ck = config_int("maps.head_k", 256)
             try:
-                hl = int(getattr(self._nx, "cold_half_life_ticks", 200))
+                hl = int(getattr(self._nx, "cold_half_life_ticks", config_int("maps.half_life_ticks", 200)))
             except Exception:
-                hl = 200
+                hl = config_int("maps.half_life_ticks", 200)
             try:
                 seed = int(getattr(self._nx, "seed", 0))
             except Exception:
@@ -307,13 +308,17 @@ class CoreEngine:
                 self._cold_map = None
         # Heat/Excitation/Inhibition reducers (mirror cold-map settings; telemetry-only)
         try:
-            hk = int(getattr(self._nx, "cold_head_k", 256))
+            hk = int(getattr(self._nx, "cold_head_k", config_int("maps.head_k", 256)))
         except Exception:
-            hk = 256
+            hk = config_int("maps.head_k", 256)
         try:
-            hl2 = int(getattr(self._nx, "cold_half_life_ticks", 200))
+            hl2 = int(getattr(self._nx, "cold_half_life_ticks", config_int("maps.half_life_ticks", 200)))
         except Exception:
-            hl2 = 200
+            hl2 = config_int("maps.half_life_ticks", 200)
+        try:
+            trail_hl = int(getattr(self._nx, "trail_half_life_ticks", config_int("maps.trail_half_life_ticks", max(1, hl2 // 4))))
+        except Exception:
+            trail_hl = config_int("maps.trail_half_life_ticks", max(1, hl2 // 4))
         try:
             seed = int(getattr(self._nx, "seed", 0))
         except Exception:
@@ -358,7 +363,7 @@ class CoreEngine:
             try:
                 self._trail_map = _TrailMap(
                     head_k=max(8, hk),
-                    half_life_ticks=max(1, int(max(1, hl2 // 4))),
+                    half_life_ticks=max(1, trail_hl),
                     keep_max=None,
                     seed=seed + 5,
                 )

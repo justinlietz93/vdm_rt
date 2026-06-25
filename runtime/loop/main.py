@@ -604,9 +604,9 @@ def run_loop(nx: Any, t0: float, step: int, duration_s: Optional[int] = None) ->
                             except Exception:
                                 seed_m = 0
                             try:
-                                hk = int(getattr(nx, "cold_head_k", 256))
+                                hk = int(getattr(nx, "cold_head_k", config_int("maps.head_k", 256)))
                             except Exception:
-                                hk = 256
+                                hk = config_int("maps.head_k", 256)
                             try:
                                 eng._memory_field = MemoryField(head_k=max(8, hk), seed=seed_m)
                                 # Attach to connectome for local, O(1) reads via getters
@@ -623,9 +623,9 @@ def run_loop(nx: Any, t0: float, step: int, duration_s: Optional[int] = None) ->
                         # View adapter (bounded head/dict for scouts/UI)
                         if getattr(eng, "_memory_map", None) is None:
                             try:
-                                hk = int(getattr(nx, "cold_head_k", 256))
+                                hk = int(getattr(nx, "cold_head_k", config_int("maps.head_k", 256)))
                             except Exception:
-                                hk = 256
+                                hk = config_int("maps.head_k", 256)
                             eng._memory_map = MemoryMap(field=getattr(eng, "_memory_field", None), head_k=max(8, hk))
                             try:
                                 C = getattr(nx, "connectome", None)
@@ -637,14 +637,18 @@ def run_loop(nx: Any, t0: float, step: int, duration_s: Optional[int] = None) ->
                         # Trail map (short half-life, repulsion)
                         if getattr(eng, "_trail_map", None) is None:
                             try:
-                                hk = int(getattr(nx, "cold_head_k", 256))
+                                hk = int(getattr(nx, "cold_head_k", config_int("maps.head_k", 256)))
                             except Exception:
-                                hk = 256
+                                hk = config_int("maps.head_k", 256)
                             try:
-                                hl2 = int(getattr(nx, "cold_half_life_ticks", 200))
+                                hl2 = int(getattr(nx, "cold_half_life_ticks", config_int("maps.half_life_ticks", 200)))
                             except Exception:
-                                hl2 = 200
-                            eng._trail_map = TrailMap(head_k=max(8, hk), half_life_ticks=max(1, int(max(1, hl2 // 4))), seed=int(getattr(nx, "seed", 0)) + 5)
+                                hl2 = config_int("maps.half_life_ticks", 200)
+                            try:
+                                trail_hl = int(getattr(nx, "trail_half_life_ticks", config_int("maps.trail_half_life_ticks", max(1, hl2 // 4))))
+                            except Exception:
+                                trail_hl = config_int("maps.trail_half_life_ticks", max(1, hl2 // 4))
+                            eng._trail_map = TrailMap(head_k=max(8, hk), half_life_ticks=max(1, trail_hl), seed=int(getattr(nx, "seed", 0)) + 5)
                         # Fold current events into memory/trail (bounded; no scans)
                         try:
                             # Prefer owner field for folding; MemoryMap remains a delegating view

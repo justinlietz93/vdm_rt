@@ -16,7 +16,7 @@ import time, os, sys
 # - No functional changes: IDF remains composer/telemetry-only; SIE/ADC/connectome unaffected.
 # - Event-driven metrics and void cold scouts are controlled by config/*.toml.
 from collections import deque
-from .config import config_bool, config_get
+from .config import config_bool, config_float, config_int, config_str
 from .utils.logging_setup import get_logger
 from .io.ute import UTE
 from .io.utd import UTD
@@ -47,32 +47,91 @@ try:
     from .core.control_server import ControlServer  # optional UI
 except Exception:
     ControlServer = None
+
+
+def _cfg_int(value, key: str, default: int) -> int:
+    return config_int(key, default) if value is None else int(value)
+
+
+def _cfg_float(value, key: str, default: float) -> float:
+    return config_float(key, default) if value is None else float(value)
+
+
+def _cfg_bool(value, key: str, default: bool) -> bool:
+    return config_bool(key, default) if value is None else bool(value)
+
+
+def _cfg_str(value, key: str, default: str) -> str:
+    return config_str(key, default) if value is None else str(value)
+
+
+def _cfg_optional_str(value, key: str) -> str | None:
+    if value is not None:
+        return str(value)
+    configured = config_str(key, "").strip()
+    return configured or None
+
+
 class Nexus:
-    def __init__(self, run_dir: str, N:int=1000, k:int=12, hz:int=10,
-                 domain:str='biology_consciousness', use_time_dynamics:bool=True,
-                 log_every:int=1, checkpoint_every:int=0, seed:int=0,
-                 threshold:float=0.15, lambda_omega:float=0.1,
-                 candidates:int=64, walkers:int=256, hops:int=3, status_interval:int=1,
-                 bundle_size:int=3, prune_factor:float=0.10,
-                 speak_auto:bool=True, speak_z:float=1.0, speak_hysteresis:float=1.0,
-                 speak_cooldown_ticks:int=10, speak_valence_thresh:float=0.01,
-                 b1_half_life_ticks:int=50,
-                 bus_capacity:int=65536, bus_drain:int=2048,
-                 r_attach:float=0.25, ttl_init:int=120, split_patience:int=6,
-                 stim_group_size:int=4, stim_amp:float=0.05, stim_decay:float=0.90, stim_max_symbols:int=64,
-                 checkpoint_format:str="h5", checkpoint_keep:int=5, load_engram_path:str=None,
-                 start_control_server:bool=False, emergent_macros:bool=False):
+    def __init__(self, run_dir: str, N: int | None = None, k: int | None = None, hz: int | None = None,
+                 domain: str | None = None, use_time_dynamics: bool | None = None,
+                 log_every: int | None = None, checkpoint_every: int | None = None, seed: int | None = None,
+                 threshold: float | None = None, lambda_omega: float | None = None,
+                 candidates: int | None = None, walkers: int | None = None, hops: int | None = None,
+                 status_interval: int | None = None, bundle_size: int | None = None,
+                 prune_factor: float | None = None, speak_auto: bool | None = None,
+                 speak_z: float | None = None, speak_hysteresis: float | None = None,
+                 speak_cooldown_ticks: int | None = None, speak_valence_thresh: float | None = None,
+                 b1_half_life_ticks: int | None = None, bus_capacity: int | None = None,
+                 bus_drain: int | None = None, r_attach: float | None = None,
+                 ttl_init: int | None = None, split_patience: int | None = None,
+                 stim_group_size: int | None = None, stim_amp: float | None = None,
+                 stim_decay: float | None = None, stim_max_symbols: int | None = None,
+                 checkpoint_format: str | None = None, checkpoint_keep: int | None = None,
+                 load_engram_path: str | None = None, start_control_server: bool | None = None,
+                 emergent_macros: bool | None = None):
         self.run_dir = run_dir
-        self.N = N
-        self.k = k
-        self.hz = hz
-        self.dt = 1.0 / max(1, hz)
-        self.domain = domain
-        self.use_time_dynamics = use_time_dynamics
-        self.log_every = log_every
-        self.checkpoint_every = checkpoint_every
-        self.seed = seed
-        self.emergent_macros = bool(emergent_macros)
+        self.N = _cfg_int(N, "launch.neurons", 1000)
+        self.k = _cfg_int(k, "launch.k", 12)
+        self.hz = _cfg_int(hz, "launch.hz", 10)
+        self.dt = 1.0 / max(1, self.hz)
+        self.domain = _cfg_str(domain, "launch.domain", "biology_consciousness")
+        self.use_time_dynamics = _cfg_bool(use_time_dynamics, "launch.use_time_dynamics", True)
+        self.log_every = _cfg_int(log_every, "launch.log_every", 1)
+        self.checkpoint_every = _cfg_int(checkpoint_every, "persistence.checkpoint_every", 0)
+        self.seed = _cfg_int(seed, "launch.seed", 0)
+        self.emergent_macros = _cfg_bool(emergent_macros, "runtime.emergent_macros", False)
+        threshold = _cfg_float(threshold, "sparse_connectome.threshold", 0.15)
+        lambda_omega = _cfg_float(lambda_omega, "sparse_connectome.lambda_omega", 0.1)
+        candidates = _cfg_int(candidates, "sparse_connectome.candidates", 64)
+        walkers = _cfg_int(walkers, "sparse_connectome.traversal_walkers", 256)
+        hops = _cfg_int(hops, "sparse_connectome.traversal_hops", 3)
+        status_interval = _cfg_int(status_interval, "launch.status_interval", 1)
+        bundle_size = _cfg_int(bundle_size, "sparse_connectome.bundle_size", 3)
+        prune_factor = _cfg_float(prune_factor, "sparse_connectome.prune_factor", 0.10)
+        speak_auto = _cfg_bool(speak_auto, "speech.auto", True)
+        speak_z = _cfg_float(speak_z, "speech.z", 1.0)
+        speak_hysteresis = _cfg_float(speak_hysteresis, "speech.hysteresis", 1.0)
+        speak_cooldown_ticks = _cfg_int(speak_cooldown_ticks, "speech.cooldown_ticks", 10)
+        speak_valence_thresh = _cfg_float(speak_valence_thresh, "speech.valence_threshold", 0.01)
+        b1_half_life_ticks = _cfg_int(b1_half_life_ticks, "speech.b1.half_life_ticks", 50)
+        bus_capacity = _cfg_int(bus_capacity, "bus.capacity", 65536)
+        bus_drain = _cfg_int(bus_drain, "bus.drain", 2048)
+        r_attach = _cfg_float(r_attach, "adc.r_attach", 0.25)
+        ttl_init = _cfg_int(ttl_init, "adc.ttl_init", 120)
+        split_patience = _cfg_int(split_patience, "adc.split_patience", 6)
+        stim_group_size = _cfg_int(stim_group_size, "stimulus.group_size", 4)
+        stim_amp = _cfg_float(stim_amp, "stimulus.amp", 0.05)
+        stim_decay = _cfg_float(stim_decay, "stimulus.decay", 0.90)
+        stim_max_symbols = _cfg_int(stim_max_symbols, "stimulus.max_symbols", 64)
+        checkpoint_format = _cfg_str(checkpoint_format, "persistence.checkpoint_format", "h5")
+        checkpoint_keep = _cfg_int(checkpoint_keep, "persistence.checkpoint_keep", 5)
+        load_engram_path = _cfg_optional_str(load_engram_path, "persistence.load_engram")
+        start_control_server = _cfg_bool(start_control_server, "control.server_enabled", False)
+        self.cold_head_k = config_int("maps.head_k", 256)
+        self.cold_half_life_ticks = config_int("maps.half_life_ticks", 200)
+        self.trail_half_life_ticks = config_int("maps.trail_half_life_ticks", 50)
+        self.sie_target_var = config_float("sie.target_var", 0.15)
 
         os.makedirs(self.run_dir, exist_ok=True)
         self.logger = get_logger("nexus", os.path.join(self.run_dir, "events.jsonl"))
@@ -153,20 +212,8 @@ class Nexus:
         # Self-speak configuration and topology spike detector (tick-based)
         self.speak_auto = bool(speak_auto)
         self.speak_valence_thresh = float(speak_valence_thresh)
-        # Persist half-life for void_b1 meter to keep UX consistent with detector
-        # Optional config overrides reduce inertia without changing CLI args.
-        _b1_hl_cfg = config_get("runtime.b1.half_life_ticks", None)
-        if _b1_hl_cfg is not None:
-            try:
-                b1_half_life_ticks = int(_b1_hl_cfg)
-            except Exception:
-                pass
-        _b1_hys_cfg = config_get("runtime.b1.hysteresis", None)
-        if _b1_hys_cfg is not None:
-            try:
-                speak_hysteresis = float(_b1_hys_cfg)
-            except Exception:
-                pass
+        # Persist half-life for void_b1 meter to keep UX consistent with detector.
+        # CLI defaults come from config; explicit caller arguments win here.
         self.b1_half_life_ticks = int(max(1, b1_half_life_ticks))
         self.b1_detector = StreamingZEMA(
             half_life_ticks=self.b1_half_life_ticks,

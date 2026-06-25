@@ -1,0 +1,19 @@
+# Command-line launch defaults. Explicit CLI arguments override these values.
+
+[launch]
+neurons = 1000
+k = 12
+hz = 10
+domain = "biology_consciousness"
+use_time_dynamics = true
+seed = 0
+
+# Zero means run until externally stopped or until the caller supplies --duration.
+duration_seconds = 0
+
+# Empty run_dir creates a timestamped directory under runs/.
+run_dir = ""
+
+# Per-tick status/log cadence used by the Nexus host.
+log_every = 1
+status_interval = 1

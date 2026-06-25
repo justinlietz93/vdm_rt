@@ -1,6 +1,15 @@
 # Sparse connectome maintenance.
 
 [sparse_connectome]
+# Constructor defaults used when launching through the CLI.
+threshold = 0.15
+lambda_omega = 0.1
+candidates = 64
+traversal_walkers = 256
+traversal_hops = 3
+bundle_size = 3
+prune_factor = 0.10
+
 # Max symmetric bridge proposals per sparse maintenance pass.
 bridge_budget = 24
 

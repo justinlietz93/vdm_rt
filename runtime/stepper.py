@@ -18,6 +18,7 @@ Behavior:
 
 from typing import Any, Dict, Tuple
 
+from vdm_rt.config import config_float
 from vdm_rt.core.metrics import compute_metrics
 from vdm_rt.core.signals import (
     compute_active_edge_density as _comp_density,
@@ -64,7 +65,7 @@ def compute_step_and_metrics(nx: Any, t: float, step: int, idf_scale: float = 1.
             external_signal=float(td_signal),
             time_step=int(step),
             firing_var=firing_var,
-            target_var=0.15,
+            target_var=float(getattr(nx, "sie_target_var", config_float("sie.target_var", 0.15))),
             density_override=density,
             novelty_idf_scale=float(idf_scale),
         )

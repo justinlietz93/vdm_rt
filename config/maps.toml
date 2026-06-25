@@ -1,0 +1,6 @@
+# Event map and memory/trail view defaults.
+
+[maps]
+head_k = 256
+half_life_ticks = 200
+trail_half_life_ticks = 50

@@ -72,15 +72,17 @@ class ProcessManager:
                 return
             cmd.extend([flag, cast(val)])
 
+        def add_bool(pos_flag: str, neg_flag: str, key: str):
+            if key not in profile or profile.get(key) is None:
+                return
+            cmd.append(pos_flag if bool(profile.get(key)) else neg_flag)
+
         # basic
         add("--neurons", profile.get("neurons"), str)
         add("--k", profile.get("k"), str)
         add("--hz", profile.get("hz"), str)
         add("--domain", profile.get("domain"), str)
-        if profile.get("use_time_dynamics", True):
-            cmd.append("--use-time-dynamics")
-        else:
-            cmd.append("--no-time-dynamics")
+        add_bool("--use-time-dynamics", "--no-time-dynamics", "use_time_dynamics")
         # structure
         add("--threshold", profile.get("threshold"), str)
         add("--lambda-omega", profile.get("lambda_omega"), str)
@@ -96,10 +98,7 @@ class ProcessManager:
         add("--stim-decay", profile.get("stim_decay"), str)
         add("--stim-max-symbols", profile.get("stim_max_symbols"), str)
         # speak
-        if profile.get("speak_auto", True):
-            cmd.append("--speak-auto")
-        else:
-            cmd.append("--no-speak-auto")
+        add_bool("--speak-auto", "--no-speak-auto", "speak_auto")
         add("--speak-z", profile.get("speak_z"), str)
         add("--speak-hysteresis", profile.get("speak_hysteresis"), str)
         add("--speak-cooldown-ticks", profile.get("speak_cooldown_ticks"), str)
@@ -110,7 +109,9 @@ class ProcessManager:
         # checkpoints
         add("--checkpoint-every", profile.get("checkpoint_every"), str)
         add("--checkpoint-keep", profile.get("checkpoint_keep"), str)
+        add("--checkpoint-format", profile.get("checkpoint_format"), str)
         add("--duration", profile.get("duration"), str)
+        add_bool("--control-server", "--no-control-server", "control_server")
         # explicit run dir (resume)
         add("--run-dir", profile.get("run_dir"), str)
         # optional: load existing engram (folder or file path; runtime normalizes)
