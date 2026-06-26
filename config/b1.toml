@@ -1,4 +1,5 @@
-# B1 topology meter defaults.
+# Reserved B1 topology-meter defaults. These take effect only when VoidB1Meter
+# is wired as a runtime producer.
 
 [b1]
 sample_edges = 4096

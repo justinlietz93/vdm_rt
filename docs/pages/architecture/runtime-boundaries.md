@@ -43,18 +43,30 @@ old no-op viz flags
 
 ## Preserved unobvious systems
 
-The repo intentionally retains multiple SIE/substrate-adjacent systems because they have different roles:
+The following systems have current runtime execution:
 
 - `core/sie.py`
 - `core/sie_v2.py`
-- `core/growth_arbiter.py`
-- `core/structural_homeostasis.py`
-- `core/substrate/`
-- `core/neuroplasticity/`
 - `core/cortex/void_walkers/`
 - `core/cortex/maps/`
 
-Do not delete a module only because it looks orphaned in a static graph. The runtime has feature-gated seams, reference implementations, and domain-specific variants that may not show as direct imports in a short run.
+`SparseConnectome` is the sole live runtime substrate. The old
+`core/substrate/` package is a dense/Torch source under active archival review;
+it is not a second runtime substrate. Its dynamic-population requirements are
+preserved for the sparse-neurogenesis port, not by retaining its implementation.
+
+`core/growth_arbiter.py`, `core/structural_homeostasis.py`, `core/void_b1.py`,
+and the optional GDSP/REVGSP adapters are retained as capability sources, not
+attested as active default-runtime behavior. Their exact status and required
+ports are in `docs/contracts/runtime-capability-coverage.yml`.
+
+Do not delete a module only because it appears orphaned in a static graph.
+Record the static evidence, identify the capability owner, and classify the
+source as `keep`, `port`, `archive`, or `delete` first. Static disconnection
+does not authorize deletion: every carried goal must also be classified as
+covered, partial, unwired, unmet, or intentionally retired. The current
+classification is `docs/contracts/runtime-cleanup-classification.yml`; the
+coverage contract is `docs/contracts/runtime-capability-coverage.yml`.
 
 ## Future boundary checks
 

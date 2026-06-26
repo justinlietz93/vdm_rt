@@ -1,0 +1,239 @@
+version: 1
+status: capability-closure-required
+updated: 2026-06-26
+scope: >
+  Phase 0 classification of suspicious runtime surfaces in the independent
+  vdm_rt reboot. This contract records the current disposition of code and
+  capabilities; it does not itself move or delete source. Capability coverage
+  is defined separately in runtime-capability-coverage.yml.
+
+classification_values:
+  keep: Live runtime code or an explicitly retained runtime boundary.
+  port: A capability that remains required, but must be rederived in the live
+    sparse/event-fed runtime rather than retaining its old implementation.
+  archive: Source material that is not live runtime code and must leave the
+    importable runtime tree before the cleanup phase closes.
+  delete: A removed or forbidden runtime surface that must not reappear.
+
+runtime_identity:
+  live_substrate:
+    path: core/sparse_connectome.py
+    symbol: SparseConnectome
+  retained_runtime_systems:
+    - core/adc.py
+    - core/sie.py
+    - core/sie_v2.py
+  - core/cortex/void_walkers/
+  - core/cortex/maps/
+    - core/bus.py
+    - runtime/
+    - io/
+    - control/
+  forbidden_runtime_concepts:
+    - dense substrate backend
+    - torch or GPU runtime backend
+    - frontend runtime owner
+    - visualization or WebSocket map-stream runtime path
+
+entries:
+  - path: core/sparse_connectome.py
+    class: keep
+    state: live
+    role: The sparse runtime substrate.
+    evidence:
+      - nexus.py constructs SparseConnectome for the runtime.
+      - tests/core/test_active_graph_regression.py imports SparseConnectome.
+    follow_up: Preserve as the sole runtime substrate; do not reintroduce dense selection.
+
+  - path: core/adc.py
+    class: keep
+    state: live
+    role: Current Active Domain Cartography implementation.
+    evidence:
+      - core/memory/engram_io.py restores ADC state through this module.
+      - runtime cleanup and territory roadmaps name ADC as a retained runtime system.
+
+  - path: core/sie.py
+    class: keep
+    state: live
+    role: Runtime Self-Improvement Engine.
+    evidence:
+      - nexus.py imports and constructs SelfImprovementEngine.
+    follow_up: Keep its runtime role distinct from the archived global_system SIE variant.
+
+  - path: core/sie_v2.py
+    class: keep
+    state: live
+    role: Intrinsic connectome SIE state and step rule.
+    evidence:
+      - core/sparse_connectome.py lazily constructs SIECfg and SIEState and invokes sie_step.
+
+  - path: core/cortex/void_walkers/
+    class: keep
+    state: live
+    role: Void-native bounded scout producers.
+    evidence:
+      - runtime/loop/main.py imports and instantiates scout implementations.
+      - core/engine/core_engine.py imports the cold scout implementation.
+
+  - path: core/cortex/maps/
+    class: keep
+    state: live
+    role: Runtime map reducers and bounded map-head sources.
+    evidence:
+      - runtime cleanup policy retains maps as a core runtime system.
+    follow_up: Protect with an importability guard before moving other code.
+
+  - path: core/neuroplasticity/
+    class: keep
+    state: capability-closure-required
+    role: Optional REVGSP and GDSP source pending a SparseConnectome-native adapter contract.
+    evidence:
+      - runtime/loop/main.py exposes optional adapter paths, but the default SparseConnectome does not satisfy their required substrate state.
+    follow_up: See structural_plasticity_adapters in runtime-capability-coverage.yml before calling this live runtime behavior.
+
+  - path: core/growth_arbiter.py
+    class: port
+    state: unwired
+    role: Growth and cull decision source without a population-change executor.
+    evidence:
+      - No static runtime import was found.
+      - SparseConnectome has no node append or retirement operation.
+    follow_up: Retain as a source for the sparse_population_change port, not as a live owner.
+
+  - path: core/structural_homeostasis.py
+    class: port
+    state: unwired_and_incompatible
+    role: Intermediate structural repair implementation for the retired dense A/E interface.
+    evidence:
+      - No static runtime import was found.
+      - SparseConnectome carries W and adjacency lists, not dense A/E matrices.
+    follow_up: Keep sparse pruning/bridging obligations, not this interface.
+
+  - path: core/void_b1.py
+    class: keep
+    state: unwired
+    role: Sparse-capable topology packet producer.
+    evidence:
+      - No static runtime import was found.
+      - The default runtime uses StreamingZEMA over complexity_cycles instead.
+    follow_up: Resolve B1 ownership before removing its source or presenting config/b1.toml as active runtime control.
+
+  - path: core/diagnostics.py
+    class: port
+    state: dense_interface_only
+    role: Physics diagnostic source requiring a sparse readout decision.
+    evidence:
+      - No static runtime or test import was found.
+      - The current entrypoints require dense A and optionally E.
+    follow_up: Classify as external diagnostics or port its readout surface to SparseConnectome.
+
+  - path: core/cortex/void_walkers/frontier_scout.py
+    class: delete
+    state: compatibility_decision_required
+    role: Naming-only FrontierScout shim.
+    evidence:
+      - No static runtime import was found.
+      - The runtime imports void_frontier_scout.FrontierScout directly.
+
+  - path: core/substrate/substrate.py
+    class: archive
+    state: blocked_by_capability_closure
+    role: Legacy dense substrate with optional Torch/GPU backend.
+    evidence:
+      - Direct torch imports and a dense weight matrix are present in the source.
+      - No direct or dynamic import reference was found outside core/substrate/.
+    destination: docs/sources/legacy-substrate-neurogenesis/
+    follow_up: Do not move until node_field_and_spike_dynamics, intrinsic_plasticity, and synaptic_scaling have explicit decisions.
+
+  - path: core/substrate/neurogenesis.py
+    class: archive
+    state: blocked_by_capability_closure
+    role: Legacy dense neuron-growth executor.
+    evidence:
+      - Imports torch and allocates a new N x N weight matrix during growth.
+      - No direct or dynamic import reference was found outside core/substrate/.
+    destination: docs/sources/legacy-substrate-neurogenesis/
+    follow_up: Do not move until sparse_population_change has a named implementation owner and acceptance gate.
+
+  - path: core/substrate/growth_arbiter.py
+    class: archive
+    state: blocked_by_capability_closure
+    role: Legacy stability and debt-based growth decision source.
+    evidence:
+      - No direct or dynamic import reference was found outside core/substrate/.
+    destination: docs/sources/legacy-substrate-neurogenesis/
+    follow_up: Archive source; do not treat its thresholds or metric names as live policy.
+
+  - path: core/substrate/structural_homeostasis.py
+    class: archive
+    state: blocked_by_capability_closure
+    role: Legacy pruning and bridge-growth source.
+    evidence:
+      - No direct or dynamic import reference was found outside core/substrate/.
+    destination: docs/sources/legacy-substrate-neurogenesis/
+    follow_up: Archive source; preserve pruning and bridge-repair obligations as ports.
+
+  - path: capability:sparse_neurogenesis
+    class: port
+    state: planned
+    source_paths:
+      - core/substrate/neurogenesis.py
+      - core/substrate/growth_arbiter.py
+      - core/substrate/structural_homeostasis.py
+    target: core/neurogenesis/
+    required_invariants:
+      - Bounded dynamic population growth and culling.
+      - Pressure, stability, and growth-debt based admission.
+      - Sparse node and edge changes without dense N x N allocation.
+      - Territory-safe seeding, pruning, and bridge repair.
+      - Lifecycle events visible to the runtime event spine.
+    roadmap: docs/roadmap/sparse-neurogenesis/TODO.md
+
+  - path: core/global_system.py
+    class: archive
+    state: blocked_by_capability_closure
+    role: Uncalled legacy ADC/SIE variant.
+    evidence:
+      - No direct or dynamic import reference was found outside this file.
+      - It contains a scheduled one-dimensional k-means ADC and a second SIE implementation.
+      - Live runtime roles are separately carried by core/adc.py, core/sie.py, and core/sie_v2.py.
+    destination: docs/archive/runtime-reference/
+    follow_up: Complete capability coverage for cartography and territory-conditioned valence before archival; do not port its scheduler or k-means mechanics by default.
+
+  - path: frontend/
+    class: delete
+    state: absent_and_guarded
+    role: Removed runtime owner.
+    evidence:
+      - tests/guards/test_no_frontend_package.py guards its absence.
+
+  - path: io/visualization/
+    class: delete
+    state: absent_and_guarded
+    role: Removed visualization runtime path.
+    evidence:
+      - tests/guards/test_runtime_engine_prune.py guards this path and related visualization helpers.
+
+  - path: runtime/helpers/maps_ws.py
+    class: delete
+    state: absent_and_guarded
+    role: Removed WebSocket map-stream helper.
+    evidence:
+      - tests/guards/test_runtime_engine_prune.py guards its absence.
+
+review_notes:
+  - path: core/substrate/
+    finding: Static reachability is empty, but prior boundary prose listed the package as retained.
+    resolution: Archival is blocked until each capability has a named sparse-native owner or an explicit intentional-retirement decision.
+    required_before_move:
+      - Archive the source with a capability README.
+      - Add a no-torch live-runtime guard.
+      - Add import checks for retained sparse runtime modules.
+
+  - path: core/global_system.py
+    finding: Static reachability is empty and the file carries its own legacy-classification TODO.
+    resolution: Archive only after a bounded capability comparison with the live ADC/SIE paths.
+    required_before_move:
+      - Record which, if any, law-level invariant lacks a live owner.
+      - Do not retain its scheduler or k-means implementation without a new runtime contract.

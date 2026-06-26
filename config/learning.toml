@@ -1,4 +1,6 @@
-# Optional plasticity/learning adapters.
+# Experimental plasticity adapters. The default SparseConnectome path does not
+# yet satisfy the adapters' required substrate state, so enabled = true is not
+# an operational guarantee until the sparse-native adapter contract lands.
 #
 # These adapters are disabled by default. They must stay explicit because they
 # change runtime behavior beyond telemetry.

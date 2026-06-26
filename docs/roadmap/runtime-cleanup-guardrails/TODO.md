@@ -1,7 +1,7 @@
 # Runtime Cleanup Guardrails TODO
 
 Status: active draft.
-Source report: `reports/20260622/vdm_rt_void_bus_adc_loop_analysis.md`.
+Phase 0 evidence: `docs/roadmap/runtime-cleanup-guardrails/ANALYSIS.md`.
 
 This checklist protects the fresh independent runtime identity. It is allowed to be aggressive because this repo is a reboot extraction, not a compatibility-preserving refactor.
 
@@ -9,18 +9,25 @@ This checklist protects the fresh independent runtime identity. It is allowed to
 
 ### Task 0.1 — Classify every suspicious file
 
-- [ ] Step 0.1.1 — Add `docs/contracts/runtime-cleanup-classification.yml` with `keep`, `port`, `archive`, and `delete` classes.
-- [ ] Step 0.1.2 — Mark active runtime files as `keep`.
-- [ ] Step 0.1.3 — Mark legacy substrate/neurogenesis files as `port` or `archive`, not silent delete.
-- [ ] Step 0.1.4 — Mark frontend, visualization, generated outputs, and stale analysis bundles as `delete`.
-- [ ] Step 0.1.5 — Add a review note for any file whose static import status conflicts with known runtime intent.
+- [x] Step 0.1.1 — Add `docs/contracts/runtime-cleanup-classification.yml` with `keep`, `port`, `archive`, and `delete` classes.
+- [x] Step 0.1.2 — Mark active runtime files as `keep`.
+- [x] Step 0.1.3 — Mark legacy substrate/neurogenesis files as `port` or `archive`, not silent delete.
+- [x] Step 0.1.4 — Mark frontend, visualization, generated outputs, and stale analysis bundles as `delete`.
+- [x] Step 0.1.5 — Add a review note for any file whose static import status conflicts with known runtime intent.
 
 ### Task 0.2 — Freeze allowed runtime identity
 
-- [ ] Step 0.2.1 — Add policy that `SparseConnectome` is the live runtime substrate.
-- [ ] Step 0.2.2 — Add policy that void walkers and void maps are core runtime systems.
-- [ ] Step 0.2.3 — Add policy that ADC, SIE, GDSP/REVGSP, bus/event spine, and headless runtime must remain live concepts.
-- [ ] Step 0.2.4 — Add policy that old frontend, visualization adapters, WebSocket map streaming, torch, and dense substrate backends are not live runtime concepts.
+- [x] Step 0.2.1 — Add policy that `SparseConnectome` is the live runtime substrate.
+- [x] Step 0.2.2 — Add policy that void walkers and void maps are core runtime systems.
+- [x] Step 0.2.3 — Add policy that ADC, SIE, GDSP/REVGSP, bus/event spine, and headless runtime must remain live concepts.
+- [x] Step 0.2.4 — Add policy that old frontend, visualization adapters, WebSocket map streaming, torch, and dense substrate backends are not live runtime concepts.
+
+### Task 0.3 — Prove Capability Ownership Before Removal
+
+- [x] Step 0.3.1 — Add a capability-coverage contract for every current archive or port candidate.
+- [x] Step 0.3.2 — Record each goal as covered, partial, unwired, unmet, diagnostic-only, or intentionally retired.
+- [ ] Step 0.3.3 — Add a guard that prevents archival moves while capability coverage is unresolved.
+- [ ] Step 0.3.4 — Assign an implementation owner and acceptance gate for every `unwired` or `unmet` runtime goal.
 
 ## Phase 1 — Add Hard Guard Tests
 
@@ -51,7 +58,7 @@ This checklist protects the fresh independent runtime identity. It is allowed to
 
 ### Task 2.1 — Move legacy substrate material out of live runtime
 
-- [ ] Step 2.1.1 — Create `docs/sources/legacy-substrate-neurogenesis/`.
+- [ ] Step 2.1.1 — Create `docs/sources/legacy-substrate-neurogenesis/` only after Task 0.3 closes the carried capability obligations.
 - [ ] Step 2.1.2 — Move or copy old dense substrate files there as source material.
 - [ ] Step 2.1.3 — Remove the old files from live importable runtime paths.
 - [ ] Step 2.1.4 — Add `README.md` explaining that the old code is design source for sparse neurogenesis, not live runtime code.

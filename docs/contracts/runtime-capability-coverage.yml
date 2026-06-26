@@ -1,0 +1,192 @@
+version: 1
+status: active
+updated: 2026-06-26
+scope: >
+  Capability-level coverage for runtime-cleanup candidates. Static import
+  reachability is evidence about execution, not proof that an older module's
+  goal is obsolete.
+
+coverage_values:
+  covered: A compatible runtime path exists and is exercised by the default Nexus path.
+  partial: A live path carries a narrower form of the goal, but named parts remain absent.
+  unwired: Compatible-looking code exists but the runtime does not call it.
+  unmet: The default sparse runtime has no compatible implementation.
+  intentionally_retired: The old mechanism is not a permissible runtime path.
+  diagnostic_only: The source is not a runtime owner; its diagnostic goal needs a separate sparse readout decision.
+
+archival_gate:
+  rule: >
+    A source file may leave the importable runtime tree only after every
+    capability it carries is either covered, intentionally_retired, or recorded
+    as a named port with an implementation owner and acceptance gate.
+  prohibited_inference: Static disconnection alone does not authorize deletion.
+
+capabilities:
+  - id: sparse_population_change
+    source_paths:
+      - core/substrate/neurogenesis.py
+      - core/substrate/growth_arbiter.py
+      - core/growth_arbiter.py
+      - core/sie.py
+    goal: >
+      Bounded node growth and culling, with cross-system state resizing and
+      pressure/stability admission.
+    coverage: unmet
+    evidence:
+      - SparseConnectome fixes N and allocates W, stimulation, adjacency, and DSU state at construction.
+      - No append, retirement, culling, or resize path is called by the runtime.
+      - SelfImprovementEngine.resize_buffers exists but has no caller.
+      - Both growth-arbiter implementations have no static runtime import.
+    required_port:
+      - core/neurogenesis/population_policy.py
+      - SparseConnectome-safe growth and retirement executors.
+      - Resizing or retirement rules for SIE, territories, memory, maps, and traversal state.
+      - Lifecycle events and min/max population tests.
+    roadmap: docs/roadmap/sparse-neurogenesis/TODO.md
+
+  - id: node_field_and_spike_dynamics
+    source_paths:
+      - core/substrate/substrate.py
+    goal: >
+      Per-node membrane state, refractory state, spike history, and discrete
+      integration of external and synaptic drive.
+    coverage: unmet
+    evidence:
+      - SparseConnectome has a scalar node field W and adjacency, but no v_m, v_thresh, tau_m, refractory_time, spikes, or spike_times state.
+      - The current firing_var signal is variance(W), not variance of observed firing events.
+    required_decision: >
+      Declare whether these dynamics are a required VDM-native sparse capability
+      or intentionally outside the reboot runtime. Do not archive the source as
+      obsolete before that decision.
+
+  - id: intrinsic_plasticity
+    source_paths:
+      - core/substrate/substrate.py
+    goal: >
+      Adapt node-intrinsic parameters from recent activity while preserving
+      bounded operating ranges.
+    coverage: unmet
+    evidence:
+      - apply_intrinsic_plasticity has no static runtime caller.
+      - The sparse runtime has no corresponding intrinsic node-parameter state.
+    required_decision: Sparse-native operator or an explicit intentional-retirement record.
+
+  - id: synaptic_scaling
+    source_paths:
+      - core/substrate/substrate.py
+    goal: Normalize incoming excitatory support without erasing sparse structure.
+    coverage: unmet
+    evidence:
+      - apply_synaptic_scaling has no static runtime caller.
+      - SparseConnectome prunes and bridges edges but does not implement incoming-support scaling.
+    required_decision: Sparse-native normalization operator or an explicit intentional-retirement record.
+
+  - id: sparse_edge_pruning_and_bridge_repair
+    source_paths:
+      - core/substrate/structural_homeostasis.py
+      - core/structural_homeostasis.py
+      - core/sparse_connectome.py
+    goal: Remove weak edges and repair fragmentation through bounded supported bridges.
+    coverage: partial
+    evidence:
+      - SparseConnectome.step performs adaptive edge pruning and bounded void-affinity bridging on existing nodes.
+      - core/structural_homeostasis.py is unwired and expects the retired dense A/E connectome interface.
+      - The live sparse path has no node-growth or culling component.
+    required_port:
+      - Make sparse repair ownership explicit.
+      - Add evidence that pruning and bridge repair preserve declared topology invariants.
+
+  - id: active_domain_cartography
+    source_paths:
+      - core/global_system.py
+      - core/adc.py
+      - core/proprioception/territory.py
+    goal: Produce meaningful, locally identifiable territories and boundaries from current runtime evidence.
+    coverage: partial
+    evidence:
+      - ADC is folded from drained observations in runtime/telemetry.py.
+      - Current ADC keys territories by domain_hint and coverage_id rather than local node-field cartography.
+      - The sparse traversal currently emits global W mean/variance for region_stat.
+      - boundary_probe and novel_frontier are accepted but not produced by the sparse path.
+    intentionally_retired:
+      - The legacy scheduled one-dimensional k-means mechanism is not a default runtime requirement.
+    required_port:
+      - Local observations, identity hints, boundary/frontier production, and current-tick territory evidence.
+    roadmap: docs/roadmap/adc-territory-richness/TODO.md
+
+  - id: intrinsic_valence
+    source_paths:
+      - core/global_system.py
+      - core/sie.py
+      - core/sie_v2.py
+    goal: Compute a runtime intrinsic valence from TD-like change, novelty, habituation, self-benefit, and stability evidence.
+    coverage: covered
+    evidence:
+      - Nexus constructs SelfImprovementEngine and runtime/stepper.py calls get_drive each tick.
+      - SparseConnectome computes the per-node SIE v2 reward and valence after its field update.
+
+  - id: territory_conditioned_valence
+    source_paths:
+      - core/global_system.py
+      - core/proprioception/territory.py
+      - core/sie.py
+    goal: Maintain value and visitation state by current territory and use it in valence.
+    coverage: unmet
+    evidence:
+      - The legacy SIE keeps V_states and visit_counts keyed by territory.
+      - TerritoryUF is folded after the SIE drive is computed and is not passed into SelfImprovementEngine.
+      - Current SIE keeps a per-node buffer but does not perform territory-conditioned valuation.
+    required_port: Define and test the timing and ownership of territory-conditioned valence.
+    roadmap: docs/roadmap/memory-gdsp-territory/TODO.md
+
+  - id: topology_b1_packet
+    source_paths:
+      - core/void_b1.py
+      - core/metrics.py
+      - core/signals.py
+    goal: >
+      Produce a bounded sparse topology packet including Euler-rank/cycle,
+      triangle, active-node, and smoothed Void B1 evidence.
+    coverage: partial
+    evidence:
+      - The default runtime runs a StreamingZEMA detector over complexity_cycles.
+      - VoidB1Meter is not imported by live code; config/b1.toml currently has no runtime consumer.
+      - The default B1 path does not emit the richer topology packet from VoidB1Meter.
+    required_port:
+      - Decide whether VoidB1Meter is the authoritative B1 producer.
+      - If retained, wire its packet into telemetry and the event spine without duplicate B1 ownership.
+
+  - id: structural_plasticity_adapters
+    source_paths:
+      - core/neuroplasticity/revgsp.py
+      - core/neuroplasticity/gdsp.py
+      - runtime/loop/main.py
+    goal: Apply optional territory-aware, sparse structural plasticity to the default runtime substrate.
+    coverage: unmet
+    evidence:
+      - Both adapters are disabled by default in config/learning.toml.
+      - GDSP is rejected before invocation because SparseConnectome lacks synaptic_weights, persistent_synapses, synapse_pruning_timers, eligibility_traces, and firing_rates.
+      - REV-GSP expects synaptic_weights, eligibility_traces, neuron_polarities, spike_train, and spike_phases that the default Nexus path does not provide.
+    required_port:
+      - Define a SparseConnectome-native adapter contract and signal sources.
+      - Add enabled-path tests that prove a real mutation or remove the exposed activation path.
+
+  - id: physics_diagnostics
+    source_paths:
+      - core/diagnostics.py
+    goal: Derive mass-gap and pulse-speed readouts from runtime graph and activity evidence.
+    coverage: diagnostic_only
+    evidence:
+      - The module has no static runtime or test caller.
+      - Its current interface requires retired dense adjacency A and, optionally, E.
+    required_decision: Sparse readout adapter, external analysis tool, or archival source classification.
+
+  - id: frontier_scout_naming_shim
+    source_paths:
+      - core/cortex/void_walkers/frontier_scout.py
+    goal: Preserve an alias for FrontierScout.
+    coverage: intentionally_retired
+    evidence:
+      - The runtime imports FrontierScout directly from void_frontier_scout.py.
+      - The shim has no static caller and carries no independent runtime behavior.
+    required_action: Delete after an external-import compatibility decision, or retain only as a documented external boundary shim.
