@@ -44,10 +44,10 @@ This checklist is the working implementation tracker. The reader-facing version 
 
 ### Task 1.1 — Audit live output path
 
-- [ ] Step 1.1.1 — Trace `runtime/helpers/speak.py`.
-- [ ] Step 1.1.2 — Trace `io/cognition/`.
-- [ ] Step 1.1.3 — Trace `io/lexicon/`.
-- [ ] Step 1.1.4 — Mark live-prohibited authoring modules.
+- [x] Step 1.1.1 — Trace `runtime/helpers/speak.py`.
+- [x] Step 1.1.2 — Trace `io/cognition/`.
+- [x] Step 1.1.3 — Trace `io/lexicon/`.
+- [x] Step 1.1.4 — Mark live-prohibited authoring modules in `IO_AUDIT.md` and `runtime-cleanup-classification.yml`.
 
 ### Task 1.2 — Add kill-switch tests
 

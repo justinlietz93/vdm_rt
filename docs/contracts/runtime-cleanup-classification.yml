@@ -27,13 +27,16 @@ runtime_identity:
     - core/cortex/maps/
     - core/bus.py
     - runtime/
-    - io/
+    - io/logging/
     - control/
   forbidden_runtime_concepts:
     - dense substrate backend
     - torch or GPU runtime backend
     - frontend runtime owner
     - visualization or WebSocket map-stream runtime path
+    - lexical, Markov, phrase-template, or macro output authorship
+    - input-history-dependent output basis growth
+    - release-time sentence composition
 
 entries:
   - path: core/sparse_connectome.py
@@ -135,6 +138,87 @@ entries:
     evidence:
       - No static runtime import was found.
       - The runtime imports void_frontier_scout.FrontierScout directly.
+
+  - path: io/cognition/composer.py
+    class: delete
+    state: live_prohibited_decoder
+    role: N-gram, phrase-template, and keyword-fallback sentence author.
+    evidence:
+      - runtime/helpers/speak.py imports and invokes compose_say_text.
+      - The source authority forbids lexical, Markov, template, and release-time authorship.
+    follow_up: Remove with the live decoder callers; do not retain a compatibility import.
+
+  - path: io/cognition/speaker.py
+    class: delete
+    state: live_prohibited_decoder
+    role: Lexicon-IDF scoring for authored speech output.
+    evidence:
+      - runtime/helpers/speak.py imports novelty_and_score before emitting a say macro.
+      - Output scoring over authored text is not actuator release.
+    follow_up: Remove with runtime/helpers/speak.py and lexical runtime state.
+
+  - path: io/lexicon/
+    class: delete
+    state: live_prohibited_decoder
+    role: Persistent lexical counts and phrase-template source for output authorship.
+    evidence:
+      - nexus.py loads the phrase bank and lexicon on startup.
+      - runtime/loop/main.py saves lexical state and runtime/helpers/speak.py updates it after output.
+    follow_up: Delete the package and phrase bank after removing all live callers.
+
+  - path: io/actuators/macros.py
+    class: delete
+    state: live_prohibited_decoder
+    role: Macro-shaped text output emitter.
+    evidence:
+      - runtime/emitters.py constructs MacroEmitter.
+      - runtime/helpers/smoke.py produces canned text macros through the emitter.
+    follow_up: Remove with macro board, macro smoke output, and status macro emission.
+
+  - path: io/actuators/thoughts.py
+    class: delete
+    state: diagnostic_scaffold_only
+    role: Optional thought-event writer with no live producer beyond smoke material.
+    evidence:
+      - runtime/helpers/smoke.py is its only static method caller.
+      - The source authority permits provenance logging but does not admit synthetic thought authorship.
+    follow_up: Remove with runtime/emitters.py and thought smoke output.
+
+  - path: io/cognition/stimulus.py
+    class: port
+    state: receptor_contract_violation
+    role: Current text-to-connectome mapping.
+    evidence:
+      - The mapping skips repeated symbols before creating indices.
+      - The source authority requires sequential, repetition-preserving receptor slices.
+    follow_up: Replace with a bounded receptor-slice port; do not preserve the unique-symbol mapping.
+
+  - path: io/ute.py
+    class: port
+    state: receptor_boundary_incomplete
+    role: Current stdin and inbox intake boundary.
+    evidence:
+      - nexus.py constructs UTE and runtime/loop/main.py polls it.
+      - Its synthetic wall-clock ticker and dashboard-inbox model are not the required medium-specific receptor contract.
+    follow_up: Redefine as receptor transduction after decoder removal; retain no synthetic cognitive heartbeat.
+
+  - path: io/utd.py
+    class: port
+    state: actuator_boundary_incomplete
+    role: Current stdout/JSONL output sink with persistent macro board.
+    evidence:
+      - It auto-registers and persists macro names, and receives both input echoes and authored say output.
+      - The source authority requires fixed actuator primitives and actuator events, not a text decoder.
+    follow_up: Remove macro and input-echo behavior, then replace with an actuator-transducer contract.
+
+  - path: io/logging/rolling_jsonl.py
+    class: keep
+    state: external_audit_logging
+    role: Bounded external JSONL and zip-spool logging.
+    evidence:
+      - utils/logging_setup.py uses its logging handler.
+      - It is not imported by core dynamics and does not feed runtime cognition.
+    follow_up: Preserve the external-only boundary; do not use logs as receptor or reafference state.
 
   - path: docs/sources/legacy-substrate-neurogenesis/substrate.py
     former_runtime_path: core/substrate/substrate.py
