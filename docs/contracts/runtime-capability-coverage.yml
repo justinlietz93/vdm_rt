@@ -38,6 +38,13 @@ capabilities:
       Bounded node growth and culling, with cross-system state resizing and
       pressure/stability admission.
     coverage: unmet
+    implementation_priority: deferred
+    defer_reason: >
+      Source preservation and requirement extraction are complete, but live
+      sparse neurogenesis is postponed in favor of more immediate runtime work.
+      A future policy/configuration module is initial progress only and does
+      not satisfy this capability without sparse execution, cross-system state
+      handling, lifecycle events, and acceptance evidence.
     evidence:
       - SparseConnectome fixes N and allocates W, stimulation, adjacency, and DSU state at construction.
       - No append, retirement, culling, or resize path is called by the runtime.
