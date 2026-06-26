@@ -130,6 +130,14 @@ def tick_fold(
     m = metrics if isinstance(metrics, dict) else {}
     void_topic_symbols: Set[Any] = set()
 
+    # These cross-stage fields are current-tick artifacts. Reset them before
+    # draining so a zero-observation tick cannot fold the prior tick again.
+    try:
+        setattr(nx, "_last_obs_batch", [])
+        setattr(nx, "_last_adc_metrics", {})
+    except Exception:
+        pass
+
     # 1) Optional delta event publish (telemetry-only; no dynamics change)
     try:
         if getattr(nx, "_evt_metrics", None) is not None:
