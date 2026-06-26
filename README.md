@@ -1,6 +1,6 @@
-![Void Dynamics Model Runtime Engine](/assets/vdm-rt_banner.png)
+![Void Dynamics Model Runtime Engine](/assets/vdm-rt_banner-2.png)
 
-# Base Cognitive Engine
+# VDM Cognitive Engine: Base Runtime
 
 This package preserves the headless VDM runtime engine and removes the old frontend, physics harnesses, generated scan reports, corpus data, and accelerator experiments that are not required for the runtime path.
 
