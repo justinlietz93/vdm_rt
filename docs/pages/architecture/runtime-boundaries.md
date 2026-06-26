@@ -50,10 +50,11 @@ The following systems have current runtime execution:
 - `core/cortex/void_walkers/`
 - `core/cortex/maps/`
 
-`SparseConnectome` is the sole live runtime substrate. The old
-`core/substrate/` package is a dense/Torch source under active archival review;
-it is not a second runtime substrate. Its dynamic-population requirements are
-preserved for the sparse-neurogenesis port, not by retaining its implementation.
+`SparseConnectome` is the sole live runtime substrate. The former
+`core/substrate/` package has moved to
+`docs/sources/legacy-substrate-neurogenesis/`; it is not a second runtime
+substrate. Its dynamic-population requirements are preserved for the
+sparse-neurogenesis port, not by retaining its implementation.
 
 `core/growth_arbiter.py`, `core/structural_homeostasis.py`, `core/void_b1.py`,
 and the optional GDSP/REVGSP adapters are retained as capability sources, not

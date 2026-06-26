@@ -15,19 +15,25 @@ coverage_values:
   diagnostic_only: The source is not a runtime owner; its diagnostic goal needs a separate sparse readout decision.
 
 archival_gate:
-  rule: >
-    A source file may leave the importable runtime tree only after every
-    capability it carries is either covered, intentionally_retired, or recorded
-    as a named port with an implementation owner and acceptance gate.
+  archive_move_rule: >
+    A source file may leave the importable runtime tree when it is preserved in
+    a tracked source archive, every carried goal is recorded here, and the
+    archive README names the sparse-native port obligation.
+  deletion_rule: >
+    An archived source file may be deleted only after every capability it
+    carries is either covered or intentionally_retired with acceptance evidence.
   prohibited_inference: Static disconnection alone does not authorize deletion.
 
 capabilities:
   - id: sparse_population_change
     source_paths:
-      - core/substrate/neurogenesis.py
-      - core/substrate/growth_arbiter.py
+      - docs/sources/legacy-substrate-neurogenesis/neurogenesis.py
+      - docs/sources/legacy-substrate-neurogenesis/growth_arbiter.py
       - core/growth_arbiter.py
       - core/sie.py
+    former_runtime_paths:
+      - core/substrate/neurogenesis.py
+      - core/substrate/growth_arbiter.py
     goal: >
       Bounded node growth and culling, with cross-system state resizing and
       pressure/stability admission.
@@ -46,6 +52,8 @@ capabilities:
 
   - id: node_field_and_spike_dynamics
     source_paths:
+      - docs/sources/legacy-substrate-neurogenesis/substrate.py
+    former_runtime_paths:
       - core/substrate/substrate.py
     goal: >
       Per-node membrane state, refractory state, spike history, and discrete
@@ -61,6 +69,8 @@ capabilities:
 
   - id: intrinsic_plasticity
     source_paths:
+      - docs/sources/legacy-substrate-neurogenesis/substrate.py
+    former_runtime_paths:
       - core/substrate/substrate.py
     goal: >
       Adapt node-intrinsic parameters from recent activity while preserving
@@ -73,6 +83,8 @@ capabilities:
 
   - id: synaptic_scaling
     source_paths:
+      - docs/sources/legacy-substrate-neurogenesis/substrate.py
+    former_runtime_paths:
       - core/substrate/substrate.py
     goal: Normalize incoming excitatory support without erasing sparse structure.
     coverage: unmet
@@ -83,9 +95,11 @@ capabilities:
 
   - id: sparse_edge_pruning_and_bridge_repair
     source_paths:
-      - core/substrate/structural_homeostasis.py
+      - docs/sources/legacy-substrate-neurogenesis/structural_homeostasis.py
       - core/structural_homeostasis.py
       - core/sparse_connectome.py
+    former_runtime_paths:
+      - core/substrate/structural_homeostasis.py
     goal: Remove weak edges and repair fragmentation through bounded supported bridges.
     coverage: partial
     evidence:

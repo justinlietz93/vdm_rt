@@ -35,9 +35,10 @@ is optional merely because its construction is not a simple top-level import.
 
 ### Legacy dense substrate
 
-The four files under `core/substrate/` have no direct import reference outside
-that directory, and no dynamic-import mechanism was found anywhere in the
-repository. Their implementation is nevertheless not disposable source:
+The four former `core/substrate/` files, now preserved under
+`docs/sources/legacy-substrate-neurogenesis/`, had no direct import reference
+outside that directory, and no dynamic-import mechanism was found anywhere in
+the repository. Their implementation is nevertheless not disposable source:
 
 - `substrate.py` imports Torch and supports a GPU backend.
 - `neurogenesis.py` imports Torch and grows by allocating a new dense `N x N`
@@ -52,8 +53,9 @@ scaling goals. The default `SparseConnectome` does not expose the corresponding
 state, and the current firing-variance signal is variance of its field `W`, not
 variance of observed firing events.
 
-The source remains an `archive` candidate, but archival is blocked. The sparse
-replacement must be derived against the requirements in
+The source is preserved in a tracked archive outside the importable runtime.
+It must not be deleted while the sparse replacement is open. That replacement
+must be derived against the requirements in
 `docs/roadmap/sparse-neurogenesis/TODO.md`, and the unowned physiology goals
 must receive either a VDM-native sparse owner or an explicit retirement record.
 
@@ -105,7 +107,7 @@ environment with all declared dependencies is exercised.
 | Surface | Class | Reason | Required next action |
 | --- | --- | --- | --- |
 | `SparseConnectome`, ADC, SIE/SIE v2, void maps/scouts, neuroplasticity | `keep` | Active runtime ownership | Add importability guards before cleanup moves. |
-| `core/substrate/` source | `archive` candidate | Statically isolated dense/Torch implementation with unclosed goals | Preserve source; do not move until coverage closes. |
+| `core/substrate/` source | `preserved archive` | Statically isolated dense/Torch implementation with unclosed goals | Keep under `docs/sources/legacy-substrate-neurogenesis/`; do not delete until coverage closes. |
 | Sparse population management | `unmet` | No fixed-size sparse executor can grow or retire nodes | Build bounded sparse/event-fed behavior. |
 | Node/spike dynamics, intrinsic plasticity, synaptic scaling | `unmet` | No compatible state or operator exists on SparseConnectome | Assign a sparse-native owner or explicitly retire each goal. |
 | `core/global_system.py` | `archive` candidate | Statically isolated ADC/SIE variant with partial successors | Close ADC and territory-conditioned-valence coverage first. |
@@ -125,6 +127,6 @@ environment with all declared dependencies is exercised.
 
 ## Next Gate
 
-Do not move source yet. First close Task 0.3: assign owners and acceptance
-gates for every unmet or unwired capability. The guard set remains necessary,
-but it protects a cleanup only after the capability obligations are explicit.
+The legacy source has moved out of the importable runtime into its tracked
+archive. Next, assign owners and acceptance gates for every unmet or unwired
+capability; the archive stays until those obligations close.

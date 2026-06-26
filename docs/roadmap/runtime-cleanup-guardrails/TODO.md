@@ -26,7 +26,7 @@ This checklist protects the fresh independent runtime identity. It is allowed to
 
 - [x] Step 0.3.1 — Add a capability-coverage contract for every current archive or port candidate.
 - [x] Step 0.3.2 — Record each goal as covered, partial, unwired, unmet, diagnostic-only, or intentionally retired.
-- [ ] Step 0.3.3 — Add a guard that prevents archival moves while capability coverage is unresolved.
+- [x] Step 0.3.3 — Add a guard that prevents deletion while capability coverage is unresolved and requires archived source preservation.
 - [ ] Step 0.3.4 — Assign an implementation owner and acceptance gate for every `unwired` or `unmet` runtime goal.
 
 ## Phase 1 — Add Hard Guard Tests
@@ -58,17 +58,17 @@ This checklist protects the fresh independent runtime identity. It is allowed to
 
 ### Task 2.1 — Move legacy substrate material out of live runtime
 
-- [ ] Step 2.1.1 — Create `docs/sources/legacy-substrate-neurogenesis/` only after Task 0.3 closes the carried capability obligations.
-- [ ] Step 2.1.2 — Move or copy old dense substrate files there as source material.
-- [ ] Step 2.1.3 — Remove the old files from live importable runtime paths.
-- [ ] Step 2.1.4 — Add `README.md` explaining that the old code is design source for sparse neurogenesis, not live runtime code.
+- [x] Step 2.1.1 — Create `docs/sources/legacy-substrate-neurogenesis/` as a tracked source archive.
+- [x] Step 2.1.2 — Move old dense substrate files there as source material.
+- [x] Step 2.1.3 — Remove the old files from live importable runtime paths.
+- [x] Step 2.1.4 — Add `README.md` explaining that the old code is design source for sparse neurogenesis, not live runtime code.
 
 ### Task 2.2 — Preserve the extracted invariant
 
-- [ ] Step 2.2.1 — Document dynamic neuron population growth as a preserved capability.
-- [ ] Step 2.2.2 — Document node-count management between configured minimum and maximum bounds.
-- [ ] Step 2.2.3 — Document growth debt, stability arbitration, seeding, culling, structural homeostasis, edge repair, and bridge growth as requirements for the sparse replacement.
-- [ ] Step 2.2.4 — Link this extraction note to `docs/roadmap/sparse-neurogenesis/TODO.md`.
+- [x] Step 2.2.1 — Document dynamic neuron population growth as a preserved capability.
+- [x] Step 2.2.2 — Document node-count management between configured minimum and maximum bounds.
+- [x] Step 2.2.3 — Document growth debt, stability arbitration, seeding, culling, structural homeostasis, edge repair, and bridge growth as requirements for the sparse replacement.
+- [x] Step 2.2.4 — Link this extraction note to `docs/roadmap/sparse-neurogenesis/TODO.md`.
 
 ## Phase 3 — Validate the Clean Runtime
 

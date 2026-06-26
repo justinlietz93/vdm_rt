@@ -56,6 +56,7 @@ runtime_identity:
     - torch or GPU runtime backend
     - frontend runtime owner
     - visualization or WebSocket map-stream runtime path
+  archived_source_material:
+    - docs/sources/legacy-substrate-neurogenesis/
   legacy_exception_pending_archive:
-    - core/substrate/
     - core/global_system.py

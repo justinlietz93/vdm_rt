@@ -1,4 +1,5 @@
 # vdm_rt/core/substrate/substrate.py
+# Archived source material. Do not import as live runtime code.
 """
 Copyright @ 2026 Justin K. Lietz, Neuroca, Inc. All Rights Reserved.
 

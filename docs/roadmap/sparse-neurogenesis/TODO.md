@@ -9,19 +9,19 @@ The legacy substrate files encode a real missing capability: dynamic self-managi
 
 ### Task 0.1 — Archive design source
 
-- [ ] Step 0.1.1 — Move old `core/substrate/` files out of live runtime path.
-- [ ] Step 0.1.2 — Preserve them under `docs/sources/legacy-substrate-neurogenesis/` or `archive/legacy-substrate-neurogenesis/`.
-- [ ] Step 0.1.3 — Add archive README explaining that these files are not runtime code.
-- [ ] Step 0.1.4 — Add guard test proving live runtime no longer imports the archived substrate path.
+- [x] Step 0.1.1 — Move old `core/substrate/` files out of live runtime path.
+- [x] Step 0.1.2 — Preserve them under `docs/sources/legacy-substrate-neurogenesis/`.
+- [x] Step 0.1.3 — Add archive README explaining that these files are not runtime code and must not be deleted before capability closure.
+- [x] Step 0.1.4 — Add guard test proving live runtime no longer imports the archived substrate path.
 
 ### Task 0.2 — Extract requirements
 
-- [ ] Step 0.2.1 — Document dynamic neuron population growth.
-- [ ] Step 0.2.2 — Document node-count management between configured minimum and maximum bounds.
-- [ ] Step 0.2.3 — Document growth debt and stability arbitration.
-- [ ] Step 0.2.4 — Document new-neuron seeding requirements.
-- [ ] Step 0.2.5 — Document culling/pruning requirements.
-- [ ] Step 0.2.6 — Document bridge growth and cluster repair requirements.
+- [x] Step 0.2.1 — Document dynamic neuron population growth.
+- [x] Step 0.2.2 — Document node-count management between configured minimum and maximum bounds.
+- [x] Step 0.2.3 — Document growth debt and stability arbitration.
+- [x] Step 0.2.4 — Document new-neuron seeding requirements.
+- [x] Step 0.2.5 — Document culling/pruning requirements.
+- [x] Step 0.2.6 — Document bridge growth and cluster repair requirements.
 
 ## Phase 1 — Define Sparse Population Policy
 

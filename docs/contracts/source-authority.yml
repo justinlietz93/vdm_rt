@@ -13,6 +13,9 @@ sources:
   aura_distinction_inventory:
     path: docs/sources/neurobiology-upgrade/Aura_Distinction_Inventory_v0.7.md
     role: atomized Aura evidence inventory
+  legacy_substrate_neurogenesis:
+    path: docs/sources/legacy-substrate-neurogenesis/
+    role: preserved source for sparse-native dynamic population and node-state ports; not live runtime code
 external_missing:
   runtime_papers:
     count_expected: 8
