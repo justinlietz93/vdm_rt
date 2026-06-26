@@ -8,6 +8,8 @@ See LICENSE file for full terms.
 
 import logging, json, os, sys, time
 
+from vdm_rt.config import config_bool
+
 
 class JsonFormatter(logging.Formatter):
     def format(self, record):
@@ -38,16 +40,26 @@ def get_logger(name, log_file=None):
         sh.setFormatter(JsonFormatter())
         logger.addHandler(sh)
 
-        # optional file sink
-        if log_file:
-            os.makedirs(os.path.dirname(log_file), exist_ok=True)
+    if log_file:
+        resolved_log_file = os.path.abspath(log_file)
+        has_file_sink = any(
+            getattr(handler, "_vdm_rt_log_file", None) == resolved_log_file
+            for handler in logger.handlers
+        )
+        if not has_file_sink:
+            os.makedirs(os.path.dirname(resolved_log_file), exist_ok=True)
             try:
-                # Late import to avoid hard dependency during early bootstrap
-                from vdm_rt.io.logging.rolling_jsonl import RollingJsonlHandler as _RJHandler  # type: ignore
-                fh = _RJHandler(log_file)
+                # The normal event logger follows the same visible zip-spool
+                # choice as UTD and other JSONL writers.
+                if config_bool("logging.zip_spool", True):
+                    from vdm_rt.io.logging.rolling_jsonl import RollingZipJsonlHandler as _RJHandler  # type: ignore
+                else:
+                    from vdm_rt.io.logging.rolling_jsonl import RollingJsonlHandler as _RJHandler  # type: ignore
+                fh = _RJHandler(resolved_log_file)
             except Exception:
-                # Safe fallback: non-rolling file handler
-                fh = logging.FileHandler(log_file)
+                # Safe fallback: non-rolling file handler.
+                fh = logging.FileHandler(resolved_log_file)
+            setattr(fh, "_vdm_rt_log_file", resolved_log_file)
             fh.setFormatter(JsonFormatter())
             logger.addHandler(fh)
 

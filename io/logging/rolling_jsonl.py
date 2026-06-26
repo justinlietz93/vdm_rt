@@ -144,8 +144,8 @@ class RollingJsonlWriter:
         self.archive_segment_max_lines = archive_segment_max_lines
 
         if check_every is None:
-            check_every = _cfg_int("logging.roll_check_every", 200) or 200
-        self._check_every = int(check_every)
+            check_every = _cfg_int("logging.roll_check_every", 1) or 1
+        self._check_every = max(1, int(check_every))
         self._ops = 0
 
     # ------------- public -------------
@@ -230,7 +230,7 @@ class RollingJsonlWriter:
                     for line in src:
                         if moved < remove_bytes:
                             # ensure we rotate segment if needed
-                            self._seg_write(seg_fh, line)
+                            seg_fh = self._seg_write(seg_fh, line)
                             moved += len(line)
                         else:
                             dst.write(line)
@@ -256,7 +256,7 @@ class RollingJsonlWriter:
                 with open(self.base_path, "rb") as src, open(tmp_path, "wb") as dst:
                     for line in src:
                         if removed < to_remove_lines:
-                            self._seg_write(seg_fh, line)
+                            seg_fh = self._seg_write(seg_fh, line)
                             removed += 1
                         else:
                             dst.write(line)
@@ -277,7 +277,7 @@ class RollingJsonlWriter:
         Creates archive dir/segment as needed.
         """
         _ensure_dir(self.archive_dir)
-        # Select latest timestamp directory or create new
+        # Reuse the latest segment only while it remains below its configured cap.
         try:
             dirs = [d for d in os.listdir(self.archive_dir) if _is_ts_dir(d)]
         except Exception:
@@ -285,22 +285,29 @@ class RollingJsonlWriter:
         if dirs:
             dirs.sort()
             seg_dir = os.path.join(self.archive_dir, dirs[-1])
-        else:
-            seg_dir = os.path.join(self.archive_dir, _now_ts())
-            _ensure_dir(seg_dir)
-
-        # Archive filename mirrors base filename inside the segment directory
-        arch_file = os.path.join(seg_dir, os.path.basename(self.base_path))
-        _ensure_dir(os.path.dirname(arch_file))
-
-        # If current segment overflows max, rotate to a new segment directory
-        if self._segment_full(arch_file):
-            seg_dir = os.path.join(self.archive_dir, _now_ts())
-            _ensure_dir(seg_dir)
             arch_file = os.path.join(seg_dir, os.path.basename(self.base_path))
+            if not self._segment_full(arch_file):
+                return open(arch_file, "ab"), seg_dir
+
+        seg_dir = self._create_archive_segment_dir()
+        arch_file = os.path.join(seg_dir, os.path.basename(self.base_path))
 
         fh = open(arch_file, "ab")
         return fh, seg_dir
+
+    def _create_archive_segment_dir(self) -> str:
+        """Create a distinct timestamp segment, even during same-second rotation."""
+        _ensure_dir(self.archive_dir)
+        epoch = time.time()
+        for offset in range(86_400):
+            name = time.strftime("%Y%m%d_%H%M%S", time.localtime(epoch + offset))
+            candidate = os.path.join(self.archive_dir, name)
+            try:
+                os.mkdir(candidate)
+                return candidate
+            except FileExistsError:
+                continue
+        raise OSError(f"Unable to create archive segment under {self.archive_dir}")
 
     def _segment_full(self, arch_file: str) -> bool:
         try:
@@ -324,21 +331,20 @@ class RollingJsonlWriter:
                 return False
         return False
 
-    def _seg_write(self, seg_fh: io.BufferedWriter, line: bytes) -> None:
-        # Append line to current segment, rotate if segment crosses cap
+    def _seg_write(self, seg_fh: io.BufferedWriter, line: bytes) -> io.BufferedWriter:
+        """Append one line and return an open segment handle for the next write."""
+        try:
+            if self._segment_full(seg_fh.name):  # type: ignore[attr-defined]
+                seg_fh.close()
+                seg_fh, _ = self._open_archive_for_append()
+        except Exception:
+            pass
         try:
             seg_fh.write(line)
             seg_fh.flush()
         except Exception:
-            return
-        # If segment now full, open a new one for subsequent writes
-        try:
-            if self._segment_full(seg_fh.name):  # type: ignore[attr-defined]
-                seg_fh.close()
-                new_fh, _ = self._open_archive_for_append()
-                seg_fh.__dict__.update(new_fh.__dict__)  # swap internals (best-effort)
-        except Exception:
-            pass
+            return seg_fh
+        return seg_fh
 
 
 # ---------- Logging handler integration ----------
@@ -417,8 +423,8 @@ class RollingZipJsonlWriter:
                 ring_bytes = config_int("logging.zip_ring_bytes", 65536)  # 64 KiB
         except Exception:
             ring_bytes = 65_536
-        self.max_buffer_bytes = int(max(32 * 1024, max_buffer_bytes or 1_048_576))
-        self._ring_cap = int(max(1024, ring_bytes or 65_536))
+        self.max_buffer_bytes = max(1, int(max_buffer_bytes or 1_048_576))
+        self._ring_cap = max(1, int(ring_bytes or 65_536))
         self._ring = bytearray()
         # Zip path next to base_path (events.jsonl -> events.zip)
         if not zip_path:
