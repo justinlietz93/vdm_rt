@@ -1,0 +1,9 @@
+{
+  "recognition": 0.95,
+  "familiarity": 0.7,
+  "confirmation": 0.65,
+  "confidence": 0.75,
+  "certainty": 0.65,
+  "coherence": 0.45,
+  "completion": 0.3
+}

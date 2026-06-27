@@ -1,0 +1,15 @@
+branch,run,tick,witness,input_id,start_tick,rows,output
+category_formation,baseline_then_novel,5,W4_0001,B01,0,6,I accept this path.
+category_formation,baseline_then_novel,1557,W4_0088,N00,1530,28,I sense I have met this before.
+category_formation,facts_then_questions,668,W2_0001,F09,0,669,Do I remember this shape faintly?
+category_formation,multilingual_random,28,W6_0001,ES01,0,29,I choose the corrective path.
+category_formation,no_baseline_test,49,W4_0001,B05,0,50,I have seen something like this before.
+cross_domain_mapping,baseline_then_novel,597,W2_0001,B00,0,598,Do I remember this shape faintly?
+cross_domain_mapping,baseline_then_novel,1794,W2_0022,N01,1779,16,Do I sense I have met this before?
+cross_domain_mapping,facts_then_questions,229,W2_0001,F03,0,230,Do I remember this shape faintly?
+cross_domain_mapping,multilingual_random,2,W5_0001,ES03,0,3,I hold these together.
+cross_domain_mapping,no_baseline_test,78,W2_0001,N00,0,79,Do I remember this shape faintly?
+hierarchy_ordering,baseline_then_novel,9,W7_0001,B05,0,10,I feel this might be known.
+hierarchy_ordering,facts_then_questions,0,W4_0001,F00,0,1,I hold this as confirmed.
+hierarchy_ordering,facts_then_questions,1645,W2_0014,Q06,1634,12,Can I realign this?
+missing_closure_analogy,baseline_then_novel,1707,W2_0022,N01,1679,29,Do I remember this shape faintly?

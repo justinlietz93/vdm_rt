@@ -1,0 +1,94 @@
+{
+  "top_utterance": "Do I know this from somewhere?",
+  "rank_margin": 0.0,
+  "top_k": [
+    {
+      "rank": 1,
+      "id": "utt_0024_3147f5fd27ac",
+      "utterance": "Do I know this from somewhere?",
+      "family": "recognition",
+      "leaf": "uncertain_recognition",
+      "form": "question",
+      "strength": "low",
+      "cosine": 0.880211,
+      "distance": 0.119789
+    },
+    {
+      "rank": 2,
+      "id": "utt_0016_ac876cedcf7f",
+      "utterance": "Do I recognize part of this?",
+      "family": "recognition",
+      "leaf": "uncertain_recognition",
+      "form": "question",
+      "strength": "low",
+      "cosine": 0.880211,
+      "distance": 0.119789
+    },
+    {
+      "rank": 3,
+      "id": "utt_0028_4947a8311189",
+      "utterance": "Do I feel this might be known?",
+      "family": "recognition",
+      "leaf": "uncertain_recognition",
+      "form": "question",
+      "strength": "low",
+      "cosine": 0.878677,
+      "distance": 0.121323
+    },
+    {
+      "rank": 4,
+      "id": "utt_0020_489730e96161",
+      "utterance": "Have I seen something like this before?",
+      "family": "recognition",
+      "leaf": "uncertain_recognition",
+      "form": "question",
+      "strength": "low",
+      "cosine": 0.874194,
+      "distance": 0.125806
+    },
+    {
+      "rank": 5,
+      "id": "utt_0017_3d17181593b5",
+      "utterance": "I might recognize part of this.",
+      "family": "recognition",
+      "leaf": "uncertain_recognition",
+      "form": "weak",
+      "strength": "low_medium",
+      "cosine": 0.860734,
+      "distance": 0.139266
+    },
+    {
+      "rank": 6,
+      "id": "utt_0025_87a91d6a09e9",
+      "utterance": "I might know this from somewhere.",
+      "family": "recognition",
+      "leaf": "uncertain_recognition",
+      "form": "weak",
+      "strength": "low_medium",
+      "cosine": 0.860714,
+      "distance": 0.139286
+    },
+    {
+      "rank": 7,
+      "id": "utt_0029_6e6985454492",
+      "utterance": "I might feel this might be known.",
+      "family": "recognition",
+      "leaf": "uncertain_recognition",
+      "form": "weak",
+      "strength": "low_medium",
+      "cosine": 0.859189,
+      "distance": 0.140811
+    },
+    {
+      "rank": 8,
+      "id": "utt_0021_bc07495d1f13",
+      "utterance": "I might have seen something like this before.",
+      "family": "recognition",
+      "leaf": "uncertain_recognition",
+      "form": "weak",
+      "strength": "low_medium",
+      "cosine": 0.854616,
+      "distance": 0.145384
+    }
+  ]
+}

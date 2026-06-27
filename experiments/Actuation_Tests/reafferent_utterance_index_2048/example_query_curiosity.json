@@ -1,0 +1,94 @@
+{
+  "top_utterance": "I think I sense there is more here.",
+  "rank_margin": 0.0,
+  "top_k": [
+    {
+      "rank": 1,
+      "id": "utt_0238_31b859aac118",
+      "utterance": "I think I sense there is more here.",
+      "family": "curiosity",
+      "leaf": "novel_interest",
+      "form": "medium",
+      "strength": "medium",
+      "cosine": 0.956932,
+      "distance": 0.043068
+    },
+    {
+      "rank": 2,
+      "id": "utt_0230_ef67de11524e",
+      "utterance": "I think I want to stay with this.",
+      "family": "curiosity",
+      "leaf": "novel_interest",
+      "form": "medium",
+      "strength": "medium",
+      "cosine": 0.956932,
+      "distance": 0.043068
+    },
+    {
+      "rank": 3,
+      "id": "utt_0226_47a2f8d579f3",
+      "utterance": "I think I feel interested in this.",
+      "family": "curiosity",
+      "leaf": "novel_interest",
+      "form": "medium",
+      "strength": "medium",
+      "cosine": 0.9569,
+      "distance": 0.0431
+    },
+    {
+      "rank": 4,
+      "id": "utt_0234_a91c46acbd81",
+      "utterance": "I think I feel this is worth following.",
+      "family": "curiosity",
+      "leaf": "novel_interest",
+      "form": "medium",
+      "strength": "medium",
+      "cosine": 0.9569,
+      "distance": 0.0431
+    },
+    {
+      "rank": 5,
+      "id": "utt_0229_80385ec69eef",
+      "utterance": "I might want to stay with this.",
+      "family": "curiosity",
+      "leaf": "novel_interest",
+      "form": "weak",
+      "strength": "low_medium",
+      "cosine": 0.954166,
+      "distance": 0.045834
+    },
+    {
+      "rank": 6,
+      "id": "utt_0237_7c3c3fcda05a",
+      "utterance": "I might sense there is more here.",
+      "family": "curiosity",
+      "leaf": "novel_interest",
+      "form": "weak",
+      "strength": "low_medium",
+      "cosine": 0.954166,
+      "distance": 0.045834
+    },
+    {
+      "rank": 7,
+      "id": "utt_0233_c45d695950ed",
+      "utterance": "I might feel this is worth following.",
+      "family": "curiosity",
+      "leaf": "novel_interest",
+      "form": "weak",
+      "strength": "low_medium",
+      "cosine": 0.954134,
+      "distance": 0.045866
+    },
+    {
+      "rank": 8,
+      "id": "utt_0225_61e503a2629f",
+      "utterance": "I might feel interested in this.",
+      "family": "curiosity",
+      "leaf": "novel_interest",
+      "form": "weak",
+      "strength": "low_medium",
+      "cosine": 0.954134,
+      "distance": 0.045866
+    }
+  ]
+}

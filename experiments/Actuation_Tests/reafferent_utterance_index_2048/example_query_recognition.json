@@ -1,0 +1,94 @@
+{
+  "top_utterance": "I think I accept this as familiar.",
+  "rank_margin": 0.0005399999999999849,
+  "top_k": [
+    {
+      "rank": 1,
+      "id": "utt_0062_1cabe1e9f717",
+      "utterance": "I think I accept this as familiar.",
+      "family": "recognition",
+      "leaf": "confirmed_recognition",
+      "form": "medium",
+      "strength": "medium",
+      "cosine": 0.94274,
+      "distance": 0.05726
+    },
+    {
+      "rank": 2,
+      "id": "utt_0063_3883227a221d",
+      "utterance": "I accept this as familiar.",
+      "family": "recognition",
+      "leaf": "confirmed_recognition",
+      "form": "direct",
+      "strength": "high",
+      "cosine": 0.9422,
+      "distance": 0.0578
+    },
+    {
+      "rank": 3,
+      "id": "utt_0050_27acb9e497b1",
+      "utterance": "I think I certainly recognize this.",
+      "family": "recognition",
+      "leaf": "confirmed_recognition",
+      "form": "medium",
+      "strength": "medium",
+      "cosine": 0.941038,
+      "distance": 0.058962
+    },
+    {
+      "rank": 4,
+      "id": "utt_0054_b8f4a0c7654c",
+      "utterance": "I think I know this clearly.",
+      "family": "recognition",
+      "leaf": "confirmed_recognition",
+      "form": "medium",
+      "strength": "medium",
+      "cosine": 0.940756,
+      "distance": 0.059244
+    },
+    {
+      "rank": 5,
+      "id": "utt_0058_489eb1e52c86",
+      "utterance": "I think I recognize this without doubt.",
+      "family": "recognition",
+      "leaf": "confirmed_recognition",
+      "form": "medium",
+      "strength": "medium",
+      "cosine": 0.939737,
+      "distance": 0.060263
+    },
+    {
+      "rank": 6,
+      "id": "utt_0051_2b5e77eadba6",
+      "utterance": "I certainly recognize this.",
+      "family": "recognition",
+      "leaf": "confirmed_recognition",
+      "form": "direct",
+      "strength": "high",
+      "cosine": 0.939529,
+      "distance": 0.060471
+    },
+    {
+      "rank": 7,
+      "id": "utt_0055_294a9901a47e",
+      "utterance": "I know this clearly.",
+      "family": "recognition",
+      "leaf": "confirmed_recognition",
+      "form": "direct",
+      "strength": "high",
+      "cosine": 0.939259,
+      "distance": 0.060741
+    },
+    {
+      "rank": 8,
+      "id": "utt_0059_99f0d807f122",
+      "utterance": "I recognize this without doubt.",
+      "family": "recognition",
+      "leaf": "confirmed_recognition",
+      "form": "direct",
+      "strength": "high",
+      "cosine": 0.938988,
+      "distance": 0.061012
+    }
+  ]
+}

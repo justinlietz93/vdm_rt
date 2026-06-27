@@ -1,0 +1,94 @@
+{
+  "top_utterance": "I reject this as the fit.",
+  "rank_margin": 0.0,
+  "top_k": [
+    {
+      "rank": 1,
+      "id": "utt_0975_109b8d326934",
+      "utterance": "I reject this as the fit.",
+      "family": "mismatch",
+      "leaf": "wrong_fit",
+      "form": "direct",
+      "strength": "high",
+      "cosine": 0.96146,
+      "distance": 0.03854
+    },
+    {
+      "rank": 2,
+      "id": "utt_0963_9b040da97ff1",
+      "utterance": "I see this does not fit.",
+      "family": "mismatch",
+      "leaf": "wrong_fit",
+      "form": "direct",
+      "strength": "high",
+      "cosine": 0.96146,
+      "distance": 0.03854
+    },
+    {
+      "rank": 3,
+      "id": "utt_0967_cb237e961612",
+      "utterance": "I feel the fit is wrong.",
+      "family": "mismatch",
+      "leaf": "wrong_fit",
+      "form": "direct",
+      "strength": "high",
+      "cosine": 0.961156,
+      "distance": 0.038844
+    },
+    {
+      "rank": 4,
+      "id": "utt_0971_aee035edb757",
+      "utterance": "I cannot make this fit.",
+      "family": "mismatch",
+      "leaf": "wrong_fit",
+      "form": "direct",
+      "strength": "high",
+      "cosine": 0.959251,
+      "distance": 0.040749
+    },
+    {
+      "rank": 5,
+      "id": "utt_0962_fa0e3609bd7f",
+      "utterance": "I think I see this does not fit.",
+      "family": "mismatch",
+      "leaf": "wrong_fit",
+      "form": "medium",
+      "strength": "medium",
+      "cosine": 0.952579,
+      "distance": 0.047421
+    },
+    {
+      "rank": 6,
+      "id": "utt_0974_08ab43abc15d",
+      "utterance": "I think I reject this as the fit.",
+      "family": "mismatch",
+      "leaf": "wrong_fit",
+      "form": "medium",
+      "strength": "medium",
+      "cosine": 0.952579,
+      "distance": 0.047421
+    },
+    {
+      "rank": 7,
+      "id": "utt_0966_e5887ef9e0bf",
+      "utterance": "I think I feel the fit is wrong.",
+      "family": "mismatch",
+      "leaf": "wrong_fit",
+      "form": "medium",
+      "strength": "medium",
+      "cosine": 0.952528,
+      "distance": 0.047472
+    },
+    {
+      "rank": 8,
+      "id": "utt_0970_e0ce8603feb3",
+      "utterance": "I think I cannot make this fit.",
+      "family": "mismatch",
+      "leaf": "wrong_fit",
+      "form": "medium",
+      "strength": "medium",
+      "cosine": 0.950339,
+      "distance": 0.049661
+    }
+  ]
+}

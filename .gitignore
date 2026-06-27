@@ -16,3 +16,6 @@ experiments/vdm_rt-main
 experiments/*/vdm_rt-main
 experiments/*/*/vdm_rt-main
 experiments/*/*/*/vdm_rt-main
+
+# Secrets
+dev-secrets/*

@@ -1,0 +1,7052 @@
+[
+  {
+    "branch": "category_formation",
+    "run": "baseline_then_novel",
+    "tick": 5,
+    "witness": "W4_0001",
+    "input_id": "B01",
+    "start_tick": 0,
+    "rows": 6,
+    "output": "I accept this path.",
+    "top_k": [
+      {
+        "id": "utt_1811_f6444c614ff2",
+        "utterance": "I accept this path.",
+        "family": "commitment",
+        "leaf": "accept_path",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.44157615303993225,
+        "bonus": 0.073,
+        "score": 0.5145761370658875,
+        "distance": 0.5584238767623901,
+        "rank": 1
+      },
+      {
+        "id": "utt_1771_b68a069abcfb",
+        "utterance": "I feel ready to move.",
+        "family": "readiness",
+        "leaf": "ready_to_act",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.43877947330474854,
+        "bonus": 0.073,
+        "score": 0.5117794871330261,
+        "distance": 0.5612205266952515,
+        "rank": 2
+      },
+      {
+        "id": "utt_1823_c0da5b2facd8",
+        "utterance": "I commit to this direction.",
+        "family": "commitment",
+        "leaf": "accept_path",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.43800294399261475,
+        "bonus": 0.073,
+        "score": 0.5110029578208923,
+        "distance": 0.5619970560073853,
+        "rank": 3
+      },
+      {
+        "id": "utt_1815_9895fe6c02cf",
+        "utterance": "I will follow this path.",
+        "family": "commitment",
+        "leaf": "accept_path",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.43800294399261475,
+        "bonus": 0.073,
+        "score": 0.5110029578208923,
+        "distance": 0.5619970560073853,
+        "rank": 4
+      },
+      {
+        "id": "utt_1819_cea8b15e32e9",
+        "utterance": "I take this direction.",
+        "family": "commitment",
+        "leaf": "accept_path",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.43800294399261475,
+        "bonus": 0.073,
+        "score": 0.5110029578208923,
+        "distance": 0.5619970560073853,
+        "rank": 5
+      },
+      {
+        "id": "utt_1767_ad979fd88bb9",
+        "utterance": "I am ready to act.",
+        "family": "readiness",
+        "leaf": "ready_to_act",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.4353181719779968,
+        "bonus": 0.073,
+        "score": 0.5083181858062744,
+        "distance": 0.5646818280220032,
+        "rank": 6
+      },
+      {
+        "id": "utt_1315_5b85bad60154",
+        "utterance": "I find a bridge here.",
+        "family": "connection",
+        "leaf": "bridge",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.4346955418586731,
+        "bonus": 0.073,
+        "score": 0.5076955556869507,
+        "distance": 0.5653044581413269,
+        "rank": 7
+      },
+      {
+        "id": "utt_1743_18edc3d48498",
+        "utterance": "I can carry this forward.",
+        "family": "readiness",
+        "leaf": "ready_to_continue",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.4339815378189087,
+        "bonus": 0.073,
+        "score": 0.5069815516471863,
+        "distance": 0.5660184621810913,
+        "rank": 8
+      }
+    ],
+    "final_axis_vector": {
+      "attention": 0.418274,
+      "salience": 0.844305,
+      "intensity": 0.502045,
+      "certainty": 0.099615,
+      "confidence": 0.304148,
+      "uncertainty": 0.106256,
+      "coherence": 0.220636,
+      "ambiguity": 0.141384,
+      "familiarity": 0.098209,
+      "memory": 0.091194,
+      "recognition": 0.209574,
+      "confirmation": 0.239077,
+      "search": 0.276307,
+      "comparison": 0.308789,
+      "similarity": 0.275795,
+      "difference": 0.176513,
+      "connection": 0.441272,
+      "separation": 0.193641,
+      "boundary": 0.121026,
+      "completion": 0.253491,
+      "repair": 0.22876,
+      "correction": 0.22876,
+      "mismatch": 0.303082,
+      "conflict": 0.151541,
+      "rejection": 0.454624,
+      "acceptance": 0.235266,
+      "restraint": 0.37131,
+      "readiness": 0.696568,
+      "commitment": 0.448138,
+      "release_pressure": 1.0,
+      "approach": 0.246357,
+      "avoidance": 0.030734,
+      "calm": 0.089079,
+      "urgency": 0.143992,
+      "friction": 0.116252,
+      "agency": 0.199231,
+      "orientation": 0.185899,
+      "transition": 0.513203,
+      "alignment": 0.224698
+    },
+    "accumulated_word_tail": [
+      {
+        "tick": 0,
+        "input_id": "B00",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "readiness",
+            0.26
+          ],
+          [
+            "commitment",
+            0.23
+          ],
+          [
+            "transition",
+            0.2
+          ],
+          [
+            "release_pressure",
+            0.18
+          ],
+          [
+            "acceptance",
+            0.1
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "readiness",
+            0.26
+          ],
+          [
+            "commitment",
+            0.23
+          ],
+          [
+            "transition",
+            0.2
+          ],
+          [
+            "release_pressure",
+            0.18
+          ],
+          [
+            "acceptance",
+            0.1
+          ]
+        ]
+      },
+      {
+        "tick": 1,
+        "input_id": "B03",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "readiness",
+            0.2392
+          ],
+          [
+            "commitment",
+            0.2116
+          ],
+          [
+            "transition",
+            0.184
+          ],
+          [
+            "attention",
+            0.18
+          ],
+          [
+            "release_pressure",
+            0.1656
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "attention",
+            0.18
+          ],
+          [
+            "orientation",
+            0.08
+          ],
+          [
+            "calm",
+            0.08
+          ],
+          [
+            "recognition",
+            0.06
+          ],
+          [
+            "search",
+            0.06
+          ]
+        ]
+      },
+      {
+        "tick": 2,
+        "input_id": "B04",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "attention",
+            0.3456
+          ],
+          [
+            "release_pressure",
+            0.3324
+          ],
+          [
+            "readiness",
+            0.3001
+          ],
+          [
+            "transition",
+            0.2493
+          ],
+          [
+            "restraint",
+            0.2199
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "attention",
+            0.18
+          ],
+          [
+            "rejection",
+            0.18
+          ],
+          [
+            "release_pressure",
+            0.18
+          ],
+          [
+            "separation",
+            0.16
+          ],
+          [
+            "mismatch",
+            0.12
+          ]
+        ]
+      },
+      {
+        "tick": 3,
+        "input_id": "B00",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "release_pressure",
+            0.4858
+          ],
+          [
+            "readiness",
+            0.3561
+          ],
+          [
+            "rejection",
+            0.3456
+          ],
+          [
+            "attention",
+            0.318
+          ],
+          [
+            "transition",
+            0.3094
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "release_pressure",
+            0.18
+          ],
+          [
+            "rejection",
+            0.18
+          ],
+          [
+            "mismatch",
+            0.12
+          ],
+          [
+            "restraint",
+            0.08
+          ],
+          [
+            "transition",
+            0.08
+          ]
+        ]
+      },
+      {
+        "tick": 4,
+        "input_id": "B05",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "release_pressure",
+            0.447
+          ],
+          [
+            "readiness",
+            0.3276
+          ],
+          [
+            "rejection",
+            0.318
+          ],
+          [
+            "attention",
+            0.2926
+          ],
+          [
+            "transition",
+            0.2846
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "connection",
+            0.16
+          ],
+          [
+            "correction",
+            0.16
+          ],
+          [
+            "repair",
+            0.16
+          ],
+          [
+            "alignment",
+            0.12
+          ],
+          [
+            "similarity",
+            0.1
+          ]
+        ]
+      },
+      {
+        "tick": 5,
+        "input_id": "B01",
+        "final_trigger": true,
+        "top_accum_axes": [
+          [
+            "release_pressure",
+            0.5924
+          ],
+          [
+            "salience",
+            0.4802
+          ],
+          [
+            "readiness",
+            0.4159
+          ],
+          [
+            "transition",
+            0.3152
+          ],
+          [
+            "rejection",
+            0.2926
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "salience",
+            0.2238
+          ],
+          [
+            "release_pressure",
+            0.1812
+          ],
+          [
+            "intensity",
+            0.1355
+          ],
+          [
+            "confirmation",
+            0.12
+          ],
+          [
+            "comparison",
+            0.12
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "branch": "category_formation",
+    "run": "baseline_then_novel",
+    "tick": 1557,
+    "witness": "W4_0088",
+    "input_id": "N00",
+    "start_tick": 1530,
+    "rows": 28,
+    "output": "I sense I have met this before.",
+    "top_k": [
+      {
+        "id": "utt_0007_e6444fe71562",
+        "utterance": "I sense I have met this before.",
+        "family": "recognition",
+        "leaf": "faint_recognition",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.669426679611206,
+        "bonus": 0.0,
+        "score": 0.669426679611206,
+        "distance": 0.33057332038879395,
+        "rank": 1
+      },
+      {
+        "id": "utt_0003_46f527ce48d4",
+        "utterance": "I feel this is familiar.",
+        "family": "recognition",
+        "leaf": "faint_recognition",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.6661689281463623,
+        "bonus": 0.0,
+        "score": 0.6661689281463623,
+        "distance": 0.3338310718536377,
+        "rank": 2
+      },
+      {
+        "id": "utt_0015_cdfcf789dd6b",
+        "utterance": "I feel a weak match forming.",
+        "family": "recognition",
+        "leaf": "faint_recognition",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.6659777164459229,
+        "bonus": 0.0,
+        "score": 0.6659777164459229,
+        "distance": 0.33402228355407715,
+        "rank": 3
+      },
+      {
+        "id": "utt_0011_3fed7806ff52",
+        "utterance": "I recognize a faint shape here.",
+        "family": "recognition",
+        "leaf": "faint_recognition",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.6656620502471924,
+        "bonus": 0.0,
+        "score": 0.6656620502471924,
+        "distance": 0.3343379497528076,
+        "rank": 4
+      },
+      {
+        "id": "utt_0006_d18206eb0efb",
+        "utterance": "I think I sense I have met this before.",
+        "family": "recognition",
+        "leaf": "faint_recognition",
+        "form": "medium",
+        "strength": "medium",
+        "cosine": 0.6648582220077515,
+        "bonus": 0.0,
+        "score": 0.6648582220077515,
+        "distance": 0.33514177799224854,
+        "rank": 5
+      },
+      {
+        "id": "utt_0002_e679cb75713e",
+        "utterance": "I think I feel this is familiar.",
+        "family": "recognition",
+        "leaf": "faint_recognition",
+        "form": "medium",
+        "strength": "medium",
+        "cosine": 0.6616563200950623,
+        "bonus": 0.0,
+        "score": 0.6616563200950623,
+        "distance": 0.33834367990493774,
+        "rank": 6
+      },
+      {
+        "id": "utt_0014_61d7cbb4be62",
+        "utterance": "I think I feel a weak match forming.",
+        "family": "recognition",
+        "leaf": "faint_recognition",
+        "form": "medium",
+        "strength": "medium",
+        "cosine": 0.661381721496582,
+        "bonus": 0.0,
+        "score": 0.661381721496582,
+        "distance": 0.33861827850341797,
+        "rank": 7
+      },
+      {
+        "id": "utt_0010_75b291f2dba3",
+        "utterance": "I think I recognize a faint shape here.",
+        "family": "recognition",
+        "leaf": "faint_recognition",
+        "form": "medium",
+        "strength": "medium",
+        "cosine": 0.6610589027404785,
+        "bonus": 0.0,
+        "score": 0.6610589027404785,
+        "distance": 0.3389410972595215,
+        "rank": 8
+      }
+    ],
+    "final_axis_vector": {
+      "attention": 0.270724,
+      "salience": 0.930426,
+      "intensity": 1.0,
+      "certainty": 0.037995,
+      "confidence": 0.121805,
+      "doubt": 0.024794,
+      "uncertainty": 0.027036,
+      "coherence": 0.038851,
+      "ambiguity": 0.02739,
+      "novelty": 0.54892,
+      "familiarity": 0.642037,
+      "memory": 0.472962,
+      "recognition": 0.636308,
+      "confirmation": 0.136783,
+      "curiosity": 0.343075,
+      "search": 0.318503,
+      "comparison": 0.105952,
+      "similarity": 0.048564,
+      "difference": 0.027743,
+      "connection": 0.077702,
+      "containment": 0.036418,
+      "completion": 0.099999,
+      "mismatch": 0.112754,
+      "conflict": 0.056377,
+      "rejection": 0.169132,
+      "acceptance": 0.158809,
+      "restraint": 0.295337,
+      "hesitation": 0.113178,
+      "readiness": 0.528079,
+      "commitment": 0.238187,
+      "release_pressure": 0.337246,
+      "approach": 0.1141,
+      "avoidance": 0.053753,
+      "withdrawal": 0.066116,
+      "urgency": 0.096641,
+      "importance": 0.103847,
+      "agency": 0.075991,
+      "orientation": 0.120322,
+      "transition": 0.312238,
+      "expectation": 0.057887,
+      "saturation": 0.138463,
+      "stability": 0.126345,
+      "alignment": 0.023704
+    },
+    "accumulated_word_tail": [
+      {
+        "tick": 1550,
+        "input_id": "N02",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "intensity",
+            1.4735
+          ],
+          [
+            "salience",
+            1.3578
+          ],
+          [
+            "novelty",
+            0.8267
+          ],
+          [
+            "familiarity",
+            0.752
+          ],
+          [
+            "recognition",
+            0.6831
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "intensity",
+            0.2544
+          ],
+          [
+            "salience",
+            0.1262
+          ],
+          [
+            "attention",
+            0.12
+          ],
+          [
+            "readiness",
+            0.12
+          ],
+          [
+            "recognition",
+            0.1
+          ]
+        ]
+      },
+      {
+        "tick": 1551,
+        "input_id": "N05",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "intensity",
+            1.396
+          ],
+          [
+            "salience",
+            1.3267
+          ],
+          [
+            "novelty",
+            0.8406
+          ],
+          [
+            "familiarity",
+            0.7798
+          ],
+          [
+            "recognition",
+            0.6884
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "familiarity",
+            0.088
+          ],
+          [
+            "novelty",
+            0.08
+          ],
+          [
+            "salience",
+            0.0774
+          ],
+          [
+            "memory",
+            0.076
+          ],
+          [
+            "recognition",
+            0.06
+          ]
+        ]
+      },
+      {
+        "tick": 1552,
+        "input_id": "N05",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "intensity",
+            1.6606
+          ],
+          [
+            "salience",
+            1.3827
+          ],
+          [
+            "familiarity",
+            0.8775
+          ],
+          [
+            "novelty",
+            0.8534
+          ],
+          [
+            "recognition",
+            0.7534
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "intensity",
+            0.3763
+          ],
+          [
+            "rejection",
+            0.18
+          ],
+          [
+            "salience",
+            0.1621
+          ],
+          [
+            "familiarity",
+            0.16
+          ],
+          [
+            "commitment",
+            0.16
+          ]
+        ]
+      },
+      {
+        "tick": 1553,
+        "input_id": "N01",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "intensity",
+            1.6804
+          ],
+          [
+            "salience",
+            1.381
+          ],
+          [
+            "familiarity",
+            0.9113
+          ],
+          [
+            "novelty",
+            0.8651
+          ],
+          [
+            "recognition",
+            0.7832
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "intensity",
+            0.1525
+          ],
+          [
+            "salience",
+            0.1088
+          ],
+          [
+            "familiarity",
+            0.104
+          ],
+          [
+            "recognition",
+            0.09
+          ],
+          [
+            "memory",
+            0.088
+          ]
+        ]
+      },
+      {
+        "tick": 1554,
+        "input_id": "N03",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "intensity",
+            1.5801
+          ],
+          [
+            "salience",
+            1.3429
+          ],
+          [
+            "familiarity",
+            0.9105
+          ],
+          [
+            "novelty",
+            0.876
+          ],
+          [
+            "recognition",
+            0.7705
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "novelty",
+            0.08
+          ],
+          [
+            "salience",
+            0.0724
+          ],
+          [
+            "familiarity",
+            0.072
+          ],
+          [
+            "memory",
+            0.064
+          ],
+          [
+            "comparison",
+            0.06
+          ]
+        ]
+      },
+      {
+        "tick": 1555,
+        "input_id": "N02",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "intensity",
+            1.7167
+          ],
+          [
+            "salience",
+            1.3719
+          ],
+          [
+            "familiarity",
+            0.9417
+          ],
+          [
+            "novelty",
+            0.8859
+          ],
+          [
+            "recognition",
+            0.7789
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "intensity",
+            0.2629
+          ],
+          [
+            "salience",
+            0.1364
+          ],
+          [
+            "familiarity",
+            0.104
+          ],
+          [
+            "memory",
+            0.088
+          ],
+          [
+            "novelty",
+            0.08
+          ]
+        ]
+      },
+      {
+        "tick": 1556,
+        "input_id": "N00",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "intensity",
+            1.6347
+          ],
+          [
+            "salience",
+            1.3633
+          ],
+          [
+            "familiarity",
+            0.9544
+          ],
+          [
+            "novelty",
+            0.8951
+          ],
+          [
+            "recognition",
+            0.7766
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "release_pressure",
+            0.18
+          ],
+          [
+            "commitment",
+            0.16
+          ],
+          [
+            "salience",
+            0.101
+          ],
+          [
+            "acceptance",
+            0.1
+          ],
+          [
+            "familiarity",
+            0.088
+          ]
+        ]
+      },
+      {
+        "tick": 1557,
+        "input_id": "N00",
+        "final_trigger": true,
+        "top_accum_axes": [
+          [
+            "intensity",
+            1.6468
+          ],
+          [
+            "salience",
+            1.5003
+          ],
+          [
+            "familiarity",
+            1.0381
+          ],
+          [
+            "recognition",
+            0.9946
+          ],
+          [
+            "novelty",
+            0.9035
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "readiness",
+            0.408
+          ],
+          [
+            "recognition",
+            0.28
+          ],
+          [
+            "salience",
+            0.2461
+          ],
+          [
+            "transition",
+            0.2133
+          ],
+          [
+            "restraint",
+            0.2
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "branch": "category_formation",
+    "run": "facts_then_questions",
+    "tick": 668,
+    "witness": "W2_0001",
+    "input_id": "F09",
+    "start_tick": 0,
+    "rows": 669,
+    "output": "Do I remember this shape faintly?",
+    "top_k": [
+      {
+        "id": "utt_0088_a958a8725861",
+        "utterance": "Do I remember this shape faintly?",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "question",
+        "strength": "low",
+        "cosine": 0.6995236277580261,
+        "bonus": 0.0,
+        "score": 0.6995236277580261,
+        "distance": 0.3004763722419739,
+        "rank": 1
+      },
+      {
+        "id": "utt_0080_a9d2e59c2d25",
+        "utterance": "Do I remember touching this before?",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "question",
+        "strength": "low",
+        "cosine": 0.6992984414100647,
+        "bonus": 0.0,
+        "score": 0.6992984414100647,
+        "distance": 0.3007015585899353,
+        "rank": 2
+      },
+      {
+        "id": "utt_0084_c0ad6a825ff8",
+        "utterance": "Have I met this kind of thing before?",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "question",
+        "strength": "low",
+        "cosine": 0.6992984414100647,
+        "bonus": 0.0,
+        "score": 0.6992984414100647,
+        "distance": 0.3007015585899353,
+        "rank": 3
+      },
+      {
+        "id": "utt_0092_a8844bc67a5e",
+        "utterance": "Have I encountered this before?",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "question",
+        "strength": "low",
+        "cosine": 0.6992984414100647,
+        "bonus": 0.0,
+        "score": 0.6992984414100647,
+        "distance": 0.3007015585899353,
+        "rank": 4
+      },
+      {
+        "id": "utt_0090_42c44bba13de",
+        "utterance": "I think I remember this shape faintly.",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "medium",
+        "strength": "medium",
+        "cosine": 0.6980369091033936,
+        "bonus": 0.0,
+        "score": 0.6980369091033936,
+        "distance": 0.30196309089660645,
+        "rank": 5
+      },
+      {
+        "id": "utt_0086_a8c0156f5da1",
+        "utterance": "I think I have met this kind of thing before.",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "medium",
+        "strength": "medium",
+        "cosine": 0.6978088617324829,
+        "bonus": 0.0,
+        "score": 0.6978088617324829,
+        "distance": 0.3021911382675171,
+        "rank": 6
+      },
+      {
+        "id": "utt_0094_8364264875bc",
+        "utterance": "I think I have encountered this before.",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "medium",
+        "strength": "medium",
+        "cosine": 0.6978088617324829,
+        "bonus": 0.0,
+        "score": 0.6978088617324829,
+        "distance": 0.3021911382675171,
+        "rank": 7
+      },
+      {
+        "id": "utt_0082_2b334533cb06",
+        "utterance": "I think I remember touching this before.",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "medium",
+        "strength": "medium",
+        "cosine": 0.6978088617324829,
+        "bonus": 0.0,
+        "score": 0.6978088617324829,
+        "distance": 0.3021911382675171,
+        "rank": 8
+      }
+    ],
+    "final_axis_vector": {
+      "attention": 0.170412,
+      "salience": 1.0,
+      "intensity": 0.893675,
+      "certainty": 0.040923,
+      "confidence": 0.122451,
+      "uncertainty": 0.055004,
+      "coherence": 0.349168,
+      "ambiguity": 0.068212,
+      "familiarity": 0.992849,
+      "memory": 0.809878,
+      "recognition": 0.723078,
+      "confirmation": 0.098214,
+      "search": 0.173006,
+      "comparison": 0.152162,
+      "similarity": 0.43646,
+      "difference": 0.081419,
+      "connection": 0.698335,
+      "separation": 0.080332,
+      "containment": 0.173143,
+      "boundary": 0.050208,
+      "completion": 0.10271,
+      "repair": 0.299796,
+      "correction": 0.299796,
+      "mismatch": 0.145241,
+      "conflict": 0.072621,
+      "rejection": 0.217862,
+      "acceptance": 0.093085,
+      "restraint": 0.929322,
+      "hesitation": 0.394457,
+      "readiness": 0.306662,
+      "commitment": 0.149923,
+      "release_pressure": 0.409426,
+      "approach": 0.042826,
+      "avoidance": 0.058037,
+      "withdrawal": 0.027085,
+      "calm": 0.111249,
+      "urgency": 0.088179,
+      "friction": 0.143645,
+      "importance": 0.079246,
+      "agency": 0.081845,
+      "orientation": 0.075739,
+      "transition": 0.085935,
+      "saturation": 0.105662,
+      "stability": 0.311657,
+      "alignment": 0.324482
+    },
+    "accumulated_word_tail": [
+      {
+        "tick": 661,
+        "input_id": "F03",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "familiarity",
+            1.5377
+          ],
+          [
+            "restraint",
+            1.4597
+          ],
+          [
+            "memory",
+            1.2323
+          ],
+          [
+            "salience",
+            1.1693
+          ],
+          [
+            "connection",
+            1.1655
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "intensity",
+            0.2687
+          ],
+          [
+            "salience",
+            0.1485
+          ],
+          [
+            "familiarity",
+            0.12
+          ],
+          [
+            "comparison",
+            0.12
+          ],
+          [
+            "memory",
+            0.1
+          ]
+        ]
+      },
+      {
+        "tick": 662,
+        "input_id": "F07",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "familiarity",
+            1.5347
+          ],
+          [
+            "restraint",
+            1.343
+          ],
+          [
+            "memory",
+            1.2337
+          ],
+          [
+            "recognition",
+            1.1811
+          ],
+          [
+            "connection",
+            1.179
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "attention",
+            0.12
+          ],
+          [
+            "familiarity",
+            0.12
+          ],
+          [
+            "recognition",
+            0.12
+          ],
+          [
+            "connection",
+            0.1067
+          ],
+          [
+            "repair",
+            0.1067
+          ]
+        ]
+      },
+      {
+        "tick": 663,
+        "input_id": "F06",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "familiarity",
+            1.532
+          ],
+          [
+            "restraint",
+            1.4756
+          ],
+          [
+            "memory",
+            1.2351
+          ],
+          [
+            "salience",
+            1.1728
+          ],
+          [
+            "recognition",
+            1.1667
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "restraint",
+            0.24
+          ],
+          [
+            "familiarity",
+            0.12
+          ],
+          [
+            "rejection",
+            0.12
+          ],
+          [
+            "memory",
+            0.1
+          ],
+          [
+            "salience",
+            0.0937
+          ]
+        ]
+      },
+      {
+        "tick": 664,
+        "input_id": "F02",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "familiarity",
+            1.5295
+          ],
+          [
+            "restraint",
+            1.4376
+          ],
+          [
+            "memory",
+            1.2364
+          ],
+          [
+            "salience",
+            1.1766
+          ],
+          [
+            "recognition",
+            1.1534
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "familiarity",
+            0.12
+          ],
+          [
+            "memory",
+            0.1
+          ],
+          [
+            "salience",
+            0.0976
+          ],
+          [
+            "recognition",
+            0.08
+          ],
+          [
+            "restraint",
+            0.08
+          ]
+        ]
+      },
+      {
+        "tick": 665,
+        "input_id": "F08",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "restraint",
+            1.6027
+          ],
+          [
+            "familiarity",
+            1.5272
+          ],
+          [
+            "memory",
+            1.2375
+          ],
+          [
+            "salience",
+            1.2023
+          ],
+          [
+            "recognition",
+            1.1412
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "restraint",
+            0.28
+          ],
+          [
+            "separation",
+            0.16
+          ],
+          [
+            "connection",
+            0.16
+          ],
+          [
+            "familiarity",
+            0.12
+          ],
+          [
+            "salience",
+            0.1197
+          ]
+        ]
+      },
+      {
+        "tick": 666,
+        "input_id": "F03",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "restraint",
+            1.6545
+          ],
+          [
+            "familiarity",
+            1.5251
+          ],
+          [
+            "memory",
+            1.2386
+          ],
+          [
+            "salience",
+            1.2343
+          ],
+          [
+            "recognition",
+            1.13
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "restraint",
+            0.18
+          ],
+          [
+            "correction",
+            0.16
+          ],
+          [
+            "repair",
+            0.16
+          ],
+          [
+            "salience",
+            0.1282
+          ],
+          [
+            "familiarity",
+            0.12
+          ]
+        ]
+      },
+      {
+        "tick": 667,
+        "input_id": "F07",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "restraint",
+            1.5822
+          ],
+          [
+            "familiarity",
+            1.5232
+          ],
+          [
+            "salience",
+            1.2593
+          ],
+          [
+            "memory",
+            1.2395
+          ],
+          [
+            "recognition",
+            1.1196
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "salience",
+            0.1237
+          ],
+          [
+            "familiarity",
+            0.12
+          ],
+          [
+            "memory",
+            0.1
+          ],
+          [
+            "recognition",
+            0.08
+          ],
+          [
+            "readiness",
+            0.0654
+          ]
+        ]
+      },
+      {
+        "tick": 668,
+        "input_id": "F09",
+        "final_trigger": true,
+        "top_accum_axes": [
+          [
+            "familiarity",
+            1.5214
+          ],
+          [
+            "salience",
+            1.4767
+          ],
+          [
+            "restraint",
+            1.4557
+          ],
+          [
+            "intensity",
+            1.2688
+          ],
+          [
+            "memory",
+            1.2404
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "intensity",
+            0.4646
+          ],
+          [
+            "salience",
+            0.3181
+          ],
+          [
+            "release_pressure",
+            0.2565
+          ],
+          [
+            "connection",
+            0.16
+          ],
+          [
+            "commitment",
+            0.16
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "branch": "category_formation",
+    "run": "multilingual_random",
+    "tick": 28,
+    "witness": "W6_0001",
+    "input_id": "ES01",
+    "start_tick": 0,
+    "rows": 29,
+    "output": "I choose the corrective path.",
+    "top_k": [
+      {
+        "id": "utt_1723_975a39f89a3f",
+        "utterance": "I choose the corrective path.",
+        "family": "repair",
+        "leaf": "repair_commitment",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.48115187883377075,
+        "bonus": 0.0,
+        "score": 0.48115187883377075,
+        "distance": 0.5188481211662292,
+        "rank": 1
+      },
+      {
+        "id": "utt_1719_224587a545c8",
+        "utterance": "I will repair this.",
+        "family": "repair",
+        "leaf": "repair_commitment",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.4776996076107025,
+        "bonus": 0.0,
+        "score": 0.4776996076107025,
+        "distance": 0.5223003625869751,
+        "rank": 2
+      },
+      {
+        "id": "utt_1715_32e9deb852f8",
+        "utterance": "I commit to fixing this.",
+        "family": "repair",
+        "leaf": "repair_commitment",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.4776996076107025,
+        "bonus": 0.0,
+        "score": 0.4776996076107025,
+        "distance": 0.5223003625869751,
+        "rank": 3
+      },
+      {
+        "id": "utt_1722_5f22a821098e",
+        "utterance": "I think I choose the corrective path.",
+        "family": "repair",
+        "leaf": "repair_commitment",
+        "form": "medium",
+        "strength": "medium",
+        "cosine": 0.47681209444999695,
+        "bonus": 0.0,
+        "score": 0.47681209444999695,
+        "distance": 0.5231878757476807,
+        "rank": 4
+      },
+      {
+        "id": "utt_1727_ddc65928ef4d",
+        "utterance": "I can make this right.",
+        "family": "repair",
+        "leaf": "repair_commitment",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.4767375588417053,
+        "bonus": 0.0,
+        "score": 0.4767375588417053,
+        "distance": 0.5232624411582947,
+        "rank": 5
+      },
+      {
+        "id": "utt_1720_0ddc5d481eed",
+        "utterance": "Do I choose the corrective path?",
+        "family": "repair",
+        "leaf": "repair_commitment",
+        "form": "question",
+        "strength": "low",
+        "cosine": 0.4766639173030853,
+        "bonus": 0.0,
+        "score": 0.4766639173030853,
+        "distance": 0.5233360528945923,
+        "rank": 6
+      },
+      {
+        "id": "utt_1714_706bcc1a03ae",
+        "utterance": "I think I commit to fixing this.",
+        "family": "repair",
+        "leaf": "repair_commitment",
+        "form": "medium",
+        "strength": "medium",
+        "cosine": 0.4733448028564453,
+        "bonus": 0.0,
+        "score": 0.4733448028564453,
+        "distance": 0.5266551971435547,
+        "rank": 7
+      },
+      {
+        "id": "utt_1718_4cb9482e91ef",
+        "utterance": "I think I will repair this.",
+        "family": "repair",
+        "leaf": "repair_commitment",
+        "form": "medium",
+        "strength": "medium",
+        "cosine": 0.4733448028564453,
+        "bonus": 0.0,
+        "score": 0.4733448028564453,
+        "distance": 0.5266551971435547,
+        "rank": 8
+      }
+    ],
+    "final_axis_vector": {
+      "attention": 0.303655,
+      "salience": 1.0,
+      "intensity": 0.819019,
+      "certainty": 0.050199,
+      "confidence": 0.194882,
+      "uncertainty": 0.059708,
+      "coherence": 0.109945,
+      "ambiguity": 0.094091,
+      "familiarity": 0.325875,
+      "memory": 0.295877,
+      "recognition": 0.330625,
+      "confirmation": 0.120477,
+      "search": 0.266516,
+      "comparison": 0.184952,
+      "similarity": 0.137431,
+      "difference": 0.128474,
+      "connection": 0.21989,
+      "separation": 0.167386,
+      "containment": 0.022905,
+      "boundary": 0.104616,
+      "completion": 0.15152,
+      "repair": 0.482066,
+      "correction": 0.482066,
+      "mismatch": 0.117572,
+      "conflict": 0.058786,
+      "rejection": 0.176358,
+      "acceptance": 0.178006,
+      "restraint": 0.465865,
+      "hesitation": 0.058805,
+      "readiness": 0.725295,
+      "commitment": 0.42909,
+      "release_pressure": 0.532716,
+      "approach": 0.206557,
+      "avoidance": 0.083683,
+      "calm": 0.090864,
+      "urgency": 0.10815,
+      "friction": 0.211246,
+      "importance": 0.051355,
+      "agency": 0.100397,
+      "orientation": 0.134958,
+      "transition": 0.534656,
+      "saturation": 0.068473,
+      "stability": 0.041229,
+      "alignment": 0.296005
+    },
+    "accumulated_word_tail": [
+      {
+        "tick": 21,
+        "input_id": "DE00",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "intensity",
+            1.1086
+          ],
+          [
+            "salience",
+            0.9626
+          ],
+          [
+            "restraint",
+            0.6508
+          ],
+          [
+            "release_pressure",
+            0.5264
+          ],
+          [
+            "connection",
+            0.4452
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "intensity",
+            0.1562
+          ],
+          [
+            "salience",
+            0.1087
+          ],
+          [
+            "release_pressure",
+            0.06
+          ],
+          [
+            "rejection",
+            0.06
+          ],
+          [
+            "commitment",
+            0.0533
+          ]
+        ]
+      },
+      {
+        "tick": 22,
+        "input_id": "DE01",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "intensity",
+            1.058
+          ],
+          [
+            "salience",
+            0.9582
+          ],
+          [
+            "restraint",
+            0.6321
+          ],
+          [
+            "release_pressure",
+            0.4843
+          ],
+          [
+            "connection",
+            0.463
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "salience",
+            0.0725
+          ],
+          [
+            "readiness",
+            0.06
+          ],
+          [
+            "separation",
+            0.0533
+          ],
+          [
+            "connection",
+            0.0533
+          ],
+          [
+            "transition",
+            0.04
+          ]
+        ]
+      },
+      {
+        "tick": 23,
+        "input_id": "ES02",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "intensity",
+            1.0294
+          ],
+          [
+            "salience",
+            0.9843
+          ],
+          [
+            "restraint",
+            0.6416
+          ],
+          [
+            "release_pressure",
+            0.4455
+          ],
+          [
+            "connection",
+            0.4259
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "salience",
+            0.1028
+          ],
+          [
+            "familiarity",
+            0.088
+          ],
+          [
+            "memory",
+            0.076
+          ],
+          [
+            "recognition",
+            0.06
+          ],
+          [
+            "restraint",
+            0.06
+          ]
+        ]
+      },
+      {
+        "tick": 24,
+        "input_id": "DE03",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "intensity",
+            0.9829
+          ],
+          [
+            "salience",
+            0.9736
+          ],
+          [
+            "restraint",
+            0.6436
+          ],
+          [
+            "release_pressure",
+            0.4099
+          ],
+          [
+            "connection",
+            0.3919
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "rejection",
+            0.12
+          ],
+          [
+            "separation",
+            0.1067
+          ],
+          [
+            "mismatch",
+            0.08
+          ],
+          [
+            "salience",
+            0.068
+          ],
+          [
+            "boundary",
+            0.0667
+          ]
+        ]
+      },
+      {
+        "tick": 25,
+        "input_id": "ES00",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "salience",
+            1.0632
+          ],
+          [
+            "intensity",
+            1.0068
+          ],
+          [
+            "restraint",
+            0.5922
+          ],
+          [
+            "readiness",
+            0.533
+          ],
+          [
+            "release_pressure",
+            0.4971
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "readiness",
+            0.1733
+          ],
+          [
+            "salience",
+            0.1674
+          ],
+          [
+            "transition",
+            0.1333
+          ],
+          [
+            "release_pressure",
+            0.12
+          ],
+          [
+            "correction",
+            0.1067
+          ]
+        ]
+      },
+      {
+        "tick": 26,
+        "input_id": "EN01",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "salience",
+            1.0664
+          ],
+          [
+            "intensity",
+            0.9755
+          ],
+          [
+            "restraint",
+            0.6448
+          ],
+          [
+            "release_pressure",
+            0.6374
+          ],
+          [
+            "readiness",
+            0.5704
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "comparison",
+            0.18
+          ],
+          [
+            "release_pressure",
+            0.18
+          ],
+          [
+            "correction",
+            0.16
+          ],
+          [
+            "repair",
+            0.16
+          ],
+          [
+            "restraint",
+            0.1
+          ]
+        ]
+      },
+      {
+        "tick": 27,
+        "input_id": "DE01",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "salience",
+            1.074
+          ],
+          [
+            "intensity",
+            0.9526
+          ],
+          [
+            "restraint",
+            0.6466
+          ],
+          [
+            "release_pressure",
+            0.6464
+          ],
+          [
+            "readiness",
+            0.5514
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "salience",
+            0.0928
+          ],
+          [
+            "release_pressure",
+            0.06
+          ],
+          [
+            "familiarity",
+            0.056
+          ],
+          [
+            "intensity",
+            0.0551
+          ],
+          [
+            "repair",
+            0.0533
+          ]
+        ]
+      },
+      {
+        "tick": 28,
+        "input_id": "ES01",
+        "final_trigger": true,
+        "top_accum_axes": [
+          [
+            "salience",
+            1.2134
+          ],
+          [
+            "intensity",
+            1.0086
+          ],
+          [
+            "readiness",
+            0.834
+          ],
+          [
+            "release_pressure",
+            0.6615
+          ],
+          [
+            "transition",
+            0.6263
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "readiness",
+            0.3267
+          ],
+          [
+            "commitment",
+            0.23
+          ],
+          [
+            "salience",
+            0.2253
+          ],
+          [
+            "transition",
+            0.2
+          ],
+          [
+            "attention",
+            0.18
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "branch": "category_formation",
+    "run": "no_baseline_test",
+    "tick": 49,
+    "witness": "W4_0001",
+    "input_id": "B05",
+    "start_tick": 0,
+    "rows": 50,
+    "output": "I have seen something like this before.",
+    "top_k": [
+      {
+        "id": "utt_0023_a47b3ad4e4bb",
+        "utterance": "I have seen something like this before.",
+        "family": "recognition",
+        "leaf": "uncertain_recognition",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.5893080830574036,
+        "bonus": 0.0,
+        "score": 0.5893080830574036,
+        "distance": 0.41069191694259644,
+        "rank": 1
+      },
+      {
+        "id": "utt_0031_2349d280d5a3",
+        "utterance": "I feel this might be known.",
+        "family": "recognition",
+        "leaf": "uncertain_recognition",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.5881609916687012,
+        "bonus": 0.0,
+        "score": 0.5881609916687012,
+        "distance": 0.41183900833129883,
+        "rank": 2
+      },
+      {
+        "id": "utt_0007_e6444fe71562",
+        "utterance": "I sense I have met this before.",
+        "family": "recognition",
+        "leaf": "faint_recognition",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.5874892473220825,
+        "bonus": 0.0,
+        "score": 0.5874892473220825,
+        "distance": 0.4125107526779175,
+        "rank": 3
+      },
+      {
+        "id": "utt_0027_d626518d7d88",
+        "utterance": "I know this from somewhere.",
+        "family": "recognition",
+        "leaf": "uncertain_recognition",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.5866891145706177,
+        "bonus": 0.0,
+        "score": 0.5866891145706177,
+        "distance": 0.4133108854293823,
+        "rank": 4
+      },
+      {
+        "id": "utt_0019_4add8bb7c46d",
+        "utterance": "I recognize part of this.",
+        "family": "recognition",
+        "leaf": "uncertain_recognition",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.5858310461044312,
+        "bonus": 0.0,
+        "score": 0.5858310461044312,
+        "distance": 0.41416895389556885,
+        "rank": 5
+      },
+      {
+        "id": "utt_0003_46f527ce48d4",
+        "utterance": "I feel this is familiar.",
+        "family": "recognition",
+        "leaf": "faint_recognition",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.5844717025756836,
+        "bonus": 0.0,
+        "score": 0.5844717025756836,
+        "distance": 0.4155282974243164,
+        "rank": 6
+      },
+      {
+        "id": "utt_0015_cdfcf789dd6b",
+        "utterance": "I feel a weak match forming.",
+        "family": "recognition",
+        "leaf": "faint_recognition",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.5842229127883911,
+        "bonus": 0.0,
+        "score": 0.5842229127883911,
+        "distance": 0.4157770872116089,
+        "rank": 7
+      },
+      {
+        "id": "utt_0022_665318c5bb9b",
+        "utterance": "I think I have seen something like this before.",
+        "family": "recognition",
+        "leaf": "uncertain_recognition",
+        "form": "medium",
+        "strength": "medium",
+        "cosine": 0.5840394496917725,
+        "bonus": 0.0,
+        "score": 0.5840394496917725,
+        "distance": 0.41596055030822754,
+        "rank": 8
+      }
+    ],
+    "final_axis_vector": {
+      "attention": 0.390235,
+      "salience": 1.0,
+      "intensity": 0.634433,
+      "certainty": 0.043026,
+      "confidence": 0.28469,
+      "doubt": 0.189705,
+      "uncertainty": 0.116136,
+      "coherence": 0.172086,
+      "ambiguity": 0.10266,
+      "novelty": 0.2876,
+      "familiarity": 0.812135,
+      "memory": 0.609109,
+      "recognition": 0.702886,
+      "confirmation": 0.103263,
+      "curiosity": 0.17975,
+      "search": 0.32503,
+      "comparison": 0.326344,
+      "similarity": 0.215108,
+      "difference": 0.089184,
+      "connection": 0.344173,
+      "containment": 0.085246,
+      "completion": 0.197101,
+      "mismatch": 0.343937,
+      "conflict": 0.171968,
+      "rejection": 0.515905,
+      "acceptance": 0.320647,
+      "restraint": 0.653904,
+      "hesitation": 0.440481,
+      "readiness": 0.648192,
+      "commitment": 0.606961,
+      "release_pressure": 0.627577,
+      "approach": 0.182988,
+      "avoidance": 0.387198,
+      "withdrawal": 0.50588,
+      "calm": 0.122359,
+      "urgency": 0.169061,
+      "friction": 0.079351,
+      "agency": 0.086052,
+      "orientation": 0.173438,
+      "transition": 0.461654,
+      "expectation": 0.065219,
+      "stability": 0.153442,
+      "alignment": 0.086043
+    },
+    "accumulated_word_tail": [
+      {
+        "tick": 42,
+        "input_id": "N02",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "salience",
+            0.9939
+          ],
+          [
+            "restraint",
+            0.9598
+          ],
+          [
+            "familiarity",
+            0.9368
+          ],
+          [
+            "rejection",
+            0.8495
+          ],
+          [
+            "memory",
+            0.7958
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "commitment",
+            0.1533
+          ],
+          [
+            "comparison",
+            0.12
+          ],
+          [
+            "rejection",
+            0.12
+          ],
+          [
+            "readiness",
+            0.12
+          ],
+          [
+            "mismatch",
+            0.08
+          ]
+        ]
+      },
+      {
+        "tick": 43,
+        "input_id": "B05",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "salience",
+            0.9879
+          ],
+          [
+            "familiarity",
+            0.9499
+          ],
+          [
+            "restraint",
+            0.8831
+          ],
+          [
+            "recognition",
+            0.8282
+          ],
+          [
+            "withdrawal",
+            0.8139
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "attention",
+            0.12
+          ],
+          [
+            "release_pressure",
+            0.12
+          ],
+          [
+            "withdrawal",
+            0.1067
+          ],
+          [
+            "recognition",
+            0.1
+          ],
+          [
+            "familiarity",
+            0.088
+          ]
+        ]
+      },
+      {
+        "tick": 44,
+        "input_id": "N04",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "salience",
+            1.0941
+          ],
+          [
+            "familiarity",
+            0.93
+          ],
+          [
+            "restraint",
+            0.8125
+          ],
+          [
+            "recognition",
+            0.8019
+          ],
+          [
+            "release_pressure",
+            0.7971
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "release_pressure",
+            0.2362
+          ],
+          [
+            "salience",
+            0.1852
+          ],
+          [
+            "commitment",
+            0.16
+          ],
+          [
+            "connection",
+            0.16
+          ],
+          [
+            "readiness",
+            0.1362
+          ]
+        ]
+      },
+      {
+        "tick": 45,
+        "input_id": "N02",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "salience",
+            1.121
+          ],
+          [
+            "familiarity",
+            0.9436
+          ],
+          [
+            "recognition",
+            0.8578
+          ],
+          [
+            "rejection",
+            0.8416
+          ],
+          [
+            "restraint",
+            0.8275
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "attention",
+            0.18
+          ],
+          [
+            "rejection",
+            0.18
+          ],
+          [
+            "connection",
+            0.16
+          ],
+          [
+            "recognition",
+            0.12
+          ],
+          [
+            "mismatch",
+            0.12
+          ]
+        ]
+      },
+      {
+        "tick": 46,
+        "input_id": "N00",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "salience",
+            1.2252
+          ],
+          [
+            "familiarity",
+            0.9882
+          ],
+          [
+            "recognition",
+            0.9292
+          ],
+          [
+            "release_pressure",
+            0.9069
+          ],
+          [
+            "memory",
+            0.8434
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "salience",
+            0.1939
+          ],
+          [
+            "attention",
+            0.18
+          ],
+          [
+            "release_pressure",
+            0.18
+          ],
+          [
+            "commitment",
+            0.16
+          ],
+          [
+            "withdrawal",
+            0.16
+          ]
+        ]
+      },
+      {
+        "tick": 47,
+        "input_id": "B05",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "salience",
+            1.2414
+          ],
+          [
+            "release_pressure",
+            1.0143
+          ],
+          [
+            "familiarity",
+            1.0132
+          ],
+          [
+            "recognition",
+            0.9249
+          ],
+          [
+            "withdrawal",
+            0.8904
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "release_pressure",
+            0.18
+          ],
+          [
+            "withdrawal",
+            0.16
+          ],
+          [
+            "avoidance",
+            0.12
+          ],
+          [
+            "salience",
+            0.1141
+          ],
+          [
+            "familiarity",
+            0.104
+          ]
+        ]
+      },
+      {
+        "tick": 48,
+        "input_id": "B05",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "salience",
+            1.3133
+          ],
+          [
+            "familiarity",
+            1.0922
+          ],
+          [
+            "recognition",
+            0.971
+          ],
+          [
+            "release_pressure",
+            0.9332
+          ],
+          [
+            "memory",
+            0.8749
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "rejection",
+            0.18
+          ],
+          [
+            "salience",
+            0.1712
+          ],
+          [
+            "connection",
+            0.16
+          ],
+          [
+            "familiarity",
+            0.16
+          ],
+          [
+            "commitment",
+            0.16
+          ]
+        ]
+      },
+      {
+        "tick": 49,
+        "input_id": "B05",
+        "final_trigger": true,
+        "top_accum_axes": [
+          [
+            "salience",
+            1.4279
+          ],
+          [
+            "familiarity",
+            1.1648
+          ],
+          [
+            "recognition",
+            1.0134
+          ],
+          [
+            "release_pressure",
+            0.9182
+          ],
+          [
+            "intensity",
+            0.9076
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "readiness",
+            0.3196
+          ],
+          [
+            "restraint",
+            0.24
+          ],
+          [
+            "commitment",
+            0.23
+          ],
+          [
+            "salience",
+            0.2196
+          ],
+          [
+            "transition",
+            0.2
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "branch": "cross_domain_mapping",
+    "run": "baseline_then_novel",
+    "tick": 597,
+    "witness": "W2_0001",
+    "input_id": "B00",
+    "start_tick": 0,
+    "rows": 598,
+    "output": "Do I remember this shape faintly?",
+    "top_k": [
+      {
+        "id": "utt_0088_a958a8725861",
+        "utterance": "Do I remember this shape faintly?",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "question",
+        "strength": "low",
+        "cosine": 0.8345348834991455,
+        "bonus": 0.0,
+        "score": 0.8345348834991455,
+        "distance": 0.1654651165008545,
+        "rank": 1
+      },
+      {
+        "id": "utt_0080_a9d2e59c2d25",
+        "utterance": "Do I remember touching this before?",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "question",
+        "strength": "low",
+        "cosine": 0.834266185760498,
+        "bonus": 0.0,
+        "score": 0.834266185760498,
+        "distance": 0.16573381423950195,
+        "rank": 2
+      },
+      {
+        "id": "utt_0084_c0ad6a825ff8",
+        "utterance": "Have I met this kind of thing before?",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "question",
+        "strength": "low",
+        "cosine": 0.834266185760498,
+        "bonus": 0.0,
+        "score": 0.834266185760498,
+        "distance": 0.16573381423950195,
+        "rank": 3
+      },
+      {
+        "id": "utt_0092_a8844bc67a5e",
+        "utterance": "Have I encountered this before?",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "question",
+        "strength": "low",
+        "cosine": 0.834266185760498,
+        "bonus": 0.0,
+        "score": 0.834266185760498,
+        "distance": 0.16573381423950195,
+        "rank": 4
+      },
+      {
+        "id": "utt_0089_60fe718a9fb7",
+        "utterance": "I might remember this shape faintly.",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "weak",
+        "strength": "low_medium",
+        "cosine": 0.8297032117843628,
+        "bonus": 0.0,
+        "score": 0.8297032117843628,
+        "distance": 0.1702967882156372,
+        "rank": 5
+      },
+      {
+        "id": "utt_0093_50171c54b485",
+        "utterance": "I might have encountered this before.",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "weak",
+        "strength": "low_medium",
+        "cosine": 0.8294335007667542,
+        "bonus": 0.0,
+        "score": 0.8294335007667542,
+        "distance": 0.17056649923324585,
+        "rank": 6
+      },
+      {
+        "id": "utt_0085_d7ef2ee37af6",
+        "utterance": "I might have met this kind of thing before.",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "weak",
+        "strength": "low_medium",
+        "cosine": 0.8294335007667542,
+        "bonus": 0.0,
+        "score": 0.8294335007667542,
+        "distance": 0.17056649923324585,
+        "rank": 7
+      },
+      {
+        "id": "utt_0081_05ea4ab1b4e4",
+        "utterance": "I might remember touching this before.",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "weak",
+        "strength": "low_medium",
+        "cosine": 0.8294335007667542,
+        "bonus": 0.0,
+        "score": 0.8294335007667542,
+        "distance": 0.17056649923324585,
+        "rank": 8
+      }
+    ],
+    "final_axis_vector": {
+      "attention": 0.044678,
+      "salience": 0.905811,
+      "intensity": 0.687412,
+      "certainty": 0.038397,
+      "confidence": 0.126548,
+      "doubt": 0.04985,
+      "uncertainty": 0.187734,
+      "coherence": 0.040335,
+      "ambiguity": 0.191438,
+      "familiarity": 1.0,
+      "memory": 0.725676,
+      "recognition": 0.708474,
+      "confirmation": 0.092152,
+      "search": 0.221794,
+      "comparison": 0.429848,
+      "similarity": 0.050419,
+      "difference": 0.195143,
+      "connection": 0.08067,
+      "separation": 0.108684,
+      "boundary": 0.067927,
+      "completion": 0.103031,
+      "repair": 0.264404,
+      "correction": 0.264404,
+      "mismatch": 0.040369,
+      "conflict": 0.020184,
+      "rejection": 0.060553,
+      "acceptance": 0.10399,
+      "restraint": 0.145386,
+      "hesitation": 0.107383,
+      "readiness": 0.318515,
+      "commitment": 0.191713,
+      "release_pressure": 0.388528,
+      "approach": 0.07215,
+      "avoidance": 0.104512,
+      "withdrawal": 0.132932,
+      "calm": 0.0473,
+      "urgency": 0.088288,
+      "friction": 0.03488,
+      "importance": 0.043412,
+      "agency": 0.076794,
+      "transition": 0.151537,
+      "expectation": 0.080743,
+      "saturation": 0.057883,
+      "stability": 0.033477,
+      "alignment": 0.152369
+    },
+    "accumulated_word_tail": [
+      {
+        "tick": 590,
+        "input_id": "B03",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "familiarity",
+            1.607
+          ],
+          [
+            "memory",
+            1.1976
+          ],
+          [
+            "recognition",
+            1.1513
+          ],
+          [
+            "salience",
+            1.0659
+          ],
+          [
+            "comparison",
+            0.8685
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "salience",
+            0.1269
+          ],
+          [
+            "familiarity",
+            0.12
+          ],
+          [
+            "memory",
+            0.1
+          ],
+          [
+            "recognition",
+            0.08
+          ],
+          [
+            "readiness",
+            0.067
+          ]
+        ]
+      },
+      {
+        "tick": 591,
+        "input_id": "B03",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "familiarity",
+            1.6385
+          ],
+          [
+            "memory",
+            1.1818
+          ],
+          [
+            "recognition",
+            1.1792
+          ],
+          [
+            "salience",
+            1.1481
+          ],
+          [
+            "intensity",
+            1.0293
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "intensity",
+            0.375
+          ],
+          [
+            "salience",
+            0.1674
+          ],
+          [
+            "familiarity",
+            0.16
+          ],
+          [
+            "withdrawal",
+            0.16
+          ],
+          [
+            "avoidance",
+            0.12
+          ]
+        ]
+      },
+      {
+        "tick": 592,
+        "input_id": "B05",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "familiarity",
+            1.6275
+          ],
+          [
+            "memory",
+            1.1874
+          ],
+          [
+            "recognition",
+            1.165
+          ],
+          [
+            "salience",
+            1.1515
+          ],
+          [
+            "intensity",
+            0.9957
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "familiarity",
+            0.12
+          ],
+          [
+            "comparison",
+            0.12
+          ],
+          [
+            "repair",
+            0.1067
+          ],
+          [
+            "correction",
+            0.1067
+          ],
+          [
+            "memory",
+            0.1
+          ]
+        ]
+      },
+      {
+        "tick": 593,
+        "input_id": "B04",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "familiarity",
+            1.6174
+          ],
+          [
+            "salience",
+            1.2455
+          ],
+          [
+            "memory",
+            1.1924
+          ],
+          [
+            "recognition",
+            1.1518
+          ],
+          [
+            "intensity",
+            1.024
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "salience",
+            0.1861
+          ],
+          [
+            "familiarity",
+            0.12
+          ],
+          [
+            "release_pressure",
+            0.1166
+          ],
+          [
+            "intensity",
+            0.1079
+          ],
+          [
+            "memory",
+            0.1
+          ]
+        ]
+      },
+      {
+        "tick": 594,
+        "input_id": "B00",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "familiarity",
+            1.6081
+          ],
+          [
+            "salience",
+            1.2636
+          ],
+          [
+            "memory",
+            1.1971
+          ],
+          [
+            "recognition",
+            1.1397
+          ],
+          [
+            "intensity",
+            1.0052
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "familiarity",
+            0.12
+          ],
+          [
+            "salience",
+            0.1176
+          ],
+          [
+            "commitment",
+            0.1067
+          ],
+          [
+            "memory",
+            0.1
+          ],
+          [
+            "recognition",
+            0.08
+          ]
+        ]
+      },
+      {
+        "tick": 595,
+        "input_id": "B05",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "familiarity",
+            1.5995
+          ],
+          [
+            "salience",
+            1.295
+          ],
+          [
+            "memory",
+            1.2014
+          ],
+          [
+            "recognition",
+            1.1286
+          ],
+          [
+            "intensity",
+            1.0847
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "intensity",
+            0.1599
+          ],
+          [
+            "salience",
+            0.1325
+          ],
+          [
+            "familiarity",
+            0.12
+          ],
+          [
+            "memory",
+            0.1
+          ],
+          [
+            "recognition",
+            0.08
+          ]
+        ]
+      },
+      {
+        "tick": 596,
+        "input_id": "B00",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "familiarity",
+            1.5916
+          ],
+          [
+            "salience",
+            1.3078
+          ],
+          [
+            "memory",
+            1.2053
+          ],
+          [
+            "recognition",
+            1.1184
+          ],
+          [
+            "intensity",
+            1.0604
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "familiarity",
+            0.12
+          ],
+          [
+            "release_pressure",
+            0.12
+          ],
+          [
+            "salience",
+            0.1164
+          ],
+          [
+            "correction",
+            0.1067
+          ],
+          [
+            "repair",
+            0.1067
+          ]
+        ]
+      },
+      {
+        "tick": 597,
+        "input_id": "B00",
+        "final_trigger": true,
+        "top_accum_axes": [
+          [
+            "familiarity",
+            1.6243
+          ],
+          [
+            "salience",
+            1.4443
+          ],
+          [
+            "memory",
+            1.1889
+          ],
+          [
+            "recognition",
+            1.1489
+          ],
+          [
+            "intensity",
+            1.1098
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "salience",
+            0.241
+          ],
+          [
+            "release_pressure",
+            0.2
+          ],
+          [
+            "familiarity",
+            0.16
+          ],
+          [
+            "intensity",
+            0.1342
+          ],
+          [
+            "readiness",
+            0.1333
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "branch": "cross_domain_mapping",
+    "run": "baseline_then_novel",
+    "tick": 1794,
+    "witness": "W2_0022",
+    "input_id": "N01",
+    "start_tick": 1779,
+    "rows": 16,
+    "output": "Do I sense I have met this before?",
+    "top_k": [
+      {
+        "id": "utt_0004_050b19e7a907",
+        "utterance": "Do I sense I have met this before?",
+        "family": "recognition",
+        "leaf": "faint_recognition",
+        "form": "question",
+        "strength": "low",
+        "cosine": 0.5512352585792542,
+        "bonus": 0.0,
+        "score": 0.5512352585792542,
+        "distance": 0.44876474142074585,
+        "rank": 1
+      },
+      {
+        "id": "utt_0088_a958a8725861",
+        "utterance": "Do I remember this shape faintly?",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "question",
+        "strength": "low",
+        "cosine": 0.5505415201187134,
+        "bonus": 0.0,
+        "score": 0.5505415201187134,
+        "distance": 0.4494584798812866,
+        "rank": 2
+      },
+      {
+        "id": "utt_0092_a8844bc67a5e",
+        "utterance": "Have I encountered this before?",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "question",
+        "strength": "low",
+        "cosine": 0.5503643155097961,
+        "bonus": 0.0,
+        "score": 0.5503643155097961,
+        "distance": 0.44963568449020386,
+        "rank": 3
+      },
+      {
+        "id": "utt_0084_c0ad6a825ff8",
+        "utterance": "Have I met this kind of thing before?",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "question",
+        "strength": "low",
+        "cosine": 0.5503643155097961,
+        "bonus": 0.0,
+        "score": 0.5503643155097961,
+        "distance": 0.44963568449020386,
+        "rank": 4
+      },
+      {
+        "id": "utt_0080_a9d2e59c2d25",
+        "utterance": "Do I remember touching this before?",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "question",
+        "strength": "low",
+        "cosine": 0.5503643155097961,
+        "bonus": 0.0,
+        "score": 0.5503643155097961,
+        "distance": 0.44963568449020386,
+        "rank": 5
+      },
+      {
+        "id": "utt_0000_8b457a32a612",
+        "utterance": "Do I feel this is familiar?",
+        "family": "recognition",
+        "leaf": "faint_recognition",
+        "form": "question",
+        "strength": "low",
+        "cosine": 0.5488694906234741,
+        "bonus": 0.0,
+        "score": 0.5488694906234741,
+        "distance": 0.4511305093765259,
+        "rank": 6
+      },
+      {
+        "id": "utt_0012_2b5e1f00f943",
+        "utterance": "Do I feel a weak match forming?",
+        "family": "recognition",
+        "leaf": "faint_recognition",
+        "form": "question",
+        "strength": "low",
+        "cosine": 0.5482274889945984,
+        "bonus": 0.0,
+        "score": 0.5482274889945984,
+        "distance": 0.4517725110054016,
+        "rank": 7
+      },
+      {
+        "id": "utt_0008_419aa7b70a95",
+        "utterance": "Do I recognize a faint shape here?",
+        "family": "recognition",
+        "leaf": "faint_recognition",
+        "form": "question",
+        "strength": "low",
+        "cosine": 0.5478619933128357,
+        "bonus": 0.0,
+        "score": 0.5478619933128357,
+        "distance": 0.4521380066871643,
+        "rank": 8
+      }
+    ],
+    "final_axis_vector": {
+      "attention": 0.122123,
+      "salience": 0.801104,
+      "intensity": 1.0,
+      "certainty": 0.039862,
+      "confidence": 0.111599,
+      "doubt": 0.020869,
+      "uncertainty": 0.155003,
+      "coherence": 0.049593,
+      "ambiguity": 0.138943,
+      "novelty": 0.472213,
+      "familiarity": 0.403654,
+      "memory": 0.299641,
+      "recognition": 0.327243,
+      "confirmation": 0.095668,
+      "curiosity": 0.295133,
+      "search": 0.355299,
+      "comparison": 0.36911,
+      "similarity": 0.061991,
+      "difference": 0.122883,
+      "connection": 0.099185,
+      "containment": 0.025903,
+      "completion": 0.09566,
+      "repair": 0.085038,
+      "correction": 0.085038,
+      "mismatch": 0.021055,
+      "rejection": 0.031583,
+      "acceptance": 0.079703,
+      "restraint": 0.119201,
+      "hesitation": 0.084812,
+      "readiness": 0.110233,
+      "commitment": 0.127525,
+      "release_pressure": 0.122805,
+      "avoidance": 0.041738,
+      "withdrawal": 0.05565,
+      "urgency": 0.05618,
+      "importance": 0.120394,
+      "agency": 0.079723,
+      "orientation": 0.054277,
+      "expectation": 0.035802,
+      "saturation": 0.160526,
+      "stability": 0.046626,
+      "alignment": 0.067315
+    },
+    "accumulated_word_tail": [
+      {
+        "tick": 1787,
+        "input_id": "N03",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "intensity",
+            0.6089
+          ],
+          [
+            "salience",
+            0.6033
+          ],
+          [
+            "novelty",
+            0.5279
+          ],
+          [
+            "familiarity",
+            0.4964
+          ],
+          [
+            "recognition",
+            0.3693
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "familiarity",
+            0.16
+          ],
+          [
+            "intensity",
+            0.1403
+          ],
+          [
+            "recognition",
+            0.12
+          ],
+          [
+            "salience",
+            0.0908
+          ],
+          [
+            "novelty",
+            0.08
+          ]
+        ]
+      },
+      {
+        "tick": 1788,
+        "input_id": "N02",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "intensity",
+            0.7137
+          ],
+          [
+            "salience",
+            0.658
+          ],
+          [
+            "novelty",
+            0.5657
+          ],
+          [
+            "familiarity",
+            0.4567
+          ],
+          [
+            "curiosity",
+            0.3536
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "intensity",
+            0.1535
+          ],
+          [
+            "salience",
+            0.1029
+          ],
+          [
+            "novelty",
+            0.08
+          ],
+          [
+            "comparison",
+            0.06
+          ],
+          [
+            "release_pressure",
+            0.06
+          ]
+        ]
+      },
+      {
+        "tick": 1789,
+        "input_id": "N03",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "intensity",
+            0.802
+          ],
+          [
+            "salience",
+            0.6989
+          ],
+          [
+            "novelty",
+            0.6005
+          ],
+          [
+            "familiarity",
+            0.5082
+          ],
+          [
+            "curiosity",
+            0.3753
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "intensity",
+            0.1453
+          ],
+          [
+            "salience",
+            0.0936
+          ],
+          [
+            "familiarity",
+            0.088
+          ],
+          [
+            "novelty",
+            0.08
+          ],
+          [
+            "memory",
+            0.076
+          ]
+        ]
+      },
+      {
+        "tick": 1790,
+        "input_id": "N02",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "intensity",
+            0.9974
+          ],
+          [
+            "salience",
+            0.7802
+          ],
+          [
+            "novelty",
+            0.6325
+          ],
+          [
+            "familiarity",
+            0.5236
+          ],
+          [
+            "comparison",
+            0.4339
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "intensity",
+            0.2595
+          ],
+          [
+            "comparison",
+            0.14
+          ],
+          [
+            "salience",
+            0.1371
+          ],
+          [
+            "attention",
+            0.12
+          ],
+          [
+            "search",
+            0.11
+          ]
+        ]
+      },
+      {
+        "tick": 1791,
+        "input_id": "N05",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "intensity",
+            0.9687
+          ],
+          [
+            "salience",
+            0.8179
+          ],
+          [
+            "novelty",
+            0.6619
+          ],
+          [
+            "familiarity",
+            0.4817
+          ],
+          [
+            "curiosity",
+            0.4137
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "connection",
+            0.1067
+          ],
+          [
+            "salience",
+            0.1001
+          ],
+          [
+            "novelty",
+            0.08
+          ],
+          [
+            "similarity",
+            0.0667
+          ],
+          [
+            "coherence",
+            0.0533
+          ]
+        ]
+      },
+      {
+        "tick": 1792,
+        "input_id": "N01",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "intensity",
+            1.0578
+          ],
+          [
+            "salience",
+            0.8832
+          ],
+          [
+            "novelty",
+            0.689
+          ],
+          [
+            "familiarity",
+            0.5152
+          ],
+          [
+            "curiosity",
+            0.4306
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "intensity",
+            0.1666
+          ],
+          [
+            "salience",
+            0.1307
+          ],
+          [
+            "novelty",
+            0.08
+          ],
+          [
+            "familiarity",
+            0.072
+          ],
+          [
+            "memory",
+            0.064
+          ]
+        ]
+      },
+      {
+        "tick": 1793,
+        "input_id": "N03",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "intensity",
+            1.2572
+          ],
+          [
+            "salience",
+            0.9935
+          ],
+          [
+            "novelty",
+            0.7139
+          ],
+          [
+            "familiarity",
+            0.578
+          ],
+          [
+            "search",
+            0.4863
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "intensity",
+            0.2839
+          ],
+          [
+            "salience",
+            0.1809
+          ],
+          [
+            "comparison",
+            0.14
+          ],
+          [
+            "attention",
+            0.12
+          ],
+          [
+            "restraint",
+            0.12
+          ]
+        ]
+      },
+      {
+        "tick": 1794,
+        "input_id": "N01",
+        "final_trigger": true,
+        "top_accum_axes": [
+          [
+            "intensity",
+            1.5088
+          ],
+          [
+            "salience",
+            1.2059
+          ],
+          [
+            "novelty",
+            0.7368
+          ],
+          [
+            "familiarity",
+            0.6198
+          ],
+          [
+            "comparison",
+            0.5597
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "intensity",
+            0.3521
+          ],
+          [
+            "salience",
+            0.2919
+          ],
+          [
+            "confirmation",
+            0.12
+          ],
+          [
+            "comparison",
+            0.12
+          ],
+          [
+            "confidence",
+            0.1167
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "branch": "cross_domain_mapping",
+    "run": "facts_then_questions",
+    "tick": 229,
+    "witness": "W2_0001",
+    "input_id": "F03",
+    "start_tick": 0,
+    "rows": 230,
+    "output": "Do I remember this shape faintly?",
+    "top_k": [
+      {
+        "id": "utt_0088_a958a8725861",
+        "utterance": "Do I remember this shape faintly?",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "question",
+        "strength": "low",
+        "cosine": 0.8429499864578247,
+        "bonus": 0.0,
+        "score": 0.8429499864578247,
+        "distance": 0.1570500135421753,
+        "rank": 1
+      },
+      {
+        "id": "utt_0080_a9d2e59c2d25",
+        "utterance": "Do I remember touching this before?",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "question",
+        "strength": "low",
+        "cosine": 0.8426786661148071,
+        "bonus": 0.0,
+        "score": 0.8426786661148071,
+        "distance": 0.15732133388519287,
+        "rank": 2
+      },
+      {
+        "id": "utt_0084_c0ad6a825ff8",
+        "utterance": "Have I met this kind of thing before?",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "question",
+        "strength": "low",
+        "cosine": 0.8426786661148071,
+        "bonus": 0.0,
+        "score": 0.8426786661148071,
+        "distance": 0.15732133388519287,
+        "rank": 3
+      },
+      {
+        "id": "utt_0092_a8844bc67a5e",
+        "utterance": "Have I encountered this before?",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "question",
+        "strength": "low",
+        "cosine": 0.8426786661148071,
+        "bonus": 0.0,
+        "score": 0.8426786661148071,
+        "distance": 0.15732133388519287,
+        "rank": 4
+      },
+      {
+        "id": "utt_0089_60fe718a9fb7",
+        "utterance": "I might remember this shape faintly.",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "weak",
+        "strength": "low_medium",
+        "cosine": 0.8383035659790039,
+        "bonus": 0.0,
+        "score": 0.8383035659790039,
+        "distance": 0.1616964340209961,
+        "rank": 5
+      },
+      {
+        "id": "utt_0081_05ea4ab1b4e4",
+        "utterance": "I might remember touching this before.",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "weak",
+        "strength": "low_medium",
+        "cosine": 0.8380310535430908,
+        "bonus": 0.0,
+        "score": 0.8380310535430908,
+        "distance": 0.16196894645690918,
+        "rank": 6
+      },
+      {
+        "id": "utt_0093_50171c54b485",
+        "utterance": "I might have encountered this before.",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "weak",
+        "strength": "low_medium",
+        "cosine": 0.8380310535430908,
+        "bonus": 0.0,
+        "score": 0.8380310535430908,
+        "distance": 0.16196894645690918,
+        "rank": 7
+      },
+      {
+        "id": "utt_0085_d7ef2ee37af6",
+        "utterance": "I might have met this kind of thing before.",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "weak",
+        "strength": "low_medium",
+        "cosine": 0.8380310535430908,
+        "bonus": 0.0,
+        "score": 0.8380310535430908,
+        "distance": 0.16196894645690918,
+        "rank": 8
+      }
+    ],
+    "final_axis_vector": {
+      "attention": 0.252409,
+      "salience": 0.842632,
+      "intensity": 0.46439,
+      "certainty": 0.038439,
+      "confidence": 0.075494,
+      "uncertainty": 0.15462,
+      "coherence": 0.041735,
+      "ambiguity": 0.143943,
+      "familiarity": 1.0,
+      "memory": 0.727034,
+      "recognition": 0.869632,
+      "confirmation": 0.092254,
+      "search": 0.218813,
+      "comparison": 0.389962,
+      "similarity": 0.052169,
+      "difference": 0.133267,
+      "connection": 0.08347,
+      "separation": 0.034605,
+      "containment": 0.091635,
+      "boundary": 0.021628,
+      "completion": 0.073891,
+      "repair": 0.074847,
+      "correction": 0.074847,
+      "mismatch": 0.020552,
+      "rejection": 0.030829,
+      "acceptance": 0.092472,
+      "restraint": 0.451992,
+      "hesitation": 0.209775,
+      "readiness": 0.508037,
+      "commitment": 0.130211,
+      "release_pressure": 0.23063,
+      "approach": 0.078818,
+      "avoidance": 0.038118,
+      "calm": 0.02964,
+      "urgency": 0.123358,
+      "friction": 0.075141,
+      "agency": 0.076879,
+      "orientation": 0.112182,
+      "transition": 0.242185,
+      "expectation": 0.079725,
+      "stability": 0.164944,
+      "alignment": 0.058291
+    },
+    "accumulated_word_tail": [
+      {
+        "tick": 222,
+        "input_id": "F01",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "familiarity",
+            1.5812
+          ],
+          [
+            "memory",
+            1.2105
+          ],
+          [
+            "recognition",
+            1.1495
+          ],
+          [
+            "salience",
+            0.8792
+          ],
+          [
+            "restraint",
+            0.8448
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "familiarity",
+            0.16
+          ],
+          [
+            "recognition",
+            0.12
+          ],
+          [
+            "memory",
+            0.08
+          ],
+          [
+            "salience",
+            0.0477
+          ],
+          [
+            "expectation",
+            0.04
+          ]
+        ]
+      },
+      {
+        "tick": 223,
+        "input_id": "F03",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "familiarity",
+            1.5748
+          ],
+          [
+            "memory",
+            1.2137
+          ],
+          [
+            "recognition",
+            1.1376
+          ],
+          [
+            "salience",
+            0.8692
+          ],
+          [
+            "restraint",
+            0.7773
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "familiarity",
+            0.12
+          ],
+          [
+            "memory",
+            0.1
+          ],
+          [
+            "recognition",
+            0.08
+          ],
+          [
+            "salience",
+            0.0603
+          ],
+          [
+            "intensity",
+            0.036
+          ]
+        ]
+      },
+      {
+        "tick": 224,
+        "input_id": "F02",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "familiarity",
+            1.5689
+          ],
+          [
+            "memory",
+            1.2167
+          ],
+          [
+            "recognition",
+            1.1266
+          ],
+          [
+            "salience",
+            0.8635
+          ],
+          [
+            "restraint",
+            0.7818
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "familiarity",
+            0.12
+          ],
+          [
+            "comparison",
+            0.12
+          ],
+          [
+            "readiness",
+            0.12
+          ],
+          [
+            "connection",
+            0.1067
+          ],
+          [
+            "memory",
+            0.1
+          ]
+        ]
+      },
+      {
+        "tick": 225,
+        "input_id": "F04",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "familiarity",
+            1.5635
+          ],
+          [
+            "memory",
+            1.2194
+          ],
+          [
+            "recognition",
+            1.1165
+          ],
+          [
+            "salience",
+            0.8986
+          ],
+          [
+            "restraint",
+            0.8393
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "familiarity",
+            0.12
+          ],
+          [
+            "comparison",
+            0.12
+          ],
+          [
+            "restraint",
+            0.12
+          ],
+          [
+            "readiness",
+            0.12
+          ],
+          [
+            "salience",
+            0.1042
+          ]
+        ]
+      },
+      {
+        "tick": 226,
+        "input_id": "F09",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "familiarity",
+            1.5584
+          ],
+          [
+            "memory",
+            1.2219
+          ],
+          [
+            "recognition",
+            1.1073
+          ],
+          [
+            "salience",
+            0.9205
+          ],
+          [
+            "restraint",
+            0.7722
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "familiarity",
+            0.12
+          ],
+          [
+            "memory",
+            0.1
+          ],
+          [
+            "salience",
+            0.0937
+          ],
+          [
+            "recognition",
+            0.08
+          ],
+          [
+            "comparison",
+            0.06
+          ]
+        ]
+      },
+      {
+        "tick": 227,
+        "input_id": "F03",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "familiarity",
+            1.5538
+          ],
+          [
+            "memory",
+            1.2242
+          ],
+          [
+            "recognition",
+            1.1587
+          ],
+          [
+            "salience",
+            1.0272
+          ],
+          [
+            "restraint",
+            0.8905
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "salience",
+            0.1803
+          ],
+          [
+            "attention",
+            0.18
+          ],
+          [
+            "restraint",
+            0.18
+          ],
+          [
+            "recognition",
+            0.14
+          ],
+          [
+            "familiarity",
+            0.12
+          ]
+        ]
+      },
+      {
+        "tick": 228,
+        "input_id": "F03",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "familiarity",
+            1.5896
+          ],
+          [
+            "memory",
+            1.2063
+          ],
+          [
+            "recognition",
+            1.1861
+          ],
+          [
+            "salience",
+            1.165
+          ],
+          [
+            "restraint",
+            0.8193
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "salience",
+            0.22
+          ],
+          [
+            "familiarity",
+            0.16
+          ],
+          [
+            "intensity",
+            0.1212
+          ],
+          [
+            "recognition",
+            0.12
+          ],
+          [
+            "memory",
+            0.08
+          ]
+        ]
+      },
+      {
+        "tick": 229,
+        "input_id": "F03",
+        "final_trigger": true,
+        "top_accum_axes": [
+          [
+            "familiarity",
+            1.6225
+          ],
+          [
+            "recognition",
+            1.3713
+          ],
+          [
+            "salience",
+            1.3319
+          ],
+          [
+            "memory",
+            1.1899
+          ],
+          [
+            "restraint",
+            0.7538
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "readiness",
+            0.4133
+          ],
+          [
+            "recognition",
+            0.28
+          ],
+          [
+            "salience",
+            0.26
+          ],
+          [
+            "transition",
+            0.2133
+          ],
+          [
+            "release_pressure",
+            0.2
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "branch": "cross_domain_mapping",
+    "run": "multilingual_random",
+    "tick": 2,
+    "witness": "W5_0001",
+    "input_id": "ES03",
+    "start_tick": 0,
+    "rows": 3,
+    "output": "I hold these together.",
+    "top_k": [
+      {
+        "id": "utt_1307_23210ce5b5aa",
+        "utterance": "I hold these together.",
+        "family": "connection",
+        "leaf": "belonging_together",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.5764996409416199,
+        "bonus": 0.073,
+        "score": 0.6494996547698975,
+        "distance": 0.4235003590583801,
+        "rank": 1
+      },
+      {
+        "id": "utt_1319_22322ae42e28",
+        "utterance": "I see a way across.",
+        "family": "connection",
+        "leaf": "bridge",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.5744084119796753,
+        "bonus": 0.073,
+        "score": 0.6474084258079529,
+        "distance": 0.4255915880203247,
+        "rank": 2
+      },
+      {
+        "id": "utt_1323_e40d9997d3e4",
+        "utterance": "I connect one side to another.",
+        "family": "connection",
+        "leaf": "bridge",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.5744084119796753,
+        "bonus": 0.073,
+        "score": 0.6474084258079529,
+        "distance": 0.4255915880203247,
+        "rank": 3
+      },
+      {
+        "id": "utt_1315_5b85bad60154",
+        "utterance": "I find a bridge here.",
+        "family": "connection",
+        "leaf": "bridge",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.5741437673568726,
+        "bonus": 0.073,
+        "score": 0.6471437811851501,
+        "distance": 0.42585623264312744,
+        "rank": 4
+      },
+      {
+        "id": "utt_1327_e9dd7e204305",
+        "utterance": "I link this across a gap.",
+        "family": "connection",
+        "leaf": "bridge",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.573945164680481,
+        "bonus": 0.073,
+        "score": 0.6469451785087585,
+        "distance": 0.42605483531951904,
+        "rank": 5
+      },
+      {
+        "id": "utt_1299_a29e0547011e",
+        "utterance": "I feel these belong together.",
+        "family": "connection",
+        "leaf": "belonging_together",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.56500244140625,
+        "bonus": 0.073,
+        "score": 0.6380024552345276,
+        "distance": 0.43499755859375,
+        "rank": 6
+      },
+      {
+        "id": "utt_1303_081e393167e7",
+        "utterance": "I see these as part of one thing.",
+        "family": "connection",
+        "leaf": "belonging_together",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.5646580457687378,
+        "bonus": 0.073,
+        "score": 0.6376580595970154,
+        "distance": 0.4353419542312622,
+        "rank": 7
+      },
+      {
+        "id": "utt_1311_ce10a25707a9",
+        "utterance": "I join these in one view.",
+        "family": "connection",
+        "leaf": "belonging_together",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.5646580457687378,
+        "bonus": 0.073,
+        "score": 0.6376580595970154,
+        "distance": 0.4353419542312622,
+        "rank": 8
+      }
+    ],
+    "final_axis_vector": {
+      "salience": 0.955767,
+      "intensity": 0.971391,
+      "certainty": 0.112792,
+      "confidence": 0.376504,
+      "doubt": 0.097132,
+      "coherence": 0.368977,
+      "familiarity": 0.134268,
+      "memory": 0.12326,
+      "recognition": 0.095197,
+      "confirmation": 0.406053,
+      "similarity": 0.461221,
+      "connection": 0.737954,
+      "containment": 0.149667,
+      "completion": 0.305379,
+      "acceptance": 0.312277,
+      "restraint": 0.719268,
+      "hesitation": 0.458777,
+      "readiness": 0.538779,
+      "commitment": 0.499644,
+      "release_pressure": 1.0,
+      "approach": 0.184488,
+      "avoidance": 0.194265,
+      "withdrawal": 0.25902,
+      "urgency": 0.159959,
+      "importance": 0.089366,
+      "agency": 0.225585,
+      "transition": 0.368977,
+      "saturation": 0.119155,
+      "stability": 0.449868,
+      "alignment": 0.184488
+    },
+    "accumulated_word_tail": [
+      {
+        "tick": 0,
+        "input_id": "ES03",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "intensity",
+            0.3886
+          ],
+          [
+            "salience",
+            0.1802
+          ],
+          [
+            "restraint",
+            0.18
+          ],
+          [
+            "release_pressure",
+            0.18
+          ],
+          [
+            "connection",
+            0.16
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "intensity",
+            0.3886
+          ],
+          [
+            "salience",
+            0.1802
+          ],
+          [
+            "restraint",
+            0.18
+          ],
+          [
+            "release_pressure",
+            0.18
+          ],
+          [
+            "connection",
+            0.16
+          ]
+        ]
+      },
+      {
+        "tick": 1,
+        "input_id": "DE01",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "intensity",
+            0.4148
+          ],
+          [
+            "release_pressure",
+            0.3456
+          ],
+          [
+            "connection",
+            0.3072
+          ],
+          [
+            "salience",
+            0.2632
+          ],
+          [
+            "similarity",
+            0.192
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "release_pressure",
+            0.18
+          ],
+          [
+            "connection",
+            0.16
+          ],
+          [
+            "commitment",
+            0.16
+          ],
+          [
+            "withdrawal",
+            0.16
+          ],
+          [
+            "avoidance",
+            0.12
+          ]
+        ]
+      },
+      {
+        "tick": 2,
+        "input_id": "ES03",
+        "final_trigger": true,
+        "top_accum_axes": [
+          [
+            "intensity",
+            0.5146
+          ],
+          [
+            "release_pressure",
+            0.5132
+          ],
+          [
+            "salience",
+            0.477
+          ],
+          [
+            "connection",
+            0.3893
+          ],
+          [
+            "restraint",
+            0.3524
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "salience",
+            0.2348
+          ],
+          [
+            "restraint",
+            0.2
+          ],
+          [
+            "release_pressure",
+            0.1953
+          ],
+          [
+            "confirmation",
+            0.18
+          ],
+          [
+            "stability",
+            0.14
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "branch": "cross_domain_mapping",
+    "run": "no_baseline_test",
+    "tick": 78,
+    "witness": "W2_0001",
+    "input_id": "N00",
+    "start_tick": 0,
+    "rows": 79,
+    "output": "Do I remember this shape faintly?",
+    "top_k": [
+      {
+        "id": "utt_0088_a958a8725861",
+        "utterance": "Do I remember this shape faintly?",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "question",
+        "strength": "low",
+        "cosine": 0.7879329919815063,
+        "bonus": 0.0,
+        "score": 0.7879329919815063,
+        "distance": 0.21206700801849365,
+        "rank": 1
+      },
+      {
+        "id": "utt_0080_a9d2e59c2d25",
+        "utterance": "Do I remember touching this before?",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "question",
+        "strength": "low",
+        "cosine": 0.7876793146133423,
+        "bonus": 0.0,
+        "score": 0.7876793146133423,
+        "distance": 0.21232068538665771,
+        "rank": 2
+      },
+      {
+        "id": "utt_0084_c0ad6a825ff8",
+        "utterance": "Have I met this kind of thing before?",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "question",
+        "strength": "low",
+        "cosine": 0.7876793146133423,
+        "bonus": 0.0,
+        "score": 0.7876793146133423,
+        "distance": 0.21232068538665771,
+        "rank": 3
+      },
+      {
+        "id": "utt_0092_a8844bc67a5e",
+        "utterance": "Have I encountered this before?",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "question",
+        "strength": "low",
+        "cosine": 0.7876793146133423,
+        "bonus": 0.0,
+        "score": 0.7876793146133423,
+        "distance": 0.21232068538665771,
+        "rank": 4
+      },
+      {
+        "id": "utt_0089_60fe718a9fb7",
+        "utterance": "I might remember this shape faintly.",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "weak",
+        "strength": "low_medium",
+        "cosine": 0.7832846641540527,
+        "bonus": 0.0,
+        "score": 0.7832846641540527,
+        "distance": 0.21671533584594727,
+        "rank": 5
+      },
+      {
+        "id": "utt_0081_05ea4ab1b4e4",
+        "utterance": "I might remember touching this before.",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "weak",
+        "strength": "low_medium",
+        "cosine": 0.7830299735069275,
+        "bonus": 0.0,
+        "score": 0.7830299735069275,
+        "distance": 0.2169700264930725,
+        "rank": 6
+      },
+      {
+        "id": "utt_0085_d7ef2ee37af6",
+        "utterance": "I might have met this kind of thing before.",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "weak",
+        "strength": "low_medium",
+        "cosine": 0.7830299735069275,
+        "bonus": 0.0,
+        "score": 0.7830299735069275,
+        "distance": 0.2169700264930725,
+        "rank": 7
+      },
+      {
+        "id": "utt_0093_50171c54b485",
+        "utterance": "I might have encountered this before.",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "weak",
+        "strength": "low_medium",
+        "cosine": 0.7830299735069275,
+        "bonus": 0.0,
+        "score": 0.7830299735069275,
+        "distance": 0.2169700264930725,
+        "rank": 8
+      }
+    ],
+    "final_axis_vector": {
+      "attention": 0.029862,
+      "salience": 0.945758,
+      "intensity": 1.0,
+      "certainty": 0.044525,
+      "confidence": 0.111102,
+      "doubt": 0.024856,
+      "uncertainty": 0.121804,
+      "coherence": 0.095571,
+      "ambiguity": 0.109819,
+      "novelty": 0.32212,
+      "familiarity": 0.953157,
+      "memory": 0.781127,
+      "recognition": 0.655721,
+      "confirmation": 0.106859,
+      "curiosity": 0.201325,
+      "search": 0.322317,
+      "comparison": 0.279036,
+      "similarity": 0.119464,
+      "difference": 0.097834,
+      "connection": 0.191143,
+      "containment": 0.034062,
+      "completion": 0.099107,
+      "repair": 0.400862,
+      "correction": 0.400862,
+      "mismatch": 0.034646,
+      "rejection": 0.051969,
+      "acceptance": 0.069668,
+      "restraint": 0.17619,
+      "hesitation": 0.108077,
+      "readiness": 0.391606,
+      "commitment": 0.190159,
+      "release_pressure": 0.185495,
+      "approach": 0.083198,
+      "avoidance": 0.05154,
+      "withdrawal": 0.066282,
+      "calm": 0.032502,
+      "urgency": 0.064894,
+      "friction": 0.020517,
+      "importance": 0.104269,
+      "agency": 0.089049,
+      "transition": 0.260118,
+      "saturation": 0.139025,
+      "stability": 0.061311,
+      "alignment": 0.248217
+    },
+    "accumulated_word_tail": [
+      {
+        "tick": 71,
+        "input_id": "B02",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "intensity",
+            1.4578
+          ],
+          [
+            "familiarity",
+            1.2772
+          ],
+          [
+            "salience",
+            1.1644
+          ],
+          [
+            "memory",
+            1.0248
+          ],
+          [
+            "recognition",
+            0.8753
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "familiarity",
+            0.12
+          ],
+          [
+            "memory",
+            0.1
+          ],
+          [
+            "salience",
+            0.0881
+          ],
+          [
+            "recognition",
+            0.08
+          ],
+          [
+            "comparison",
+            0.06
+          ]
+        ]
+      },
+      {
+        "tick": 72,
+        "input_id": "N04",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "intensity",
+            1.4868
+          ],
+          [
+            "familiarity",
+            1.2951
+          ],
+          [
+            "salience",
+            1.1653
+          ],
+          [
+            "memory",
+            1.0428
+          ],
+          [
+            "recognition",
+            0.8853
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "intensity",
+            0.1455
+          ],
+          [
+            "familiarity",
+            0.12
+          ],
+          [
+            "memory",
+            0.1
+          ],
+          [
+            "salience",
+            0.094
+          ],
+          [
+            "novelty",
+            0.08
+          ]
+        ]
+      },
+      {
+        "tick": 73,
+        "input_id": "B00",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "intensity",
+            1.7253
+          ],
+          [
+            "familiarity",
+            1.2956
+          ],
+          [
+            "salience",
+            1.2102
+          ],
+          [
+            "memory",
+            1.0474
+          ],
+          [
+            "recognition",
+            0.8846
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "intensity",
+            0.3574
+          ],
+          [
+            "correction",
+            0.16
+          ],
+          [
+            "repair",
+            0.16
+          ],
+          [
+            "salience",
+            0.1381
+          ],
+          [
+            "familiarity",
+            0.104
+          ]
+        ]
+      },
+      {
+        "tick": 74,
+        "input_id": "N00",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "intensity",
+            1.6324
+          ],
+          [
+            "familiarity",
+            1.312
+          ],
+          [
+            "salience",
+            1.2009
+          ],
+          [
+            "memory",
+            1.0637
+          ],
+          [
+            "recognition",
+            0.9138
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "familiarity",
+            0.12
+          ],
+          [
+            "memory",
+            0.1
+          ],
+          [
+            "recognition",
+            0.1
+          ],
+          [
+            "salience",
+            0.0874
+          ],
+          [
+            "novelty",
+            0.08
+          ]
+        ]
+      },
+      {
+        "tick": 75,
+        "input_id": "B02",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "intensity",
+            1.5384
+          ],
+          [
+            "familiarity",
+            1.3271
+          ],
+          [
+            "salience",
+            1.1824
+          ],
+          [
+            "memory",
+            1.0786
+          ],
+          [
+            "recognition",
+            0.9208
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "familiarity",
+            0.12
+          ],
+          [
+            "memory",
+            0.1
+          ],
+          [
+            "recognition",
+            0.08
+          ],
+          [
+            "salience",
+            0.0775
+          ],
+          [
+            "repair",
+            0.0533
+          ]
+        ]
+      },
+      {
+        "tick": 76,
+        "input_id": "B01",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "intensity",
+            1.4507
+          ],
+          [
+            "familiarity",
+            1.309
+          ],
+          [
+            "salience",
+            1.1626
+          ],
+          [
+            "memory",
+            1.0684
+          ],
+          [
+            "recognition",
+            0.9071
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "familiarity",
+            0.088
+          ],
+          [
+            "memory",
+            0.076
+          ],
+          [
+            "salience",
+            0.0748
+          ],
+          [
+            "recognition",
+            0.06
+          ],
+          [
+            "intensity",
+            0.0353
+          ]
+        ]
+      },
+      {
+        "tick": 77,
+        "input_id": "B03",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "intensity",
+            1.3744
+          ],
+          [
+            "familiarity",
+            1.3243
+          ],
+          [
+            "salience",
+            1.1539
+          ],
+          [
+            "memory",
+            1.083
+          ],
+          [
+            "recognition",
+            0.9146
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "familiarity",
+            0.12
+          ],
+          [
+            "comparison",
+            0.12
+          ],
+          [
+            "connection",
+            0.1067
+          ],
+          [
+            "correction",
+            0.1067
+          ],
+          [
+            "repair",
+            0.1067
+          ]
+        ]
+      },
+      {
+        "tick": 78,
+        "input_id": "N00",
+        "final_trigger": true,
+        "top_accum_axes": [
+          [
+            "intensity",
+            1.4012
+          ],
+          [
+            "familiarity",
+            1.3384
+          ],
+          [
+            "salience",
+            1.2956
+          ],
+          [
+            "memory",
+            1.0964
+          ],
+          [
+            "recognition",
+            0.9215
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "readiness",
+            0.27
+          ],
+          [
+            "salience",
+            0.234
+          ],
+          [
+            "transition",
+            0.16
+          ],
+          [
+            "commitment",
+            0.1533
+          ],
+          [
+            "intensity",
+            0.1366
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "branch": "hierarchy_ordering",
+    "run": "baseline_then_novel",
+    "tick": 9,
+    "witness": "W7_0001",
+    "input_id": "B05",
+    "start_tick": 0,
+    "rows": 10,
+    "output": "I feel this might be known.",
+    "top_k": [
+      {
+        "id": "utt_0031_2349d280d5a3",
+        "utterance": "I feel this might be known.",
+        "family": "recognition",
+        "leaf": "uncertain_recognition",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.5061661005020142,
+        "bonus": 0.0,
+        "score": 0.5061661005020142,
+        "distance": 0.49383389949798584,
+        "rank": 1
+      },
+      {
+        "id": "utt_0023_a47b3ad4e4bb",
+        "utterance": "I have seen something like this before.",
+        "family": "recognition",
+        "leaf": "uncertain_recognition",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.5038471221923828,
+        "bonus": 0.0,
+        "score": 0.5038471221923828,
+        "distance": 0.4961528778076172,
+        "rank": 2
+      },
+      {
+        "id": "utt_0027_d626518d7d88",
+        "utterance": "I know this from somewhere.",
+        "family": "recognition",
+        "leaf": "uncertain_recognition",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.5036598443984985,
+        "bonus": 0.0,
+        "score": 0.5036598443984985,
+        "distance": 0.49634015560150146,
+        "rank": 3
+      },
+      {
+        "id": "utt_0007_e6444fe71562",
+        "utterance": "I sense I have met this before.",
+        "family": "recognition",
+        "leaf": "faint_recognition",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.502967894077301,
+        "bonus": 0.0,
+        "score": 0.502967894077301,
+        "distance": 0.497032105922699,
+        "rank": 4
+      },
+      {
+        "id": "utt_0003_46f527ce48d4",
+        "utterance": "I feel this is familiar.",
+        "family": "recognition",
+        "leaf": "faint_recognition",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.5022929310798645,
+        "bonus": 0.0,
+        "score": 0.5022929310798645,
+        "distance": 0.4977070689201355,
+        "rank": 5
+      },
+      {
+        "id": "utt_0019_4add8bb7c46d",
+        "utterance": "I recognize part of this.",
+        "family": "recognition",
+        "leaf": "uncertain_recognition",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.5015381574630737,
+        "bonus": 0.0,
+        "score": 0.5015381574630737,
+        "distance": 0.49846184253692627,
+        "rank": 6
+      },
+      {
+        "id": "utt_0015_cdfcf789dd6b",
+        "utterance": "I feel a weak match forming.",
+        "family": "recognition",
+        "leaf": "faint_recognition",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.5012300610542297,
+        "bonus": 0.0,
+        "score": 0.5012300610542297,
+        "distance": 0.49876993894577026,
+        "rank": 7
+      },
+      {
+        "id": "utt_0011_3fed7806ff52",
+        "utterance": "I recognize a faint shape here.",
+        "family": "recognition",
+        "leaf": "faint_recognition",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.5006343126296997,
+        "bonus": 0.0,
+        "score": 0.5006343126296997,
+        "distance": 0.4993656873703003,
+        "rank": 8
+      }
+    ],
+    "final_axis_vector": {
+      "attention": 0.029684,
+      "salience": 1.0,
+      "intensity": 0.979576,
+      "certainty": 0.04426,
+      "confidence": 0.120139,
+      "doubt": 0.044979,
+      "uncertainty": 0.026092,
+      "ambiguity": 0.02283,
+      "familiarity": 0.308821,
+      "memory": 0.190287,
+      "recognition": 0.237371,
+      "confirmation": 0.106224,
+      "search": 0.050973,
+      "comparison": 0.063654,
+      "connection": 0.022335,
+      "containment": 0.058998,
+      "completion": 0.104059,
+      "repair": 0.086037,
+      "correction": 0.086037,
+      "mismatch": 0.066232,
+      "conflict": 0.033116,
+      "rejection": 0.099348,
+      "acceptance": 0.083107,
+      "restraint": 0.29845,
+      "hesitation": 0.189768,
+      "readiness": 0.44294,
+      "commitment": 0.157786,
+      "release_pressure": 0.572825,
+      "approach": 0.095202,
+      "avoidance": 0.094905,
+      "withdrawal": 0.119944,
+      "calm": 0.03388,
+      "urgency": 0.222073,
+      "friction": 0.028484,
+      "importance": 0.087737,
+      "agency": 0.08852,
+      "transition": 0.197494,
+      "expectation": 0.055128,
+      "saturation": 0.116982,
+      "stability": 0.106197,
+      "alignment": 0.048602
+    },
+    "accumulated_word_tail": [
+      {
+        "tick": 2,
+        "input_id": "B02",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "release_pressure",
+            0.378
+          ],
+          [
+            "restraint",
+            0.3446
+          ],
+          [
+            "salience",
+            0.339
+          ],
+          [
+            "readiness",
+            0.3336
+          ],
+          [
+            "transition",
+            0.2784
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "familiarity",
+            0.16
+          ],
+          [
+            "recognition",
+            0.12
+          ],
+          [
+            "salience",
+            0.1063
+          ],
+          [
+            "memory",
+            0.08
+          ],
+          [
+            "intensity",
+            0.0615
+          ]
+        ]
+      },
+      {
+        "tick": 3,
+        "input_id": "B00",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "salience",
+            0.4276
+          ],
+          [
+            "restraint",
+            0.3771
+          ],
+          [
+            "intensity",
+            0.351
+          ],
+          [
+            "release_pressure",
+            0.3478
+          ],
+          [
+            "readiness",
+            0.3069
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "intensity",
+            0.1558
+          ],
+          [
+            "salience",
+            0.1157
+          ],
+          [
+            "restraint",
+            0.06
+          ],
+          [
+            "connection",
+            0.0533
+          ],
+          [
+            "hesitation",
+            0.0367
+          ]
+        ]
+      },
+      {
+        "tick": 4,
+        "input_id": "B00",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "salience",
+            0.4725
+          ],
+          [
+            "intensity",
+            0.3602
+          ],
+          [
+            "restraint",
+            0.3469
+          ],
+          [
+            "release_pressure",
+            0.3199
+          ],
+          [
+            "familiarity",
+            0.2954
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "familiarity",
+            0.16
+          ],
+          [
+            "recognition",
+            0.12
+          ],
+          [
+            "memory",
+            0.08
+          ],
+          [
+            "salience",
+            0.0791
+          ],
+          [
+            "expectation",
+            0.04
+          ]
+        ]
+      },
+      {
+        "tick": 5,
+        "input_id": "B02",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "salience",
+            0.6383
+          ],
+          [
+            "intensity",
+            0.4442
+          ],
+          [
+            "restraint",
+            0.4125
+          ],
+          [
+            "release_pressure",
+            0.3626
+          ],
+          [
+            "familiarity",
+            0.3438
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "salience",
+            0.2036
+          ],
+          [
+            "intensity",
+            0.1128
+          ],
+          [
+            "restraint",
+            0.0933
+          ],
+          [
+            "familiarity",
+            0.072
+          ],
+          [
+            "recognition",
+            0.07
+          ]
+        ]
+      },
+      {
+        "tick": 6,
+        "input_id": "B02",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "salience",
+            0.8775
+          ],
+          [
+            "intensity",
+            0.8591
+          ],
+          [
+            "release_pressure",
+            0.5795
+          ],
+          [
+            "familiarity",
+            0.4763
+          ],
+          [
+            "readiness",
+            0.4477
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "intensity",
+            0.4503
+          ],
+          [
+            "salience",
+            0.2902
+          ],
+          [
+            "release_pressure",
+            0.2458
+          ],
+          [
+            "familiarity",
+            0.16
+          ],
+          [
+            "repair",
+            0.16
+          ]
+        ]
+      },
+      {
+        "tick": 7,
+        "input_id": "B01",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "salience",
+            1.0356
+          ],
+          [
+            "intensity",
+            1.008
+          ],
+          [
+            "release_pressure",
+            0.6055
+          ],
+          [
+            "readiness",
+            0.4843
+          ],
+          [
+            "familiarity",
+            0.4382
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "salience",
+            0.2283
+          ],
+          [
+            "intensity",
+            0.2177
+          ],
+          [
+            "readiness",
+            0.0724
+          ],
+          [
+            "release_pressure",
+            0.0724
+          ],
+          [
+            "restraint",
+            0.06
+          ]
+        ]
+      },
+      {
+        "tick": 8,
+        "input_id": "B04",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "salience",
+            1.1478
+          ],
+          [
+            "intensity",
+            1.0317
+          ],
+          [
+            "release_pressure",
+            0.627
+          ],
+          [
+            "readiness",
+            0.5154
+          ],
+          [
+            "restraint",
+            0.4698
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "salience",
+            0.195
+          ],
+          [
+            "rejection",
+            0.12
+          ],
+          [
+            "withdrawal",
+            0.1067
+          ],
+          [
+            "intensity",
+            0.1043
+          ],
+          [
+            "restraint",
+            0.0933
+          ]
+        ]
+      },
+      {
+        "tick": 9,
+        "input_id": "B05",
+        "final_trigger": true,
+        "top_accum_axes": [
+          [
+            "salience",
+            1.362
+          ],
+          [
+            "intensity",
+            1.3154
+          ],
+          [
+            "release_pressure",
+            0.774
+          ],
+          [
+            "readiness",
+            0.6047
+          ],
+          [
+            "restraint",
+            0.4322
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "intensity",
+            0.3662
+          ],
+          [
+            "salience",
+            0.306
+          ],
+          [
+            "release_pressure",
+            0.1972
+          ],
+          [
+            "readiness",
+            0.1305
+          ],
+          [
+            "confirmation",
+            0.12
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "branch": "hierarchy_ordering",
+    "run": "facts_then_questions",
+    "tick": 0,
+    "witness": "W4_0001",
+    "input_id": "F00",
+    "start_tick": 0,
+    "rows": 1,
+    "output": "I hold this as confirmed.",
+    "top_k": [
+      {
+        "id": "utt_0735_dc62aa85729f",
+        "utterance": "I hold this as confirmed.",
+        "family": "confirmation",
+        "leaf": "settled_confirmation",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.6210741400718689,
+        "bonus": 0.073,
+        "score": 0.6940741539001465,
+        "distance": 0.3789258599281311,
+        "rank": 1
+      },
+      {
+        "id": "utt_0731_41055876c5e2",
+        "utterance": "I know this has landed.",
+        "family": "confirmation",
+        "leaf": "settled_confirmation",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.6116966605186462,
+        "bonus": 0.073,
+        "score": 0.6846966743469238,
+        "distance": 0.38830333948135376,
+        "rank": 2
+      },
+      {
+        "id": "utt_0723_f510837c43fe",
+        "utterance": "I feel this is settled.",
+        "family": "confirmation",
+        "leaf": "settled_confirmation",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.6110264658927917,
+        "bonus": 0.073,
+        "score": 0.6840264797210693,
+        "distance": 0.38897353410720825,
+        "rank": 3
+      },
+      {
+        "id": "utt_0727_2cb0f2af104f",
+        "utterance": "I accept this as settled.",
+        "family": "confirmation",
+        "leaf": "settled_confirmation",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.6089765429496765,
+        "bonus": 0.073,
+        "score": 0.6819765567779541,
+        "distance": 0.3910234570503235,
+        "rank": 4
+      },
+      {
+        "id": "utt_0734_5c70d7055494",
+        "utterance": "I think I hold this as confirmed.",
+        "family": "confirmation",
+        "leaf": "settled_confirmation",
+        "form": "medium",
+        "strength": "medium",
+        "cosine": 0.614795446395874,
+        "bonus": 0.03,
+        "score": 0.6447954177856445,
+        "distance": 0.385204553604126,
+        "rank": 5
+      },
+      {
+        "id": "utt_0755_4d13e2240439",
+        "utterance": "I confirm this clearly.",
+        "family": "confirmation",
+        "leaf": "strong_confirmation",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.5635302066802979,
+        "bonus": 0.073,
+        "score": 0.6365302205085754,
+        "distance": 0.43646979331970215,
+        "rank": 6
+      },
+      {
+        "id": "utt_0763_2c7b82d569a2",
+        "utterance": "I accept this without hesitation.",
+        "family": "confirmation",
+        "leaf": "strong_confirmation",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.5634382367134094,
+        "bonus": 0.073,
+        "score": 0.636438250541687,
+        "distance": 0.4365617632865906,
+        "rank": 7
+      },
+      {
+        "id": "utt_0730_1dc37db0d362",
+        "utterance": "I think I know this has landed.",
+        "family": "confirmation",
+        "leaf": "settled_confirmation",
+        "form": "medium",
+        "strength": "medium",
+        "cosine": 0.6062581539154053,
+        "bonus": 0.03,
+        "score": 0.6362581253051758,
+        "distance": 0.3937418460845947,
+        "rank": 8
+      }
+    ],
+    "final_axis_vector": {
+      "salience": 1.0,
+      "intensity": 0.616289,
+      "certainty": 0.20803,
+      "confidence": 0.485403,
+      "coherence": 0.221899,
+      "familiarity": 0.051259,
+      "memory": 0.047597,
+      "recognition": 0.036613,
+      "confirmation": 0.748908,
+      "similarity": 0.277373,
+      "connection": 0.443797,
+      "containment": 0.138687,
+      "completion": 0.443797,
+      "acceptance": 0.277373,
+      "restraint": 0.83212,
+      "hesitation": 0.305111,
+      "readiness": 0.482352,
+      "commitment": 0.443797,
+      "release_pressure": 0.759725,
+      "approach": 0.110949,
+      "urgency": 0.328687,
+      "agency": 0.41606,
+      "transition": 0.221899,
+      "stability": 0.582484,
+      "alignment": 0.110949
+    },
+    "accumulated_word_tail": [
+      {
+        "tick": 0,
+        "input_id": "F00",
+        "final_trigger": true,
+        "top_accum_axes": [
+          [
+            "salience",
+            0.2404
+          ],
+          [
+            "restraint",
+            0.2
+          ],
+          [
+            "release_pressure",
+            0.1826
+          ],
+          [
+            "confirmation",
+            0.18
+          ],
+          [
+            "intensity",
+            0.1481
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "salience",
+            0.2404
+          ],
+          [
+            "restraint",
+            0.2
+          ],
+          [
+            "release_pressure",
+            0.1826
+          ],
+          [
+            "confirmation",
+            0.18
+          ],
+          [
+            "intensity",
+            0.1481
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "branch": "hierarchy_ordering",
+    "run": "facts_then_questions",
+    "tick": 1645,
+    "witness": "W2_0014",
+    "input_id": "Q06",
+    "start_tick": 1634,
+    "rows": 12,
+    "output": "Can I realign this?",
+    "top_k": [
+      {
+        "id": "utt_1684_5bcd28e38054",
+        "utterance": "Can I realign this?",
+        "family": "repair",
+        "leaf": "adjustment",
+        "form": "question",
+        "strength": "low",
+        "cosine": 0.5602837800979614,
+        "bonus": 0.0,
+        "score": 0.5602837800979614,
+        "distance": 0.4397162199020386,
+        "rank": 1
+      },
+      {
+        "id": "utt_1687_17027db69540",
+        "utterance": "I can realign this.",
+        "family": "repair",
+        "leaf": "adjustment",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.5581377148628235,
+        "bonus": 0.0,
+        "score": 0.5581377148628235,
+        "distance": 0.4418622851371765,
+        "rank": 2
+      },
+      {
+        "id": "utt_1686_8df580c7b507",
+        "utterance": "I think I can realign this.",
+        "family": "repair",
+        "leaf": "adjustment",
+        "form": "medium",
+        "strength": "medium",
+        "cosine": 0.5573727488517761,
+        "bonus": 0.0,
+        "score": 0.5573727488517761,
+        "distance": 0.4426272511482239,
+        "rank": 3
+      },
+      {
+        "id": "utt_1692_5c44f2628963",
+        "utterance": "Do I want to set this right?",
+        "family": "repair",
+        "leaf": "adjustment",
+        "form": "question",
+        "strength": "low",
+        "cosine": 0.5571707487106323,
+        "bonus": 0.0,
+        "score": 0.5571707487106323,
+        "distance": 0.4428292512893677,
+        "rank": 4
+      },
+      {
+        "id": "utt_1685_a58704c669df",
+        "utterance": "I may be able to realign this.",
+        "family": "repair",
+        "leaf": "adjustment",
+        "form": "weak",
+        "strength": "low_medium",
+        "cosine": 0.5563260912895203,
+        "bonus": 0.0,
+        "score": 0.5563260912895203,
+        "distance": 0.44367390871047974,
+        "rank": 5
+      },
+      {
+        "id": "utt_1688_5343acc67292",
+        "utterance": "Do I feel this needs tuning?",
+        "family": "repair",
+        "leaf": "adjustment",
+        "form": "question",
+        "strength": "low",
+        "cosine": 0.5554665327072144,
+        "bonus": 0.0,
+        "score": 0.5554665327072144,
+        "distance": 0.44453346729278564,
+        "rank": 6
+      },
+      {
+        "id": "utt_1680_36dbb1977564",
+        "utterance": "Do I need to adjust this?",
+        "family": "repair",
+        "leaf": "adjustment",
+        "form": "question",
+        "strength": "low",
+        "cosine": 0.5550843477249146,
+        "bonus": 0.0,
+        "score": 0.5550843477249146,
+        "distance": 0.44491565227508545,
+        "rank": 7
+      },
+      {
+        "id": "utt_1695_f82deb2c4017",
+        "utterance": "I want to set this right.",
+        "family": "repair",
+        "leaf": "adjustment",
+        "form": "direct",
+        "strength": "high",
+        "cosine": 0.5550240278244019,
+        "bonus": 0.0,
+        "score": 0.5550240278244019,
+        "distance": 0.44497597217559814,
+        "rank": 8
+      }
+    ],
+    "final_axis_vector": {
+      "attention": 0.037026,
+      "salience": 1.0,
+      "intensity": 0.616646,
+      "certainty": 0.065219,
+      "confidence": 0.091307,
+      "doubt": 0.056091,
+      "uncertainty": 0.057218,
+      "coherence": 0.135399,
+      "ambiguity": 0.088378,
+      "familiarity": 0.375169,
+      "memory": 0.242503,
+      "recognition": 0.288664,
+      "confirmation": 0.156526,
+      "search": 0.206711,
+      "comparison": 0.134912,
+      "similarity": 0.169248,
+      "difference": 0.119537,
+      "connection": 0.270798,
+      "separation": 0.153248,
+      "containment": 0.028889,
+      "boundary": 0.09578,
+      "completion": 0.104351,
+      "repair": 0.605823,
+      "correction": 0.605823,
+      "restraint": 0.161996,
+      "hesitation": 0.138343,
+      "readiness": 0.955684,
+      "commitment": 0.203212,
+      "release_pressure": 0.538211,
+      "approach": 0.228922,
+      "avoidance": 0.126697,
+      "withdrawal": 0.149575,
+      "urgency": 0.087505,
+      "friction": 0.040277,
+      "agency": 0.130438,
+      "transition": 0.620255,
+      "expectation": 0.061278,
+      "saturation": 0.024962,
+      "stability": 0.052,
+      "alignment": 0.370611
+    },
+    "accumulated_word_tail": [
+      {
+        "tick": 1638,
+        "input_id": "Q00",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "salience",
+            0.3742
+          ],
+          [
+            "readiness",
+            0.343
+          ],
+          [
+            "correction",
+            0.3212
+          ],
+          [
+            "repair",
+            0.3212
+          ],
+          [
+            "restraint",
+            0.2853
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "salience",
+            0.075
+          ],
+          [
+            "readiness",
+            0.06
+          ],
+          [
+            "correction",
+            0.0533
+          ],
+          [
+            "connection",
+            0.0533
+          ],
+          [
+            "repair",
+            0.0533
+          ]
+        ]
+      },
+      {
+        "tick": 1639,
+        "input_id": "Q09",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "salience",
+            0.4552
+          ],
+          [
+            "readiness",
+            0.3423
+          ],
+          [
+            "connection",
+            0.3073
+          ],
+          [
+            "correction",
+            0.2955
+          ],
+          [
+            "repair",
+            0.2955
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "salience",
+            0.1109
+          ],
+          [
+            "intensity",
+            0.0636
+          ],
+          [
+            "attention",
+            0.06
+          ],
+          [
+            "release_pressure",
+            0.06
+          ],
+          [
+            "connection",
+            0.0533
+          ]
+        ]
+      },
+      {
+        "tick": 1640,
+        "input_id": "Q09",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "salience",
+            0.5153
+          ],
+          [
+            "correction",
+            0.4319
+          ],
+          [
+            "repair",
+            0.4319
+          ],
+          [
+            "readiness",
+            0.3949
+          ],
+          [
+            "release_pressure",
+            0.3287
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "release_pressure",
+            0.18
+          ],
+          [
+            "familiarity",
+            0.16
+          ],
+          [
+            "correction",
+            0.16
+          ],
+          [
+            "separation",
+            0.16
+          ],
+          [
+            "withdrawal",
+            0.16
+          ]
+        ]
+      },
+      {
+        "tick": 1641,
+        "input_id": "Q06",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "salience",
+            0.5751
+          ],
+          [
+            "correction",
+            0.4507
+          ],
+          [
+            "repair",
+            0.4507
+          ],
+          [
+            "readiness",
+            0.4233
+          ],
+          [
+            "transition",
+            0.327
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "salience",
+            0.101
+          ],
+          [
+            "comparison",
+            0.06
+          ],
+          [
+            "readiness",
+            0.06
+          ],
+          [
+            "intensity",
+            0.0552
+          ],
+          [
+            "correction",
+            0.0533
+          ]
+        ]
+      },
+      {
+        "tick": 1642,
+        "input_id": "Q05",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "salience",
+            0.62
+          ],
+          [
+            "correction",
+            0.468
+          ],
+          [
+            "repair",
+            0.468
+          ],
+          [
+            "readiness",
+            0.4495
+          ],
+          [
+            "connection",
+            0.3418
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "salience",
+            0.0909
+          ],
+          [
+            "readiness",
+            0.06
+          ],
+          [
+            "correction",
+            0.0533
+          ],
+          [
+            "connection",
+            0.0533
+          ],
+          [
+            "withdrawal",
+            0.0533
+          ]
+        ]
+      },
+      {
+        "tick": 1643,
+        "input_id": "Q05",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "salience",
+            0.6545
+          ],
+          [
+            "correction",
+            0.4839
+          ],
+          [
+            "repair",
+            0.4839
+          ],
+          [
+            "readiness",
+            0.4735
+          ],
+          [
+            "transition",
+            0.3536
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "familiarity",
+            0.16
+          ],
+          [
+            "recognition",
+            0.12
+          ],
+          [
+            "salience",
+            0.0841
+          ],
+          [
+            "memory",
+            0.08
+          ],
+          [
+            "readiness",
+            0.06
+          ]
+        ]
+      },
+      {
+        "tick": 1644,
+        "input_id": "Q08",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "salience",
+            0.7494
+          ],
+          [
+            "readiness",
+            0.5594
+          ],
+          [
+            "correction",
+            0.4986
+          ],
+          [
+            "repair",
+            0.4986
+          ],
+          [
+            "intensity",
+            0.4835
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "intensity",
+            0.1669
+          ],
+          [
+            "salience",
+            0.1472
+          ],
+          [
+            "readiness",
+            0.1237
+          ],
+          [
+            "release_pressure",
+            0.0637
+          ],
+          [
+            "comparison",
+            0.06
+          ]
+        ]
+      },
+      {
+        "tick": 1645,
+        "input_id": "Q06",
+        "final_trigger": true,
+        "top_accum_axes": [
+          [
+            "salience",
+            0.9183
+          ],
+          [
+            "readiness",
+            0.8459
+          ],
+          [
+            "intensity",
+            0.5706
+          ],
+          [
+            "correction",
+            0.5654
+          ],
+          [
+            "repair",
+            0.5654
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "readiness",
+            0.3313
+          ],
+          [
+            "salience",
+            0.2289
+          ],
+          [
+            "transition",
+            0.2133
+          ],
+          [
+            "release_pressure",
+            0.1979
+          ],
+          [
+            "intensity",
+            0.1258
+          ]
+        ]
+      }
+    ]
+  },
+  {
+    "branch": "missing_closure_analogy",
+    "run": "baseline_then_novel",
+    "tick": 1707,
+    "witness": "W2_0022",
+    "input_id": "N01",
+    "start_tick": 1679,
+    "rows": 29,
+    "output": "Do I remember this shape faintly?",
+    "top_k": [
+      {
+        "id": "utt_0088_a958a8725861",
+        "utterance": "Do I remember this shape faintly?",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "question",
+        "strength": "low",
+        "cosine": 0.5358007550239563,
+        "bonus": 0.0,
+        "score": 0.5358007550239563,
+        "distance": 0.4641992449760437,
+        "rank": 1
+      },
+      {
+        "id": "utt_0080_a9d2e59c2d25",
+        "utterance": "Do I remember touching this before?",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "question",
+        "strength": "low",
+        "cosine": 0.5356282591819763,
+        "bonus": 0.0,
+        "score": 0.5356282591819763,
+        "distance": 0.4643717408180237,
+        "rank": 2
+      },
+      {
+        "id": "utt_0084_c0ad6a825ff8",
+        "utterance": "Have I met this kind of thing before?",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "question",
+        "strength": "low",
+        "cosine": 0.5356282591819763,
+        "bonus": 0.0,
+        "score": 0.5356282591819763,
+        "distance": 0.4643717408180237,
+        "rank": 3
+      },
+      {
+        "id": "utt_0092_a8844bc67a5e",
+        "utterance": "Have I encountered this before?",
+        "family": "familiarity",
+        "leaf": "remembered_contact",
+        "form": "question",
+        "strength": "low",
+        "cosine": 0.5356282591819763,
+        "bonus": 0.0,
+        "score": 0.5356282591819763,
+        "distance": 0.4643717408180237,
+        "rank": 4
+      },
+      {
+        "id": "utt_0004_050b19e7a907",
+        "utterance": "Do I sense I have met this before?",
+        "family": "recognition",
+        "leaf": "faint_recognition",
+        "form": "question",
+        "strength": "low",
+        "cosine": 0.5312657356262207,
+        "bonus": 0.0,
+        "score": 0.5312657356262207,
+        "distance": 0.4687342643737793,
+        "rank": 5
+      },
+      {
+        "id": "utt_0000_8b457a32a612",
+        "utterance": "Do I feel this is familiar?",
+        "family": "recognition",
+        "leaf": "faint_recognition",
+        "form": "question",
+        "strength": "low",
+        "cosine": 0.5290272235870361,
+        "bonus": 0.0,
+        "score": 0.5290272235870361,
+        "distance": 0.47097277641296387,
+        "rank": 6
+      },
+      {
+        "id": "utt_0012_2b5e1f00f943",
+        "utterance": "Do I feel a weak match forming?",
+        "family": "recognition",
+        "leaf": "faint_recognition",
+        "form": "question",
+        "strength": "low",
+        "cosine": 0.5281904935836792,
+        "bonus": 0.0,
+        "score": 0.5281904935836792,
+        "distance": 0.4718095064163208,
+        "rank": 7
+      },
+      {
+        "id": "utt_0008_419aa7b70a95",
+        "utterance": "Do I recognize a faint shape here?",
+        "family": "recognition",
+        "leaf": "faint_recognition",
+        "form": "question",
+        "strength": "low",
+        "cosine": 0.5278562307357788,
+        "bonus": 0.0,
+        "score": 0.5278562307357788,
+        "distance": 0.4721437692642212,
+        "rank": 8
+      }
+    ],
+    "final_axis_vector": {
+      "attention": 0.122467,
+      "salience": 1.0,
+      "intensity": 0.650978,
+      "certainty": 0.03105,
+      "confidence": 0.053465,
+      "uncertainty": 0.220572,
+      "coherence": 0.046304,
+      "ambiguity": 0.246382,
+      "novelty": 0.452333,
+      "familiarity": 0.543133,
+      "memory": 0.402961,
+      "recognition": 0.423769,
+      "confirmation": 0.074519,
+      "curiosity": 0.282708,
+      "search": 0.434586,
+      "comparison": 0.516699,
+      "similarity": 0.05788,
+      "difference": 0.272192,
+      "connection": 0.092607,
+      "separation": 0.213526,
+      "containment": 0.030481,
+      "boundary": 0.133453,
+      "completion": 0.055391,
+      "repair": 0.234837,
+      "correction": 0.234837,
+      "mismatch": 0.062199,
+      "conflict": 0.0311,
+      "rejection": 0.093299,
+      "restraint": 0.384543,
+      "hesitation": 0.070463,
+      "readiness": 0.555348,
+      "commitment": 0.074317,
+      "release_pressure": 0.569459,
+      "approach": 0.095349,
+      "avoidance": 0.073028,
+      "urgency": 0.233979,
+      "friction": 0.16311,
+      "importance": 0.021916,
+      "agency": 0.062099,
+      "orientation": 0.05443,
+      "transition": 0.205403,
+      "expectation": 0.045683,
+      "saturation": 0.029221,
+      "stability": 0.054866,
+      "alignment": 0.14057
+    },
+    "accumulated_word_tail": [
+      {
+        "tick": 1700,
+        "input_id": "N01",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "salience",
+            1.5195
+          ],
+          [
+            "familiarity",
+            0.9329
+          ],
+          [
+            "comparison",
+            0.9279
+          ],
+          [
+            "intensity",
+            0.9169
+          ],
+          [
+            "release_pressure",
+            0.8989
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "release_pressure",
+            0.1767
+          ],
+          [
+            "salience",
+            0.1735
+          ],
+          [
+            "recognition",
+            0.16
+          ],
+          [
+            "familiarity",
+            0.16
+          ],
+          [
+            "attention",
+            0.12
+          ]
+        ]
+      },
+      {
+        "tick": 1701,
+        "input_id": "N05",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "salience",
+            1.5917
+          ],
+          [
+            "release_pressure",
+            1.0114
+          ],
+          [
+            "comparison",
+            0.9737
+          ],
+          [
+            "intensity",
+            0.9513
+          ],
+          [
+            "familiarity",
+            0.9463
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "salience",
+            0.1938
+          ],
+          [
+            "release_pressure",
+            0.1845
+          ],
+          [
+            "comparison",
+            0.12
+          ],
+          [
+            "readiness",
+            0.1178
+          ],
+          [
+            "intensity",
+            0.1078
+          ]
+        ]
+      },
+      {
+        "tick": 1702,
+        "input_id": "N05",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "salience",
+            1.5893
+          ],
+          [
+            "familiarity",
+            1.0306
+          ],
+          [
+            "release_pressure",
+            0.9928
+          ],
+          [
+            "comparison",
+            0.9558
+          ],
+          [
+            "intensity",
+            0.938
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "familiarity",
+            0.16
+          ],
+          [
+            "salience",
+            0.1249
+          ],
+          [
+            "readiness",
+            0.1222
+          ],
+          [
+            "recognition",
+            0.12
+          ],
+          [
+            "novelty",
+            0.08
+          ]
+        ]
+      },
+      {
+        "tick": 1703,
+        "input_id": "N02",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "salience",
+            1.6445
+          ],
+          [
+            "release_pressure",
+            1.0334
+          ],
+          [
+            "familiarity",
+            1.0202
+          ],
+          [
+            "intensity",
+            0.9648
+          ],
+          [
+            "comparison",
+            0.8794
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "salience",
+            0.1822
+          ],
+          [
+            "release_pressure",
+            0.12
+          ],
+          [
+            "intensity",
+            0.1018
+          ],
+          [
+            "readiness",
+            0.0867
+          ],
+          [
+            "novelty",
+            0.08
+          ]
+        ]
+      },
+      {
+        "tick": 1704,
+        "input_id": "N00",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "salience",
+            1.6897
+          ],
+          [
+            "familiarity",
+            1.0426
+          ],
+          [
+            "release_pressure",
+            1.0087
+          ],
+          [
+            "intensity",
+            0.9866
+          ],
+          [
+            "readiness",
+            0.9506
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "readiness",
+            0.1779
+          ],
+          [
+            "salience",
+            0.1767
+          ],
+          [
+            "attention",
+            0.12
+          ],
+          [
+            "recognition",
+            0.11
+          ],
+          [
+            "separation",
+            0.1067
+          ]
+        ]
+      },
+      {
+        "tick": 1705,
+        "input_id": "N02",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "salience",
+            1.8124
+          ],
+          [
+            "intensity",
+            1.2369
+          ],
+          [
+            "readiness",
+            1.0681
+          ],
+          [
+            "familiarity",
+            1.0473
+          ],
+          [
+            "release_pressure",
+            1.0016
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "intensity",
+            0.3291
+          ],
+          [
+            "salience",
+            0.2578
+          ],
+          [
+            "readiness",
+            0.1935
+          ],
+          [
+            "comparison",
+            0.12
+          ],
+          [
+            "correction",
+            0.1067
+          ]
+        ]
+      },
+      {
+        "tick": 1706,
+        "input_id": "N04",
+        "final_trigger": false,
+        "top_accum_axes": [
+          [
+            "salience",
+            1.8828
+          ],
+          [
+            "intensity",
+            1.2527
+          ],
+          [
+            "readiness",
+            1.0604
+          ],
+          [
+            "familiarity",
+            1.0515
+          ],
+          [
+            "release_pressure",
+            0.9991
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "restraint",
+            0.28
+          ],
+          [
+            "salience",
+            0.2153
+          ],
+          [
+            "comparison",
+            0.18
+          ],
+          [
+            "correction",
+            0.16
+          ],
+          [
+            "repair",
+            0.16
+          ]
+        ]
+      },
+      {
+        "tick": 1707,
+        "input_id": "N01",
+        "final_trigger": true,
+        "top_accum_axes": [
+          [
+            "salience",
+            1.9914
+          ],
+          [
+            "intensity",
+            1.3019
+          ],
+          [
+            "release_pressure",
+            1.1192
+          ],
+          [
+            "readiness",
+            1.1089
+          ],
+          [
+            "familiarity",
+            1.0875
+          ]
+        ],
+        "delta_top_axes": [
+          [
+            "salience",
+            0.2592
+          ],
+          [
+            "release_pressure",
+            0.2
+          ],
+          [
+            "intensity",
+            0.1493
+          ],
+          [
+            "readiness",
+            0.1333
+          ],
+          [
+            "comparison",
+            0.12
+          ]
+        ]
+      }
+    ]
+  }
+]

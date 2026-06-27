@@ -1,0 +1,17 @@
+branch,run,witnesses,mean_rows,median_margin
+category_formation,baseline_then_novel,97,17.97938144329897,0.0006075501441955566
+category_formation,facts_then_questions,6,292.3333333333333,0.00020363926887512207
+category_formation,multilingual_random,50,35.42,0.0005643069744110107
+category_formation,no_baseline_test,71,25.070422535211268,0.000431746244430542
+cross_domain_mapping,baseline_then_novel,22,81.5909090909091,0.00025147199630737305
+cross_domain_mapping,facts_then_questions,26,67.23076923076923,0.000302046537399292
+cross_domain_mapping,multilingual_random,33,52.121212121212125,0.00024235248565673828
+cross_domain_mapping,no_baseline_test,18,95.55555555555556,0.0002588927745819092
+hierarchy_ordering,baseline_then_novel,3,37.666666666666664,0.00025272369384765625
+hierarchy_ordering,facts_then_questions,15,114.33333333333333,0.0002442598342895508
+hierarchy_ordering,multilingual_random,66,27.257575757575758,0.0008998215198516846
+hierarchy_ordering,no_baseline_test,2,300.5,0.0002535581588745117
+missing_closure_analogy,baseline_then_novel,23,77.08695652173913,0.0002244710922241211
+missing_closure_analogy,facts_then_questions,19,86.3157894736842,0.000246584415435791
+missing_closure_analogy,multilingual_random,95,18.852631578947367,0.000709831714630127
+missing_closure_analogy,no_baseline_test,10,167.1,0.00022912025451660156

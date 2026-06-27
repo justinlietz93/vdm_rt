@@ -1,0 +1,94 @@
+{
+  "top_utterance": "Do I need this to close?",
+  "rank_margin": 0.0011959999999999749,
+  "top_k": [
+    {
+      "rank": 1,
+      "id": "utt_1592_892ec799d50b",
+      "utterance": "Do I need this to close?",
+      "family": "incompletion",
+      "leaf": "open",
+      "form": "question",
+      "strength": "low",
+      "cosine": 0.971035,
+      "distance": 0.028965
+    },
+    {
+      "rank": 2,
+      "id": "utt_1593_1d93404ba8ca",
+      "utterance": "I might need this to close.",
+      "family": "incompletion",
+      "leaf": "open",
+      "form": "weak",
+      "strength": "low_medium",
+      "cosine": 0.969839,
+      "distance": 0.030161
+    },
+    {
+      "rank": 3,
+      "id": "utt_1594_7a1a7602e901",
+      "utterance": "I think I need this to close.",
+      "family": "incompletion",
+      "leaf": "open",
+      "form": "medium",
+      "strength": "medium",
+      "cosine": 0.966722,
+      "distance": 0.033278
+    },
+    {
+      "rank": 4,
+      "id": "utt_1588_879ec6a1e4a0",
+      "utterance": "Do I see an open end?",
+      "family": "incompletion",
+      "leaf": "open",
+      "form": "question",
+      "strength": "low",
+      "cosine": 0.965408,
+      "distance": 0.034592
+    },
+    {
+      "rank": 5,
+      "id": "utt_1596_d319429318d8",
+      "utterance": "Do I feel the gap remains open?",
+      "family": "incompletion",
+      "leaf": "open",
+      "form": "question",
+      "strength": "low",
+      "cosine": 0.965379,
+      "distance": 0.034621
+    },
+    {
+      "rank": 6,
+      "id": "utt_1584_b6636de825c8",
+      "utterance": "Do I feel this is still open?",
+      "family": "incompletion",
+      "leaf": "open",
+      "form": "question",
+      "strength": "low",
+      "cosine": 0.965379,
+      "distance": 0.034621
+    },
+    {
+      "rank": 7,
+      "id": "utt_1589_943b819b0c55",
+      "utterance": "I might see an open end.",
+      "family": "incompletion",
+      "leaf": "open",
+      "form": "weak",
+      "strength": "low_medium",
+      "cosine": 0.963977,
+      "distance": 0.036023
+    },
+    {
+      "rank": 8,
+      "id": "utt_1585_473a00b76bd9",
+      "utterance": "I might feel this is still open.",
+      "family": "incompletion",
+      "leaf": "open",
+      "form": "weak",
+      "strength": "low_medium",
+      "cosine": 0.963948,
+      "distance": 0.036052
+    }
+  ]
+}

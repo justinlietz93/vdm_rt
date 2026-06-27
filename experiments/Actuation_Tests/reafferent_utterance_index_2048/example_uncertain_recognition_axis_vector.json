@@ -1,0 +1,8 @@
+{
+  "recognition": 0.75,
+  "familiarity": 0.55,
+  "uncertainty": 0.7,
+  "hesitation": 0.45,
+  "doubt": 0.35,
+  "search": 0.2
+}
