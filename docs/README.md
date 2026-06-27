@@ -20,7 +20,7 @@ It is inspired by SGDA, but narrowed for this project: the docs exist to protect
 The source documents imported from the Neurobiology upgrade work live under:
 
 ```text
-docs/sources/neurobiology-upgrade/
+docs/roadmap/neurobiology-upgrade/
 ```
 
 Those files are evidence and boundary sources, not casual notes. Canonical reader-facing docs should summarize them and link back to them rather than copying their full contents into multiple places.

@@ -76,17 +76,13 @@ def main():
                # Checkpoint retention / format (format optional)
                checkpoint_format=args.checkpoint_format,
                checkpoint_keep=args.checkpoint_keep,
-               # Text→connectome stimulation (symbol→group)
-               stim_group_size=args.stim_group_size,
+               # External receptor stimulation amplitude/decay.
                stim_amp=args.stim_amp,
                stim_decay=args.stim_decay,
-               stim_max_symbols=args.stim_max_symbols,
-               # Self-speak / topology spike detection
-               speak_auto=args.speak_auto,
-               speak_z=args.speak_z,
-               speak_hysteresis=args.speak_hysteresis,
-               speak_cooldown_ticks=args.speak_cooldown_ticks,
-               speak_valence_thresh=args.speak_valence_thresh,
+               # Topology spike detection
+               b1_z=args.b1_z,
+               b1_hysteresis=args.b1_hysteresis,
+               b1_cooldown_ticks=args.b1_cooldown_ticks,
                b1_half_life_ticks=args.b1_half_life_ticks,
                # Announcement bus / ADC tuning
                bus_capacity=args.bus_capacity,

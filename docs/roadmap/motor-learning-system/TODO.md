@@ -51,10 +51,10 @@ This checklist is the working implementation tracker. The reader-facing version 
 
 ### Task 1.2 — Add kill-switch tests
 
-- [ ] Step 1.2.1 — Test no phrase bank in live UTD path.
-- [ ] Step 1.2.2 — Test no release-time sentence composition.
+- [x] Step 1.2.1 — Test no phrase bank in live UTD path.
+- [x] Step 1.2.2 — Test no release-time sentence composition.
 - [ ] Step 1.2.3 — Test renderer cannot repair malformed trace.
-- [ ] Step 1.2.4 — Test novel input cannot expand output basis.
+- [x] Step 1.2.4 — Test novel input cannot expand output basis through the removed lexicon/text-mapper path.
 
 ## Phase 2 — Device Basis
 

@@ -1,7 +1,6 @@
-# Text-to-connectome stimulation defaults.
+# Explicit receptor-node stimulation defaults. This file does not define a
+# text-to-connectome mapper.
 
 [stimulus]
-group_size = 4
 amp = 0.05
 decay = 0.90
-max_symbols = 64

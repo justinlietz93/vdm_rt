@@ -57,21 +57,15 @@ def make_parser() -> argparse.ArgumentParser:
     p.add_argument('--bundle-size', dest='bundle_size', type=int, default=config_int("sparse_connectome.bundle_size", 3))
     p.add_argument('--prune-factor', dest='prune_factor', type=float, default=config_float("sparse_connectome.prune_factor", 0.10))
 
-    # Text→connectome stimulation (symbol→group)
-    p.add_argument('--stim-group-size', dest='stim_group_size', type=int, default=config_int("stimulus.group_size", 4))
+    # External receptor stimulation amplitude/decay. Receptor-node selection is not done here.
     p.add_argument('--stim-amp', dest='stim_amp', type=float, default=config_float("stimulus.amp", 0.05))
     p.add_argument('--stim-decay', dest='stim_decay', type=float, default=config_float("stimulus.decay", 0.90))
-    p.add_argument('--stim-max-symbols', dest='stim_max_symbols', type=int, default=config_int("stimulus.max_symbols", 64))
 
-    # Self-speak and topology-spike detection (void-native)
-    p.add_argument('--speak-auto', dest='speak_auto', action='store_true')
-    p.add_argument('--no-speak-auto', dest='speak_auto', action='store_false')
-    p.set_defaults(speak_auto=config_bool("speech.auto", True))
-    p.add_argument('--speak-z', dest='speak_z', type=float, default=config_float("speech.z", 1.0))
-    p.add_argument('--speak-hysteresis', dest='speak_hysteresis', type=float, default=config_float("speech.hysteresis", 1.0))
-    p.add_argument('--speak-cooldown-ticks', dest='speak_cooldown_ticks', type=int, default=config_int("speech.cooldown_ticks", 10))
-    p.add_argument('--speak-valence-thresh', dest='speak_valence_thresh', type=float, default=config_float("speech.valence_threshold", 0.01))
-    p.add_argument('--b1-half-life-ticks', dest='b1_half_life_ticks', type=int, default=config_int("speech.b1.half_life_ticks", 50))
+    # Topology-spike detection (void-native, no output authorship)
+    p.add_argument('--b1-z', dest='b1_z', type=float, default=config_float("b1.z", 1.0))
+    p.add_argument('--b1-hysteresis', dest='b1_hysteresis', type=float, default=config_float("b1.hysteresis", 1.0))
+    p.add_argument('--b1-cooldown-ticks', dest='b1_cooldown_ticks', type=int, default=config_int("b1.cooldown_ticks", 10))
+    p.add_argument('--b1-half-life-ticks', dest='b1_half_life_ticks', type=int, default=config_int("b1.half_life_ticks", 50))
 
     # Announcement bus / ADC tuning
     p.add_argument('--bus-capacity', dest='bus_capacity', type=int, default=config_int("bus.capacity", 65536))

@@ -141,75 +141,85 @@ entries:
 
   - path: io/cognition/composer.py
     class: delete
-    state: live_prohibited_decoder
+    state: removed_from_live_tree
     role: N-gram, phrase-template, and keyword-fallback sentence author.
     evidence:
-      - runtime/helpers/speak.py imports and invokes compose_say_text.
+      - The file was deleted from the importable runtime tree.
+      - tests/guards/test_no_live_decoder_authorship.py rejects reintroduction of compose_say_text.
       - The source authority forbids lexical, Markov, template, and release-time authorship.
-    follow_up: Remove with the live decoder callers; do not retain a compatibility import.
+    follow_up: Preserve the guard; do not retain a compatibility import.
 
   - path: io/cognition/speaker.py
     class: delete
-    state: live_prohibited_decoder
+    state: removed_from_live_tree
     role: Lexicon-IDF scoring for authored speech output.
     evidence:
-      - runtime/helpers/speak.py imports novelty_and_score before emitting a say macro.
+      - The file was deleted from the importable runtime tree.
+      - tests/guards/test_no_live_decoder_authorship.py rejects reintroduction of the speaker module.
       - Output scoring over authored text is not actuator release.
-    follow_up: Remove with runtime/helpers/speak.py and lexical runtime state.
+    follow_up: Preserve the guard; do not reintroduce authored-output scoring.
 
   - path: io/lexicon/
     class: delete
-    state: live_prohibited_decoder
+    state: removed_from_live_tree
     role: Persistent lexical counts and phrase-template source for output authorship.
     evidence:
-      - nexus.py loads the phrase bank and lexicon on startup.
-      - runtime/loop/main.py saves lexical state and runtime/helpers/speak.py updates it after output.
-    follow_up: Delete the package and phrase bank after removing all live callers.
+      - The lexicon source files and package phrase bank were deleted from the importable runtime tree.
+      - Nexus no longer loads or saves lexical state.
+      - runtime/loop/main.py no longer saves lexical state or invokes autonomous speaking.
+      - tests/guards/test_no_live_decoder_authorship.py rejects live lexicon imports and phrase-bank reintroduction.
+    follow_up: Preserve the guard; do not reintroduce a live lexical output basis.
 
   - path: io/actuators/macros.py
     class: delete
-    state: live_prohibited_decoder
+    state: removed_from_live_tree
     role: Macro-shaped text output emitter.
     evidence:
-      - runtime/emitters.py constructs MacroEmitter.
-      - runtime/helpers/smoke.py produces canned text macros through the emitter.
-    follow_up: Remove with macro board, macro smoke output, and status macro emission.
+      - The file was deleted from the importable runtime tree.
+      - runtime/emitters.py, runtime/helpers/macro_board.py, runtime/helpers/smoke.py, and runtime/helpers/emission.py were removed.
+      - tests/guards/test_no_live_decoder_authorship.py rejects macro emitter APIs and imports.
+    follow_up: Preserve the guard; future actuator work must not use macro-shaped text authorship.
 
   - path: io/actuators/thoughts.py
     class: delete
-    state: diagnostic_scaffold_only
+    state: removed_from_live_tree
     role: Optional thought-event writer with no live producer beyond smoke material.
     evidence:
-      - runtime/helpers/smoke.py is its only static method caller.
+      - The file was deleted from the importable runtime tree.
+      - runtime/helpers/smoke.py was removed.
       - The source authority permits provenance logging but does not admit synthetic thought authorship.
-    follow_up: Remove with runtime/emitters.py and thought smoke output.
+    follow_up: Preserve provenance in logging only.
 
   - path: io/cognition/stimulus.py
-    class: port
-    state: receptor_contract_violation
+    class: delete
+    state: removed_from_live_tree
     role: Current text-to-connectome mapping.
     evidence:
-      - The mapping skips repeated symbols before creating indices.
+      - The mapping skipped repeated symbols before creating indices.
+      - The file was deleted from the importable runtime tree.
+      - runtime/helpers/ingest.py no longer maps text into connectome indices.
       - The source authority requires sequential, repetition-preserving receptor slices.
-    follow_up: Replace with a bounded receptor-slice port; do not preserve the unique-symbol mapping.
+    follow_up: Replace with a bounded receptor-slice port when implementing the receptor rewrite; do not preserve the unique-symbol mapping.
 
   - path: io/ute.py
     class: port
-    state: receptor_boundary_incomplete
-    role: Current stdin and inbox intake boundary.
+    state: queue_boundary_only
+    role: Explicit receptor-event queue boundary.
     evidence:
       - nexus.py constructs UTE and runtime/loop/main.py polls it.
-      - Its synthetic wall-clock ticker and dashboard-inbox model are not the required medium-specific receptor contract.
-    follow_up: Redefine as receptor transduction after decoder removal; retain no synthetic cognitive heartbeat.
+      - The synthetic wall-clock ticker, stdin reader, and dashboard-inbox tailer were removed.
+      - UTE now accepts explicit queued events through push() and has no automatic source.
+    follow_up: Redefine as receptor transduction in the receptor rewrite.
 
   - path: io/utd.py
     class: port
-    state: actuator_boundary_incomplete
-    role: Current stdout/JSONL output sink with persistent macro board.
+    state: motor_event_boundary_only
+    role: Explicit motor-event audit boundary.
     evidence:
-      - It auto-registers and persists macro names, and receives both input echoes and authored say output.
+      - Text emission, macro registration, macro persistence, and input echo behavior were removed.
+      - UTD now records explicit motor events only.
       - The source authority requires fixed actuator primitives and actuator events, not a text decoder.
-    follow_up: Remove macro and input-echo behavior, then replace with an actuator-transducer contract.
+    follow_up: Replace with an actuator-transducer contract during the motor rewrite.
 
   - path: io/logging/rolling_jsonl.py
     class: keep

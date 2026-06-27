@@ -100,14 +100,11 @@ def test_build_cmd_defers_omitted_booleans_to_config(tmp_path):
 
     assert "--use-time-dynamics" not in cmd
     assert "--no-time-dynamics" not in cmd
-    assert "--speak-auto" not in cmd
-    assert "--no-speak-auto" not in cmd
 
 
 def test_build_cmd_preserves_explicit_boolean_overrides(tmp_path):
     pm = ProcessManager(str(tmp_path / "runs"))
-    cmd = pm._build_cmd({"use_time_dynamics": False, "speak_auto": False, "control_server": True})
+    cmd = pm._build_cmd({"use_time_dynamics": False, "control_server": True})
 
     assert "--no-time-dynamics" in cmd
-    assert "--no-speak-auto" in cmd
     assert "--control-server" in cmd

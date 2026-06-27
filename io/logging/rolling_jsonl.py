@@ -23,7 +23,7 @@ Configuration lives in config/logging.toml [logging].
 
 Notes:
 - Uses a cross-process advisory lock via <base_path>.lock to serialize trimming with writers.
-- Writers should not hold persistent file handles; always append per call (MacroEmitter, UTD updated).
+- Writers should not hold persistent file handles; always append per call.
 """
 
 from __future__ import annotations

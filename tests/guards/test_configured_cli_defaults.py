@@ -23,17 +23,13 @@ def test_cli_defaults_come_from_config_files() -> None:
     assert args.bundle_size == config_int("sparse_connectome.bundle_size", 3)
     assert args.prune_factor == config_float("sparse_connectome.prune_factor", 0.10)
 
-    assert args.stim_group_size == config_int("stimulus.group_size", 4)
     assert args.stim_amp == config_float("stimulus.amp", 0.05)
     assert args.stim_decay == config_float("stimulus.decay", 0.90)
-    assert args.stim_max_symbols == config_int("stimulus.max_symbols", 64)
 
-    assert args.speak_auto == config_bool("speech.auto", True)
-    assert args.speak_z == config_float("speech.z", 1.0)
-    assert args.speak_hysteresis == config_float("speech.hysteresis", 1.0)
-    assert args.speak_cooldown_ticks == config_int("speech.cooldown_ticks", 10)
-    assert args.speak_valence_thresh == config_float("speech.valence_threshold", 0.01)
-    assert args.b1_half_life_ticks == config_int("speech.b1.half_life_ticks", 50)
+    assert args.b1_z == config_float("b1.z", 1.0)
+    assert args.b1_hysteresis == config_float("b1.hysteresis", 1.0)
+    assert args.b1_cooldown_ticks == config_int("b1.cooldown_ticks", 10)
+    assert args.b1_half_life_ticks == config_int("b1.half_life_ticks", 50)
 
     assert args.bus_capacity == config_int("bus.capacity", 65536)
     assert args.bus_drain == config_int("bus.drain", 2048)

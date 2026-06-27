@@ -382,9 +382,9 @@ class EventDrivenMetrics:
         vt_head_k: int | None = None,
         seed: int = 0,
     ) -> None:
-        z_half_life_ticks = config_int("speech.b1.half_life_ticks", 50) if z_half_life_ticks is None else int(z_half_life_ticks)
-        z_spike = config_float("speech.z", 1.0) if z_spike is None else float(z_spike)
-        hysteresis = config_float("speech.hysteresis", 1.0) if hysteresis is None else float(hysteresis)
+        z_half_life_ticks = config_int("b1.half_life_ticks", 50) if z_half_life_ticks is None else int(z_half_life_ticks)
+        z_spike = config_float("b1.z", 1.0) if z_spike is None else float(z_spike)
+        hysteresis = config_float("b1.hysteresis", 1.0) if hysteresis is None else float(hysteresis)
         self.b1_detector = StreamingZEMA(
             half_life_ticks=int(max(1, z_half_life_ticks)),
             z_spike=float(z_spike),

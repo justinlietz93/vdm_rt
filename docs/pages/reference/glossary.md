@@ -2,7 +2,7 @@
 title: Glossary
 status: active
 owner: runtime-core
-source_authority: docs/sources/neurobiology-upgrade/
+source_authority: docs/roadmap/neurobiology-upgrade/
 summary: Working glossary for the runtime and motor-learning upgrade.
 ---
 

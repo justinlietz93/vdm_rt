@@ -2,7 +2,7 @@
 title: Aura Distinction Summary
 status: active
 owner: runtime-core
-source_authority: docs/sources/neurobiology-upgrade/Aura_Distinction_Inventory_v0.7.md
+source_authority: docs/roadmap/neurobiology-upgrade/Aura_Distinction_Inventory_v0.7.md
 summary: Distilled evidence map from the Aura distinction inventory.
 ---
 

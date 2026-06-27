@@ -41,8 +41,6 @@ from vdm_rt.core.proprioception.events import EventDrivenMetrics as _EvtMetrics,
 from vdm_rt.core.cortex.scouts import VoidColdScoutWalker as _VoidScout
 from vdm_rt.core.signals import apply_b1_detector as _apply_b1d
 from vdm_rt.runtime.helpers.ingest import process_messages as _process_messages
-from vdm_rt.runtime.helpers.smoke import maybe_smoke_tests as _maybe_smoke_tests
-from vdm_rt.runtime.helpers.emission import emit_status_and_macro as _emit_status_and_macro
 from vdm_rt.runtime.helpers.checkpointing import save_tick_checkpoint as _save_tick_checkpoint
 from vdm_rt.runtime.helpers.status_http import (
     maybe_start_status_http as _maybe_start_status_http,
@@ -335,7 +333,7 @@ def run_loop(nx: Any, t0: float, step: int, duration_s: Optional[int] = None) ->
             # 1) ingest
             msgs = nx.ute.poll()
             ute_in_count = len(msgs)
-            ute_text_count, stim_idxs, tick_tokens, tick_rev_map = _process_messages(nx, msgs)
+            ute_text_count, stim_idxs, tick_rev_map = _process_messages(nx, msgs)
 
             # inject the accumulated stimulation before the learning step
             if stim_idxs:
@@ -355,11 +353,11 @@ def run_loop(nx: Any, t0: float, step: int, duration_s: Optional[int] = None) ->
             t = time.time() - t0
             _t1 = _pc()
 
-            # IDF novelty is composer/telemetry-only; keep dynamics neutral per safe pattern
-            idf_scale = 1.0
+            # Decoder-side novelty scaling has been removed; keep dynamics neutral.
+            novelty_scale = 1.0
 
             # Compute step and scan-based metrics (parity-preserving)
-            m, drive = _compute_step_and_metrics(nx, t, step, idf_scale=idf_scale)
+            m, drive = _compute_step_and_metrics(nx, t, step, novelty_scale=novelty_scale)
 
             # Optional: Online learner (RE-VGSP) and structural actuator (GDSP) - default OFF
             try:
@@ -783,12 +781,6 @@ def run_loop(nx: Any, t0: float, step: int, duration_s: Optional[int] = None) ->
             except Exception:
                 pass
 
-            # Optional one-shot smoke tests
-            try:
-                _maybe_smoke_tests(nx, m, int(step))
-            except Exception:
-                pass
-
             # Append history and trim
             nx.history.append(m)
             try:
@@ -796,23 +788,6 @@ def run_loop(nx: Any, t0: float, step: int, duration_s: Optional[int] = None) ->
                 trim_to = 10000   # trim down to 10k when exceeding
                 if len(nx.history) > max_keep:
                     nx.history = nx.history[-trim_to:]
-            except Exception:
-                pass
-
-            # Periodically persist learned lexicon
-            try:
-                if (step % max(100, int(getattr(nx, "status_every", 1)) * 10)) == 0:
-                    nx._save_lexicon()
-            except Exception:
-                pass
-
-            # Autonomous speaking (delegated)
-            try:
-                _maybe_auto_speak = None
-                # lazy import to avoid cycle (modularized helpers)
-                from vdm_rt.runtime.helpers import maybe_auto_speak as _maybe_auto_speak
-                if _maybe_auto_speak is not None:
-                    _maybe_auto_speak(nx, m, int(step), tick_tokens, void_topic_symbols)
             except Exception:
                 pass
 
@@ -844,12 +819,6 @@ def run_loop(nx: Any, t0: float, step: int, duration_s: Optional[int] = None) ->
                             print("[nexus] tick_log_error", str(e), flush=True)
                         except Exception:
                             pass
-
-            # Status payload + macro emission (delegated)
-            try:
-                _emit_status_and_macro(nx, m, int(step))
-            except Exception:
-                pass
 
             # Redis Streams publish (optional, bounded; no schedulers)
             try:
