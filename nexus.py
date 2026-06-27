@@ -190,7 +190,15 @@ class Nexus:
         try:
             self.start_step = int(_derive_start_step(self, load_engram_path))
             try:
-                self.logger.info("resume_step", extra={"extra": {"start_step": int(self.start_step)}})
+                self.logger.info(
+                    "resume_step",
+                    extra={
+                        "extra": {
+                            "tick": int(self.start_step),
+                            "start_step": int(self.start_step),
+                        }
+                    },
+                )
             except Exception:
                 pass
         except Exception:
@@ -260,7 +268,15 @@ class Nexus:
             _ = _run_loop(self, t0, step0, duration_s)
         except Exception as e:
             try:
-                self.logger.info("nexus_fatal", extra={"extra": {"err": str(e)}})
+                self.logger.info(
+                    "nexus_fatal",
+                    extra={
+                        "extra": {
+                            "tick": int(getattr(self, "_emit_step", step0)),
+                            "err": str(e),
+                        }
+                    },
+                )
             except Exception:
                 try:
                     print("[nexus] fatal", str(e), file=sys.stderr, flush=True)

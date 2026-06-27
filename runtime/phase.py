@@ -231,7 +231,15 @@ def poll_control(nx) -> None:
             if isinstance(load_p, str) and load_p.strip():
                 _load_engram_state(str(load_p), nx.connectome, adc=getattr(nx, "adc", None))
                 try:
-                    nx.logger.info("engram_loaded", extra={"extra": {"path": str(load_p)}})
+                    nx.logger.info(
+                        "engram_loaded",
+                        extra={
+                            "extra": {
+                                "tick": int(getattr(nx, "_emit_step", 0)),
+                                "path": str(load_p),
+                            }
+                        },
+                    )
                 except Exception:
                     pass
                 # Clear directive from phase file to avoid repeated loads
@@ -266,7 +274,16 @@ def poll_control(nx) -> None:
         apply_phase_profile(nx, prof)
         nx._phase_mtime = mt
         try:
-            nx.logger.info("phase_applied", extra={"extra": {"phase": phase_idx, "profile": prof}})
+            nx.logger.info(
+                "phase_applied",
+                extra={
+                    "extra": {
+                        "tick": int(getattr(nx, "_emit_step", 0)),
+                        "phase": phase_idx,
+                        "profile": prof,
+                    }
+                },
+            )
         except Exception:
             pass
     except Exception:

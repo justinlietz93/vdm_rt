@@ -36,12 +36,29 @@ def maybe_load_engram(nx: Any, load_engram_path: Optional[str]) -> None:
     try:
         _load_engram_state(str(load_engram_path), nx.connectome, adc=getattr(nx, "adc", None))
         try:
-            nx.logger.info("engram_loaded", extra={"extra": {"path": str(load_engram_path)}})
+            nx.logger.info(
+                "engram_loaded",
+                extra={
+                    "extra": {
+                        "tick": int(getattr(nx, "_emit_step", getattr(nx, "start_step", 0))),
+                        "path": str(load_engram_path),
+                    }
+                },
+            )
         except Exception:
             pass
     except Exception as e:
         try:
-            nx.logger.info("engram_load_error", extra={"extra": {"err": str(e), "path": str(load_engram_path)}})
+            nx.logger.info(
+                "engram_load_error",
+                extra={
+                    "extra": {
+                        "tick": int(getattr(nx, "_emit_step", getattr(nx, "start_step", 0))),
+                        "err": str(e),
+                        "path": str(load_engram_path),
+                    }
+                },
+            )
         except Exception:
             pass
 

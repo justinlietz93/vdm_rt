@@ -831,7 +831,15 @@ def run_loop(nx: Any, t0: float, step: int, duration_s: Optional[int] = None) ->
 
             if duration_s is not None and (time.time() - t0) > duration_s:
                 try:
-                    nx.logger.info("nexus_duration_reached", extra={"extra": {"duration_s": int(duration_s)}})
+                    nx.logger.info(
+                        "nexus_duration_reached",
+                        extra={
+                            "extra": {
+                                "tick": int(step),
+                                "duration_s": int(duration_s),
+                            }
+                        },
+                    )
                 except Exception:
                     pass
                 break

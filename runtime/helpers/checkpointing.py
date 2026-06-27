@@ -43,7 +43,10 @@ def save_tick_checkpoint(nx: Any, step: int) -> None:
         adc=getattr(nx, "adc", None),
     )
     try:
-        nx.logger.info("checkpoint_saved", extra={"extra": {"path": str(path), "step": int(step)}})
+        nx.logger.info(
+            "checkpoint_saved",
+            extra={"extra": {"tick": int(step), "step": int(step), "path": str(path)}},
+        )
     except Exception:
         pass
 
@@ -51,7 +54,10 @@ def save_tick_checkpoint(nx: Any, step: int) -> None:
         try:
             summary = _prune_ckpt(nx.run_dir, keep=int(nx.checkpoint_keep), last_path=path)
             try:
-                nx.logger.info("checkpoint_retention", extra={"extra": summary})
+                nx.logger.info(
+                    "checkpoint_retention",
+                    extra={"extra": {"tick": int(step), **summary}},
+                )
             except Exception:
                 pass
         except Exception:
