@@ -1,0 +1,22 @@
+{
+  "seed": 20260627,
+  "base_sentences": [
+    "The bridge holds while the signal crosses.",
+    "The gate opens after the bridge holds.",
+    "A stable boundary lets the signal pass.",
+    "The crossing waits until the boundary is steady.",
+    "A latch keeps the path stable before transfer.",
+    "The held path admits the next signal.",
+    "The bridge marks the crossing and then releases.",
+    "The boundary holds while the signal moves across."
+  ],
+  "novel_shift_sentences": [
+    "The cup falls and shatters on the kitchen floor.",
+    "A child laughs beside a sleeping dog."
+  ],
+  "schedule": {
+    "stable_ticks": 1000,
+    "shift_ticks": 200,
+    "novel_probability_after_1000": 0.25
+  }
+}

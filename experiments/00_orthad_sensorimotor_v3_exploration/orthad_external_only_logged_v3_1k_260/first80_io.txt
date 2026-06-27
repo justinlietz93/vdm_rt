@@ -1,0 +1,80 @@
+000 [curriculum] Q chart A
+001 [curriculum] Q chart A
+002 [curriculum] Q chart A
+003 [curriculum] Q chart A
+004 [curriculum] B overlap AB
+005 [curriculum] B overlap AB -> LATCH
+006 [curriculum] B overlap AB -> STABLE
+007 [curriculum] B overlap AB
+008 [curriculum] L boundary AB
+009 [curriculum] Q chart B
+010 [curriculum] L boundary AB
+011 [curriculum] L boundary AB
+012 [curriculum] Q chart B
+013 [curriculum] L boundary AB -> BOUNDARY
+014 [curriculum] Q chart B -> COUPLING
+015 [curriculum] Q chart B -> REQUEST
+016 [curriculum] overlap transfer AB BC
+017 [curriculum] overlap transfer AB BC -> TRACE LATCH PRESSURE
+018 [curriculum] overlap transfer AB BC -> STABLE
+019 [curriculum] B overlap BC
+020 [curriculum] L cycle close
+021 [curriculum] L cycle close
+022 [curriculum] B overlap BC
+023 [curriculum] L boundary BC -> UNSTABLE
+024 [curriculum] Q chart A
+025 [curriculum] Q chart A
+026 [curriculum] L boundary BC -> MARK COUPLING
+027 [curriculum] Q chart C
+028 [curriculum] B overlap AB -> REQUEST
+029 [curriculum] B overlap AB -> LATCH
+030 [curriculum] Q chart C -> STABLE
+031 [curriculum] overlap transfer AB BC
+032 [curriculum] L boundary AB
+033 [curriculum] Q chart B
+034 [curriculum] overlap transfer BC CA -> TRACE
+035 [curriculum] overlap transfer BC CA -> UNSTABLE
+036 [curriculum] Q chart B
+037 [curriculum] L boundary AB
+038 [curriculum] B overlap CA -> COUPLING
+039 [curriculum] L cycle close -> PRESSURE
+040 [curriculum] overlap transfer AB BC
+041 [curriculum] overlap transfer AB BC -> BOUNDARY LATCH
+042 [curriculum] L boundary CA -> STABLE REQUEST
+043 [curriculum] Q chart A
+044 [curriculum] L cycle close
+045 [curriculum] L cycle close -> MARK
+046 [curriculum] overlap transfer CA AB -> TRACE
+047 [curriculum] B overlap AB -> UNSTABLE
+048 [curriculum] Q chart A
+049 [curriculum] Q chart A
+050 [curriculum] L cycle close -> COUPLING
+051 [curriculum] L boundary AB
+052 [curriculum] B overlap AB
+053 [curriculum] B overlap AB
+054 [curriculum] Q chart A
+055 [curriculum] Q chart B -> LATCH STABLE
+056 [curriculum] L boundary AB
+057 [curriculum] Q chart B
+058 [curriculum] B overlap AB -> REQUEST
+059 [curriculum] B overlap BC -> BOUNDARY UNSTABLE
+060 [curriculum] Q chart B
+061 [curriculum] L boundary AB
+062 [curriculum] L boundary AB -> COUPLING
+063 [curriculum] L boundary BC -> PRESSURE
+064 [curriculum] overlap transfer AB BC
+065 [curriculum] overlap transfer AB BC
+066 [curriculum] Q chart B
+067 [curriculum] Q chart C -> LATCH STABLE
+068 [curriculum] L cycle close
+069 [curriculum] L cycle close
+070 [curriculum] overlap transfer AB BC -> REQUEST
+071 [curriculum] overlap transfer AB BC -> UNSTABLE
+072 [curriculum] Q chart A
+073 [curriculum] Q chart A -> TRACE
+074 [curriculum] B overlap BC -> COUPLING
+075 [curriculum] overlap transfer BC CA
+076 [curriculum] B overlap AB
+077 [curriculum] B overlap AB
+078 [curriculum] L boundary BC
+079 [curriculum] L cycle close -> STABLE

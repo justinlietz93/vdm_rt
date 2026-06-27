@@ -1,0 +1,327 @@
+{
+  "run_dir": "/mnt/data/orthad_sensorimotor_logged_v3_1k_260_thr80",
+  "mode": "orthad_sensorimotor_logged_v3",
+  "neurons": 1000,
+  "walkers": 1200,
+  "ticks_requested": 260,
+  "ticks_completed": 260,
+  "elapsed_s": 27.316470861434937,
+  "mean_wall_tick_s": 0.10506335221804106,
+  "source_counts": {
+    "curriculum": 186,
+    "reafference": 74
+  },
+  "top_inputs": [
+    [
+      "B overlap AB",
+      29
+    ],
+    [
+      "overlap transfer AB BC",
+      26
+    ],
+    [
+      "L boundary AB",
+      23
+    ],
+    [
+      "Q chart B",
+      23
+    ],
+    [
+      "Q chart A",
+      22
+    ],
+    [
+      "motor feedback LATCH",
+      21
+    ],
+    [
+      "L cycle close",
+      21
+    ],
+    [
+      "motor feedback UNSTABLE",
+      18
+    ],
+    [
+      "motor feedback STABLE",
+      16
+    ],
+    [
+      "overlap transfer BC CA",
+      9
+    ],
+    [
+      "motor feedback COUPLING",
+      9
+    ],
+    [
+      "L boundary BC",
+      8
+    ],
+    [
+      "B overlap BC",
+      6
+    ],
+    [
+      "Q chart C",
+      6
+    ],
+    [
+      "B overlap CA",
+      5
+    ],
+    [
+      "L boundary CA",
+      4
+    ],
+    [
+      "overlap transfer CA AB",
+      4
+    ],
+    [
+      "motor feedback REQUEST",
+      4
+    ],
+    [
+      "motor feedback TRACE",
+      4
+    ],
+    [
+      "motor feedback BOUNDARY",
+      2
+    ]
+  ],
+  "motor_event_count": 75,
+  "motor_by_primitive": {
+    "LATCH": 21,
+    "STABLE": 16,
+    "UNSTABLE": 19,
+    "COUPLING": 9,
+    "REQUEST": 4,
+    "TRACE": 4,
+    "BOUNDARY": 2
+  },
+  "top_curriculum_atom_to_motor": [
+    {
+      "atom": "Q chart C",
+      "primitive": "UNSTABLE",
+      "count": 3
+    },
+    {
+      "atom": "B overlap AB",
+      "primitive": "COUPLING",
+      "count": 3
+    },
+    {
+      "atom": "L boundary AB",
+      "primitive": "STABLE",
+      "count": 3
+    },
+    {
+      "atom": "Q chart B",
+      "primitive": "STABLE",
+      "count": 3
+    },
+    {
+      "atom": "L boundary AB",
+      "primitive": "LATCH",
+      "count": 2
+    },
+    {
+      "atom": "overlap transfer AB BC",
+      "primitive": "STABLE",
+      "count": 2
+    },
+    {
+      "atom": "overlap transfer BC CA",
+      "primitive": "LATCH",
+      "count": 2
+    },
+    {
+      "atom": "L boundary CA",
+      "primitive": "UNSTABLE",
+      "count": 2
+    },
+    {
+      "atom": "overlap transfer CA AB",
+      "primitive": "LATCH",
+      "count": 2
+    },
+    {
+      "atom": "Q chart A",
+      "primitive": "UNSTABLE",
+      "count": 2
+    },
+    {
+      "atom": "B overlap AB",
+      "primitive": "LATCH",
+      "count": 2
+    },
+    {
+      "atom": "overlap transfer AB BC",
+      "primitive": "LATCH",
+      "count": 2
+    },
+    {
+      "atom": "L boundary BC",
+      "primitive": "UNSTABLE",
+      "count": 2
+    },
+    {
+      "atom": "Q chart C",
+      "primitive": "LATCH",
+      "count": 2
+    },
+    {
+      "atom": "L boundary CA",
+      "primitive": "LATCH",
+      "count": 2
+    },
+    {
+      "atom": "overlap transfer BC CA",
+      "primitive": "UNSTABLE",
+      "count": 2
+    },
+    {
+      "atom": "overlap transfer AB BC",
+      "primitive": "UNSTABLE",
+      "count": 2
+    },
+    {
+      "atom": "B overlap BC",
+      "primitive": "LATCH",
+      "count": 1
+    },
+    {
+      "atom": "B overlap CA",
+      "primitive": "STABLE",
+      "count": 1
+    },
+    {
+      "atom": "overlap transfer AB BC",
+      "primitive": "COUPLING",
+      "count": 1
+    },
+    {
+      "atom": "B overlap CA",
+      "primitive": "UNSTABLE",
+      "count": 1
+    },
+    {
+      "atom": "overlap transfer CA AB",
+      "primitive": "STABLE",
+      "count": 1
+    },
+    {
+      "atom": "Q chart A",
+      "primitive": "LATCH",
+      "count": 1
+    },
+    {
+      "atom": "overlap transfer BC CA",
+      "primitive": "TRACE",
+      "count": 1
+    },
+    {
+      "atom": "Q chart B",
+      "primitive": "LATCH",
+      "count": 1
+    },
+    {
+      "atom": "L boundary BC",
+      "primitive": "LATCH",
+      "count": 1
+    },
+    {
+      "atom": "B overlap CA",
+      "primitive": "LATCH",
+      "count": 1
+    },
+    {
+      "atom": "Q chart A",
+      "primitive": "COUPLING",
+      "count": 1
+    },
+    {
+      "atom": "B overlap AB",
+      "primitive": "STABLE",
+      "count": 1
+    },
+    {
+      "atom": "L cycle close",
+      "primitive": "LATCH",
+      "count": 1
+    }
+  ],
+  "top_self_atom_to_motor": [
+    {
+      "atom": "motor feedback LATCH",
+      "primitive": "REQUEST",
+      "count": 3
+    },
+    {
+      "atom": "motor feedback LATCH",
+      "primitive": "STABLE",
+      "count": 2
+    },
+    {
+      "atom": "motor feedback LATCH",
+      "primitive": "COUPLING",
+      "count": 1
+    },
+    {
+      "atom": "motor feedback COUPLING",
+      "primitive": "UNSTABLE",
+      "count": 1
+    },
+    {
+      "atom": "motor feedback COUPLING",
+      "primitive": "REQUEST",
+      "count": 1
+    },
+    {
+      "atom": "motor feedback UNSTABLE",
+      "primitive": "TRACE",
+      "count": 1
+    },
+    {
+      "atom": "motor feedback UNSTABLE",
+      "primitive": "COUPLING",
+      "count": 1
+    },
+    {
+      "atom": "motor feedback STABLE",
+      "primitive": "UNSTABLE",
+      "count": 1
+    },
+    {
+      "atom": "motor feedback COUPLING",
+      "primitive": "TRACE",
+      "count": 1
+    },
+    {
+      "atom": "motor feedback STABLE",
+      "primitive": "LATCH",
+      "count": 1
+    },
+    {
+      "atom": "motor feedback LATCH",
+      "primitive": "BOUNDARY",
+      "count": 1
+    },
+    {
+      "atom": "motor feedback BOUNDARY",
+      "primitive": "STABLE",
+      "count": 1
+    },
+    {
+      "atom": "motor feedback LATCH",
+      "primitive": "TRACE",
+      "count": 1
+    }
+  ],
+  "final_h5": null,
+  "scan_firewall": "passed"
+}

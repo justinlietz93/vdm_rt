@@ -1,0 +1,1200 @@
+The boundary holds while the signal moves across.
+The bridge holds while the signal crosses.
+The gate opens after the bridge holds.
+The crossing waits until the boundary is steady.
+The boundary holds while the signal moves across.
+The bridge marks the crossing and then releases.
+The crossing waits until the boundary is steady.
+The boundary holds while the signal moves across.
+The bridge marks the crossing and then releases.
+A latch keeps the path stable before transfer.
+The bridge holds while the signal crosses.
+A latch keeps the path stable before transfer.
+A latch keeps the path stable before transfer.
+The bridge holds while the signal crosses.
+The crossing waits until the boundary is steady.
+A latch keeps the path stable before transfer.
+The crossing waits until the boundary is steady.
+The crossing waits until the boundary is steady.
+A latch keeps the path stable before transfer.
+A stable boundary lets the signal pass.
+The bridge holds while the signal crosses.
+The bridge holds while the signal crosses.
+The held path admits the next signal.
+A latch keeps the path stable before transfer.
+The gate opens after the bridge holds.
+The bridge holds while the signal crosses.
+The gate opens after the bridge holds.
+The gate opens after the bridge holds.
+The bridge marks the crossing and then releases.
+The bridge holds while the signal crosses.
+The bridge marks the crossing and then releases.
+The bridge marks the crossing and then releases.
+The held path admits the next signal.
+The bridge marks the crossing and then releases.
+The boundary holds while the signal moves across.
+The gate opens after the bridge holds.
+A latch keeps the path stable before transfer.
+The boundary holds while the signal moves across.
+The bridge holds while the signal crosses.
+A latch keeps the path stable before transfer.
+The bridge holds while the signal crosses.
+The held path admits the next signal.
+The bridge holds while the signal crosses.
+A stable boundary lets the signal pass.
+A stable boundary lets the signal pass.
+The bridge marks the crossing and then releases.
+The boundary holds while the signal moves across.
+A stable boundary lets the signal pass.
+The held path admits the next signal.
+The crossing waits until the boundary is steady.
+A latch keeps the path stable before transfer.
+The bridge marks the crossing and then releases.
+A stable boundary lets the signal pass.
+The boundary holds while the signal moves across.
+The bridge marks the crossing and then releases.
+A stable boundary lets the signal pass.
+A stable boundary lets the signal pass.
+A latch keeps the path stable before transfer.
+A latch keeps the path stable before transfer.
+The held path admits the next signal.
+A stable boundary lets the signal pass.
+The boundary holds while the signal moves across.
+The held path admits the next signal.
+The crossing waits until the boundary is steady.
+A latch keeps the path stable before transfer.
+The boundary holds while the signal moves across.
+The crossing waits until the boundary is steady.
+The bridge holds while the signal crosses.
+The crossing waits until the boundary is steady.
+A stable boundary lets the signal pass.
+The gate opens after the bridge holds.
+The crossing waits until the boundary is steady.
+A latch keeps the path stable before transfer.
+The boundary holds while the signal moves across.
+The gate opens after the bridge holds.
+A latch keeps the path stable before transfer.
+The bridge holds while the signal crosses.
+The bridge marks the crossing and then releases.
+The gate opens after the bridge holds.
+A latch keeps the path stable before transfer.
+The bridge holds while the signal crosses.
+The crossing waits until the boundary is steady.
+The gate opens after the bridge holds.
+The gate opens after the bridge holds.
+The gate opens after the bridge holds.
+A stable boundary lets the signal pass.
+The held path admits the next signal.
+The bridge marks the crossing and then releases.
+The held path admits the next signal.
+The bridge holds while the signal crosses.
+The held path admits the next signal.
+The boundary holds while the signal moves across.
+The held path admits the next signal.
+A stable boundary lets the signal pass.
+The boundary holds while the signal moves across.
+A stable boundary lets the signal pass.
+The crossing waits until the boundary is steady.
+The gate opens after the bridge holds.
+The gate opens after the bridge holds.
+The bridge holds while the signal crosses.
+The bridge holds while the signal crosses.
+The bridge holds while the signal crosses.
+A stable boundary lets the signal pass.
+A latch keeps the path stable before transfer.
+The bridge marks the crossing and then releases.
+A latch keeps the path stable before transfer.
+The gate opens after the bridge holds.
+The bridge holds while the signal crosses.
+The bridge holds while the signal crosses.
+A latch keeps the path stable before transfer.
+The boundary holds while the signal moves across.
+The held path admits the next signal.
+The bridge holds while the signal crosses.
+A stable boundary lets the signal pass.
+The boundary holds while the signal moves across.
+The bridge marks the crossing and then releases.
+The crossing waits until the boundary is steady.
+The gate opens after the bridge holds.
+A stable boundary lets the signal pass.
+The boundary holds while the signal moves across.
+A stable boundary lets the signal pass.
+A stable boundary lets the signal pass.
+A stable boundary lets the signal pass.
+The boundary holds while the signal moves across.
+The bridge marks the crossing and then releases.
+The bridge marks the crossing and then releases.
+A latch keeps the path stable before transfer.
+The boundary holds while the signal moves across.
+A stable boundary lets the signal pass.
+A stable boundary lets the signal pass.
+The boundary holds while the signal moves across.
+The bridge marks the crossing and then releases.
+A stable boundary lets the signal pass.
+The bridge marks the crossing and then releases.
+The boundary holds while the signal moves across.
+The gate opens after the bridge holds.
+The bridge holds while the signal crosses.
+The crossing waits until the boundary is steady.
+The gate opens after the bridge holds.
+A latch keeps the path stable before transfer.
+The bridge marks the crossing and then releases.
+The crossing waits until the boundary is steady.
+The held path admits the next signal.
+The bridge holds while the signal crosses.
+The bridge holds while the signal crosses.
+The boundary holds while the signal moves across.
+The held path admits the next signal.
+The crossing waits until the boundary is steady.
+The held path admits the next signal.
+The gate opens after the bridge holds.
+The bridge holds while the signal crosses.
+A stable boundary lets the signal pass.
+The held path admits the next signal.
+The held path admits the next signal.
+A latch keeps the path stable before transfer.
+A stable boundary lets the signal pass.
+The bridge holds while the signal crosses.
+The crossing waits until the boundary is steady.
+The bridge holds while the signal crosses.
+The bridge marks the crossing and then releases.
+A stable boundary lets the signal pass.
+The bridge holds while the signal crosses.
+The crossing waits until the boundary is steady.
+The crossing waits until the boundary is steady.
+A stable boundary lets the signal pass.
+A stable boundary lets the signal pass.
+The boundary holds while the signal moves across.
+The crossing waits until the boundary is steady.
+The held path admits the next signal.
+The boundary holds while the signal moves across.
+The gate opens after the bridge holds.
+The crossing waits until the boundary is steady.
+The held path admits the next signal.
+The bridge marks the crossing and then releases.
+The gate opens after the bridge holds.
+The bridge marks the crossing and then releases.
+A latch keeps the path stable before transfer.
+A latch keeps the path stable before transfer.
+The boundary holds while the signal moves across.
+A stable boundary lets the signal pass.
+A latch keeps the path stable before transfer.
+A stable boundary lets the signal pass.
+A latch keeps the path stable before transfer.
+A stable boundary lets the signal pass.
+The crossing waits until the boundary is steady.
+A stable boundary lets the signal pass.
+The crossing waits until the boundary is steady.
+A latch keeps the path stable before transfer.
+The boundary holds while the signal moves across.
+The gate opens after the bridge holds.
+A latch keeps the path stable before transfer.
+The boundary holds while the signal moves across.
+The gate opens after the bridge holds.
+The crossing waits until the boundary is steady.
+The boundary holds while the signal moves across.
+A latch keeps the path stable before transfer.
+The bridge holds while the signal crosses.
+The held path admits the next signal.
+The crossing waits until the boundary is steady.
+A stable boundary lets the signal pass.
+The crossing waits until the boundary is steady.
+The held path admits the next signal.
+The held path admits the next signal.
+The bridge marks the crossing and then releases.
+The bridge marks the crossing and then releases.
+The held path admits the next signal.
+The gate opens after the bridge holds.
+A stable boundary lets the signal pass.
+The boundary holds while the signal moves across.
+A latch keeps the path stable before transfer.
+The bridge marks the crossing and then releases.
+The crossing waits until the boundary is steady.
+The held path admits the next signal.
+The bridge holds while the signal crosses.
+The bridge holds while the signal crosses.
+The crossing waits until the boundary is steady.
+A latch keeps the path stable before transfer.
+The bridge marks the crossing and then releases.
+A latch keeps the path stable before transfer.
+The bridge marks the crossing and then releases.
+The held path admits the next signal.
+A latch keeps the path stable before transfer.
+A latch keeps the path stable before transfer.
+The held path admits the next signal.
+The crossing waits until the boundary is steady.
+The bridge marks the crossing and then releases.
+The bridge holds while the signal crosses.
+The bridge marks the crossing and then releases.
+The boundary holds while the signal moves across.
+The bridge marks the crossing and then releases.
+A latch keeps the path stable before transfer.
+The held path admits the next signal.
+The held path admits the next signal.
+A stable boundary lets the signal pass.
+The boundary holds while the signal moves across.
+The bridge holds while the signal crosses.
+A latch keeps the path stable before transfer.
+The crossing waits until the boundary is steady.
+The held path admits the next signal.
+The bridge marks the crossing and then releases.
+The crossing waits until the boundary is steady.
+The gate opens after the bridge holds.
+The crossing waits until the boundary is steady.
+The held path admits the next signal.
+The bridge holds while the signal crosses.
+A stable boundary lets the signal pass.
+A latch keeps the path stable before transfer.
+The bridge marks the crossing and then releases.
+The bridge marks the crossing and then releases.
+A latch keeps the path stable before transfer.
+The crossing waits until the boundary is steady.
+A latch keeps the path stable before transfer.
+The held path admits the next signal.
+The crossing waits until the boundary is steady.
+A latch keeps the path stable before transfer.
+The boundary holds while the signal moves across.
+A stable boundary lets the signal pass.
+The held path admits the next signal.
+A stable boundary lets the signal pass.
+The bridge marks the crossing and then releases.
+The gate opens after the bridge holds.
+The boundary holds while the signal moves across.
+The gate opens after the bridge holds.
+A latch keeps the path stable before transfer.
+The gate opens after the bridge holds.
+A stable boundary lets the signal pass.
+The boundary holds while the signal moves across.
+A latch keeps the path stable before transfer.
+A latch keeps the path stable before transfer.
+The boundary holds while the signal moves across.
+A stable boundary lets the signal pass.
+The gate opens after the bridge holds.
+The bridge marks the crossing and then releases.
+A latch keeps the path stable before transfer.
+The boundary holds while the signal moves across.
+The bridge marks the crossing and then releases.
+The boundary holds while the signal moves across.
+The bridge marks the crossing and then releases.
+The gate opens after the bridge holds.
+A stable boundary lets the signal pass.
+A latch keeps the path stable before transfer.
+The gate opens after the bridge holds.
+The gate opens after the bridge holds.
+The crossing waits until the boundary is steady.
+The bridge marks the crossing and then releases.
+A stable boundary lets the signal pass.
+The boundary holds while the signal moves across.
+A stable boundary lets the signal pass.
+A stable boundary lets the signal pass.
+The boundary holds while the signal moves across.
+The bridge holds while the signal crosses.
+The held path admits the next signal.
+The held path admits the next signal.
+The held path admits the next signal.
+The crossing waits until the boundary is steady.
+The bridge holds while the signal crosses.
+The bridge marks the crossing and then releases.
+The crossing waits until the boundary is steady.
+The gate opens after the bridge holds.
+A stable boundary lets the signal pass.
+The gate opens after the bridge holds.
+The crossing waits until the boundary is steady.
+The boundary holds while the signal moves across.
+The boundary holds while the signal moves across.
+The bridge marks the crossing and then releases.
+The bridge marks the crossing and then releases.
+The boundary holds while the signal moves across.
+The held path admits the next signal.
+The crossing waits until the boundary is steady.
+The crossing waits until the boundary is steady.
+The bridge holds while the signal crosses.
+A latch keeps the path stable before transfer.
+The gate opens after the bridge holds.
+The bridge holds while the signal crosses.
+The crossing waits until the boundary is steady.
+The crossing waits until the boundary is steady.
+A latch keeps the path stable before transfer.
+The held path admits the next signal.
+The bridge marks the crossing and then releases.
+A stable boundary lets the signal pass.
+The bridge marks the crossing and then releases.
+The crossing waits until the boundary is steady.
+A stable boundary lets the signal pass.
+The held path admits the next signal.
+The boundary holds while the signal moves across.
+A latch keeps the path stable before transfer.
+The bridge marks the crossing and then releases.
+The crossing waits until the boundary is steady.
+The gate opens after the bridge holds.
+The crossing waits until the boundary is steady.
+The crossing waits until the boundary is steady.
+The bridge holds while the signal crosses.
+The crossing waits until the boundary is steady.
+The bridge marks the crossing and then releases.
+A stable boundary lets the signal pass.
+The bridge holds while the signal crosses.
+The bridge holds while the signal crosses.
+The gate opens after the bridge holds.
+The bridge marks the crossing and then releases.
+The bridge marks the crossing and then releases.
+The bridge holds while the signal crosses.
+The crossing waits until the boundary is steady.
+A stable boundary lets the signal pass.
+The held path admits the next signal.
+The gate opens after the bridge holds.
+The bridge marks the crossing and then releases.
+The bridge holds while the signal crosses.
+The bridge holds while the signal crosses.
+The crossing waits until the boundary is steady.
+The bridge marks the crossing and then releases.
+A stable boundary lets the signal pass.
+The crossing waits until the boundary is steady.
+The held path admits the next signal.
+The held path admits the next signal.
+The bridge holds while the signal crosses.
+The bridge holds while the signal crosses.
+The gate opens after the bridge holds.
+The held path admits the next signal.
+The crossing waits until the boundary is steady.
+The boundary holds while the signal moves across.
+The held path admits the next signal.
+The gate opens after the bridge holds.
+A latch keeps the path stable before transfer.
+The crossing waits until the boundary is steady.
+The crossing waits until the boundary is steady.
+The bridge holds while the signal crosses.
+The bridge marks the crossing and then releases.
+The crossing waits until the boundary is steady.
+The crossing waits until the boundary is steady.
+The boundary holds while the signal moves across.
+The boundary holds while the signal moves across.
+The boundary holds while the signal moves across.
+A latch keeps the path stable before transfer.
+The bridge marks the crossing and then releases.
+The crossing waits until the boundary is steady.
+The crossing waits until the boundary is steady.
+The bridge marks the crossing and then releases.
+A latch keeps the path stable before transfer.
+The gate opens after the bridge holds.
+The bridge holds while the signal crosses.
+The bridge marks the crossing and then releases.
+The gate opens after the bridge holds.
+The bridge holds while the signal crosses.
+The boundary holds while the signal moves across.
+A latch keeps the path stable before transfer.
+The held path admits the next signal.
+A stable boundary lets the signal pass.
+The bridge holds while the signal crosses.
+The held path admits the next signal.
+A latch keeps the path stable before transfer.
+A stable boundary lets the signal pass.
+The bridge marks the crossing and then releases.
+The boundary holds while the signal moves across.
+The gate opens after the bridge holds.
+The boundary holds while the signal moves across.
+The boundary holds while the signal moves across.
+The crossing waits until the boundary is steady.
+The bridge holds while the signal crosses.
+The crossing waits until the boundary is steady.
+The held path admits the next signal.
+The boundary holds while the signal moves across.
+The crossing waits until the boundary is steady.
+A latch keeps the path stable before transfer.
+The boundary holds while the signal moves across.
+The bridge holds while the signal crosses.
+A latch keeps the path stable before transfer.
+The bridge marks the crossing and then releases.
+The boundary holds while the signal moves across.
+The gate opens after the bridge holds.
+The boundary holds while the signal moves across.
+The held path admits the next signal.
+A latch keeps the path stable before transfer.
+The boundary holds while the signal moves across.
+The boundary holds while the signal moves across.
+The crossing waits until the boundary is steady.
+The boundary holds while the signal moves across.
+The gate opens after the bridge holds.
+A stable boundary lets the signal pass.
+The held path admits the next signal.
+The gate opens after the bridge holds.
+The held path admits the next signal.
+The crossing waits until the boundary is steady.
+The bridge marks the crossing and then releases.
+The bridge holds while the signal crosses.
+A latch keeps the path stable before transfer.
+A stable boundary lets the signal pass.
+A latch keeps the path stable before transfer.
+The bridge holds while the signal crosses.
+A latch keeps the path stable before transfer.
+A stable boundary lets the signal pass.
+The crossing waits until the boundary is steady.
+The crossing waits until the boundary is steady.
+The boundary holds while the signal moves across.
+The held path admits the next signal.
+The gate opens after the bridge holds.
+The bridge holds while the signal crosses.
+The gate opens after the bridge holds.
+The held path admits the next signal.
+The bridge marks the crossing and then releases.
+The crossing waits until the boundary is steady.
+The boundary holds while the signal moves across.
+The held path admits the next signal.
+The gate opens after the bridge holds.
+The held path admits the next signal.
+A latch keeps the path stable before transfer.
+The crossing waits until the boundary is steady.
+The held path admits the next signal.
+The bridge marks the crossing and then releases.
+The boundary holds while the signal moves across.
+The bridge marks the crossing and then releases.
+The bridge marks the crossing and then releases.
+The bridge holds while the signal crosses.
+The held path admits the next signal.
+A stable boundary lets the signal pass.
+The bridge holds while the signal crosses.
+The crossing waits until the boundary is steady.
+The bridge holds while the signal crosses.
+The boundary holds while the signal moves across.
+The boundary holds while the signal moves across.
+The boundary holds while the signal moves across.
+A stable boundary lets the signal pass.
+The bridge holds while the signal crosses.
+The held path admits the next signal.
+The held path admits the next signal.
+The bridge marks the crossing and then releases.
+The bridge marks the crossing and then releases.
+The crossing waits until the boundary is steady.
+The bridge marks the crossing and then releases.
+A latch keeps the path stable before transfer.
+The bridge marks the crossing and then releases.
+The bridge marks the crossing and then releases.
+The bridge holds while the signal crosses.
+The bridge holds while the signal crosses.
+The gate opens after the bridge holds.
+A stable boundary lets the signal pass.
+The crossing waits until the boundary is steady.
+The bridge holds while the signal crosses.
+The crossing waits until the boundary is steady.
+The held path admits the next signal.
+A stable boundary lets the signal pass.
+The boundary holds while the signal moves across.
+A stable boundary lets the signal pass.
+The gate opens after the bridge holds.
+The bridge marks the crossing and then releases.
+The bridge marks the crossing and then releases.
+The held path admits the next signal.
+A latch keeps the path stable before transfer.
+The bridge marks the crossing and then releases.
+A latch keeps the path stable before transfer.
+The bridge holds while the signal crosses.
+The gate opens after the bridge holds.
+The gate opens after the bridge holds.
+The boundary holds while the signal moves across.
+The crossing waits until the boundary is steady.
+The bridge holds while the signal crosses.
+The bridge holds while the signal crosses.
+A latch keeps the path stable before transfer.
+The gate opens after the bridge holds.
+A latch keeps the path stable before transfer.
+The boundary holds while the signal moves across.
+The crossing waits until the boundary is steady.
+The crossing waits until the boundary is steady.
+The gate opens after the bridge holds.
+The bridge marks the crossing and then releases.
+The boundary holds while the signal moves across.
+A stable boundary lets the signal pass.
+A stable boundary lets the signal pass.
+The bridge holds while the signal crosses.
+The held path admits the next signal.
+The gate opens after the bridge holds.
+A latch keeps the path stable before transfer.
+The crossing waits until the boundary is steady.
+The crossing waits until the boundary is steady.
+The crossing waits until the boundary is steady.
+The gate opens after the bridge holds.
+The crossing waits until the boundary is steady.
+The crossing waits until the boundary is steady.
+The boundary holds while the signal moves across.
+The bridge holds while the signal crosses.
+The gate opens after the bridge holds.
+The held path admits the next signal.
+The bridge holds while the signal crosses.
+The bridge marks the crossing and then releases.
+The gate opens after the bridge holds.
+The bridge holds while the signal crosses.
+A latch keeps the path stable before transfer.
+The gate opens after the bridge holds.
+The held path admits the next signal.
+A stable boundary lets the signal pass.
+The bridge holds while the signal crosses.
+A latch keeps the path stable before transfer.
+A latch keeps the path stable before transfer.
+A latch keeps the path stable before transfer.
+A stable boundary lets the signal pass.
+A latch keeps the path stable before transfer.
+A latch keeps the path stable before transfer.
+The boundary holds while the signal moves across.
+A latch keeps the path stable before transfer.
+The boundary holds while the signal moves across.
+The crossing waits until the boundary is steady.
+The boundary holds while the signal moves across.
+The bridge marks the crossing and then releases.
+The crossing waits until the boundary is steady.
+The boundary holds while the signal moves across.
+A latch keeps the path stable before transfer.
+The crossing waits until the boundary is steady.
+A latch keeps the path stable before transfer.
+The held path admits the next signal.
+The held path admits the next signal.
+A stable boundary lets the signal pass.
+The boundary holds while the signal moves across.
+A latch keeps the path stable before transfer.
+A stable boundary lets the signal pass.
+The bridge holds while the signal crosses.
+A stable boundary lets the signal pass.
+A latch keeps the path stable before transfer.
+The boundary holds while the signal moves across.
+The crossing waits until the boundary is steady.
+A stable boundary lets the signal pass.
+The bridge marks the crossing and then releases.
+The gate opens after the bridge holds.
+The bridge marks the crossing and then releases.
+The crossing waits until the boundary is steady.
+A stable boundary lets the signal pass.
+The bridge marks the crossing and then releases.
+A stable boundary lets the signal pass.
+The held path admits the next signal.
+The bridge marks the crossing and then releases.
+The crossing waits until the boundary is steady.
+The crossing waits until the boundary is steady.
+The held path admits the next signal.
+A latch keeps the path stable before transfer.
+A latch keeps the path stable before transfer.
+The bridge marks the crossing and then releases.
+The bridge holds while the signal crosses.
+The crossing waits until the boundary is steady.
+The boundary holds while the signal moves across.
+The gate opens after the bridge holds.
+The gate opens after the bridge holds.
+The held path admits the next signal.
+The boundary holds while the signal moves across.
+The held path admits the next signal.
+The gate opens after the bridge holds.
+The bridge marks the crossing and then releases.
+The crossing waits until the boundary is steady.
+A stable boundary lets the signal pass.
+The gate opens after the bridge holds.
+The gate opens after the bridge holds.
+The boundary holds while the signal moves across.
+The held path admits the next signal.
+The crossing waits until the boundary is steady.
+The crossing waits until the boundary is steady.
+The bridge holds while the signal crosses.
+The crossing waits until the boundary is steady.
+The boundary holds while the signal moves across.
+The gate opens after the bridge holds.
+The held path admits the next signal.
+The bridge holds while the signal crosses.
+The bridge holds while the signal crosses.
+The held path admits the next signal.
+The crossing waits until the boundary is steady.
+The crossing waits until the boundary is steady.
+The held path admits the next signal.
+The bridge holds while the signal crosses.
+A stable boundary lets the signal pass.
+The held path admits the next signal.
+A stable boundary lets the signal pass.
+The bridge marks the crossing and then releases.
+The boundary holds while the signal moves across.
+A latch keeps the path stable before transfer.
+The boundary holds while the signal moves across.
+The bridge marks the crossing and then releases.
+The boundary holds while the signal moves across.
+The crossing waits until the boundary is steady.
+The held path admits the next signal.
+The boundary holds while the signal moves across.
+The gate opens after the bridge holds.
+The bridge holds while the signal crosses.
+The boundary holds while the signal moves across.
+The bridge holds while the signal crosses.
+The bridge marks the crossing and then releases.
+The gate opens after the bridge holds.
+The gate opens after the bridge holds.
+A latch keeps the path stable before transfer.
+The held path admits the next signal.
+A stable boundary lets the signal pass.
+The boundary holds while the signal moves across.
+A latch keeps the path stable before transfer.
+A latch keeps the path stable before transfer.
+The bridge holds while the signal crosses.
+The gate opens after the bridge holds.
+The bridge holds while the signal crosses.
+A stable boundary lets the signal pass.
+The bridge holds while the signal crosses.
+A latch keeps the path stable before transfer.
+The held path admits the next signal.
+A stable boundary lets the signal pass.
+The held path admits the next signal.
+The gate opens after the bridge holds.
+The held path admits the next signal.
+The gate opens after the bridge holds.
+The bridge holds while the signal crosses.
+The bridge holds while the signal crosses.
+The boundary holds while the signal moves across.
+The held path admits the next signal.
+A stable boundary lets the signal pass.
+A stable boundary lets the signal pass.
+The bridge marks the crossing and then releases.
+The held path admits the next signal.
+The gate opens after the bridge holds.
+A stable boundary lets the signal pass.
+The bridge marks the crossing and then releases.
+A stable boundary lets the signal pass.
+A latch keeps the path stable before transfer.
+The boundary holds while the signal moves across.
+The bridge marks the crossing and then releases.
+The gate opens after the bridge holds.
+The gate opens after the bridge holds.
+The boundary holds while the signal moves across.
+The bridge marks the crossing and then releases.
+The gate opens after the bridge holds.
+The boundary holds while the signal moves across.
+The boundary holds while the signal moves across.
+A stable boundary lets the signal pass.
+The bridge marks the crossing and then releases.
+The crossing waits until the boundary is steady.
+The crossing waits until the boundary is steady.
+The gate opens after the bridge holds.
+The gate opens after the bridge holds.
+The gate opens after the bridge holds.
+A latch keeps the path stable before transfer.
+A latch keeps the path stable before transfer.
+The held path admits the next signal.
+The bridge holds while the signal crosses.
+The bridge holds while the signal crosses.
+A latch keeps the path stable before transfer.
+The gate opens after the bridge holds.
+The bridge holds while the signal crosses.
+The gate opens after the bridge holds.
+The gate opens after the bridge holds.
+The gate opens after the bridge holds.
+The bridge marks the crossing and then releases.
+The boundary holds while the signal moves across.
+The crossing waits until the boundary is steady.
+A latch keeps the path stable before transfer.
+A latch keeps the path stable before transfer.
+The crossing waits until the boundary is steady.
+The boundary holds while the signal moves across.
+A latch keeps the path stable before transfer.
+The bridge marks the crossing and then releases.
+A latch keeps the path stable before transfer.
+A stable boundary lets the signal pass.
+The held path admits the next signal.
+The crossing waits until the boundary is steady.
+The bridge holds while the signal crosses.
+A stable boundary lets the signal pass.
+The gate opens after the bridge holds.
+A latch keeps the path stable before transfer.
+The boundary holds while the signal moves across.
+The gate opens after the bridge holds.
+The held path admits the next signal.
+The gate opens after the bridge holds.
+The held path admits the next signal.
+The bridge marks the crossing and then releases.
+The boundary holds while the signal moves across.
+The boundary holds while the signal moves across.
+A latch keeps the path stable before transfer.
+A latch keeps the path stable before transfer.
+A stable boundary lets the signal pass.
+The held path admits the next signal.
+The bridge holds while the signal crosses.
+The held path admits the next signal.
+A stable boundary lets the signal pass.
+The bridge holds while the signal crosses.
+The held path admits the next signal.
+A stable boundary lets the signal pass.
+The boundary holds while the signal moves across.
+The held path admits the next signal.
+The crossing waits until the boundary is steady.
+The crossing waits until the boundary is steady.
+The bridge marks the crossing and then releases.
+The gate opens after the bridge holds.
+The held path admits the next signal.
+The held path admits the next signal.
+The gate opens after the bridge holds.
+A latch keeps the path stable before transfer.
+The bridge holds while the signal crosses.
+The bridge holds while the signal crosses.
+The boundary holds while the signal moves across.
+A stable boundary lets the signal pass.
+The held path admits the next signal.
+The held path admits the next signal.
+A stable boundary lets the signal pass.
+A stable boundary lets the signal pass.
+The boundary holds while the signal moves across.
+A latch keeps the path stable before transfer.
+The bridge marks the crossing and then releases.
+The crossing waits until the boundary is steady.
+The boundary holds while the signal moves across.
+The boundary holds while the signal moves across.
+The held path admits the next signal.
+The bridge holds while the signal crosses.
+The bridge holds while the signal crosses.
+The gate opens after the bridge holds.
+The boundary holds while the signal moves across.
+A stable boundary lets the signal pass.
+The crossing waits until the boundary is steady.
+A stable boundary lets the signal pass.
+A latch keeps the path stable before transfer.
+A latch keeps the path stable before transfer.
+A stable boundary lets the signal pass.
+The held path admits the next signal.
+The held path admits the next signal.
+A latch keeps the path stable before transfer.
+The gate opens after the bridge holds.
+The crossing waits until the boundary is steady.
+The bridge marks the crossing and then releases.
+A stable boundary lets the signal pass.
+A latch keeps the path stable before transfer.
+The held path admits the next signal.
+A stable boundary lets the signal pass.
+The gate opens after the bridge holds.
+The gate opens after the bridge holds.
+The held path admits the next signal.
+The bridge marks the crossing and then releases.
+The boundary holds while the signal moves across.
+A stable boundary lets the signal pass.
+A stable boundary lets the signal pass.
+The bridge holds while the signal crosses.
+A latch keeps the path stable before transfer.
+A latch keeps the path stable before transfer.
+The boundary holds while the signal moves across.
+The held path admits the next signal.
+The bridge marks the crossing and then releases.
+The crossing waits until the boundary is steady.
+The bridge marks the crossing and then releases.
+The boundary holds while the signal moves across.
+The bridge holds while the signal crosses.
+The crossing waits until the boundary is steady.
+The boundary holds while the signal moves across.
+The crossing waits until the boundary is steady.
+A stable boundary lets the signal pass.
+A latch keeps the path stable before transfer.
+A stable boundary lets the signal pass.
+The held path admits the next signal.
+The boundary holds while the signal moves across.
+The boundary holds while the signal moves across.
+A latch keeps the path stable before transfer.
+The gate opens after the bridge holds.
+The gate opens after the bridge holds.
+The boundary holds while the signal moves across.
+The crossing waits until the boundary is steady.
+A stable boundary lets the signal pass.
+A stable boundary lets the signal pass.
+The crossing waits until the boundary is steady.
+The bridge holds while the signal crosses.
+The bridge marks the crossing and then releases.
+The bridge holds while the signal crosses.
+The bridge holds while the signal crosses.
+A latch keeps the path stable before transfer.
+The crossing waits until the boundary is steady.
+The boundary holds while the signal moves across.
+The crossing waits until the boundary is steady.
+The bridge holds while the signal crosses.
+A stable boundary lets the signal pass.
+The bridge marks the crossing and then releases.
+The bridge marks the crossing and then releases.
+The held path admits the next signal.
+A stable boundary lets the signal pass.
+The boundary holds while the signal moves across.
+The bridge marks the crossing and then releases.
+The held path admits the next signal.
+A stable boundary lets the signal pass.
+The held path admits the next signal.
+The boundary holds while the signal moves across.
+The held path admits the next signal.
+The gate opens after the bridge holds.
+The boundary holds while the signal moves across.
+The bridge holds while the signal crosses.
+The crossing waits until the boundary is steady.
+The crossing waits until the boundary is steady.
+A latch keeps the path stable before transfer.
+The bridge marks the crossing and then releases.
+The crossing waits until the boundary is steady.
+The bridge marks the crossing and then releases.
+A stable boundary lets the signal pass.
+A stable boundary lets the signal pass.
+A stable boundary lets the signal pass.
+The bridge marks the crossing and then releases.
+The bridge holds while the signal crosses.
+The boundary holds while the signal moves across.
+The held path admits the next signal.
+The boundary holds while the signal moves across.
+The bridge marks the crossing and then releases.
+The bridge marks the crossing and then releases.
+The bridge marks the crossing and then releases.
+The gate opens after the bridge holds.
+The held path admits the next signal.
+The gate opens after the bridge holds.
+A latch keeps the path stable before transfer.
+The boundary holds while the signal moves across.
+A stable boundary lets the signal pass.
+A latch keeps the path stable before transfer.
+A latch keeps the path stable before transfer.
+The held path admits the next signal.
+The bridge holds while the signal crosses.
+A latch keeps the path stable before transfer.
+The crossing waits until the boundary is steady.
+A stable boundary lets the signal pass.
+The gate opens after the bridge holds.
+A stable boundary lets the signal pass.
+The held path admits the next signal.
+The bridge marks the crossing and then releases.
+The crossing waits until the boundary is steady.
+A stable boundary lets the signal pass.
+A stable boundary lets the signal pass.
+The bridge marks the crossing and then releases.
+The held path admits the next signal.
+The gate opens after the bridge holds.
+The boundary holds while the signal moves across.
+The crossing waits until the boundary is steady.
+The boundary holds while the signal moves across.
+The held path admits the next signal.
+A stable boundary lets the signal pass.
+The bridge marks the crossing and then releases.
+A stable boundary lets the signal pass.
+A latch keeps the path stable before transfer.
+The boundary holds while the signal moves across.
+The crossing waits until the boundary is steady.
+The boundary holds while the signal moves across.
+The bridge holds while the signal crosses.
+A latch keeps the path stable before transfer.
+The crossing waits until the boundary is steady.
+The crossing waits until the boundary is steady.
+The crossing waits until the boundary is steady.
+The bridge holds while the signal crosses.
+A stable boundary lets the signal pass.
+A stable boundary lets the signal pass.
+The held path admits the next signal.
+The bridge marks the crossing and then releases.
+The held path admits the next signal.
+The crossing waits until the boundary is steady.
+A latch keeps the path stable before transfer.
+The boundary holds while the signal moves across.
+A stable boundary lets the signal pass.
+The gate opens after the bridge holds.
+The gate opens after the bridge holds.
+The crossing waits until the boundary is steady.
+The crossing waits until the boundary is steady.
+The boundary holds while the signal moves across.
+A stable boundary lets the signal pass.
+The held path admits the next signal.
+The crossing waits until the boundary is steady.
+The held path admits the next signal.
+The bridge holds while the signal crosses.
+A latch keeps the path stable before transfer.
+The held path admits the next signal.
+The crossing waits until the boundary is steady.
+A stable boundary lets the signal pass.
+The boundary holds while the signal moves across.
+The gate opens after the bridge holds.
+The boundary holds while the signal moves across.
+The gate opens after the bridge holds.
+The bridge marks the crossing and then releases.
+The gate opens after the bridge holds.
+A stable boundary lets the signal pass.
+The gate opens after the bridge holds.
+The bridge marks the crossing and then releases.
+A stable boundary lets the signal pass.
+The gate opens after the bridge holds.
+The bridge marks the crossing and then releases.
+The bridge marks the crossing and then releases.
+The boundary holds while the signal moves across.
+The bridge marks the crossing and then releases.
+The held path admits the next signal.
+The held path admits the next signal.
+A latch keeps the path stable before transfer.
+The bridge marks the crossing and then releases.
+The gate opens after the bridge holds.
+The bridge marks the crossing and then releases.
+The held path admits the next signal.
+The crossing waits until the boundary is steady.
+The gate opens after the bridge holds.
+The bridge marks the crossing and then releases.
+A stable boundary lets the signal pass.
+The bridge holds while the signal crosses.
+A latch keeps the path stable before transfer.
+The bridge marks the crossing and then releases.
+A latch keeps the path stable before transfer.
+The crossing waits until the boundary is steady.
+The bridge marks the crossing and then releases.
+The bridge marks the crossing and then releases.
+A stable boundary lets the signal pass.
+The gate opens after the bridge holds.
+The held path admits the next signal.
+The crossing waits until the boundary is steady.
+The held path admits the next signal.
+A stable boundary lets the signal pass.
+The crossing waits until the boundary is steady.
+The gate opens after the bridge holds.
+The bridge marks the crossing and then releases.
+A latch keeps the path stable before transfer.
+The boundary holds while the signal moves across.
+The held path admits the next signal.
+The bridge marks the crossing and then releases.
+The bridge marks the crossing and then releases.
+The bridge holds while the signal crosses.
+A latch keeps the path stable before transfer.
+The bridge marks the crossing and then releases.
+The held path admits the next signal.
+The gate opens after the bridge holds.
+The boundary holds while the signal moves across.
+The boundary holds while the signal moves across.
+The gate opens after the bridge holds.
+The bridge holds while the signal crosses.
+The crossing waits until the boundary is steady.
+The crossing waits until the boundary is steady.
+The bridge marks the crossing and then releases.
+The held path admits the next signal.
+The boundary holds while the signal moves across.
+A stable boundary lets the signal pass.
+The bridge holds while the signal crosses.
+The bridge holds while the signal crosses.
+The held path admits the next signal.
+A latch keeps the path stable before transfer.
+The bridge marks the crossing and then releases.
+The bridge marks the crossing and then releases.
+The crossing waits until the boundary is steady.
+A latch keeps the path stable before transfer.
+The held path admits the next signal.
+The boundary holds while the signal moves across.
+The gate opens after the bridge holds.
+The bridge holds while the signal crosses.
+The crossing waits until the boundary is steady.
+A latch keeps the path stable before transfer.
+The bridge marks the crossing and then releases.
+The bridge marks the crossing and then releases.
+The boundary holds while the signal moves across.
+The crossing waits until the boundary is steady.
+The crossing waits until the boundary is steady.
+The held path admits the next signal.
+The crossing waits until the boundary is steady.
+The held path admits the next signal.
+A stable boundary lets the signal pass.
+The held path admits the next signal.
+The held path admits the next signal.
+A latch keeps the path stable before transfer.
+The held path admits the next signal.
+The boundary holds while the signal moves across.
+A latch keeps the path stable before transfer.
+A latch keeps the path stable before transfer.
+A latch keeps the path stable before transfer.
+The gate opens after the bridge holds.
+The crossing waits until the boundary is steady.
+The crossing waits until the boundary is steady.
+The crossing waits until the boundary is steady.
+The crossing waits until the boundary is steady.
+A latch keeps the path stable before transfer.
+The gate opens after the bridge holds.
+The crossing waits until the boundary is steady.
+The gate opens after the bridge holds.
+The bridge marks the crossing and then releases.
+A child laughs beside a sleeping dog.
+The cup falls and shatters on the kitchen floor.
+The boundary holds while the signal moves across.
+The cup falls and shatters on the kitchen floor.
+The held path admits the next signal.
+The held path admits the next signal.
+The crossing waits until the boundary is steady.
+The cup falls and shatters on the kitchen floor.
+A stable boundary lets the signal pass.
+The held path admits the next signal.
+The gate opens after the bridge holds.
+The cup falls and shatters on the kitchen floor.
+The bridge holds while the signal crosses.
+The gate opens after the bridge holds.
+A child laughs beside a sleeping dog.
+A child laughs beside a sleeping dog.
+A stable boundary lets the signal pass.
+The gate opens after the bridge holds.
+The crossing waits until the boundary is steady.
+The boundary holds while the signal moves across.
+A child laughs beside a sleeping dog.
+The crossing waits until the boundary is steady.
+The bridge holds while the signal crosses.
+The bridge holds while the signal crosses.
+The bridge marks the crossing and then releases.
+The held path admits the next signal.
+The boundary holds while the signal moves across.
+The bridge marks the crossing and then releases.
+A latch keeps the path stable before transfer.
+A latch keeps the path stable before transfer.
+A stable boundary lets the signal pass.
+The bridge marks the crossing and then releases.
+The crossing waits until the boundary is steady.
+The boundary holds while the signal moves across.
+The boundary holds while the signal moves across.
+A child laughs beside a sleeping dog.
+The gate opens after the bridge holds.
+The gate opens after the bridge holds.
+A child laughs beside a sleeping dog.
+The gate opens after the bridge holds.
+The bridge holds while the signal crosses.
+A child laughs beside a sleeping dog.
+The boundary holds while the signal moves across.
+The crossing waits until the boundary is steady.
+A latch keeps the path stable before transfer.
+The crossing waits until the boundary is steady.
+A latch keeps the path stable before transfer.
+The cup falls and shatters on the kitchen floor.
+A child laughs beside a sleeping dog.
+The boundary holds while the signal moves across.
+A latch keeps the path stable before transfer.
+The boundary holds while the signal moves across.
+The cup falls and shatters on the kitchen floor.
+The crossing waits until the boundary is steady.
+A child laughs beside a sleeping dog.
+A stable boundary lets the signal pass.
+The held path admits the next signal.
+The gate opens after the bridge holds.
+The boundary holds while the signal moves across.
+The held path admits the next signal.
+The crossing waits until the boundary is steady.
+The bridge holds while the signal crosses.
+The crossing waits until the boundary is steady.
+A child laughs beside a sleeping dog.
+A latch keeps the path stable before transfer.
+The boundary holds while the signal moves across.
+The boundary holds while the signal moves across.
+The boundary holds while the signal moves across.
+The boundary holds while the signal moves across.
+The gate opens after the bridge holds.
+The boundary holds while the signal moves across.
+A latch keeps the path stable before transfer.
+A latch keeps the path stable before transfer.
+A child laughs beside a sleeping dog.
+A child laughs beside a sleeping dog.
+A latch keeps the path stable before transfer.
+A latch keeps the path stable before transfer.
+The cup falls and shatters on the kitchen floor.
+A child laughs beside a sleeping dog.
+The held path admits the next signal.
+The gate opens after the bridge holds.
+The cup falls and shatters on the kitchen floor.
+The bridge holds while the signal crosses.
+A child laughs beside a sleeping dog.
+The held path admits the next signal.
+A child laughs beside a sleeping dog.
+The crossing waits until the boundary is steady.
+A latch keeps the path stable before transfer.
+The bridge holds while the signal crosses.
+A stable boundary lets the signal pass.
+A child laughs beside a sleeping dog.
+The crossing waits until the boundary is steady.
+The cup falls and shatters on the kitchen floor.
+A child laughs beside a sleeping dog.
+The bridge marks the crossing and then releases.
+The crossing waits until the boundary is steady.
+The crossing waits until the boundary is steady.
+The gate opens after the bridge holds.
+The bridge marks the crossing and then releases.
+The bridge holds while the signal crosses.
+The bridge marks the crossing and then releases.
+A child laughs beside a sleeping dog.
+The cup falls and shatters on the kitchen floor.
+A stable boundary lets the signal pass.
+The bridge holds while the signal crosses.
+The cup falls and shatters on the kitchen floor.
+The boundary holds while the signal moves across.
+The cup falls and shatters on the kitchen floor.
+The gate opens after the bridge holds.
+The bridge marks the crossing and then releases.
+The held path admits the next signal.
+The held path admits the next signal.
+The bridge marks the crossing and then releases.
+The held path admits the next signal.
+The bridge marks the crossing and then releases.
+A child laughs beside a sleeping dog.
+A child laughs beside a sleeping dog.
+A child laughs beside a sleeping dog.
+A stable boundary lets the signal pass.
+The boundary holds while the signal moves across.
+The bridge holds while the signal crosses.
+A stable boundary lets the signal pass.
+The cup falls and shatters on the kitchen floor.
+The gate opens after the bridge holds.
+The bridge holds while the signal crosses.
+A child laughs beside a sleeping dog.
+The bridge marks the crossing and then releases.
+The held path admits the next signal.
+The bridge holds while the signal crosses.
+The bridge holds while the signal crosses.
+The gate opens after the bridge holds.
+The held path admits the next signal.
+A child laughs beside a sleeping dog.
+A child laughs beside a sleeping dog.
+The cup falls and shatters on the kitchen floor.
+The held path admits the next signal.
+The held path admits the next signal.
+A latch keeps the path stable before transfer.
+The crossing waits until the boundary is steady.
+The bridge holds while the signal crosses.
+A child laughs beside a sleeping dog.
+The gate opens after the bridge holds.
+The crossing waits until the boundary is steady.
+The crossing waits until the boundary is steady.
+The held path admits the next signal.
+A child laughs beside a sleeping dog.
+A child laughs beside a sleeping dog.
+The bridge marks the crossing and then releases.
+The bridge holds while the signal crosses.
+The bridge holds while the signal crosses.
+The crossing waits until the boundary is steady.
+A stable boundary lets the signal pass.
+A child laughs beside a sleeping dog.
+A stable boundary lets the signal pass.
+The boundary holds while the signal moves across.
+A stable boundary lets the signal pass.
+A latch keeps the path stable before transfer.
+The held path admits the next signal.
+The cup falls and shatters on the kitchen floor.
+A child laughs beside a sleeping dog.
+The boundary holds while the signal moves across.
+The crossing waits until the boundary is steady.
+The cup falls and shatters on the kitchen floor.
+The bridge marks the crossing and then releases.
+The bridge marks the crossing and then releases.
+The bridge holds while the signal crosses.
+The gate opens after the bridge holds.
+The cup falls and shatters on the kitchen floor.
+The cup falls and shatters on the kitchen floor.
+A child laughs beside a sleeping dog.
+The bridge holds while the signal crosses.
+The gate opens after the bridge holds.
+The crossing waits until the boundary is steady.
+The bridge holds while the signal crosses.
+The bridge marks the crossing and then releases.
+The bridge holds while the signal crosses.
+The boundary holds while the signal moves across.
+The boundary holds while the signal moves across.
+The crossing waits until the boundary is steady.
+A child laughs beside a sleeping dog.
+The cup falls and shatters on the kitchen floor.
+A stable boundary lets the signal pass.
+The gate opens after the bridge holds.
+A child laughs beside a sleeping dog.
+A stable boundary lets the signal pass.
+A child laughs beside a sleeping dog.
+A stable boundary lets the signal pass.
+The cup falls and shatters on the kitchen floor.
+The held path admits the next signal.
+The crossing waits until the boundary is steady.
+The gate opens after the bridge holds.
+The cup falls and shatters on the kitchen floor.
+A stable boundary lets the signal pass.
+The cup falls and shatters on the kitchen floor.
+The gate opens after the bridge holds.
+The boundary holds while the signal moves across.
+The cup falls and shatters on the kitchen floor.
+A child laughs beside a sleeping dog.

@@ -1,0 +1,239 @@
+{
+  "run_dir": "/mnt/data/orthad_external_only_logged_v3_1k_260",
+  "mode": "orthad_sensorimotor_logged_v3",
+  "neurons": 1000,
+  "walkers": 1200,
+  "ticks_requested": 260,
+  "ticks_completed": 260,
+  "elapsed_s": 26.927533388137817,
+  "mean_wall_tick_s": 0.10356743794221145,
+  "source_counts": {
+    "curriculum": 260
+  },
+  "top_inputs": [
+    [
+      "Q chart A",
+      34
+    ],
+    [
+      "B overlap AB",
+      34
+    ],
+    [
+      "L boundary AB",
+      34
+    ],
+    [
+      "Q chart B",
+      34
+    ],
+    [
+      "overlap transfer AB BC",
+      33
+    ],
+    [
+      "L cycle close",
+      31
+    ],
+    [
+      "B overlap BC",
+      12
+    ],
+    [
+      "L boundary BC",
+      11
+    ],
+    [
+      "Q chart C",
+      11
+    ],
+    [
+      "overlap transfer BC CA",
+      11
+    ],
+    [
+      "B overlap CA",
+      5
+    ],
+    [
+      "L boundary CA",
+      5
+    ],
+    [
+      "overlap transfer CA AB",
+      5
+    ]
+  ],
+  "motor_event_count": 170,
+  "motor_by_primitive": {
+    "LATCH": 21,
+    "STABLE": 20,
+    "BOUNDARY": 13,
+    "COUPLING": 21,
+    "REQUEST": 19,
+    "TRACE": 16,
+    "PRESSURE": 14,
+    "UNSTABLE": 20,
+    "MARK": 10,
+    "PROJECTION_LOSS": 4,
+    "REJECT": 3,
+    "WAIT": 4,
+    "CYCLE": 3,
+    "ADMIT": 2
+  },
+  "top_curriculum_atom_to_motor": [
+    {
+      "atom": "L boundary AB",
+      "primitive": "LATCH",
+      "count": 6
+    },
+    {
+      "atom": "overlap transfer AB BC",
+      "primitive": "TRACE",
+      "count": 5
+    },
+    {
+      "atom": "L boundary AB",
+      "primitive": "REQUEST",
+      "count": 5
+    },
+    {
+      "atom": "L cycle close",
+      "primitive": "LATCH",
+      "count": 5
+    },
+    {
+      "atom": "B overlap AB",
+      "primitive": "STABLE",
+      "count": 4
+    },
+    {
+      "atom": "overlap transfer AB BC",
+      "primitive": "STABLE",
+      "count": 4
+    },
+    {
+      "atom": "Q chart C",
+      "primitive": "STABLE",
+      "count": 4
+    },
+    {
+      "atom": "B overlap AB",
+      "primitive": "REQUEST",
+      "count": 3
+    },
+    {
+      "atom": "L boundary AB",
+      "primitive": "MARK",
+      "count": 3
+    },
+    {
+      "atom": "B overlap AB",
+      "primitive": "TRACE",
+      "count": 3
+    },
+    {
+      "atom": "Q chart A",
+      "primitive": "BOUNDARY",
+      "count": 3
+    },
+    {
+      "atom": "Q chart C",
+      "primitive": "PRESSURE",
+      "count": 3
+    },
+    {
+      "atom": "B overlap AB",
+      "primitive": "PRESSURE",
+      "count": 3
+    },
+    {
+      "atom": "B overlap AB",
+      "primitive": "LATCH",
+      "count": 2
+    },
+    {
+      "atom": "L boundary AB",
+      "primitive": "BOUNDARY",
+      "count": 2
+    },
+    {
+      "atom": "Q chart B",
+      "primitive": "COUPLING",
+      "count": 2
+    },
+    {
+      "atom": "overlap transfer AB BC",
+      "primitive": "LATCH",
+      "count": 2
+    },
+    {
+      "atom": "L boundary BC",
+      "primitive": "UNSTABLE",
+      "count": 2
+    },
+    {
+      "atom": "L boundary BC",
+      "primitive": "MARK",
+      "count": 2
+    },
+    {
+      "atom": "L boundary BC",
+      "primitive": "COUPLING",
+      "count": 2
+    },
+    {
+      "atom": "overlap transfer BC CA",
+      "primitive": "UNSTABLE",
+      "count": 2
+    },
+    {
+      "atom": "B overlap CA",
+      "primitive": "COUPLING",
+      "count": 2
+    },
+    {
+      "atom": "L boundary CA",
+      "primitive": "STABLE",
+      "count": 2
+    },
+    {
+      "atom": "B overlap AB",
+      "primitive": "UNSTABLE",
+      "count": 2
+    },
+    {
+      "atom": "L cycle close",
+      "primitive": "COUPLING",
+      "count": 2
+    },
+    {
+      "atom": "Q chart B",
+      "primitive": "LATCH",
+      "count": 2
+    },
+    {
+      "atom": "Q chart B",
+      "primitive": "STABLE",
+      "count": 2
+    },
+    {
+      "atom": "B overlap BC",
+      "primitive": "BOUNDARY",
+      "count": 2
+    },
+    {
+      "atom": "B overlap BC",
+      "primitive": "UNSTABLE",
+      "count": 2
+    },
+    {
+      "atom": "L boundary AB",
+      "primitive": "COUPLING",
+      "count": 2
+    }
+  ],
+  "top_self_atom_to_motor": [],
+  "final_h5": null,
+  "scan_firewall": "passed"
+}

@@ -1,0 +1,447 @@
+{
+  "run_dir": "/mnt/data/orthad_sensorimotor_logged_v3_1k_260",
+  "mode": "orthad_sensorimotor_logged_v3",
+  "neurons": 1000,
+  "walkers": 1200,
+  "ticks_requested": 260,
+  "ticks_completed": 260,
+  "elapsed_s": 26.585775136947632,
+  "mean_wall_tick_s": 0.1022529831299415,
+  "source_counts": {
+    "curriculum": 108,
+    "reafference": 152
+  },
+  "top_inputs": [
+    [
+      "motor feedback LATCH",
+      22
+    ],
+    [
+      "Q chart A",
+      21
+    ],
+    [
+      "motor feedback STABLE",
+      21
+    ],
+    [
+      "motor feedback UNSTABLE",
+      21
+    ],
+    [
+      "Q chart B",
+      16
+    ],
+    [
+      "L cycle close",
+      15
+    ],
+    [
+      "L boundary AB",
+      14
+    ],
+    [
+      "motor feedback COUPLING",
+      13
+    ],
+    [
+      "motor feedback PRESSURE",
+      12
+    ],
+    [
+      "motor feedback REQUEST",
+      12
+    ],
+    [
+      "B overlap AB",
+      11
+    ],
+    [
+      "motor feedback BOUNDARY",
+      10
+    ],
+    [
+      "overlap transfer AB BC",
+      10
+    ],
+    [
+      "motor feedback TRACE",
+      9
+    ],
+    [
+      "motor feedback CYCLE",
+      8
+    ],
+    [
+      "motor feedback MARK",
+      6
+    ],
+    [
+      "overlap transfer BC CA",
+      6
+    ],
+    [
+      "B overlap BC",
+      5
+    ],
+    [
+      "motor feedback PROJECTION_LOSS",
+      5
+    ],
+    [
+      "motor feedback WAIT",
+      5
+    ],
+    [
+      "Q chart C",
+      4
+    ],
+    [
+      "motor feedback REJECT",
+      4
+    ],
+    [
+      "motor feedback ADMIT",
+      4
+    ],
+    [
+      "L boundary BC",
+      2
+    ],
+    [
+      "overlap transfer CA AB",
+      2
+    ],
+    [
+      "B overlap CA",
+      1
+    ],
+    [
+      "L boundary CA",
+      1
+    ]
+  ],
+  "motor_event_count": 153,
+  "motor_by_primitive": {
+    "LATCH": 22,
+    "STABLE": 22,
+    "BOUNDARY": 10,
+    "PRESSURE": 12,
+    "REQUEST": 12,
+    "UNSTABLE": 21,
+    "COUPLING": 13,
+    "CYCLE": 8,
+    "MARK": 6,
+    "TRACE": 9,
+    "PROJECTION_LOSS": 5,
+    "WAIT": 5,
+    "REJECT": 4,
+    "ADMIT": 4
+  },
+  "top_curriculum_atom_to_motor": [
+    {
+      "atom": "B overlap AB",
+      "primitive": "LATCH",
+      "count": 5
+    },
+    {
+      "atom": "overlap transfer AB BC",
+      "primitive": "LATCH",
+      "count": 4
+    },
+    {
+      "atom": "L cycle close",
+      "primitive": "COUPLING",
+      "count": 3
+    },
+    {
+      "atom": "L boundary AB",
+      "primitive": "REQUEST",
+      "count": 3
+    },
+    {
+      "atom": "Q chart C",
+      "primitive": "UNSTABLE",
+      "count": 2
+    },
+    {
+      "atom": "L cycle close",
+      "primitive": "UNSTABLE",
+      "count": 2
+    },
+    {
+      "atom": "Q chart A",
+      "primitive": "CYCLE",
+      "count": 2
+    },
+    {
+      "atom": "L boundary AB",
+      "primitive": "UNSTABLE",
+      "count": 2
+    },
+    {
+      "atom": "L boundary AB",
+      "primitive": "REJECT",
+      "count": 2
+    },
+    {
+      "atom": "B overlap AB",
+      "primitive": "UNSTABLE",
+      "count": 2
+    },
+    {
+      "atom": "B overlap BC",
+      "primitive": "UNSTABLE",
+      "count": 2
+    },
+    {
+      "atom": "Q chart A",
+      "primitive": "UNSTABLE",
+      "count": 2
+    },
+    {
+      "atom": "Q chart B",
+      "primitive": "PRESSURE",
+      "count": 2
+    },
+    {
+      "atom": "Q chart A",
+      "primitive": "MARK",
+      "count": 2
+    },
+    {
+      "atom": "L boundary AB",
+      "primitive": "BOUNDARY",
+      "count": 1
+    },
+    {
+      "atom": "Q chart B",
+      "primitive": "REQUEST",
+      "count": 1
+    },
+    {
+      "atom": "B overlap BC",
+      "primitive": "CYCLE",
+      "count": 1
+    },
+    {
+      "atom": "overlap transfer BC CA",
+      "primitive": "TRACE",
+      "count": 1
+    },
+    {
+      "atom": "overlap transfer BC CA",
+      "primitive": "PRESSURE",
+      "count": 1
+    },
+    {
+      "atom": "L cycle close",
+      "primitive": "PROJECTION_LOSS",
+      "count": 1
+    },
+    {
+      "atom": "Q chart B",
+      "primitive": "TRACE",
+      "count": 1
+    },
+    {
+      "atom": "Q chart B",
+      "primitive": "COUPLING",
+      "count": 1
+    },
+    {
+      "atom": "B overlap BC",
+      "primitive": "REQUEST",
+      "count": 1
+    },
+    {
+      "atom": "B overlap BC",
+      "primitive": "COUPLING",
+      "count": 1
+    },
+    {
+      "atom": "B overlap AB",
+      "primitive": "COUPLING",
+      "count": 1
+    },
+    {
+      "atom": "overlap transfer AB BC",
+      "primitive": "UNSTABLE",
+      "count": 1
+    },
+    {
+      "atom": "overlap transfer AB BC",
+      "primitive": "REQUEST",
+      "count": 1
+    },
+    {
+      "atom": "Q chart B",
+      "primitive": "UNSTABLE",
+      "count": 1
+    },
+    {
+      "atom": "B overlap CA",
+      "primitive": "COUPLING",
+      "count": 1
+    },
+    {
+      "atom": "Q chart C",
+      "primitive": "CYCLE",
+      "count": 1
+    }
+  ],
+  "top_self_atom_to_motor": [
+    {
+      "atom": "motor feedback LATCH",
+      "primitive": "STABLE",
+      "count": 15
+    },
+    {
+      "atom": "motor feedback REQUEST",
+      "primitive": "LATCH",
+      "count": 3
+    },
+    {
+      "atom": "motor feedback UNSTABLE",
+      "primitive": "COUPLING",
+      "count": 3
+    },
+    {
+      "atom": "motor feedback REQUEST",
+      "primitive": "UNSTABLE",
+      "count": 2
+    },
+    {
+      "atom": "motor feedback UNSTABLE",
+      "primitive": "MARK",
+      "count": 2
+    },
+    {
+      "atom": "motor feedback MARK",
+      "primitive": "LATCH",
+      "count": 2
+    },
+    {
+      "atom": "motor feedback BOUNDARY",
+      "primitive": "STABLE",
+      "count": 2
+    },
+    {
+      "atom": "motor feedback PROJECTION_LOSS",
+      "primitive": "LATCH",
+      "count": 2
+    },
+    {
+      "atom": "motor feedback COUPLING",
+      "primitive": "STABLE",
+      "count": 2
+    },
+    {
+      "atom": "motor feedback STABLE",
+      "primitive": "BOUNDARY",
+      "count": 2
+    },
+    {
+      "atom": "motor feedback PRESSURE",
+      "primitive": "UNSTABLE",
+      "count": 2
+    },
+    {
+      "atom": "motor feedback UNSTABLE",
+      "primitive": "LATCH",
+      "count": 2
+    },
+    {
+      "atom": "motor feedback LATCH",
+      "primitive": "TRACE",
+      "count": 2
+    },
+    {
+      "atom": "motor feedback REJECT",
+      "primitive": "TRACE",
+      "count": 2
+    },
+    {
+      "atom": "motor feedback UNSTABLE",
+      "primitive": "WAIT",
+      "count": 2
+    },
+    {
+      "atom": "motor feedback WAIT",
+      "primitive": "LATCH",
+      "count": 2
+    },
+    {
+      "atom": "motor feedback LATCH",
+      "primitive": "BOUNDARY",
+      "count": 2
+    },
+    {
+      "atom": "motor feedback BOUNDARY",
+      "primitive": "PRESSURE",
+      "count": 1
+    },
+    {
+      "atom": "motor feedback LATCH",
+      "primitive": "COUPLING",
+      "count": 1
+    },
+    {
+      "atom": "motor feedback CYCLE",
+      "primitive": "PRESSURE",
+      "count": 1
+    },
+    {
+      "atom": "motor feedback MARK",
+      "primitive": "BOUNDARY",
+      "count": 1
+    },
+    {
+      "atom": "motor feedback PRESSURE",
+      "primitive": "REQUEST",
+      "count": 1
+    },
+    {
+      "atom": "motor feedback COUPLING",
+      "primitive": "WAIT",
+      "count": 1
+    },
+    {
+      "atom": "motor feedback REJECT",
+      "primitive": "LATCH",
+      "count": 1
+    },
+    {
+      "atom": "motor feedback STABLE",
+      "primitive": "MARK",
+      "count": 1
+    },
+    {
+      "atom": "motor feedback MARK",
+      "primitive": "REQUEST",
+      "count": 1
+    },
+    {
+      "atom": "motor feedback COUPLING",
+      "primitive": "PRESSURE",
+      "count": 1
+    },
+    {
+      "atom": "motor feedback UNSTABLE",
+      "primitive": "ADMIT",
+      "count": 1
+    },
+    {
+      "atom": "motor feedback ADMIT",
+      "primitive": "LATCH",
+      "count": 1
+    },
+    {
+      "atom": "motor feedback STABLE",
+      "primitive": "WAIT",
+      "count": 1
+    }
+  ],
+  "final_h5": null,
+  "scan_firewall": "passed"
+}
