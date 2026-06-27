@@ -12,7 +12,7 @@ Design
 - ADC consumes compact Observation events from the void-walker announcement bus.
 - It never inspects raw W or dense adjacency; all inputs are announcements.
 - Territories and boundaries are updated locally per event (O(1) per event).
-- Provides lightweight map metrics for Nexus logging and self-speak decisions.
+- Provides lightweight map metrics for Nexus logging and topology telemetry.
 
 Territories
 - Coarse "concept regions" indexed by a composite key (domain_hint, coverage_id).

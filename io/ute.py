@@ -8,103 +8,43 @@ Commercial use of proprietary VDM code requires written permission from Justin K
 See LICENSE file for full terms.
 """
 
-import sys, time, queue, threading, os, json
-from vdm_rt.config import config_bool, config_float, config_int
+import queue
+import threading
+from typing import Any, Dict
+
+from vdm_rt.config import config_int
 
 class UTE:
     """Universal Temporal Encoder.
-    Feeds inbound messages into a queue the Nexus can poll every tick.
-    Sources implemented: stdin (lines) and synthetic 'tick' generator.
+    Queue-style receptor boundary.
+
+    The old stdin/chat-inbox/ticker readers are intentionally absent. Tested
+    receptor paths should enqueue explicit receptor events through push().
     """
     def __init__(
         self,
-        use_stdin: bool | None = None,
-        inbox_path=None,
         queue_maxsize: int | None = None,
         poll_max_items: int | None = None,
-        inbox_poll_seconds: float | None = None,
-        ticker_interval_seconds: float | None = None,
     ):
         queue_size = config_int("ute.queue_maxsize", 1024) if queue_maxsize is None else int(queue_maxsize)
         self.q = queue.Queue(maxsize=max(1, queue_size))
         self._stop = threading.Event()
-        self.use_stdin = config_bool("ute.use_stdin", True) if use_stdin is None else bool(use_stdin)
-        self._threads = []
-        # Optional run-local chat inbox (JSONL), e.g. runs/<ts>/chat_inbox.jsonl
-        self.inbox_path = inbox_path
-        self._inbox_size = 0
         self.poll_max_items = max(1, config_int("ute.poll_max_items", 32) if poll_max_items is None else int(poll_max_items))
-        self.inbox_poll_seconds = max(0.01, config_float("ute.inbox_poll_seconds", 0.5) if inbox_poll_seconds is None else float(inbox_poll_seconds))
-        self.ticker_interval_seconds = max(0.01, config_float("ute.ticker_interval_seconds", 1.0) if ticker_interval_seconds is None else float(ticker_interval_seconds))
 
     def start(self):
-        if self.use_stdin:
-            t = threading.Thread(target=self._stdin_reader, daemon=True)
-            t.start()
-            self._threads.append(t)
-        # Optional chat inbox tailer
-        if self.inbox_path:
-            t3 = threading.Thread(target=self._inbox_reader, daemon=True)
-            t3.start()
-            self._threads.append(t3)
-        # Always run a synthetic ticker as a heartbeat
-        t2 = threading.Thread(target=self._ticker, daemon=True)
-        t2.start()
-        self._threads.append(t2)
+        return None
 
     def stop(self):
         self._stop.set()
 
-    def _stdin_reader(self):
-        for line in sys.stdin:
-            if self._stop.is_set(): break
-            line = line.strip()
-            if line:
-                self.q.put({'type': 'text', 'msg': line})
-
-    def _inbox_reader(self):
-        # Tail a JSONL chat inbox file (appended by dashboard/chat UI)
-        while not self._stop.is_set():
-            try:
-                path = self.inbox_path
-                if not path or not os.path.exists(path):
-                    time.sleep(self.inbox_poll_seconds)
-                    continue
-                size = os.path.getsize(path)
-                # handle truncation/rotation
-                if size < self._inbox_size:
-                    self._inbox_size = 0
-                if size == self._inbox_size:
-                    time.sleep(self.inbox_poll_seconds)
-                    continue
-                with open(path, "rb") as f:
-                    f.seek(self._inbox_size)
-                    data = f.read(size - self._inbox_size)
-                self._inbox_size = size
-                text = data.decode("utf-8", errors="ignore")
-                for line in text.splitlines():
-                    s = line.strip()
-                    if not s:
-                        continue
-                    try:
-                        rec = json.loads(s)
-                    except Exception:
-                        rec = {"type": "text", "msg": s}
-                    if isinstance(rec, dict):
-                        if rec.get("type") == "text" and "msg" in rec:
-                            self.q.put({"type": "text", "msg": str(rec.get("msg"))})
-                        else:
-                            # Allow passthrough of structured events if provided
-                            self.q.put(rec)
-            except Exception:
-                # Keep runtime alive on any error
-                time.sleep(self.inbox_poll_seconds)
-
-    def _ticker(self):
-        # 1 Hz ticker (used as heartbeat input)
-        while not self._stop.is_set():
-            self.q.put({'type':'tick', 'msg':'tick'})
-            time.sleep(self.ticker_interval_seconds)
+    def push(self, event: Dict[str, Any]) -> bool:
+        if self._stop.is_set():
+            return False
+        try:
+            self.q.put_nowait(dict(event))
+            return True
+        except Exception:
+            return False
 
     def poll(self, max_items=None):
         if max_items is None:

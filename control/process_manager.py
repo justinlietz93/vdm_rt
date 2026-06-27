@@ -94,17 +94,13 @@ class ProcessManager:
         add("--status-interval", profile.get("status_interval"), str)
         add("--bundle-size", profile.get("bundle_size"), str)
         add("--prune-factor", profile.get("prune_factor"), str)
-        # stim
-        add("--stim-group-size", profile.get("stim_group_size"), str)
+        # external receptor stimulation
         add("--stim-amp", profile.get("stim_amp"), str)
         add("--stim-decay", profile.get("stim_decay"), str)
-        add("--stim-max-symbols", profile.get("stim_max_symbols"), str)
-        # speak
-        add_bool("--speak-auto", "--no-speak-auto", "speak_auto")
-        add("--speak-z", profile.get("speak_z"), str)
-        add("--speak-hysteresis", profile.get("speak_hysteresis"), str)
-        add("--speak-cooldown-ticks", profile.get("speak_cooldown_ticks"), str)
-        add("--speak-valence-thresh", profile.get("speak_valence_thresh"), str)
+        # topology detector
+        add("--b1-z", profile.get("b1_z"), str)
+        add("--b1-hysteresis", profile.get("b1_hysteresis"), str)
+        add("--b1-cooldown-ticks", profile.get("b1_cooldown_ticks"), str)
         add("--b1-half-life-ticks", profile.get("b1_half_life_ticks"), str)
         # logging
         add("--log-every", profile.get("log_every"), str)
@@ -113,7 +109,6 @@ class ProcessManager:
         add("--checkpoint-keep", profile.get("checkpoint_keep"), str)
         add("--checkpoint-format", profile.get("checkpoint_format"), str)
         add("--duration", profile.get("duration"), str)
-        add_bool("--control-server", "--no-control-server", "control_server")
         # explicit run dir (resume)
         add("--run-dir", profile.get("run_dir"), str)
         # optional: load existing engram (folder or file path; runtime normalizes)

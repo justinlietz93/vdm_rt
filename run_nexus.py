@@ -6,36 +6,39 @@ research while ensuring commercial applications are aligned with the project's e
 See LICENSE file for full terms.
 """
 
-from .nexus import Nexus, make_parser
+from .utils.dependencies import assert_runtime_requirements_installed
 import time, os
 
 def main():
+    try:
+        assert_runtime_requirements_installed()
+    except RuntimeError as exc:
+        raise SystemExit(str(exc)) from exc
+
+    from .nexus import Nexus, make_parser
+
     ts = time.strftime('%Y%m%d_%H%M%S')
     default_run_dir = os.path.join('runs', ts)
     args = make_parser().parse_args()
 
-    # Resolve load_engram to an actual checkpoint file and adopt its folder as run_dir when --run-dir is omitted.
+    # Resolve load_engram to an actual H5 checkpoint file and adopt its folder as run_dir when --run-dir is omitted.
     load_path = getattr(args, 'load_engram', None)
 
     def _resolve_latest_ckpt_in_dir(d: str):
         try:
             best = None
             best_step = -1
-            best_ext = ""
             for fn in os.listdir(d):
                 if not fn.startswith("state_"):
                     continue
-                if not (fn.endswith(".h5") or fn.endswith(".npz")):
+                if not fn.endswith(".h5"):
                     continue
-                ext = ".h5" if fn.endswith(".h5") else ".npz"
-                step_str = fn[6:-len(ext)] if len(ext) > 0 else fn[6:]
+                step_str = fn[6:-len(".h5")]
                 try:
                     s = int(step_str)
-                    # Prefer higher step; on tie prefer .h5
-                    if (s > best_step) or (s == best_step and ext == ".h5" and best_ext == ".npz"):
+                    if s > best_step:
                         best = fn
                         best_step = s
-                        best_ext = ext
                 except Exception:
                     continue
             return os.path.join(d, best) if best else None
@@ -76,17 +79,13 @@ def main():
                # Checkpoint retention / format (format optional)
                checkpoint_format=args.checkpoint_format,
                checkpoint_keep=args.checkpoint_keep,
-               # Text→connectome stimulation (symbol→group)
-               stim_group_size=args.stim_group_size,
+               # External receptor stimulation amplitude/decay.
                stim_amp=args.stim_amp,
                stim_decay=args.stim_decay,
-               stim_max_symbols=args.stim_max_symbols,
-               # Self-speak / topology spike detection
-               speak_auto=args.speak_auto,
-               speak_z=args.speak_z,
-               speak_hysteresis=args.speak_hysteresis,
-               speak_cooldown_ticks=args.speak_cooldown_ticks,
-               speak_valence_thresh=args.speak_valence_thresh,
+               # Topology spike detection
+               b1_z=args.b1_z,
+               b1_hysteresis=args.b1_hysteresis,
+               b1_cooldown_ticks=args.b1_cooldown_ticks,
                b1_half_life_ticks=args.b1_half_life_ticks,
                # Announcement bus / ADC tuning
                bus_capacity=args.bus_capacity,
@@ -95,9 +94,7 @@ def main():
                ttl_init=args.ttl_init,
                split_patience=args.split_patience,
                # Engram loader (forward normalized path into Nexus)
-               load_engram_path=load_path,
-               # Optional embedded control server (default off)
-               start_control_server=args.control_server)
+               load_engram_path=load_path)
     nx.run(duration_s=args.duration)
 
 if __name__ == '__main__':

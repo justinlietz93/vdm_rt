@@ -149,7 +149,7 @@ class SelfImprovementEngine:
                   firing_var: float = None, target_var: float = None,
                   weights: dict | None = None,
                   density_override: float | None = None,
-                  novelty_idf_scale: float = 1.0) -> dict:
+                  novelty_scale: float = 1.0) -> dict:
         """
         Compute the canonical Rule 3 drive packet, preserving your novelty and sparsity logic.
         Returns:
@@ -215,8 +215,8 @@ class SelfImprovementEngine:
 
         # Novelty dynamics: trigger on modulation or topology change spikes
         trigger = (modulation_factor > 0.5) or (abs(ddens) > 1e-3) or (abs(self.td_error) > 0.05)
-        # IDF rarity scale ∈ [0.5, 2.0] modulates novelty toward rare, content-bearing tokens
-        scale = float(max(0.5, min(2.0, 1.0 if novelty_idf_scale is None else novelty_idf_scale)))
+        # Bounded novelty scale. Decoder-side rarity weighting has been removed.
+        scale = float(max(0.5, min(2.0, 1.0 if novelty_scale is None else novelty_scale)))
         if trigger and (time_step - self.last_reward_time) > 50:
             # proportional to spike, capped and with partial retention; scaled by rarity
             self.novelty = float(min(0.95, max(self.novelty * 0.5, scale * (0.3 + 3.0 * abs(intrinsic_td)))))

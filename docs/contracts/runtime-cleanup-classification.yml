@@ -27,13 +27,16 @@ runtime_identity:
     - core/cortex/maps/
     - core/bus.py
     - runtime/
-    - io/
+    - io/logging/
     - control/
   forbidden_runtime_concepts:
     - dense substrate backend
     - torch or GPU runtime backend
     - frontend runtime owner
     - visualization or WebSocket map-stream runtime path
+    - lexical, Markov, phrase-template, or macro output authorship
+    - input-history-dependent output basis growth
+    - release-time sentence composition
 
 entries:
   - path: core/sparse_connectome.py
@@ -135,6 +138,97 @@ entries:
     evidence:
       - No static runtime import was found.
       - The runtime imports void_frontier_scout.FrontierScout directly.
+
+  - path: io/cognition/composer.py
+    class: delete
+    state: removed_from_live_tree
+    role: N-gram, phrase-template, and keyword-fallback sentence author.
+    evidence:
+      - The file was deleted from the importable runtime tree.
+      - tests/guards/test_no_live_decoder_authorship.py rejects reintroduction of compose_say_text.
+      - The source authority forbids lexical, Markov, template, and release-time authorship.
+    follow_up: Preserve the guard; do not retain a compatibility import.
+
+  - path: io/cognition/speaker.py
+    class: delete
+    state: removed_from_live_tree
+    role: Lexicon-IDF scoring for authored speech output.
+    evidence:
+      - The file was deleted from the importable runtime tree.
+      - tests/guards/test_no_live_decoder_authorship.py rejects reintroduction of the speaker module.
+      - Output scoring over authored text is not actuator release.
+    follow_up: Preserve the guard; do not reintroduce authored-output scoring.
+
+  - path: io/lexicon/
+    class: delete
+    state: removed_from_live_tree
+    role: Persistent lexical counts and phrase-template source for output authorship.
+    evidence:
+      - The lexicon source files and package phrase bank were deleted from the importable runtime tree.
+      - Nexus no longer loads or saves lexical state.
+      - runtime/loop/main.py no longer saves lexical state or invokes autonomous speaking.
+      - tests/guards/test_no_live_decoder_authorship.py rejects live lexicon imports and phrase-bank reintroduction.
+    follow_up: Preserve the guard; do not reintroduce a live lexical output basis.
+
+  - path: io/actuators/macros.py
+    class: delete
+    state: removed_from_live_tree
+    role: Macro-shaped text output emitter.
+    evidence:
+      - The file was deleted from the importable runtime tree.
+      - runtime/emitters.py, runtime/helpers/macro_board.py, runtime/helpers/smoke.py, and runtime/helpers/emission.py were removed.
+      - tests/guards/test_no_live_decoder_authorship.py rejects macro emitter APIs and imports.
+    follow_up: Preserve the guard; future actuator work must not use macro-shaped text authorship.
+
+  - path: io/actuators/thoughts.py
+    class: delete
+    state: removed_from_live_tree
+    role: Optional thought-event writer with no live producer beyond smoke material.
+    evidence:
+      - The file was deleted from the importable runtime tree.
+      - runtime/helpers/smoke.py was removed.
+      - The source authority permits provenance logging but does not admit synthetic thought authorship.
+    follow_up: Preserve provenance in logging only.
+
+  - path: io/cognition/stimulus.py
+    class: delete
+    state: removed_from_live_tree
+    role: Current text-to-connectome mapping.
+    evidence:
+      - The mapping skipped repeated symbols before creating indices.
+      - The file was deleted from the importable runtime tree.
+      - runtime/helpers/ingest.py no longer maps text into connectome indices.
+      - The source authority requires sequential, repetition-preserving receptor slices.
+    follow_up: Replace with a bounded receptor-slice port when implementing the receptor rewrite; do not preserve the unique-symbol mapping.
+
+  - path: io/ute.py
+    class: port
+    state: queue_boundary_only
+    role: Explicit receptor-event queue boundary.
+    evidence:
+      - nexus.py constructs UTE and runtime/loop/main.py polls it.
+      - The synthetic wall-clock ticker, stdin reader, and dashboard-inbox tailer were removed.
+      - UTE now accepts explicit queued events through push() and has no automatic source.
+    follow_up: Redefine as receptor transduction in the receptor rewrite.
+
+  - path: io/utd.py
+    class: port
+    state: motor_event_boundary_only
+    role: Explicit motor-event audit boundary.
+    evidence:
+      - Text emission, macro registration, macro persistence, and input echo behavior were removed.
+      - UTD now records explicit motor events only.
+      - The source authority requires fixed actuator primitives and actuator events, not a text decoder.
+    follow_up: Replace with an actuator-transducer contract during the motor rewrite.
+
+  - path: io/logging/rolling_jsonl.py
+    class: keep
+    state: external_audit_logging
+    role: Bounded external JSONL and zip-spool logging.
+    evidence:
+      - utils/logging_setup.py uses its logging handler.
+      - It is not imported by core dynamics and does not feed runtime cognition.
+    follow_up: Preserve the external-only boundary; do not use logs as receptor or reafference state.
 
   - path: docs/sources/legacy-substrate-neurogenesis/substrate.py
     former_runtime_path: core/substrate/substrate.py

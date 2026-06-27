@@ -36,7 +36,7 @@ A run directory contains structured runtime artifacts such as:
 events.jsonl
 utd_events.jsonl
 phase.json
-state_<step>.h5 or state_<step>.npz
+state_<step>.h5
 ```
 
 These artifacts are the present headless control surface. A future frontend should read stable status/run artifacts or a control API. It should not own runtime launch, filesystem mutation, log tailing, or engine control.

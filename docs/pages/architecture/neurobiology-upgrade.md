@@ -2,7 +2,7 @@
 title: Neurobiology Upgrade
 status: active
 owner: runtime-core
-source_authority: docs/sources/neurobiology-upgrade/VDM_Hard_Implementation_Matrix_v0.2_motor_addendum.md
+source_authority: docs/roadmap/neurobiology-upgrade/VDM_Hard_Implementation_Matrix_v0.2_motor_addendum.md
 summary: Why the runtime cleanup exists and what the upgrade must enforce.
 ---
 

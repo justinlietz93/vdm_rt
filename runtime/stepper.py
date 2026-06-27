@@ -27,7 +27,7 @@ from vdm_rt.core.signals import (
 )
 
 
-def compute_step_and_metrics(nx: Any, t: float, step: int, idf_scale: float = 1.0) -> Tuple[Dict[str, Any], Dict[str, Any]]:
+def compute_step_and_metrics(nx: Any, t: float, step: int, novelty_scale: float = 1.0) -> Tuple[Dict[str, Any], Dict[str, Any]]:
     """
     Compute density/TD/firing_var, derive SIE drive, step connectome, and build metrics.
 
@@ -67,7 +67,7 @@ def compute_step_and_metrics(nx: Any, t: float, step: int, idf_scale: float = 1.
             firing_var=firing_var,
             target_var=float(getattr(nx, "sie_target_var", config_float("sie.target_var", 0.15))),
             density_override=density,
-            novelty_idf_scale=float(idf_scale),
+            novelty_scale=float(novelty_scale),
         )
         sie_drive = float(drive.get("valence_01", 1.0))
     except Exception:
@@ -104,7 +104,7 @@ def compute_step_and_metrics(nx: Any, t: float, step: int, idf_scale: float = 1.
         m["homeostasis_bridged"] = int(getattr(nx.connectome, "_last_bridged_count", 0))
         m["active_edges"] = int(E)
         m["td_signal"] = float(td_signal)
-        m["novelty_idf_scale"] = float(idf_scale)
+        m["novelty_scale"] = float(novelty_scale)
         if firing_var is not None:
             m["firing_var"] = float(firing_var)
     except Exception:

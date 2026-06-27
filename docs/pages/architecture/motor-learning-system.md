@@ -2,7 +2,7 @@
 title: Motor-Learning System
 status: active
 owner: runtime-core
-source_authority: docs/sources/neurobiology-upgrade/VDM_Motor_Learning_Decoder_Matrix_Addendum_v0.1.md
+source_authority: docs/roadmap/neurobiology-upgrade/VDM_Motor_Learning_Decoder_Matrix_Addendum_v0.1.md
 summary: Target architecture for decoder removal and actuator-manifold output.
 ---
 

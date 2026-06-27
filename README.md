@@ -1,6 +1,6 @@
-![Void Dynamics Model Runtime Engine](/assets/vdm-rt_banner.png)
+![Void Dynamics Model Runtime Engine](/assets/vdm-rt_banner-2.png)
 
-# Base Cognitive Engine
+# VDM Cognitive Engine: Base Runtime
 
 This package preserves the headless VDM runtime engine and removes the old frontend, physics harnesses, generated scan reports, corpus data, and accelerator experiments that are not required for the runtime path.
 
@@ -18,7 +18,7 @@ vdm_rt/nexus.py              runtime facade and Nexus host object
 vdm_rt/cli/                  CLI argument definitions
 vdm_rt/control/              headless process-control boundary
 vdm_rt/core/                 retained engine, sparse connectome, ADC, SIE, maps, scouts, memory, signals
-vdm_rt/io/                   runtime transduction, lexicon, and logging adapters
+vdm_rt/io/                   receptor/actuator boundary ports and logging adapters
 vdm_rt/runtime/              loop, stepper, telemetry, phase, checkpointing, status helpers
 vdm_rt/utils/                logging utilities
 vdm_rt/tests/                retained engine/runtime/control/guard tests
@@ -55,10 +55,9 @@ Artifacts land in `runs/<timestamp>/` by default:
 
 ```text
 events.jsonl          structured runtime logs
-utd_events.jsonl      transduction output events
+utd_events.jsonl      explicit motor-event audit records when a motor port emits
 phase.json           optional external control-plane input when present
-state_<step>.h5       checkpoint when --checkpoint-every is enabled and h5py is available
-state_<step>.npz      checkpoint fallback
+state_<step>.h5       checkpoint when --checkpoint-every is enabled
 ```
 
 ## Runtime boundaries
@@ -67,8 +66,8 @@ The retained architecture is deliberately headless:
 
 ```text
 core      numeric/state machinery, SIE, sparse connectome, maps, scouts, memory, signals
-runtime   loop orchestration, per-tick helpers, telemetry, checkpoint/status emission
-io        UTE/UTD, lexicon, logging
+runtime   loop orchestration, per-tick helpers, telemetry, checkpoint/status helpers
+io        UTE/UTD boundary ports and logging
 control   subprocess/process boundary for future clients
 frontend  removed
 ```
@@ -83,19 +82,19 @@ in tracked, operator-visible TOML files under `config/`, split by subsystem so
 the config surface stays readable.
 
 ```text
-config/runtime.toml            cross-cutting loop, event, territory, composer knobs
+config/runtime.toml            cross-cutting loop, event, and territory knobs
 config/launch.toml             command-line launch defaults
 config/sparse_connectome.toml  sparse graph maintenance controls
 config/adc.toml                announcement bus and ADC defaults
-config/stimulus.toml           text-to-connectome stimulation defaults
-config/speech.toml             autonomous speech and B1 detector defaults
+config/stimulus.toml           explicit receptor-node stimulation defaults
+config/b1.toml                 live topology detector defaults
 config/maps.toml               event map and memory/trail view defaults
 config/sie.toml                Self-Improvement Engine runtime defaults
 config/persistence.toml        checkpoint and resume defaults
 config/control.toml            embedded control-plane defaults
 config/learning.toml           optional REVGSP/GDSP adapter controls
 config/scouts.toml             void-walker scout budgets and enable flags
-config/io.toml                 emitters, smoke checks, HTTP status, Redis status
+config/io.toml                 receptor queue, HTTP status, Redis status
 config/logging.toml            JSONL and zip spool limits
 ```
 

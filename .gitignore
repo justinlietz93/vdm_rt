@@ -11,3 +11,9 @@ runs/
 .DS_Store
 reports
 .arachnid_scans
+
+# Experiments
+experiments/vdm_rt-main
+experiments/*/vdm_rt-main
+experiments/*/*/vdm_rt-main
+experiments/*/*/*/vdm_rt-main

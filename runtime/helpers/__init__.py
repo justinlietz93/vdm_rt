@@ -19,25 +19,15 @@ Transitional re-exports:
 
 from __future__ import annotations
 
-# New, modular helpers
-from .macro_board import register_macro_board  # re-export (modular)
-
 # Modularized helper implementations (explicit re-exports)
 from .engram import maybe_load_engram, derive_start_step
 from .ingest import process_messages
-from .smoke import maybe_smoke_tests
-from .speak import maybe_auto_speak
-from .emission import emit_status_and_macro
 from .checkpointing import save_tick_checkpoint
 
 __all__ = [
     # Transitional re-exports
-    "register_macro_board",
     "maybe_load_engram",
     "derive_start_step",
     "process_messages",
-    "maybe_smoke_tests",
-    "maybe_auto_speak",
-    "emit_status_and_macro",
     "save_tick_checkpoint",
 ]

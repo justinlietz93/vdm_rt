@@ -1,0 +1,170 @@
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "B overlap AB", "source_input": "curriculum", "tick": 5}
+{"actuator_source": "walker_observation", "primitive": "STABLE", "source_atom": "B overlap AB", "source_input": "curriculum", "tick": 6}
+{"actuator_source": "walker_observation", "primitive": "BOUNDARY", "source_atom": "L boundary AB", "source_input": "curriculum", "tick": 13}
+{"actuator_source": "walker_observation", "primitive": "COUPLING", "source_atom": "Q chart B", "source_input": "curriculum", "tick": 14}
+{"actuator_source": "walker_observation", "primitive": "REQUEST", "source_atom": "Q chart B", "source_input": "curriculum", "tick": 15}
+{"actuator_source": "walker_observation", "primitive": "TRACE", "source_atom": "overlap transfer AB BC", "source_input": "curriculum", "tick": 17}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "overlap transfer AB BC", "source_input": "curriculum", "tick": 17}
+{"actuator_source": "walker_observation", "primitive": "PRESSURE", "source_atom": "overlap transfer AB BC", "source_input": "curriculum", "tick": 17}
+{"actuator_source": "walker_observation", "primitive": "STABLE", "source_atom": "overlap transfer AB BC", "source_input": "curriculum", "tick": 18}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "L boundary BC", "source_input": "curriculum", "tick": 23}
+{"actuator_source": "walker_observation", "primitive": "MARK", "source_atom": "L boundary BC", "source_input": "curriculum", "tick": 26}
+{"actuator_source": "walker_observation", "primitive": "COUPLING", "source_atom": "L boundary BC", "source_input": "curriculum", "tick": 26}
+{"actuator_source": "walker_observation", "primitive": "REQUEST", "source_atom": "B overlap AB", "source_input": "curriculum", "tick": 28}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "B overlap AB", "source_input": "curriculum", "tick": 29}
+{"actuator_source": "walker_observation", "primitive": "STABLE", "source_atom": "Q chart C", "source_input": "curriculum", "tick": 30}
+{"actuator_source": "walker_observation", "primitive": "TRACE", "source_atom": "overlap transfer BC CA", "source_input": "curriculum", "tick": 34}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "overlap transfer BC CA", "source_input": "curriculum", "tick": 35}
+{"actuator_source": "walker_observation", "primitive": "COUPLING", "source_atom": "B overlap CA", "source_input": "curriculum", "tick": 38}
+{"actuator_source": "walker_observation", "primitive": "PRESSURE", "source_atom": "L cycle close", "source_input": "curriculum", "tick": 39}
+{"actuator_source": "walker_observation", "primitive": "BOUNDARY", "source_atom": "overlap transfer AB BC", "source_input": "curriculum", "tick": 41}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "overlap transfer AB BC", "source_input": "curriculum", "tick": 41}
+{"actuator_source": "walker_observation", "primitive": "STABLE", "source_atom": "L boundary CA", "source_input": "curriculum", "tick": 42}
+{"actuator_source": "walker_observation", "primitive": "REQUEST", "source_atom": "L boundary CA", "source_input": "curriculum", "tick": 42}
+{"actuator_source": "walker_observation", "primitive": "MARK", "source_atom": "L cycle close", "source_input": "curriculum", "tick": 45}
+{"actuator_source": "walker_observation", "primitive": "TRACE", "source_atom": "overlap transfer CA AB", "source_input": "curriculum", "tick": 46}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "B overlap AB", "source_input": "curriculum", "tick": 47}
+{"actuator_source": "walker_observation", "primitive": "COUPLING", "source_atom": "L cycle close", "source_input": "curriculum", "tick": 50}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "Q chart B", "source_input": "curriculum", "tick": 55}
+{"actuator_source": "walker_observation", "primitive": "STABLE", "source_atom": "Q chart B", "source_input": "curriculum", "tick": 55}
+{"actuator_source": "walker_observation", "primitive": "REQUEST", "source_atom": "B overlap AB", "source_input": "curriculum", "tick": 58}
+{"actuator_source": "walker_observation", "primitive": "BOUNDARY", "source_atom": "B overlap BC", "source_input": "curriculum", "tick": 59}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "B overlap BC", "source_input": "curriculum", "tick": 59}
+{"actuator_source": "walker_observation", "primitive": "COUPLING", "source_atom": "L boundary AB", "source_input": "curriculum", "tick": 62}
+{"actuator_source": "walker_observation", "primitive": "PRESSURE", "source_atom": "L boundary BC", "source_input": "curriculum", "tick": 63}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "Q chart C", "source_input": "curriculum", "tick": 67}
+{"actuator_source": "walker_observation", "primitive": "STABLE", "source_atom": "Q chart C", "source_input": "curriculum", "tick": 67}
+{"actuator_source": "walker_observation", "primitive": "REQUEST", "source_atom": "overlap transfer AB BC", "source_input": "curriculum", "tick": 70}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "overlap transfer AB BC", "source_input": "curriculum", "tick": 71}
+{"actuator_source": "walker_observation", "primitive": "TRACE", "source_atom": "Q chart A", "source_input": "curriculum", "tick": 73}
+{"actuator_source": "walker_observation", "primitive": "COUPLING", "source_atom": "B overlap BC", "source_input": "curriculum", "tick": 74}
+{"actuator_source": "walker_observation", "primitive": "STABLE", "source_atom": "L cycle close", "source_input": "curriculum", "tick": 79}
+{"actuator_source": "walker_observation", "primitive": "MARK", "source_atom": "L boundary AB", "source_input": "curriculum", "tick": 80}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "L boundary AB", "source_input": "curriculum", "tick": 80}
+{"actuator_source": "walker_observation", "primitive": "PRESSURE", "source_atom": "L boundary AB", "source_input": "curriculum", "tick": 80}
+{"actuator_source": "walker_observation", "primitive": "PROJECTION_LOSS", "source_atom": "Q chart C", "source_input": "curriculum", "tick": 82}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "Q chart A", "source_input": "curriculum", "tick": 83}
+{"actuator_source": "walker_observation", "primitive": "REQUEST", "source_atom": "L boundary AB", "source_input": "curriculum", "tick": 85}
+{"actuator_source": "walker_observation", "primitive": "COUPLING", "source_atom": "overlap transfer BC CA", "source_input": "curriculum", "tick": 86}
+{"actuator_source": "walker_observation", "primitive": "TRACE", "source_atom": "overlap transfer AB BC", "source_input": "curriculum", "tick": 88}
+{"actuator_source": "walker_observation", "primitive": "REJECT", "source_atom": "B overlap CA", "source_input": "curriculum", "tick": 90}
+{"actuator_source": "walker_observation", "primitive": "BOUNDARY", "source_atom": "L boundary AB", "source_input": "curriculum", "tick": 91}
+{"actuator_source": "walker_observation", "primitive": "STABLE", "source_atom": "L boundary AB", "source_input": "curriculum", "tick": 91}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "L cycle close", "source_input": "curriculum", "tick": 92}
+{"actuator_source": "walker_observation", "primitive": "PRESSURE", "source_atom": "L boundary CA", "source_input": "curriculum", "tick": 94}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "Q chart B", "source_input": "curriculum", "tick": 95}
+{"actuator_source": "walker_observation", "primitive": "WAIT", "source_atom": "Q chart A", "source_input": "curriculum", "tick": 96}
+{"actuator_source": "walker_observation", "primitive": "CYCLE", "source_atom": "Q chart A", "source_input": "curriculum", "tick": 97}
+{"actuator_source": "walker_observation", "primitive": "REQUEST", "source_atom": "Q chart A", "source_input": "curriculum", "tick": 97}
+{"actuator_source": "walker_observation", "primitive": "COUPLING", "source_atom": "overlap transfer CA AB", "source_input": "curriculum", "tick": 98}
+{"actuator_source": "walker_observation", "primitive": "TRACE", "source_atom": "B overlap AB", "source_input": "curriculum", "tick": 100}
+{"actuator_source": "walker_observation", "primitive": "BOUNDARY", "source_atom": "L boundary BC", "source_input": "curriculum", "tick": 103}
+{"actuator_source": "walker_observation", "primitive": "STABLE", "source_atom": "L boundary BC", "source_input": "curriculum", "tick": 103}
+{"actuator_source": "walker_observation", "primitive": "MARK", "source_atom": "L boundary AB", "source_input": "curriculum", "tick": 104}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "L boundary AB", "source_input": "curriculum", "tick": 104}
+{"actuator_source": "walker_observation", "primitive": "PRESSURE", "source_atom": "Q chart A", "source_input": "curriculum", "tick": 106}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "Q chart C", "source_input": "curriculum", "tick": 107}
+{"actuator_source": "walker_observation", "primitive": "COUPLING", "source_atom": "B overlap AB", "source_input": "curriculum", "tick": 110}
+{"actuator_source": "walker_observation", "primitive": "TRACE", "source_atom": "overlap transfer AB BC", "source_input": "curriculum", "tick": 112}
+{"actuator_source": "walker_observation", "primitive": "REQUEST", "source_atom": "L boundary AB", "source_input": "curriculum", "tick": 114}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "L cycle close", "source_input": "curriculum", "tick": 116}
+{"actuator_source": "walker_observation", "primitive": "PRESSURE", "source_atom": "Q chart B", "source_input": "curriculum", "tick": 118}
+{"actuator_source": "walker_observation", "primitive": "STABLE", "source_atom": "L cycle close", "source_input": "curriculum", "tick": 119}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "L cycle close", "source_input": "curriculum", "tick": 119}
+{"actuator_source": "walker_observation", "primitive": "ADMIT", "source_atom": "Q chart A", "source_input": "curriculum", "tick": 121}
+{"actuator_source": "walker_observation", "primitive": "COUPLING", "source_atom": "overlap transfer AB BC", "source_input": "curriculum", "tick": 122}
+{"actuator_source": "walker_observation", "primitive": "BOUNDARY", "source_atom": "Q chart A", "source_input": "curriculum", "tick": 123}
+{"actuator_source": "walker_observation", "primitive": "TRACE", "source_atom": "B overlap AB", "source_input": "curriculum", "tick": 124}
+{"actuator_source": "walker_observation", "primitive": "PROJECTION_LOSS", "source_atom": "B overlap AB", "source_input": "curriculum", "tick": 125}
+{"actuator_source": "walker_observation", "primitive": "REQUEST", "source_atom": "B overlap BC", "source_input": "curriculum", "tick": 126}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "L boundary AB", "source_input": "curriculum", "tick": 128}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "L boundary AB", "source_input": "curriculum", "tick": 131}
+{"actuator_source": "walker_observation", "primitive": "STABLE", "source_atom": "Q chart B", "source_input": "curriculum", "tick": 132}
+{"actuator_source": "walker_observation", "primitive": "MARK", "source_atom": "L boundary AB", "source_input": "curriculum", "tick": 133}
+{"actuator_source": "walker_observation", "primitive": "PRESSURE", "source_atom": "Q chart C", "source_input": "curriculum", "tick": 134}
+{"actuator_source": "walker_observation", "primitive": "COUPLING", "source_atom": "Q chart C", "source_input": "curriculum", "tick": 134}
+{"actuator_source": "walker_observation", "primitive": "TRACE", "source_atom": "overlap transfer AB BC", "source_input": "curriculum", "tick": 136}
+{"actuator_source": "walker_observation", "primitive": "WAIT", "source_atom": "overlap transfer AB BC", "source_input": "curriculum", "tick": 137}
+{"actuator_source": "walker_observation", "primitive": "BOUNDARY", "source_atom": "overlap transfer BC CA", "source_input": "curriculum", "tick": 138}
+{"actuator_source": "walker_observation", "primitive": "REQUEST", "source_atom": "overlap transfer BC CA", "source_input": "curriculum", "tick": 138}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "L cycle close", "source_input": "curriculum", "tick": 140}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "L boundary BC", "source_input": "curriculum", "tick": 143}
+{"actuator_source": "walker_observation", "primitive": "COUPLING", "source_atom": "L boundary CA", "source_input": "curriculum", "tick": 146}
+{"actuator_source": "walker_observation", "primitive": "STABLE", "source_atom": "Q chart C", "source_input": "curriculum", "tick": 147}
+{"actuator_source": "walker_observation", "primitive": "PRESSURE", "source_atom": "B overlap AB", "source_input": "curriculum", "tick": 148}
+{"actuator_source": "walker_observation", "primitive": "REQUEST", "source_atom": "overlap transfer CA AB", "source_input": "curriculum", "tick": 150}
+{"actuator_source": "walker_observation", "primitive": "TRACE", "source_atom": "L boundary AB", "source_input": "curriculum", "tick": 152}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "L boundary AB", "source_input": "curriculum", "tick": 152}
+{"actuator_source": "walker_observation", "primitive": "BOUNDARY", "source_atom": "L cycle close", "source_input": "curriculum", "tick": 154}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "overlap transfer BC CA", "source_input": "curriculum", "tick": 155}
+{"actuator_source": "walker_observation", "primitive": "CYCLE", "source_atom": "Q chart B", "source_input": "curriculum", "tick": 156}
+{"actuator_source": "walker_observation", "primitive": "COUPLING", "source_atom": "Q chart A", "source_input": "curriculum", "tick": 158}
+{"actuator_source": "walker_observation", "primitive": "MARK", "source_atom": "overlap transfer AB BC", "source_input": "curriculum", "tick": 160}
+{"actuator_source": "walker_observation", "primitive": "STABLE", "source_atom": "overlap transfer AB BC", "source_input": "curriculum", "tick": 161}
+{"actuator_source": "walker_observation", "primitive": "REQUEST", "source_atom": "B overlap AB", "source_input": "curriculum", "tick": 162}
+{"actuator_source": "walker_observation", "primitive": "REJECT", "source_atom": "Q chart A", "source_input": "curriculum", "tick": 163}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "L cycle close", "source_input": "curriculum", "tick": 164}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "B overlap AB", "source_input": "curriculum", "tick": 167}
+{"actuator_source": "walker_observation", "primitive": "COUPLING", "source_atom": "Q chart B", "source_input": "curriculum", "tick": 170}
+{"actuator_source": "walker_observation", "primitive": "PRESSURE", "source_atom": "B overlap AB", "source_input": "curriculum", "tick": 173}
+{"actuator_source": "walker_observation", "primitive": "STABLE", "source_atom": "B overlap AB", "source_input": "curriculum", "tick": 173}
+{"actuator_source": "walker_observation", "primitive": "REQUEST", "source_atom": "overlap transfer AB BC", "source_input": "curriculum", "tick": 174}
+{"actuator_source": "walker_observation", "primitive": "WAIT", "source_atom": "L boundary AB", "source_input": "curriculum", "tick": 176}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "L boundary AB", "source_input": "curriculum", "tick": 176}
+{"actuator_source": "walker_observation", "primitive": "TRACE", "source_atom": "Q chart B", "source_input": "curriculum", "tick": 177}
+{"actuator_source": "walker_observation", "primitive": "BOUNDARY", "source_atom": "B overlap BC", "source_input": "curriculum", "tick": 179}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "B overlap BC", "source_input": "curriculum", "tick": 179}
+{"actuator_source": "walker_observation", "primitive": "ADMIT", "source_atom": "B overlap BC", "source_input": "curriculum", "tick": 179}
+{"actuator_source": "walker_observation", "primitive": "COUPLING", "source_atom": "L boundary BC", "source_input": "curriculum", "tick": 182}
+{"actuator_source": "walker_observation", "primitive": "MARK", "source_atom": "L boundary BC", "source_input": "curriculum", "tick": 183}
+{"actuator_source": "walker_observation", "primitive": "PROJECTION_LOSS", "source_atom": "L boundary BC", "source_input": "curriculum", "tick": 183}
+{"actuator_source": "walker_observation", "primitive": "STABLE", "source_atom": "overlap transfer AB BC", "source_input": "curriculum", "tick": 185}
+{"actuator_source": "walker_observation", "primitive": "PRESSURE", "source_atom": "Q chart C", "source_input": "curriculum", "tick": 186}
+{"actuator_source": "walker_observation", "primitive": "REQUEST", "source_atom": "Q chart C", "source_input": "curriculum", "tick": 186}
+{"actuator_source": "walker_observation", "primitive": "CYCLE", "source_atom": "Q chart C", "source_input": "curriculum", "tick": 187}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "L cycle close", "source_input": "curriculum", "tick": 188}
+{"actuator_source": "walker_observation", "primitive": "TRACE", "source_atom": "overlap transfer AB BC", "source_input": "curriculum", "tick": 191}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "overlap transfer AB BC", "source_input": "curriculum", "tick": 191}
+{"actuator_source": "walker_observation", "primitive": "COUPLING", "source_atom": "B overlap CA", "source_input": "curriculum", "tick": 194}
+{"actuator_source": "walker_observation", "primitive": "MARK", "source_atom": "B overlap AB", "source_input": "curriculum", "tick": 197}
+{"actuator_source": "walker_observation", "primitive": "STABLE", "source_atom": "B overlap AB", "source_input": "curriculum", "tick": 197}
+{"actuator_source": "walker_observation", "primitive": "REQUEST", "source_atom": "L boundary AB", "source_input": "curriculum", "tick": 200}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "overlap transfer CA AB", "source_input": "curriculum", "tick": 202}
+{"actuator_source": "walker_observation", "primitive": "TRACE", "source_atom": "Q chart A", "source_input": "curriculum", "tick": 203}
+{"actuator_source": "walker_observation", "primitive": "BOUNDARY", "source_atom": "Q chart A", "source_input": "curriculum", "tick": 203}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "Q chart A", "source_input": "curriculum", "tick": 203}
+{"actuator_source": "walker_observation", "primitive": "COUPLING", "source_atom": "L cycle close", "source_input": "curriculum", "tick": 206}
+{"actuator_source": "walker_observation", "primitive": "PRESSURE", "source_atom": "B overlap AB", "source_input": "curriculum", "tick": 207}
+{"actuator_source": "walker_observation", "primitive": "REQUEST", "source_atom": "L cycle close", "source_input": "curriculum", "tick": 212}
+{"actuator_source": "walker_observation", "primitive": "STABLE", "source_atom": "B overlap AB", "source_input": "curriculum", "tick": 214}
+{"actuator_source": "walker_observation", "primitive": "REJECT", "source_atom": "B overlap AB", "source_input": "curriculum", "tick": 214}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "Q chart B", "source_input": "curriculum", "tick": 215}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "Q chart A", "source_input": "curriculum", "tick": 217}
+{"actuator_source": "walker_observation", "primitive": "COUPLING", "source_atom": "L boundary AB", "source_input": "curriculum", "tick": 218}
+{"actuator_source": "walker_observation", "primitive": "TRACE", "source_atom": "B overlap AB", "source_input": "curriculum", "tick": 220}
+{"actuator_source": "walker_observation", "primitive": "BOUNDARY", "source_atom": "L boundary BC", "source_input": "curriculum", "tick": 223}
+{"actuator_source": "walker_observation", "primitive": "REQUEST", "source_atom": "L boundary AB", "source_input": "curriculum", "tick": 224}
+{"actuator_source": "walker_observation", "primitive": "STABLE", "source_atom": "overlap transfer AB BC", "source_input": "curriculum", "tick": 226}
+{"actuator_source": "walker_observation", "primitive": "MARK", "source_atom": "Q chart C", "source_input": "curriculum", "tick": 227}
+{"actuator_source": "walker_observation", "primitive": "PRESSURE", "source_atom": "Q chart C", "source_input": "curriculum", "tick": 227}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "Q chart C", "source_input": "curriculum", "tick": 227}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "L boundary AB", "source_input": "curriculum", "tick": 229}
+{"actuator_source": "walker_observation", "primitive": "COUPLING", "source_atom": "B overlap BC", "source_input": "curriculum", "tick": 230}
+{"actuator_source": "walker_observation", "primitive": "TRACE", "source_atom": "L cycle close", "source_input": "curriculum", "tick": 236}
+{"actuator_source": "walker_observation", "primitive": "REQUEST", "source_atom": "L cycle close", "source_input": "curriculum", "tick": 236}
+{"actuator_source": "walker_observation", "primitive": "STABLE", "source_atom": "Q chart C", "source_input": "curriculum", "tick": 238}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "L cycle close", "source_input": "curriculum", "tick": 239}
+{"actuator_source": "walker_observation", "primitive": "MARK", "source_atom": "Q chart A", "source_input": "curriculum", "tick": 241}
+{"actuator_source": "walker_observation", "primitive": "WAIT", "source_atom": "overlap transfer BC CA", "source_input": "curriculum", "tick": 242}
+{"actuator_source": "walker_observation", "primitive": "COUPLING", "source_atom": "overlap transfer BC CA", "source_input": "curriculum", "tick": 242}
+{"actuator_source": "walker_observation", "primitive": "BOUNDARY", "source_atom": "Q chart A", "source_input": "curriculum", "tick": 243}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "Q chart A", "source_input": "curriculum", "tick": 243}
+{"actuator_source": "walker_observation", "primitive": "PROJECTION_LOSS", "source_atom": "Q chart A", "source_input": "curriculum", "tick": 243}
+{"actuator_source": "walker_observation", "primitive": "PRESSURE", "source_atom": "B overlap CA", "source_input": "curriculum", "tick": 246}
+{"actuator_source": "walker_observation", "primitive": "TRACE", "source_atom": "L boundary AB", "source_input": "curriculum", "tick": 248}
+{"actuator_source": "walker_observation", "primitive": "REQUEST", "source_atom": "L boundary AB", "source_input": "curriculum", "tick": 248}
+{"actuator_source": "walker_observation", "primitive": "STABLE", "source_atom": "L boundary CA", "source_input": "curriculum", "tick": 250}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "L boundary AB", "source_input": "curriculum", "tick": 251}
+{"actuator_source": "walker_observation", "primitive": "COUPLING", "source_atom": "overlap transfer CA AB", "source_input": "curriculum", "tick": 254}
+{"actuator_source": "walker_observation", "primitive": "BOUNDARY", "source_atom": "Q chart B", "source_input": "curriculum", "tick": 255}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "Q chart B", "source_input": "curriculum", "tick": 255}

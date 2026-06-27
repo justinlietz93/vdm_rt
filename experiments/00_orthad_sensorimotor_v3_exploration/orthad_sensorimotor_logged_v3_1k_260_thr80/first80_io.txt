@@ -1,0 +1,80 @@
+000 [curriculum] Q chart A
+001 [curriculum] Q chart A
+002 [curriculum] Q chart A
+003 [curriculum] Q chart A
+004 [curriculum] B overlap AB
+005 [curriculum] B overlap AB
+006 [curriculum] B overlap AB
+007 [curriculum] B overlap AB
+008 [curriculum] L boundary AB
+009 [curriculum] Q chart B
+010 [curriculum] L boundary AB -> LATCH
+011 [reafference] motor feedback LATCH
+012 [curriculum] Q chart B
+013 [curriculum] L boundary AB
+014 [curriculum] Q chart B
+015 [curriculum] Q chart B
+016 [curriculum] overlap transfer AB BC
+017 [curriculum] overlap transfer AB BC
+018 [curriculum] overlap transfer AB BC -> STABLE
+019 [reafference] motor feedback STABLE
+020 [curriculum] L cycle close
+021 [curriculum] L cycle close
+022 [curriculum] B overlap BC -> LATCH
+023 [reafference] motor feedback LATCH
+024 [curriculum] Q chart A
+025 [curriculum] Q chart A
+026 [curriculum] L boundary BC
+027 [curriculum] Q chart C
+028 [curriculum] B overlap AB
+029 [curriculum] B overlap AB
+030 [curriculum] Q chart C -> UNSTABLE
+031 [reafference] motor feedback UNSTABLE
+032 [curriculum] L boundary AB
+033 [curriculum] Q chart B
+034 [curriculum] overlap transfer BC CA -> LATCH
+035 [reafference] motor feedback LATCH -> COUPLING
+036 [reafference] motor feedback COUPLING
+037 [curriculum] L boundary AB
+038 [curriculum] B overlap CA -> STABLE
+039 [reafference] motor feedback STABLE
+040 [curriculum] overlap transfer AB BC
+041 [curriculum] overlap transfer AB BC
+042 [curriculum] L boundary CA -> UNSTABLE
+043 [reafference] motor feedback UNSTABLE
+044 [curriculum] L cycle close
+045 [curriculum] L cycle close
+046 [curriculum] overlap transfer CA AB -> LATCH
+047 [reafference] motor feedback LATCH -> REQUEST
+048 [reafference] motor feedback REQUEST
+049 [curriculum] Q chart A
+050 [curriculum] L cycle close
+051 [curriculum] L boundary AB
+052 [curriculum] B overlap AB -> COUPLING
+053 [reafference] motor feedback COUPLING
+054 [curriculum] Q chart A -> UNSTABLE
+055 [reafference] motor feedback UNSTABLE
+056 [curriculum] L boundary AB -> STABLE
+057 [reafference] motor feedback STABLE
+058 [curriculum] B overlap AB -> LATCH
+059 [reafference] motor feedback LATCH
+060 [curriculum] Q chart B
+061 [curriculum] L boundary AB
+062 [curriculum] L boundary AB
+063 [curriculum] L boundary BC
+064 [curriculum] overlap transfer AB BC
+065 [curriculum] overlap transfer AB BC -> COUPLING
+066 [reafference] motor feedback COUPLING -> UNSTABLE REQUEST
+067 [reafference] motor feedback UNSTABLE
+068 [reafference] motor feedback REQUEST
+069 [curriculum] L cycle close
+070 [curriculum] overlap transfer AB BC -> LATCH
+071 [reafference] motor feedback LATCH -> STABLE
+072 [reafference] motor feedback STABLE
+073 [curriculum] Q chart A
+074 [curriculum] B overlap BC
+075 [curriculum] overlap transfer BC CA
+076 [curriculum] B overlap AB
+077 [curriculum] B overlap AB
+078 [curriculum] L boundary BC -> UNSTABLE
+079 [reafference] motor feedback UNSTABLE -> TRACE

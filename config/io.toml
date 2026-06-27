@@ -1,15 +1,5 @@
 # Runtime IO and optional external status outputs.
 
-[emitters]
-# Empty paths use run-directory defaults.
-utd_out = ""
-enable_thoughts = false
-thought_out = ""
-
-[smoke]
-enable_macros_test = false
-enable_thoughts_test = false
-
 [status_http]
 enabled = false
 host = "127.0.0.1"
@@ -22,8 +12,5 @@ stream_status = "runtime:status"
 status_maxlen = 2000
 
 [ute]
-use_stdin = true
 queue_maxsize = 1024
 poll_max_items = 32
-inbox_poll_seconds = 0.5
-ticker_interval_seconds = 1.0

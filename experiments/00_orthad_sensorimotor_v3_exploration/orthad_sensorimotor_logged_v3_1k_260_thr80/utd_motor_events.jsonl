@@ -1,0 +1,75 @@
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "L boundary AB", "source_input": "curriculum", "tick": 10}
+{"actuator_source": "walker_observation", "primitive": "STABLE", "source_atom": "overlap transfer AB BC", "source_input": "curriculum", "tick": 18}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "B overlap BC", "source_input": "curriculum", "tick": 22}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "Q chart C", "source_input": "curriculum", "tick": 30}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "overlap transfer BC CA", "source_input": "curriculum", "tick": 34}
+{"actuator_source": "walker_observation", "primitive": "COUPLING", "source_atom": "motor feedback LATCH", "source_input": "reafference", "tick": 35}
+{"actuator_source": "walker_observation", "primitive": "STABLE", "source_atom": "B overlap CA", "source_input": "curriculum", "tick": 38}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "L boundary CA", "source_input": "curriculum", "tick": 42}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "overlap transfer CA AB", "source_input": "curriculum", "tick": 46}
+{"actuator_source": "walker_observation", "primitive": "REQUEST", "source_atom": "motor feedback LATCH", "source_input": "reafference", "tick": 47}
+{"actuator_source": "walker_observation", "primitive": "COUPLING", "source_atom": "B overlap AB", "source_input": "curriculum", "tick": 52}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "Q chart A", "source_input": "curriculum", "tick": 54}
+{"actuator_source": "walker_observation", "primitive": "STABLE", "source_atom": "L boundary AB", "source_input": "curriculum", "tick": 56}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "B overlap AB", "source_input": "curriculum", "tick": 58}
+{"actuator_source": "walker_observation", "primitive": "COUPLING", "source_atom": "overlap transfer AB BC", "source_input": "curriculum", "tick": 65}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "motor feedback COUPLING", "source_input": "reafference", "tick": 66}
+{"actuator_source": "walker_observation", "primitive": "REQUEST", "source_atom": "motor feedback COUPLING", "source_input": "reafference", "tick": 66}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "overlap transfer AB BC", "source_input": "curriculum", "tick": 70}
+{"actuator_source": "walker_observation", "primitive": "STABLE", "source_atom": "motor feedback LATCH", "source_input": "reafference", "tick": 71}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "L boundary BC", "source_input": "curriculum", "tick": 78}
+{"actuator_source": "walker_observation", "primitive": "TRACE", "source_atom": "motor feedback UNSTABLE", "source_input": "reafference", "tick": 79}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "Q chart C", "source_input": "curriculum", "tick": 82}
+{"actuator_source": "walker_observation", "primitive": "STABLE", "source_atom": "Q chart B", "source_input": "curriculum", "tick": 84}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "B overlap CA", "source_input": "curriculum", "tick": 90}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "L boundary CA", "source_input": "curriculum", "tick": 94}
+{"actuator_source": "walker_observation", "primitive": "STABLE", "source_atom": "overlap transfer CA AB", "source_input": "curriculum", "tick": 98}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "L boundary BC", "source_input": "curriculum", "tick": 103}
+{"actuator_source": "walker_observation", "primitive": "COUPLING", "source_atom": "motor feedback UNSTABLE", "source_input": "reafference", "tick": 104}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "Q chart A", "source_input": "curriculum", "tick": 106}
+{"actuator_source": "walker_observation", "primitive": "TRACE", "source_atom": "overlap transfer BC CA", "source_input": "curriculum", "tick": 115}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "overlap transfer BC CA", "source_input": "curriculum", "tick": 115}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "Q chart B", "source_input": "curriculum", "tick": 118}
+{"actuator_source": "walker_observation", "primitive": "STABLE", "source_atom": "Q chart B", "source_input": "curriculum", "tick": 118}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "L boundary BC", "source_input": "curriculum", "tick": 130}
+{"actuator_source": "walker_observation", "primitive": "STABLE", "source_atom": "L boundary AB", "source_input": "curriculum", "tick": 133}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "motor feedback STABLE", "source_input": "reafference", "tick": 134}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "B overlap CA", "source_input": "curriculum", "tick": 142}
+{"actuator_source": "walker_observation", "primitive": "COUPLING", "source_atom": "Q chart A", "source_input": "curriculum", "tick": 144}
+{"actuator_source": "walker_observation", "primitive": "TRACE", "source_atom": "motor feedback COUPLING", "source_input": "reafference", "tick": 145}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "Q chart C", "source_input": "curriculum", "tick": 147}
+{"actuator_source": "walker_observation", "primitive": "STABLE", "source_atom": "B overlap AB", "source_input": "curriculum", "tick": 149}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "L cycle close", "source_input": "curriculum", "tick": 154}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "overlap transfer AB BC", "source_input": "curriculum", "tick": 160}
+{"actuator_source": "walker_observation", "primitive": "STABLE", "source_atom": "Q chart A", "source_input": "curriculum", "tick": 163}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "L boundary AB", "source_input": "curriculum", "tick": 166}
+{"actuator_source": "walker_observation", "primitive": "COUPLING", "source_atom": "L boundary AB", "source_input": "curriculum", "tick": 166}
+{"actuator_source": "walker_observation", "primitive": "REQUEST", "source_atom": "motor feedback LATCH", "source_input": "reafference", "tick": 167}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "overlap transfer AB BC", "source_input": "curriculum", "tick": 174}
+{"actuator_source": "walker_observation", "primitive": "STABLE", "source_atom": "Q chart B", "source_input": "curriculum", "tick": 177}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "motor feedback STABLE", "source_input": "reafference", "tick": 178}
+{"actuator_source": "walker_observation", "primitive": "COUPLING", "source_atom": "L boundary BC", "source_input": "curriculum", "tick": 183}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "Q chart C", "source_input": "curriculum", "tick": 186}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "overlap transfer BC CA", "source_input": "curriculum", "tick": 190}
+{"actuator_source": "walker_observation", "primitive": "STABLE", "source_atom": "overlap transfer BC CA", "source_input": "curriculum", "tick": 190}
+{"actuator_source": "walker_observation", "primitive": "REQUEST", "source_atom": "motor feedback LATCH", "source_input": "reafference", "tick": 191}
+{"actuator_source": "walker_observation", "primitive": "COUPLING", "source_atom": "B overlap AB", "source_input": "curriculum", "tick": 196}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "L boundary CA", "source_input": "curriculum", "tick": 198}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "overlap transfer CA AB", "source_input": "curriculum", "tick": 202}
+{"actuator_source": "walker_observation", "primitive": "BOUNDARY", "source_atom": "motor feedback LATCH", "source_input": "reafference", "tick": 203}
+{"actuator_source": "walker_observation", "primitive": "STABLE", "source_atom": "motor feedback BOUNDARY", "source_input": "reafference", "tick": 204}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "Q chart A", "source_input": "curriculum", "tick": 210}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "B overlap AB", "source_input": "curriculum", "tick": 214}
+{"actuator_source": "walker_observation", "primitive": "COUPLING", "source_atom": "B overlap AB", "source_input": "curriculum", "tick": 214}
+{"actuator_source": "walker_observation", "primitive": "STABLE", "source_atom": "L boundary AB", "source_input": "curriculum", "tick": 218}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "Q chart B", "source_input": "curriculum", "tick": 222}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "overlap transfer AB BC", "source_input": "curriculum", "tick": 226}
+{"actuator_source": "walker_observation", "primitive": "STABLE", "source_atom": "overlap transfer AB BC", "source_input": "curriculum", "tick": 231}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "overlap transfer BC CA", "source_input": "curriculum", "tick": 235}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "Q chart C", "source_input": "curriculum", "tick": 238}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "B overlap AB", "source_input": "curriculum", "tick": 247}
+{"actuator_source": "walker_observation", "primitive": "LATCH", "source_atom": "L boundary CA", "source_input": "curriculum", "tick": 250}
+{"actuator_source": "walker_observation", "primitive": "TRACE", "source_atom": "motor feedback LATCH", "source_input": "reafference", "tick": 251}
+{"actuator_source": "walker_observation", "primitive": "STABLE", "source_atom": "motor feedback LATCH", "source_input": "reafference", "tick": 251}
+{"actuator_source": "walker_observation", "primitive": "BOUNDARY", "source_atom": "overlap transfer AB BC", "source_input": "curriculum", "tick": 256}
+{"actuator_source": "walker_observation", "primitive": "UNSTABLE", "source_atom": "B overlap BC", "source_input": "curriculum", "tick": 259}

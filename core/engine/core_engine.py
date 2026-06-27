@@ -503,7 +503,7 @@ class CoreEngine:
         Arguments:
           - path: advisory only (ignored by the legacy saver, which chooses its own path under run_dir)
           - step: when None, the caller should provide an explicit step; if missing, a safe default is used (0)
-          - fmt: optional override for format (e.g., 'h5' or 'npz'); defaults to nx.checkpoint_format or 'h5'
+          - fmt: optional override for format; only 'h5' is supported for runtime checkpoint writes
 
         Returns:
           The filesystem path returned by the legacy saver.

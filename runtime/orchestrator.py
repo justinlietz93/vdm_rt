@@ -15,10 +15,10 @@ Goals:
 - Freeze the orchestrator-facing API now with a clean core boundary.
 - Do NOT change behavior: default run-path delegates to the existing Nexus.run().
 - Provide pass-throughs to the CoreEngine seam for snapshot/engram ops.
-- Keep IO/emitters/telemetry packaging out of core; this module does not serialize JSON.
+- Keep IO and telemetry packaging out of core; this module does not serialize JSON.
 
 Policy:
-- This module may import core.* but must not import io.* emitters directly.
+- This module may import core.* but must not import io.* output helpers directly.
 - The actual per-tick logic remains inside Nexus until Phase C/D migration.
 """
 

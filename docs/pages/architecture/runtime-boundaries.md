@@ -14,7 +14,7 @@ summary: Preserved runtime layers and forbidden contamination paths.
 ```text
 core      numeric/state machinery, SIE, sparse connectome, maps, scouts, memory, signals
 runtime   loop orchestration, per-tick helpers, telemetry, checkpoint/status emission
-io        receptor/effector adapters, cognition adapters, lexicon storage, logging
+io        receptor/effector boundary ports and logging
 control   headless process boundary for future clients
 frontend  removed
 ```

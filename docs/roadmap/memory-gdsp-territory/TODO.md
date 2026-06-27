@@ -74,7 +74,7 @@ This checklist fixes ownership and timing issues around memory fields, territory
 
 ### Task 4.1 — Reproduce the Aura reload failure mode
 
-- [ ] Step 4.1.1 — Create a short run with checkpointing enabled and nontrivial connectome, ADC, memory, map, SIE, and lexicon state.
+- [ ] Step 4.1.1 — Create a short run with checkpointing enabled and nontrivial connectome, ADC, memory, map, and SIE state.
 - [ ] Step 4.1.2 — Stop the run, reload from the checkpoint with `--load-engram`, and continue for a small number of ticks.
 - [ ] Step 4.1.3 — Compare pre-stop state against post-load state before the first continued tick.
 - [ ] Step 4.1.4 — Record whether only config-like values are restored while state history is lost.
@@ -84,7 +84,7 @@ This checklist fixes ownership and timing issues around memory fields, territory
 
 - [ ] Step 4.2.1 — List every field saved by `core/memory/engram_io.py` for sparse checkpoints.
 - [ ] Step 4.2.2 — List every live runtime state field needed to resume a run without semantic reset.
-- [ ] Step 4.2.3 — Compare saved fields against `SparseConnectome`, ADC, memory field, trail/map reducers, SIE, phase, lexicon, and runtime counters.
+- [ ] Step 4.2.3 — Compare saved fields against `SparseConnectome`, ADC, memory field, trail/map reducers, SIE, phase, and runtime counters.
 - [ ] Step 4.2.4 — Mark each field as `required`, `optional`, `derived`, or `do_not_resume`.
 - [ ] Step 4.2.5 — Add a manifest section to every checkpoint describing what was saved and what was intentionally omitted.
 

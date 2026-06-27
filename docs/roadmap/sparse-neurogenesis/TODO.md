@@ -1,9 +1,23 @@
 # Sparse Neurogenesis TODO
 
-Status: active draft.
+Status: planned and intentionally deferred.
 Source report: `reports/20260622/vdm_rt_void_bus_adc_loop_analysis.md`.
 
 The legacy substrate files encode a real missing capability: dynamic self-managing neuron population. The live implementation must be sparse-native and must not preserve torch/dense substrate behavior.
+
+## Deferral Boundary
+
+Phase 0 is complete: it preserves the source material and extracts the required
+invariants. It does **not** create a live neurogenesis subsystem. There is no
+`core/neurogenesis/` package or `config/neurogenesis.toml` file in the runtime
+while this roadmap is deferred.
+
+When work resumes, `population_policy.py` and its named TOML configuration are
+only the initial policy layer. They must not be represented as completion of
+dynamic population change: that capability remains unmet until sparse growth
+and retirement safely update all affected runtime state and lifecycle events
+are visible on the event spine. Defer implementation until it is selected over
+more immediate runtime work.
 
 ## Phase 0 — Extract the Capability From Legacy Substrate
 
@@ -27,6 +41,7 @@ The legacy substrate files encode a real missing capability: dynamic self-managi
 
 ### Task 1.1 — Add policy model
 
+- [ ] Step 1.1.0 — When implementation is reprioritized, add the named policy configuration and policy module as an initial, non-executing layer; do not mark dynamic population change complete.
 - [ ] Step 1.1.1 — Add `core/neurogenesis/population_policy.py`.
 - [ ] Step 1.1.2 — Define `min_neurons`.
 - [ ] Step 1.1.3 — Define `max_neurons`.

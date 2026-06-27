@@ -32,16 +32,16 @@ This roadmap is intentionally written around phases, tasks, and steps. It is not
 
 ### Task 1.1 — Identify live authoring paths
 
-- [ ] Audit `io/cognition`, `io/lexicon`, and `runtime/helpers/speak.py`.
-- [ ] Mark any phrase bank, macro composer, summary fallback, n-gram, or completion branch as forbidden in live output.
-- [ ] Split diagnostic/offline utilities from live UTD path.
+- [x] Audit `io/cognition`, `io/lexicon`, and `runtime/helpers/speak.py`.
+- [x] Mark any phrase bank, macro composer, summary fallback, n-gram, or completion branch as forbidden in live output.
+- [x] Split diagnostic/offline utilities from live UTD path.
 
 ### Task 1.2 — Add decoder kill-switch tests
 
-- [ ] Test live UTD cannot import lexical authoring modules.
-- [ ] Test gate opening cannot create content.
+- [x] Test live UTD cannot import lexical authoring modules.
+- [x] Test gate opening cannot create content.
 - [ ] Test renderer cannot repair malformed traces.
-- [ ] Test novel input symbols do not expand output basis.
+- [x] Test novel input symbols do not expand output basis through the removed lexicon/text-mapper path.
 
 ## Phase 2 — Define the Device Basis
 

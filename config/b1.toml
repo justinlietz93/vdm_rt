@@ -1,6 +1,9 @@
-# Reserved B1 topology-meter defaults. These take effect only when VoidB1Meter
-# is wired as a runtime producer.
+# B1 topology detector defaults. These configure the live StreamingZEMA
+# topology-spike detector; they do not trigger text output.
 
 [b1]
 sample_edges = 4096
 half_life_ticks = 50
+z = 1.0
+hysteresis = 1.0
+cooldown_ticks = 10

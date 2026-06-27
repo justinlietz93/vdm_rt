@@ -49,3 +49,86 @@ def test_no_package_imports_vdm_rt_frontend_or_dash():
                 if mod == "dash" or mod.startswith("dash.") or mod.startswith("vdm_rt.frontend"):
                     offenders.append(f"{rel}: from {mod} import ...")
     assert not offenders, "Forbidden frontend/Dash imports:\n" + "\n".join(offenders)
+
+
+def test_no_embedded_frontend_or_browser_control_surface():
+    root = _repo_root()
+    package = root / "vdm_rt"
+    live_paths = [
+        package / "core",
+        package / "runtime",
+        package / "io",
+        package / "cli",
+        package / "control",
+        package / "nexus.py",
+        package / "run_nexus.py",
+    ]
+    forbidden = (
+        "<html",
+        "text/html",
+        "document.getElementById",
+        "addEventListener",
+    )
+    offenders: list[str] = []
+
+    files: list[Path] = []
+    for path in live_paths:
+        if path.is_file():
+            files.append(path)
+        elif path.is_dir():
+            files.extend(path.rglob("*.py"))
+
+    for path in files:
+        if "__pycache__" in path.parts:
+            continue
+        text = path.read_text(encoding="utf-8", errors="ignore")
+        for marker in forbidden:
+            if marker in text:
+                offenders.append(f"{path.relative_to(root).as_posix()}: {marker}")
+
+    assert not offenders, "Forbidden embedded frontend/control UI residue:\n" + "\n".join(offenders)
+
+
+def test_no_embedded_control_server_surface():
+    root = _repo_root()
+    package = root / "vdm_rt"
+    assert not (package / "core" / "control_server.py").exists()
+
+    live_paths = [
+        package / "core",
+        package / "runtime",
+        package / "cli",
+        package / "control",
+        package / "nexus.py",
+        package / "run_nexus.py",
+        package / "config",
+    ]
+    forbidden = (
+        "control_server",
+        "ControlServer",
+        "--control-server",
+        "server_enabled",
+        "server_host",
+        "server_port",
+    )
+    offenders: list[str] = []
+    files: list[Path] = []
+    for path in live_paths:
+        if path.is_file():
+            files.append(path)
+        elif path.is_dir():
+            files.extend(
+                p
+                for p in path.rglob("*")
+                if p.is_file() and p.suffix in {".py", ".toml"}
+            )
+
+    for path in files:
+        if "__pycache__" in path.parts:
+            continue
+        text = path.read_text(encoding="utf-8", errors="ignore")
+        for marker in forbidden:
+            if marker in text:
+                offenders.append(f"{path.relative_to(root).as_posix()}: {marker}")
+
+    assert not offenders, "Forbidden embedded control-server residue:\n" + "\n".join(offenders)

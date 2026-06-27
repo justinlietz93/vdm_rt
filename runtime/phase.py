@@ -10,7 +10,7 @@ See LICENSE file for full terms.
 from __future__ import annotations
 
 """
-Runtime control-plane helpers extracted from Nexus (modular, emit-only, no behavior change).
+Runtime control-plane helpers extracted from Nexus.
 - default_phase_profiles(): returns safe default phase configuration
 - apply_phase_profile(nx, prof): applies a merged profile to a running Nexus instance
 - poll_control(nx): checks runs/<ts>/phase.json and applies changes (and optional one-shot engram load)
@@ -27,34 +27,27 @@ from vdm_rt.core.memory import load_engram as _load_engram_state
 def default_phase_profiles() -> Dict[int, Dict[str, Any]]:
     """
     Safe default gates for incremental curriculum, void-faithful (no token logic).
-    Mirrors the inlined dictionary from Nexus._default_phase_profiles with no changes.
     """
     return {
         0: {  # primitives
-            "speak": {"speak_z": 2.0, "speak_hysteresis": 0.5, "speak_cooldown_ticks": 8, "speak_valence_thresh": 0.10},
+            "b1_detector": {"b1_z": 2.0, "b1_hysteresis": 0.5, "b1_cooldown_ticks": 8},
             "connectome": {"walkers": 128, "hops": 3, "bundle_size": 3, "prune_factor": 0.10},
-            # Composer-local novelty weighting (safe: emitter-only); discovery default 0.0
-            "composer_idf_k": 0.0,
         },
         1: {  # blocks
-            "speak": {"speak_z": 2.5, "speak_hysteresis": 0.8, "speak_cooldown_ticks": 10, "speak_valence_thresh": 0.20},
+            "b1_detector": {"b1_z": 2.5, "b1_hysteresis": 0.8, "b1_cooldown_ticks": 10},
             "connectome": {"walkers": 256, "hops": 3, "bundle_size": 3, "prune_factor": 0.10},
-            "composer_idf_k": 0.0,
         },
         2: {  # structures
-            "speak": {"speak_z": 3.0, "speak_hysteresis": 1.0, "speak_cooldown_ticks": 10, "speak_valence_thresh": 0.35},
+            "b1_detector": {"b1_z": 3.0, "b1_hysteresis": 1.0, "b1_cooldown_ticks": 10},
             "connectome": {"walkers": 384, "hops": 4, "bundle_size": 3, "prune_factor": 0.10},
-            "composer_idf_k": 0.0,
         },
         3: {  # questions
-            "speak": {"speak_z": 3.0, "speak_hysteresis": 1.0, "speak_cooldown_ticks": 10, "speak_valence_thresh": 0.55},
+            "b1_detector": {"b1_z": 3.0, "b1_hysteresis": 1.0, "b1_cooldown_ticks": 10},
             "connectome": {"walkers": 512, "hops": 4, "bundle_size": 3, "prune_factor": 0.10},
-            "composer_idf_k": 0.0,
         },
         4: {  # problem-solving
-            "speak": {"speak_z": 3.5, "speak_hysteresis": 1.2, "speak_cooldown_ticks": 12, "speak_valence_thresh": 0.60},
+            "b1_detector": {"b1_z": 3.5, "b1_hysteresis": 1.2, "b1_cooldown_ticks": 12},
             "connectome": {"walkers": 768, "hops": 5, "bundle_size": 3, "prune_factor": 0.10},
-            "composer_idf_k": 0.0,
         },
     }
 
@@ -64,17 +57,15 @@ def apply_phase_profile(nx, prof: Dict[str, Any]) -> None:
     Apply a merged phase profile onto a running Nexus instance (nx).
     This function is a direct modularization of Nexus._apply_phase_profile with no behavior changes.
     """
-    # Apply speak gates
-    sp = prof.get("speak", {})
+    # Apply B1 detector gates
+    sp = prof.get("b1_detector", {})
     try:
-        if "speak_z" in sp:
-            nx.b1_detector.z_spike = float(sp["speak_z"])
-        if "speak_hysteresis" in sp:
-            nx.b1_detector.hysteresis = float(max(0.0, sp["speak_hysteresis"]))
-        if "speak_cooldown_ticks" in sp:
-            nx.b1_detector.min_interval = int(max(1, int(sp["speak_cooldown_ticks"])))
-        if "speak_valence_thresh" in sp:
-            nx.speak_valence_thresh = float(sp["speak_valence_thresh"])
+        if "b1_z" in sp:
+            nx.b1_detector.z_spike = float(sp["b1_z"])
+        if "b1_hysteresis" in sp:
+            nx.b1_detector.hysteresis = float(max(0.0, sp["b1_hysteresis"]))
+        if "b1_cooldown_ticks" in sp:
+            nx.b1_detector.min_interval = int(max(1, int(sp["b1_cooldown_ticks"])))
     except Exception:
         pass
 
@@ -147,10 +138,10 @@ def apply_phase_profile(nx, prof: Dict[str, Any]) -> None:
                         except Exception:
                             pass
 
-    # Allow phase knob for IDF novelty gain at Nexus scope
+    # Allow phase knob for neutral novelty gain at Nexus scope.
     try:
-        if "novelty_idf_gain" in sie:
-            nx.novelty_idf_gain = float(sie["novelty_idf_gain"])
+        if "novelty_gain" in sie:
+            nx.novelty_gain = float(sie["novelty_gain"])
     except Exception:
         pass
 

@@ -82,9 +82,12 @@ The runtime currently has parallel signal paths: `AnnounceBus`, `Observation`, `
 
 ### Task 3.2 — Remove stale batch hazards
 
-- [ ] Step 3.2.1 — Clear `_last_obs_batch` at the start of each tick fold.
-- [ ] Step 3.2.2 — Clear `_last_adc_metrics` at the start of each tick fold.
-- [ ] Step 3.2.3 — Add test where a tick drains zero observations and stale observations cannot be reused.
+Pulled forward before spine expansion: current-tick reducer correctness is a
+prerequisite for every later producer and consumer route.
+
+- [x] Step 3.2.1 — Clear `_last_obs_batch` at the start of each tick fold.
+- [x] Step 3.2.2 — Clear `_last_adc_metrics` at the start of each tick fold.
+- [x] Step 3.2.3 — Add test where a tick drains zero observations and stale observations cannot be reused.
 - [ ] Step 3.2.4 — Add telemetry field for `spine_drained_observations_total`.
 
 ## Phase 4 — Add Event Coverage Tests

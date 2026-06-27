@@ -3,7 +3,7 @@
 [persistence]
 checkpoint_every = 0
 checkpoint_keep = 5
-checkpoint_format = "h5"
+checkpoint_format = "h5" # Only supported runtime checkpoint write format.
 
 # Empty means no startup engram load. May be a checkpoint file or a run folder.
 load_engram = ""
