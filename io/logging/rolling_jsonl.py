@@ -8,14 +8,17 @@ Commercial use of proprietary VDM code requires written permission from Justin K
 See LICENSE file for full terms.
 
 
-Rolling JSONL writer with bounded main file and archival segments.
+Rolling JSONL writers with bounded main files and archival segments.
 
-- Maintains a capped "active" JSONL file (e.g., events.jsonl, utd_events.jsonl).
+- Maintains capped active JSONL streams.
+- The default runtime writer stores JSONL records immediately in zstd-compressed
+  files (e.g., events.jsonl.zst, utd_events.jsonl.zst).
+- A plain JSONL debug writer remains available when explicitly configured.
 - When the active file exceeds the configured size or line cap, the oldest lines
-  are streamed into an archive segment and the active file is rewritten to keep
-  only the newest tail (rolling buffer).
+  are archived for the plain writer; the zstd writer rotates the active
+  compressed segment when its uncompressed payload cap is reached.
 - Archive segments live under: <run_dir>/archived/<YYYYMMDD_HHMMSS>/<base_name>
-  Example: runs/<ts>/archived/20250815_120828/events.jsonl
+  Example: runs/<ts>/archived/20250815_120828/events.jsonl.zst
 - When the current archive segment exceeds its cap, a new timestamped segment
   directory is created and subsequent archival lines are appended there.
 
@@ -29,6 +32,7 @@ Notes:
 from __future__ import annotations
 
 import io
+import json
 import os
 import time
 import threading
@@ -48,6 +52,10 @@ def _now_ts() -> str:
 
 def _ensure_dir(p: str) -> None:
     os.makedirs(p, exist_ok=True)
+
+
+def _zstd_path(path: str) -> str:
+    return path if path.endswith(".zst") else f"{path}.zst"
 
 
 def _is_ts_dir(name: str) -> bool:
@@ -347,6 +355,238 @@ class RollingJsonlWriter:
         return seg_fh
 
 
+class RollingZstdJsonlWriter:
+    """
+    Append JSONL records into an immediately compressed zstd stream.
+
+    The active file is <logical>.zst, for example events.jsonl.zst. Rotation is
+    based on the uncompressed JSONL bytes in the active compressed stream, so
+    logging.events_max_mb = 256 means 256 MiB of JSONL payload before rollover.
+    """
+
+    def __init__(
+        self,
+        base_path: str,
+        *,
+        max_main_bytes: Optional[int] = None,
+        max_main_lines: Optional[int] = None,
+        archive_dir: Optional[str] = None,
+        zstd_level: Optional[int] = None,
+    ) -> None:
+        self.logical_path = os.path.abspath(base_path)
+        self.base_path = os.path.abspath(_zstd_path(self.logical_path))
+        _ensure_dir(os.path.dirname(self.base_path))
+        self.lock_path = self.base_path + ".lock"
+        self.meta_path = self.base_path + ".meta.json"
+        self._local_lock = threading.Lock()
+
+        try:
+            import zstandard as _zstd  # type: ignore
+        except Exception as exc:  # pragma: no cover - covered by dependency gate
+            raise RuntimeError(
+                "zstandard is required for runtime JSONL logging. "
+                "Install requirements.txt before launching vdm_rt."
+            ) from exc
+        self._zstd = _zstd
+
+        base_name = os.path.basename(self.logical_path).lower()
+        if base_name.endswith(".zst"):
+            base_name = base_name[:-4]
+        if base_name == "events.jsonl":
+            cat = "EVENTS"
+        elif "utd" in base_name:
+            cat = "UTD"
+        else:
+            cat = "LOG"
+
+        def _cfg_int(key: str, default: Optional[int]) -> Optional[int]:
+            if default is None:
+                value = config_int(key, 0)
+                return None if value <= 0 else value
+            return config_int(key, int(default))
+
+        if max_main_bytes is None:
+            if cat == "EVENTS":
+                max_main_bytes = _cfg_int("logging.events_max_mb", 256)
+            elif cat == "UTD":
+                max_main_bytes = _cfg_int("logging.utd_max_mb", 256)
+            else:
+                max_main_bytes = _cfg_int("logging.log_max_mb", 256)
+            max_main_bytes = int(max_main_bytes) * 1024 * 1024 if max_main_bytes else None
+
+        if max_main_lines is None:
+            if cat == "EVENTS":
+                max_main_lines = _cfg_int("logging.events_max_lines", None)
+            elif cat == "UTD":
+                max_main_lines = _cfg_int("logging.utd_max_lines", None)
+            else:
+                max_main_lines = _cfg_int("logging.log_max_lines", None)
+
+        if archive_dir is None:
+            archive_dir = os.path.join(os.path.dirname(self.base_path), "archived")
+        self.archive_dir = archive_dir
+        self.max_main_bytes = max_main_bytes
+        self.max_main_lines = max_main_lines
+        configured_level = (
+            config_int("logging.zstd_level", 3)
+            if zstd_level is None
+            else int(zstd_level)
+        )
+        self.zstd_level = max(1, min(22, configured_level))
+
+    def write_record(self, record: dict) -> None:
+        self.write_line(json.dumps(record, ensure_ascii=False, sort_keys=True))
+
+    def write_line(self, line: str) -> None:
+        data = (line.rstrip("\n") + "\n").encode("utf-8", errors="ignore")
+        with self._local_lock:
+            with self._acquire_lock():
+                meta = self._read_meta()
+                if self._should_rotate(meta, len(data)):
+                    self._rotate_active()
+                    meta = {"uncompressed_bytes": 0, "lines": 0}
+                self._append_compressed(data)
+                meta["uncompressed_bytes"] = int(meta.get("uncompressed_bytes", 0)) + len(data)
+                meta["lines"] = int(meta.get("lines", 0)) + 1
+                self._write_meta(meta)
+
+    def stats(self) -> dict:
+        meta = self._read_meta()
+        try:
+            active_compressed_bytes = os.path.getsize(self.base_path)
+        except Exception:
+            active_compressed_bytes = 0
+        return {
+            "active_path": self.base_path,
+            "active_compressed_bytes": int(active_compressed_bytes),
+            "active_uncompressed_bytes": int(meta.get("uncompressed_bytes", 0)),
+            "active_lines": int(meta.get("lines", 0)),
+        }
+
+    def _should_rotate(self, meta: dict, next_uncompressed_bytes: int) -> bool:
+        try:
+            if os.path.getsize(self.base_path) <= 0:
+                return False
+        except Exception:
+            return False
+        if self.max_main_lines and int(meta.get("lines", 0)) >= self.max_main_lines:
+            return True
+        if self.max_main_bytes:
+            current = int(meta.get("uncompressed_bytes", 0))
+            if current > 0 and current + next_uncompressed_bytes > self.max_main_bytes:
+                return True
+        return False
+
+    def _append_compressed(self, data: bytes) -> None:
+        cctx = self._zstd.ZstdCompressor(level=self.zstd_level)
+        with open(self.base_path, "ab") as fh:
+            fh.write(cctx.compress(data))
+
+    def _read_meta(self) -> dict:
+        try:
+            if os.path.getsize(self.base_path) <= 0:
+                return {"uncompressed_bytes": 0, "lines": 0}
+        except Exception:
+            return {"uncompressed_bytes": 0, "lines": 0}
+        try:
+            with open(self.meta_path, "r", encoding="utf-8") as fh:
+                meta = json.load(fh)
+            return {
+                "uncompressed_bytes": max(0, int(meta.get("uncompressed_bytes", 0))),
+                "lines": max(0, int(meta.get("lines", 0))),
+            }
+        except Exception:
+            stats = self._scan_active_stream()
+            self._write_meta(stats)
+            return stats
+
+    def _write_meta(self, meta: dict) -> None:
+        tmp_path = self.meta_path + ".tmp"
+        payload = {
+            "format": "jsonl.zst",
+            "active_path": os.path.basename(self.base_path),
+            "uncompressed_bytes": int(meta.get("uncompressed_bytes", 0)),
+            "lines": int(meta.get("lines", 0)),
+        }
+        with open(tmp_path, "w", encoding="utf-8") as fh:
+            json.dump(payload, fh, sort_keys=True)
+            fh.write("\n")
+        os.replace(tmp_path, self.meta_path)
+
+    def _scan_active_stream(self) -> dict:
+        if not os.path.exists(self.base_path):
+            return {"uncompressed_bytes": 0, "lines": 0}
+        total = 0
+        lines = 0
+        dctx = self._zstd.ZstdDecompressor()
+        try:
+            with open(self.base_path, "rb") as fh:
+                try:
+                    reader = dctx.stream_reader(fh, read_across_frames=True)
+                except TypeError:
+                    reader = dctx.stream_reader(fh)
+                with reader:
+                    while True:
+                        chunk = reader.read(131072)
+                        if not chunk:
+                            break
+                        total += len(chunk)
+                        lines += chunk.count(b"\n")
+        except Exception:
+            return {"uncompressed_bytes": 0, "lines": 0}
+        return {"uncompressed_bytes": total, "lines": lines}
+
+    def _rotate_active(self) -> None:
+        try:
+            if os.path.getsize(self.base_path) <= 0:
+                return
+        except Exception:
+            return
+        seg_dir = self._create_archive_segment_dir()
+        target = os.path.join(seg_dir, os.path.basename(self.base_path))
+        os.replace(self.base_path, target)
+        self._write_meta({"uncompressed_bytes": 0, "lines": 0})
+
+    def _create_archive_segment_dir(self) -> str:
+        _ensure_dir(self.archive_dir)
+        epoch = time.time()
+        for offset in range(86_400):
+            name = time.strftime("%Y%m%d_%H%M%S", time.localtime(epoch + offset))
+            candidate = os.path.join(self.archive_dir, name)
+            try:
+                os.mkdir(candidate)
+                return candidate
+            except FileExistsError:
+                continue
+        raise OSError(f"Unable to create archive segment under {self.archive_dir}")
+
+    def _acquire_lock(self):
+        class _Locker:
+            def __init__(self, p: str) -> None:
+                self.p = p
+                self.fh = None
+
+            def __enter__(self):
+                _ensure_dir(os.path.dirname(self.p))
+                self.fh = open(self.p, "a+")
+                if _fcntl is not None:
+                    _fcntl.flock(self.fh.fileno(), _fcntl.LOCK_EX)
+                return self
+
+            def __exit__(self, exc_type, exc, tb):
+                try:
+                    if _fcntl is not None and self.fh is not None:
+                        _fcntl.flock(self.fh.fileno(), _fcntl.LOCK_UN)
+                finally:
+                    try:
+                        if self.fh:
+                            self.fh.close()
+                    except Exception:
+                        pass
+
+        return _Locker(self.lock_path)
+
+
 # ---------- Logging handler integration ----------
 
 import logging
@@ -367,16 +607,14 @@ class RollingJsonlHandler(logging.Handler):
             # Avoid crashing logging subsystem
             pass
 
-class RollingZipJsonlHandler(logging.Handler):
+
+class RollingZstdJsonlHandler(logging.Handler):
     """
-    logging.Handler that writes formatted JSON lines to a zip-spooled JSONL buffer.
-    The buffer is truncated when it exceeds the configured threshold and compressed
-    into a .zip archive adjacent to the buffer file (e.g., events.jsonl -> events.zip).
+    logging.Handler that writes formatted JSON lines to immediate zstd JSONL.
     """
     def __init__(self, path: str) -> None:
         super().__init__(level=logging.INFO)
-        # Prefer zip spooler for bounded disk pressure
-        self._writer = RollingZipJsonlWriter(path)  # type: ignore[name-defined]
+        self._writer = RollingZstdJsonlWriter(path)
     def emit(self, record: logging.LogRecord) -> None:
         try:
             msg = self.format(record)
@@ -385,154 +623,9 @@ class RollingZipJsonlHandler(logging.Handler):
             # Avoid crashing logging subsystem
             pass
 
-__all__ = ["RollingJsonlWriter", "RollingJsonlHandler", "RollingZipJsonlWriter", "RollingZipJsonlHandler"]
-# ---------- Zip spool writer (optional) ----------
-# Lightweight, void-faithful spooler that compresses the active JSONL buffer into a growing .zip
-# once it exceeds a bounded threshold, then truncates the buffer. Keeps a tiny in-process ring
-# for quick peeks. Uses RollingJsonlWriter's advisory lock to coordinate with other writers.
-import zipfile as _zipfile  # stdlib
-
-class RollingZipJsonlWriter:
-    """
-    Zip spooler for JSONL:
-    - Appends lines to a small active buffer file (base_path)
-    - When buffer exceeds max_buffer_bytes, compresses it into <base_name>.zip (append mode)
-      under the same directory and truncates the buffer to zero
-    - Tracks coarse stats for UI/status reporting (entries, sizes)
-    - Thread-safe; coordinates with other processes via RollingJsonlWriter's lock
-    """
-
-    def __init__(
-        self,
-        base_path: str,
-        *,
-        max_buffer_bytes: int | None = None,
-        ring_bytes: int | None = None,
-        zip_path: str | None = None,
-    ) -> None:
-        self.base_path = os.path.abspath(base_path)
-        _ensure_dir(os.path.dirname(self.base_path))
-        # Defaults from config/logging.toml.
-        try:
-            if max_buffer_bytes is None:
-                max_buffer_bytes = config_int("logging.zip_buffer_bytes", 1048576)  # 1 MiB
-        except Exception:
-            max_buffer_bytes = 1_048_576
-        try:
-            if ring_bytes is None:
-                ring_bytes = config_int("logging.zip_ring_bytes", 65536)  # 64 KiB
-        except Exception:
-            ring_bytes = 65_536
-        self.max_buffer_bytes = max(1, int(max_buffer_bytes or 1_048_576))
-        self._ring_cap = max(1, int(ring_bytes or 65_536))
-        self._ring = bytearray()
-        # Zip path next to base_path (events.jsonl -> events.zip)
-        if not zip_path:
-            stem = os.path.splitext(os.path.basename(self.base_path))[0]
-            zip_path = os.path.join(os.path.dirname(self.base_path), f"{stem}.zip")
-        self.zip_path = os.path.abspath(zip_path)
-
-        # Use RollingJsonlWriter with huge caps to avoid its archival path interfering
-        # (we rely on the zip spool rotation below)
-        self._writer = RollingJsonlWriter(
-            self.base_path,
-            max_main_bytes=10**12,              # effectively disable
-            max_main_lines=None,
-            archive_dir=os.path.join(os.path.dirname(self.base_path), "archived"),
-            archive_segment_max_bytes=None,
-            archive_segment_max_lines=None,
-            check_every=2_147_483_647,          # effectively disable
-        )
-        self._zip_entries_cache: int | None = None
-        self._local_lock = threading.Lock()
-
-    def write_line(self, line: str) -> None:
-        # Append line (delegates to rolling writer for atomic append)
-        self._writer.write_line(line)
-        # Update in-process ring
-        try:
-            data = (line.rstrip("\n") + "\n").encode("utf-8", errors="ignore")
-            self._ring.extend(data)
-            if len(self._ring) > self._ring_cap:
-                # keep last _ring_cap bytes
-                self._ring[:] = self._ring[-self._ring_cap:]
-        except Exception:
-            pass
-
-        # Rotate to zip if buffer exceeds threshold (guarded by advisory lock)
-        try:
-            with self._writer._acquire_lock():  # type: ignore[attr-defined]
-                try:
-                    size = os.path.getsize(self.base_path)
-                except Exception:
-                    size = 0
-                if size >= self.max_buffer_bytes:
-                    # Read buffer
-                    try:
-                        with open(self.base_path, "rb") as fh:
-                            buf = fh.read()
-                    except Exception:
-                        buf = b""
-                    if buf:
-                        arcname = f"{os.path.basename(self.base_path)}.{_now_ts()}.jsonl"
-                        try:
-                            with _zipfile.ZipFile(self.zip_path, mode="a", compression=_zipfile.ZIP_DEFLATED) as zf:
-                                zf.writestr(arcname, buf)
-                                # Seed entries cache if unknown
-                                try:
-                                    if self._zip_entries_cache is None:
-                                        self._zip_entries_cache = 0
-                                    self._zip_entries_cache += 1
-                                except Exception:
-                                    pass
-                        except Exception:
-                            # best-effort: do not abort rotation
-                            pass
-                        # Truncate buffer
-                        try:
-                            with open(self.base_path, "wb") as fh2:
-                                fh2.write(b"")
-                        except Exception:
-                            pass
-        except Exception:
-            # best-effort; avoid throwing on contentions
-            pass
-
-    def stats(self) -> dict:
-        """
-        Return coarse spool statistics for status reporting:
-          - buffer_bytes: size of active JSONL buffer
-          - zip_bytes: size of the zip archive file
-          - zip_entries: count of archived segments (approximate)
-          - ring_bytes: size of in-process ring buffer
-        """
-        try:
-            buffer_bytes = os.path.getsize(self.base_path)
-        except Exception:
-            buffer_bytes = 0
-        try:
-            zip_bytes = os.path.getsize(self.zip_path)
-        except Exception:
-            zip_bytes = 0
-        # If entries unknown, estimate by inspecting the zip once
-        if self._zip_entries_cache is None:
-            try:
-                if os.path.exists(self.zip_path):
-                    with _zipfile.ZipFile(self.zip_path, mode="r") as zf:
-                        self._zip_entries_cache = len(zf.namelist())
-                else:
-                    self._zip_entries_cache = 0
-            except Exception:
-                self._zip_entries_cache = 0
-        return {
-            "buffer_bytes": int(buffer_bytes),
-            "zip_bytes": int(zip_bytes),
-            "zip_entries": int(self._zip_entries_cache or 0),
-            "ring_bytes": int(len(self._ring)),
-        }
-
-# expose in module exports
-try:
-    __all__.append("RollingZipJsonlWriter")  # type: ignore[name-defined]
-except Exception:
-    __all__ = ["RollingJsonlWriter", "RollingJsonlHandler", "RollingZipJsonlWriter"]
+__all__ = [
+    "RollingJsonlWriter",
+    "RollingJsonlHandler",
+    "RollingZstdJsonlWriter",
+    "RollingZstdJsonlHandler",
+]

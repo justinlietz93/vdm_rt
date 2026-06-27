@@ -1,4 +1,5 @@
 numpy # For numerical operations
 scipy # Sparse matrix operations
 h5py # Engram, saves the models brain
-pytest
+zstandard # Immediate compressed JSONL runtime logs
+pytest # Testing framework

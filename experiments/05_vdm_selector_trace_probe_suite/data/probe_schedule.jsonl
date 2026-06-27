@@ -1,0 +1,1400 @@
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 0}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 1}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 2}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 3}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 4}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 5}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 6}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 7}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 8}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 9}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 10}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 11}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 12}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 13}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 14}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 15}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 16}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 17}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 18}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 19}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 20}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 21}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 22}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 23}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 24}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 25}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 26}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 27}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 28}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 29}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 30}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 31}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 32}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 33}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 34}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 35}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 36}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 37}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 38}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 39}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 40}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 41}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 42}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 43}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 44}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 45}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 46}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 47}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 48}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 49}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 50}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 51}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 52}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 53}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 54}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 55}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 56}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 57}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 58}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 59}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 60}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 61}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 62}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 63}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 64}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 65}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 66}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 67}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 68}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 69}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 70}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 71}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 72}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 73}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 74}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 75}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 76}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 77}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 78}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 79}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 80}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 81}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 82}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 83}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 84}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 85}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 86}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 87}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 88}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 89}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 90}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 91}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 92}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 93}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 94}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 95}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 96}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 97}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 98}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 99}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 100}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 101}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 102}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 103}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 104}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 105}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 106}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 107}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 108}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 109}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 110}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 111}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 112}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 113}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 114}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 115}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 116}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 117}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 118}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 119}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 120}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 121}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 122}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 123}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 124}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 125}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 126}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 127}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 128}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 129}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 130}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 131}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 132}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 133}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 134}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 135}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 136}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 137}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 138}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 139}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 140}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 141}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 142}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 143}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 144}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 145}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 146}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 147}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 148}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 149}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 150}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 151}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 152}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 153}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 154}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 155}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 156}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 157}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 158}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 159}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 160}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 161}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 162}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 163}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 164}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 165}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 166}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 167}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 168}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 169}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 170}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 171}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 172}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 173}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 174}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 175}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 176}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 177}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 178}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 179}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 180}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 181}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 182}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 183}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 184}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 185}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 186}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 187}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 188}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 189}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 190}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 191}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 192}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 193}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 194}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 195}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 196}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 197}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 198}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 199}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 200}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 201}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 202}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 203}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 204}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 205}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 206}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 207}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 208}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 209}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 210}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 211}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 212}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 213}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 214}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 215}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 216}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 217}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 218}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 219}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 220}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 221}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 222}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 223}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 224}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 225}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 226}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 227}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 228}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 229}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 230}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 231}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 232}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 233}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 234}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 235}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 236}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 237}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 238}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 239}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 240}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 241}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 242}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 243}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 244}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 245}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 246}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 247}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 248}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 249}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 250}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 251}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 252}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 253}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 254}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 255}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 256}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 257}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 258}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 259}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 260}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 261}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 262}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 263}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 264}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 265}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 266}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 267}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 268}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 269}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 270}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 271}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 272}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 273}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 274}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 275}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 276}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 277}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 278}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 279}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 280}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 281}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 282}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 283}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 284}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 285}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 286}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 287}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 288}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 289}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 290}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 291}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 292}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 293}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 294}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 295}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 296}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 297}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 298}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 299}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 300}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 301}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 302}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 303}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 304}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 305}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 306}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 307}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 308}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 309}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 310}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 311}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 312}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 313}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 314}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 315}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 316}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 317}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 318}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 319}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 320}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 321}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 322}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 323}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 324}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 325}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 326}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 327}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 328}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 329}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 330}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 331}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 332}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 333}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 334}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 335}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 336}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 337}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 338}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 339}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 340}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 341}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 342}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 343}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 344}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 345}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 346}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 347}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 348}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 349}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 350}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 351}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 352}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 353}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 354}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 355}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 356}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 357}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 358}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 359}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 360}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 361}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 362}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 363}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 364}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 365}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 366}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 367}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 368}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 369}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 370}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 371}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 372}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 373}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 374}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 375}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 376}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 377}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 378}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 379}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 380}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 381}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 382}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 383}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 384}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 385}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 386}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 387}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 388}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 389}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 390}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 391}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 392}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 393}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 394}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 395}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 396}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 397}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 398}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 399}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 400}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 401}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 402}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 403}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 404}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 405}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 406}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 407}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 408}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 409}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 410}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 411}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 412}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 413}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 414}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 415}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 416}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 417}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 418}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 419}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 420}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 421}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 422}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 423}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 424}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 425}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 426}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 427}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 428}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 429}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 430}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 431}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 432}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 433}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 434}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 435}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 436}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 437}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 438}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 439}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 440}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 441}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 442}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 443}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 444}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 445}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 446}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 447}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 448}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 449}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 450}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 451}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 452}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 453}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 454}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 455}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 456}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 457}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 458}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 459}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 460}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 461}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 462}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 463}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 464}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 465}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 466}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 467}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 468}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 469}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 470}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 471}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 472}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 473}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 474}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 475}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 476}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 477}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 478}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 479}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 480}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 481}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 482}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 483}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 484}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 485}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 486}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 487}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 488}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 489}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 490}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 491}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 492}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 493}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 494}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 495}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 496}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 497}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 498}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 499}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 500}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 501}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 502}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 503}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 504}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 505}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 506}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 507}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 508}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 509}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 510}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 511}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 512}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 513}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 514}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 515}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 516}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 517}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 518}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 519}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 520}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 521}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 522}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 523}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 524}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 525}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 526}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 527}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 528}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 529}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 530}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 531}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 532}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 533}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 534}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 535}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 536}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 537}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 538}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 539}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 540}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 541}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 542}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 543}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 544}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 545}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 546}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 547}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 548}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 549}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 550}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 551}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 552}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 553}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 554}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 555}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 556}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 557}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 558}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 559}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 560}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 561}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 562}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 563}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 564}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 565}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 566}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 567}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 568}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 569}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 570}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 571}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 572}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 573}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 574}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 575}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 576}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 577}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 578}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 579}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 580}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 581}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 582}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 583}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 584}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 585}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 586}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 587}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 588}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 589}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 590}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 591}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 592}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 593}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 594}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 595}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 596}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 597}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 598}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 599}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 600}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 601}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 602}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 603}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 604}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 605}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 606}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 607}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 608}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 609}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 610}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 611}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 612}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 613}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 614}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 615}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 616}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 617}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 618}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 619}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 620}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 621}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 622}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 623}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 624}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 625}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 626}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 627}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 628}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 629}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 630}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 631}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 632}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 633}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 634}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 635}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 636}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 637}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 638}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 639}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 640}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 641}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 642}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 643}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 644}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 645}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 646}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 647}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 648}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 649}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 650}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 651}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 652}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 653}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 654}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 655}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 656}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 657}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 658}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 659}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 660}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 661}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 662}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 663}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 664}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 665}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 666}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 667}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 668}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 669}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 670}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 671}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 672}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 673}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 674}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 675}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 676}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 677}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 678}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 679}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 680}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 681}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 682}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 683}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 684}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 685}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 686}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 687}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 688}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 689}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 690}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 691}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 692}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 693}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 694}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 695}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 696}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 697}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 698}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 699}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 700}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 701}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 702}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 703}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 704}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 705}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 706}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 707}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 708}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 709}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 710}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 711}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 712}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 713}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 714}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 715}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 716}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 717}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 718}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 719}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 720}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 721}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 722}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 723}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 724}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 725}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 726}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 727}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 728}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 729}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 730}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 731}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 732}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 733}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 734}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 735}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 736}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 737}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 738}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 739}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 740}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 741}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 742}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 743}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 744}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 745}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 746}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 747}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 748}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 749}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 750}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 751}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 752}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 753}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 754}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 755}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 756}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 757}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 758}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 759}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 760}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 761}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 762}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 763}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 764}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 765}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 766}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 767}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 768}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 769}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 770}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 771}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 772}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 773}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 774}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 775}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 776}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 777}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 778}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 779}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 780}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 781}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 782}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 783}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 784}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 785}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 786}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 787}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 788}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 789}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 790}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 791}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 792}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 793}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 794}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 795}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 796}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 797}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 798}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 799}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 800}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 801}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 802}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 803}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 804}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 805}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 806}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 807}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 808}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 809}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 810}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 811}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 812}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 813}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 814}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 815}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 816}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 817}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 818}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 819}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 820}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 821}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 822}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 823}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 824}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 825}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 826}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 827}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 828}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 829}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 830}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 831}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 832}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 833}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 834}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 835}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 836}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 837}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 838}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 839}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 840}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 841}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 842}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 843}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 844}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 845}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 846}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 847}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 848}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 849}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 850}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 851}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 852}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 853}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 854}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 855}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 856}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 857}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 858}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 859}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 860}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 861}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 862}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 863}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 864}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 865}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 866}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 867}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 868}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 869}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 870}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 871}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 872}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 873}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 874}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 875}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 876}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 877}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 878}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 879}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 880}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 881}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 882}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 883}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 884}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 885}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 886}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 887}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 888}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 889}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 890}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 891}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 892}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 893}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 894}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 895}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 896}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 897}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 898}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 899}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 900}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 901}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 902}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 903}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 904}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 905}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 906}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 907}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 908}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 909}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 910}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 911}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 912}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 913}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 914}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 915}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 916}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 917}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 918}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 919}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 920}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 921}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 922}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 923}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 924}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 925}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 926}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 927}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 928}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 929}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 930}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 931}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 932}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 933}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 934}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 935}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 936}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 937}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 938}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 939}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 940}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 941}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 942}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 943}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 944}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 945}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 946}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 947}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 948}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 949}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 950}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 951}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 952}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 953}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 954}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 955}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 956}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 957}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 958}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 959}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 960}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 961}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 962}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 963}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 964}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 965}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 966}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 967}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 968}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 969}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 970}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 971}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 972}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 973}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 974}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 975}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 976}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 977}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 978}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 979}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 980}
+{"input_id": "B02", "kind": "base_stable", "phase": "stable_curriculum", "text": "A stable boundary lets the signal pass.", "tick": 981}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 982}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 983}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 984}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 985}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 986}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 987}
+{"input_id": "B06", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge marks the crossing and then releases.", "tick": 988}
+{"input_id": "B03", "kind": "base_stable", "phase": "stable_curriculum", "text": "The crossing waits until the boundary is steady.", "tick": 989}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 990}
+{"input_id": "B04", "kind": "base_stable", "phase": "stable_curriculum", "text": "A latch keeps the path stable before transfer.", "tick": 991}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 992}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 993}
+{"input_id": "B01", "kind": "base_stable", "phase": "stable_curriculum", "text": "The gate opens after the bridge holds.", "tick": 994}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 995}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 996}
+{"input_id": "B05", "kind": "base_stable", "phase": "stable_curriculum", "text": "The held path admits the next signal.", "tick": 997}
+{"input_id": "B07", "kind": "base_stable", "phase": "stable_curriculum", "text": "The boundary holds while the signal moves across.", "tick": 998}
+{"input_id": "B00", "kind": "base_stable", "phase": "stable_curriculum", "text": "The bridge holds while the signal crosses.", "tick": 999}
+{"input_id": "B00", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge holds while the signal crosses.", "tick": 1000}
+{"input_id": "B02", "kind": "base_repeat", "phase": "probe_mixture", "text": "A stable boundary lets the signal pass.", "tick": 1001}
+{"input_id": "C04", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "A truck turns slowly under the streetlight.", "tick": 1002}
+{"input_id": "S03", "kind": "social_affective", "phase": "probe_mixture", "text": "The teacher comforts the nervous student.", "tick": 1003}
+{"input_id": "B00", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge holds while the signal crosses.", "tick": 1004}
+{"input_id": "B00", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge holds while the signal crosses.", "tick": 1005}
+{"input_id": "C01", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "The rain taps on the window beside the red chair.", "tick": 1006}
+{"input_id": "I04", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "Transfer begins before the path becomes stable.", "tick": 1007}
+{"input_id": "B00", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge holds while the signal crosses.", "tick": 1008}
+{"input_id": "I03", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The crossing collapses before the latch can hold.", "tick": 1009}
+{"input_id": "I00", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The bridge breaks before the signal can cross.", "tick": 1010}
+{"input_id": "I03", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The crossing collapses before the latch can hold.", "tick": 1011}
+{"input_id": "B06", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge marks the crossing and then releases.", "tick": 1012}
+{"input_id": "I02", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The gate closes after the bridge fails.", "tick": 1013}
+{"input_id": "B03", "kind": "base_repeat", "phase": "probe_mixture", "text": "The crossing waits until the boundary is steady.", "tick": 1014}
+{"input_id": "B00", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge holds while the signal crosses.", "tick": 1015}
+{"input_id": "S05", "kind": "social_affective", "phase": "probe_mixture", "text": "The neighbor waves from the open doorway.", "tick": 1016}
+{"input_id": "P05", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The bridge keeps the transfer stable.", "tick": 1017}
+{"input_id": "P04", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The crossing proceeds after the path settles.", "tick": 1018}
+{"input_id": "B03", "kind": "base_repeat", "phase": "probe_mixture", "text": "The crossing waits until the boundary is steady.", "tick": 1019}
+{"input_id": "S01", "kind": "social_affective", "phase": "probe_mixture", "text": "Two friends argue quietly at the table.", "tick": 1020}
+{"input_id": "C05", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "The orange peel curls beside the metal spoon.", "tick": 1021}
+{"input_id": "P00", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The pathway stays steady while the message moves through.", "tick": 1022}
+{"input_id": "P05", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The bridge keeps the transfer stable.", "tick": 1023}
+{"input_id": "P02", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The span remains fixed until the crossing is complete.", "tick": 1024}
+{"input_id": "I03", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The crossing collapses before the latch can hold.", "tick": 1025}
+{"input_id": "B07", "kind": "base_repeat", "phase": "probe_mixture", "text": "The boundary holds while the signal moves across.", "tick": 1026}
+{"input_id": "P02", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The span remains fixed until the crossing is complete.", "tick": 1027}
+{"input_id": "B06", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge marks the crossing and then releases.", "tick": 1028}
+{"input_id": "S02", "kind": "social_affective", "phase": "probe_mixture", "text": "The old woman smiles at the noisy street.", "tick": 1029}
+{"input_id": "P03", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "A held route lets the next pulse pass.", "tick": 1030}
+{"input_id": "I04", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "Transfer begins before the path becomes stable.", "tick": 1031}
+{"input_id": "P02", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The span remains fixed until the crossing is complete.", "tick": 1032}
+{"input_id": "P03", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "A held route lets the next pulse pass.", "tick": 1033}
+{"input_id": "B00", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge holds while the signal crosses.", "tick": 1034}
+{"input_id": "P02", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The span remains fixed until the crossing is complete.", "tick": 1035}
+{"input_id": "C01", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "The rain taps on the window beside the red chair.", "tick": 1036}
+{"input_id": "C05", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "The orange peel curls beside the metal spoon.", "tick": 1037}
+{"input_id": "B04", "kind": "base_repeat", "phase": "probe_mixture", "text": "A latch keeps the path stable before transfer.", "tick": 1038}
+{"input_id": "S00", "kind": "social_affective", "phase": "probe_mixture", "text": "A child laughs beside a sleeping dog.", "tick": 1039}
+{"input_id": "B05", "kind": "base_repeat", "phase": "probe_mixture", "text": "The held path admits the next signal.", "tick": 1040}
+{"input_id": "P00", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The pathway stays steady while the message moves through.", "tick": 1041}
+{"input_id": "I01", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The boundary blocks the signal and denies passage.", "tick": 1042}
+{"input_id": "B05", "kind": "base_repeat", "phase": "probe_mixture", "text": "The held path admits the next signal.", "tick": 1043}
+{"input_id": "B06", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge marks the crossing and then releases.", "tick": 1044}
+{"input_id": "P04", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The crossing proceeds after the path settles.", "tick": 1045}
+{"input_id": "P03", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "A held route lets the next pulse pass.", "tick": 1046}
+{"input_id": "P00", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The pathway stays steady while the message moves through.", "tick": 1047}
+{"input_id": "S02", "kind": "social_affective", "phase": "probe_mixture", "text": "The old woman smiles at the noisy street.", "tick": 1048}
+{"input_id": "S03", "kind": "social_affective", "phase": "probe_mixture", "text": "The teacher comforts the nervous student.", "tick": 1049}
+{"input_id": "I05", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The signal leaves while the boundary breaks.", "tick": 1050}
+{"input_id": "P00", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The pathway stays steady while the message moves through.", "tick": 1051}
+{"input_id": "I04", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "Transfer begins before the path becomes stable.", "tick": 1052}
+{"input_id": "B05", "kind": "base_repeat", "phase": "probe_mixture", "text": "The held path admits the next signal.", "tick": 1053}
+{"input_id": "B07", "kind": "base_repeat", "phase": "probe_mixture", "text": "The boundary holds while the signal moves across.", "tick": 1054}
+{"input_id": "B01", "kind": "base_repeat", "phase": "probe_mixture", "text": "The gate opens after the bridge holds.", "tick": 1055}
+{"input_id": "I05", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The signal leaves while the boundary breaks.", "tick": 1056}
+{"input_id": "B07", "kind": "base_repeat", "phase": "probe_mixture", "text": "The boundary holds while the signal moves across.", "tick": 1057}
+{"input_id": "C01", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "The rain taps on the window beside the red chair.", "tick": 1058}
+{"input_id": "B04", "kind": "base_repeat", "phase": "probe_mixture", "text": "A latch keeps the path stable before transfer.", "tick": 1059}
+{"input_id": "I05", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The signal leaves while the boundary breaks.", "tick": 1060}
+{"input_id": "I03", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The crossing collapses before the latch can hold.", "tick": 1061}
+{"input_id": "B02", "kind": "base_repeat", "phase": "probe_mixture", "text": "A stable boundary lets the signal pass.", "tick": 1062}
+{"input_id": "C03", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "The candle melts beside a blue notebook.", "tick": 1063}
+{"input_id": "B06", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge marks the crossing and then releases.", "tick": 1064}
+{"input_id": "B05", "kind": "base_repeat", "phase": "probe_mixture", "text": "The held path admits the next signal.", "tick": 1065}
+{"input_id": "S02", "kind": "social_affective", "phase": "probe_mixture", "text": "The old woman smiles at the noisy street.", "tick": 1066}
+{"input_id": "C02", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "A stone rolls down the hill into cold water.", "tick": 1067}
+{"input_id": "B06", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge marks the crossing and then releases.", "tick": 1068}
+{"input_id": "B00", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge holds while the signal crosses.", "tick": 1069}
+{"input_id": "S05", "kind": "social_affective", "phase": "probe_mixture", "text": "The neighbor waves from the open doorway.", "tick": 1070}
+{"input_id": "B02", "kind": "base_repeat", "phase": "probe_mixture", "text": "A stable boundary lets the signal pass.", "tick": 1071}
+{"input_id": "S05", "kind": "social_affective", "phase": "probe_mixture", "text": "The neighbor waves from the open doorway.", "tick": 1072}
+{"input_id": "S00", "kind": "social_affective", "phase": "probe_mixture", "text": "A child laughs beside a sleeping dog.", "tick": 1073}
+{"input_id": "C04", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "A truck turns slowly under the streetlight.", "tick": 1074}
+{"input_id": "B05", "kind": "base_repeat", "phase": "probe_mixture", "text": "The held path admits the next signal.", "tick": 1075}
+{"input_id": "I04", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "Transfer begins before the path becomes stable.", "tick": 1076}
+{"input_id": "I04", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "Transfer begins before the path becomes stable.", "tick": 1077}
+{"input_id": "B00", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge holds while the signal crosses.", "tick": 1078}
+{"input_id": "B06", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge marks the crossing and then releases.", "tick": 1079}
+{"input_id": "S04", "kind": "social_affective", "phase": "probe_mixture", "text": "A brother waits while his sister sings.", "tick": 1080}
+{"input_id": "B03", "kind": "base_repeat", "phase": "probe_mixture", "text": "The crossing waits until the boundary is steady.", "tick": 1081}
+{"input_id": "B00", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge holds while the signal crosses.", "tick": 1082}
+{"input_id": "S04", "kind": "social_affective", "phase": "probe_mixture", "text": "A brother waits while his sister sings.", "tick": 1083}
+{"input_id": "P03", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "A held route lets the next pulse pass.", "tick": 1084}
+{"input_id": "S05", "kind": "social_affective", "phase": "probe_mixture", "text": "The neighbor waves from the open doorway.", "tick": 1085}
+{"input_id": "P04", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The crossing proceeds after the path settles.", "tick": 1086}
+{"input_id": "S04", "kind": "social_affective", "phase": "probe_mixture", "text": "A brother waits while his sister sings.", "tick": 1087}
+{"input_id": "B04", "kind": "base_repeat", "phase": "probe_mixture", "text": "A latch keeps the path stable before transfer.", "tick": 1088}
+{"input_id": "S00", "kind": "social_affective", "phase": "probe_mixture", "text": "A child laughs beside a sleeping dog.", "tick": 1089}
+{"input_id": "S00", "kind": "social_affective", "phase": "probe_mixture", "text": "A child laughs beside a sleeping dog.", "tick": 1090}
+{"input_id": "P04", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The crossing proceeds after the path settles.", "tick": 1091}
+{"input_id": "B05", "kind": "base_repeat", "phase": "probe_mixture", "text": "The held path admits the next signal.", "tick": 1092}
+{"input_id": "B07", "kind": "base_repeat", "phase": "probe_mixture", "text": "The boundary holds while the signal moves across.", "tick": 1093}
+{"input_id": "C00", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "The cup falls and shatters on the kitchen floor.", "tick": 1094}
+{"input_id": "C02", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "A stone rolls down the hill into cold water.", "tick": 1095}
+{"input_id": "C05", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "The orange peel curls beside the metal spoon.", "tick": 1096}
+{"input_id": "B05", "kind": "base_repeat", "phase": "probe_mixture", "text": "The held path admits the next signal.", "tick": 1097}
+{"input_id": "B03", "kind": "base_repeat", "phase": "probe_mixture", "text": "The crossing waits until the boundary is steady.", "tick": 1098}
+{"input_id": "C05", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "The orange peel curls beside the metal spoon.", "tick": 1099}
+{"input_id": "B06", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge marks the crossing and then releases.", "tick": 1100}
+{"input_id": "B05", "kind": "base_repeat", "phase": "probe_mixture", "text": "The held path admits the next signal.", "tick": 1101}
+{"input_id": "B02", "kind": "base_repeat", "phase": "probe_mixture", "text": "A stable boundary lets the signal pass.", "tick": 1102}
+{"input_id": "P05", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The bridge keeps the transfer stable.", "tick": 1103}
+{"input_id": "S01", "kind": "social_affective", "phase": "probe_mixture", "text": "Two friends argue quietly at the table.", "tick": 1104}
+{"input_id": "P00", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The pathway stays steady while the message moves through.", "tick": 1105}
+{"input_id": "B04", "kind": "base_repeat", "phase": "probe_mixture", "text": "A latch keeps the path stable before transfer.", "tick": 1106}
+{"input_id": "B03", "kind": "base_repeat", "phase": "probe_mixture", "text": "The crossing waits until the boundary is steady.", "tick": 1107}
+{"input_id": "C04", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "A truck turns slowly under the streetlight.", "tick": 1108}
+{"input_id": "I04", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "Transfer begins before the path becomes stable.", "tick": 1109}
+{"input_id": "B01", "kind": "base_repeat", "phase": "probe_mixture", "text": "The gate opens after the bridge holds.", "tick": 1110}
+{"input_id": "B00", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge holds while the signal crosses.", "tick": 1111}
+{"input_id": "S01", "kind": "social_affective", "phase": "probe_mixture", "text": "Two friends argue quietly at the table.", "tick": 1112}
+{"input_id": "B00", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge holds while the signal crosses.", "tick": 1113}
+{"input_id": "B03", "kind": "base_repeat", "phase": "probe_mixture", "text": "The crossing waits until the boundary is steady.", "tick": 1114}
+{"input_id": "C04", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "A truck turns slowly under the streetlight.", "tick": 1115}
+{"input_id": "B02", "kind": "base_repeat", "phase": "probe_mixture", "text": "A stable boundary lets the signal pass.", "tick": 1116}
+{"input_id": "I05", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The signal leaves while the boundary breaks.", "tick": 1117}
+{"input_id": "S05", "kind": "social_affective", "phase": "probe_mixture", "text": "The neighbor waves from the open doorway.", "tick": 1118}
+{"input_id": "B07", "kind": "base_repeat", "phase": "probe_mixture", "text": "The boundary holds while the signal moves across.", "tick": 1119}
+{"input_id": "C00", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "The cup falls and shatters on the kitchen floor.", "tick": 1120}
+{"input_id": "B07", "kind": "base_repeat", "phase": "probe_mixture", "text": "The boundary holds while the signal moves across.", "tick": 1121}
+{"input_id": "C02", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "A stone rolls down the hill into cold water.", "tick": 1122}
+{"input_id": "C03", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "The candle melts beside a blue notebook.", "tick": 1123}
+{"input_id": "P02", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The span remains fixed until the crossing is complete.", "tick": 1124}
+{"input_id": "S05", "kind": "social_affective", "phase": "probe_mixture", "text": "The neighbor waves from the open doorway.", "tick": 1125}
+{"input_id": "I04", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "Transfer begins before the path becomes stable.", "tick": 1126}
+{"input_id": "I05", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The signal leaves while the boundary breaks.", "tick": 1127}
+{"input_id": "I01", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The boundary blocks the signal and denies passage.", "tick": 1128}
+{"input_id": "B04", "kind": "base_repeat", "phase": "probe_mixture", "text": "A latch keeps the path stable before transfer.", "tick": 1129}
+{"input_id": "B00", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge holds while the signal crosses.", "tick": 1130}
+{"input_id": "I03", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The crossing collapses before the latch can hold.", "tick": 1131}
+{"input_id": "B04", "kind": "base_repeat", "phase": "probe_mixture", "text": "A latch keeps the path stable before transfer.", "tick": 1132}
+{"input_id": "B04", "kind": "base_repeat", "phase": "probe_mixture", "text": "A latch keeps the path stable before transfer.", "tick": 1133}
+{"input_id": "B05", "kind": "base_repeat", "phase": "probe_mixture", "text": "The held path admits the next signal.", "tick": 1134}
+{"input_id": "B04", "kind": "base_repeat", "phase": "probe_mixture", "text": "A latch keeps the path stable before transfer.", "tick": 1135}
+{"input_id": "I00", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The bridge breaks before the signal can cross.", "tick": 1136}
+{"input_id": "B06", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge marks the crossing and then releases.", "tick": 1137}
+{"input_id": "B00", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge holds while the signal crosses.", "tick": 1138}
+{"input_id": "B06", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge marks the crossing and then releases.", "tick": 1139}
+{"input_id": "C04", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "A truck turns slowly under the streetlight.", "tick": 1140}
+{"input_id": "B03", "kind": "base_repeat", "phase": "probe_mixture", "text": "The crossing waits until the boundary is steady.", "tick": 1141}
+{"input_id": "B03", "kind": "base_repeat", "phase": "probe_mixture", "text": "The crossing waits until the boundary is steady.", "tick": 1142}
+{"input_id": "B03", "kind": "base_repeat", "phase": "probe_mixture", "text": "The crossing waits until the boundary is steady.", "tick": 1143}
+{"input_id": "B05", "kind": "base_repeat", "phase": "probe_mixture", "text": "The held path admits the next signal.", "tick": 1144}
+{"input_id": "B05", "kind": "base_repeat", "phase": "probe_mixture", "text": "The held path admits the next signal.", "tick": 1145}
+{"input_id": "B00", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge holds while the signal crosses.", "tick": 1146}
+{"input_id": "P01", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "A firm edge allows the signal to continue.", "tick": 1147}
+{"input_id": "P02", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The span remains fixed until the crossing is complete.", "tick": 1148}
+{"input_id": "B01", "kind": "base_repeat", "phase": "probe_mixture", "text": "The gate opens after the bridge holds.", "tick": 1149}
+{"input_id": "S05", "kind": "social_affective", "phase": "probe_mixture", "text": "The neighbor waves from the open doorway.", "tick": 1150}
+{"input_id": "P02", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The span remains fixed until the crossing is complete.", "tick": 1151}
+{"input_id": "I00", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The bridge breaks before the signal can cross.", "tick": 1152}
+{"input_id": "P00", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The pathway stays steady while the message moves through.", "tick": 1153}
+{"input_id": "B05", "kind": "base_repeat", "phase": "probe_mixture", "text": "The held path admits the next signal.", "tick": 1154}
+{"input_id": "B06", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge marks the crossing and then releases.", "tick": 1155}
+{"input_id": "B00", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge holds while the signal crosses.", "tick": 1156}
+{"input_id": "P00", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The pathway stays steady while the message moves through.", "tick": 1157}
+{"input_id": "B04", "kind": "base_repeat", "phase": "probe_mixture", "text": "A latch keeps the path stable before transfer.", "tick": 1158}
+{"input_id": "B04", "kind": "base_repeat", "phase": "probe_mixture", "text": "A latch keeps the path stable before transfer.", "tick": 1159}
+{"input_id": "P03", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "A held route lets the next pulse pass.", "tick": 1160}
+{"input_id": "I03", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The crossing collapses before the latch can hold.", "tick": 1161}
+{"input_id": "P05", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The bridge keeps the transfer stable.", "tick": 1162}
+{"input_id": "S05", "kind": "social_affective", "phase": "probe_mixture", "text": "The neighbor waves from the open doorway.", "tick": 1163}
+{"input_id": "I04", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "Transfer begins before the path becomes stable.", "tick": 1164}
+{"input_id": "I02", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The gate closes after the bridge fails.", "tick": 1165}
+{"input_id": "I01", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The boundary blocks the signal and denies passage.", "tick": 1166}
+{"input_id": "S05", "kind": "social_affective", "phase": "probe_mixture", "text": "The neighbor waves from the open doorway.", "tick": 1167}
+{"input_id": "B05", "kind": "base_repeat", "phase": "probe_mixture", "text": "The held path admits the next signal.", "tick": 1168}
+{"input_id": "B07", "kind": "base_repeat", "phase": "probe_mixture", "text": "The boundary holds while the signal moves across.", "tick": 1169}
+{"input_id": "B05", "kind": "base_repeat", "phase": "probe_mixture", "text": "The held path admits the next signal.", "tick": 1170}
+{"input_id": "P03", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "A held route lets the next pulse pass.", "tick": 1171}
+{"input_id": "B00", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge holds while the signal crosses.", "tick": 1172}
+{"input_id": "B05", "kind": "base_repeat", "phase": "probe_mixture", "text": "The held path admits the next signal.", "tick": 1173}
+{"input_id": "S00", "kind": "social_affective", "phase": "probe_mixture", "text": "A child laughs beside a sleeping dog.", "tick": 1174}
+{"input_id": "P05", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The bridge keeps the transfer stable.", "tick": 1175}
+{"input_id": "P04", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The crossing proceeds after the path settles.", "tick": 1176}
+{"input_id": "I05", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The signal leaves while the boundary breaks.", "tick": 1177}
+{"input_id": "C04", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "A truck turns slowly under the streetlight.", "tick": 1178}
+{"input_id": "B07", "kind": "base_repeat", "phase": "probe_mixture", "text": "The boundary holds while the signal moves across.", "tick": 1179}
+{"input_id": "P02", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The span remains fixed until the crossing is complete.", "tick": 1180}
+{"input_id": "B03", "kind": "base_repeat", "phase": "probe_mixture", "text": "The crossing waits until the boundary is steady.", "tick": 1181}
+{"input_id": "P04", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The crossing proceeds after the path settles.", "tick": 1182}
+{"input_id": "B05", "kind": "base_repeat", "phase": "probe_mixture", "text": "The held path admits the next signal.", "tick": 1183}
+{"input_id": "I05", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The signal leaves while the boundary breaks.", "tick": 1184}
+{"input_id": "B02", "kind": "base_repeat", "phase": "probe_mixture", "text": "A stable boundary lets the signal pass.", "tick": 1185}
+{"input_id": "P00", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The pathway stays steady while the message moves through.", "tick": 1186}
+{"input_id": "B06", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge marks the crossing and then releases.", "tick": 1187}
+{"input_id": "B06", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge marks the crossing and then releases.", "tick": 1188}
+{"input_id": "I00", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The bridge breaks before the signal can cross.", "tick": 1189}
+{"input_id": "B04", "kind": "base_repeat", "phase": "probe_mixture", "text": "A latch keeps the path stable before transfer.", "tick": 1190}
+{"input_id": "C00", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "The cup falls and shatters on the kitchen floor.", "tick": 1191}
+{"input_id": "B05", "kind": "base_repeat", "phase": "probe_mixture", "text": "The held path admits the next signal.", "tick": 1192}
+{"input_id": "B00", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge holds while the signal crosses.", "tick": 1193}
+{"input_id": "S00", "kind": "social_affective", "phase": "probe_mixture", "text": "A child laughs beside a sleeping dog.", "tick": 1194}
+{"input_id": "S00", "kind": "social_affective", "phase": "probe_mixture", "text": "A child laughs beside a sleeping dog.", "tick": 1195}
+{"input_id": "P05", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The bridge keeps the transfer stable.", "tick": 1196}
+{"input_id": "I03", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The crossing collapses before the latch can hold.", "tick": 1197}
+{"input_id": "I01", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The boundary blocks the signal and denies passage.", "tick": 1198}
+{"input_id": "B07", "kind": "base_repeat", "phase": "probe_mixture", "text": "The boundary holds while the signal moves across.", "tick": 1199}
+{"input_id": "B07", "kind": "base_repeat", "phase": "probe_mixture", "text": "The boundary holds while the signal moves across.", "tick": 1200}
+{"input_id": "B02", "kind": "base_repeat", "phase": "probe_mixture", "text": "A stable boundary lets the signal pass.", "tick": 1201}
+{"input_id": "I03", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The crossing collapses before the latch can hold.", "tick": 1202}
+{"input_id": "P03", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "A held route lets the next pulse pass.", "tick": 1203}
+{"input_id": "C01", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "The rain taps on the window beside the red chair.", "tick": 1204}
+{"input_id": "B04", "kind": "base_repeat", "phase": "probe_mixture", "text": "A latch keeps the path stable before transfer.", "tick": 1205}
+{"input_id": "S03", "kind": "social_affective", "phase": "probe_mixture", "text": "The teacher comforts the nervous student.", "tick": 1206}
+{"input_id": "P03", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "A held route lets the next pulse pass.", "tick": 1207}
+{"input_id": "B04", "kind": "base_repeat", "phase": "probe_mixture", "text": "A latch keeps the path stable before transfer.", "tick": 1208}
+{"input_id": "B02", "kind": "base_repeat", "phase": "probe_mixture", "text": "A stable boundary lets the signal pass.", "tick": 1209}
+{"input_id": "B04", "kind": "base_repeat", "phase": "probe_mixture", "text": "A latch keeps the path stable before transfer.", "tick": 1210}
+{"input_id": "S05", "kind": "social_affective", "phase": "probe_mixture", "text": "The neighbor waves from the open doorway.", "tick": 1211}
+{"input_id": "B05", "kind": "base_repeat", "phase": "probe_mixture", "text": "The held path admits the next signal.", "tick": 1212}
+{"input_id": "B05", "kind": "base_repeat", "phase": "probe_mixture", "text": "The held path admits the next signal.", "tick": 1213}
+{"input_id": "C02", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "A stone rolls down the hill into cold water.", "tick": 1214}
+{"input_id": "B02", "kind": "base_repeat", "phase": "probe_mixture", "text": "A stable boundary lets the signal pass.", "tick": 1215}
+{"input_id": "B00", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge holds while the signal crosses.", "tick": 1216}
+{"input_id": "B03", "kind": "base_repeat", "phase": "probe_mixture", "text": "The crossing waits until the boundary is steady.", "tick": 1217}
+{"input_id": "B00", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge holds while the signal crosses.", "tick": 1218}
+{"input_id": "B06", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge marks the crossing and then releases.", "tick": 1219}
+{"input_id": "P04", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The crossing proceeds after the path settles.", "tick": 1220}
+{"input_id": "S05", "kind": "social_affective", "phase": "probe_mixture", "text": "The neighbor waves from the open doorway.", "tick": 1221}
+{"input_id": "B02", "kind": "base_repeat", "phase": "probe_mixture", "text": "A stable boundary lets the signal pass.", "tick": 1222}
+{"input_id": "B05", "kind": "base_repeat", "phase": "probe_mixture", "text": "The held path admits the next signal.", "tick": 1223}
+{"input_id": "B07", "kind": "base_repeat", "phase": "probe_mixture", "text": "The boundary holds while the signal moves across.", "tick": 1224}
+{"input_id": "I02", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The gate closes after the bridge fails.", "tick": 1225}
+{"input_id": "P04", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The crossing proceeds after the path settles.", "tick": 1226}
+{"input_id": "C00", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "The cup falls and shatters on the kitchen floor.", "tick": 1227}
+{"input_id": "C00", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "The cup falls and shatters on the kitchen floor.", "tick": 1228}
+{"input_id": "C02", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "A stone rolls down the hill into cold water.", "tick": 1229}
+{"input_id": "C00", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "The cup falls and shatters on the kitchen floor.", "tick": 1230}
+{"input_id": "B00", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge holds while the signal crosses.", "tick": 1231}
+{"input_id": "S05", "kind": "social_affective", "phase": "probe_mixture", "text": "The neighbor waves from the open doorway.", "tick": 1232}
+{"input_id": "B02", "kind": "base_repeat", "phase": "probe_mixture", "text": "A stable boundary lets the signal pass.", "tick": 1233}
+{"input_id": "P01", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "A firm edge allows the signal to continue.", "tick": 1234}
+{"input_id": "C01", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "The rain taps on the window beside the red chair.", "tick": 1235}
+{"input_id": "I03", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The crossing collapses before the latch can hold.", "tick": 1236}
+{"input_id": "P05", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The bridge keeps the transfer stable.", "tick": 1237}
+{"input_id": "B07", "kind": "base_repeat", "phase": "probe_mixture", "text": "The boundary holds while the signal moves across.", "tick": 1238}
+{"input_id": "B03", "kind": "base_repeat", "phase": "probe_mixture", "text": "The crossing waits until the boundary is steady.", "tick": 1239}
+{"input_id": "I03", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The crossing collapses before the latch can hold.", "tick": 1240}
+{"input_id": "B07", "kind": "base_repeat", "phase": "probe_mixture", "text": "The boundary holds while the signal moves across.", "tick": 1241}
+{"input_id": "P04", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The crossing proceeds after the path settles.", "tick": 1242}
+{"input_id": "B07", "kind": "base_repeat", "phase": "probe_mixture", "text": "The boundary holds while the signal moves across.", "tick": 1243}
+{"input_id": "C01", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "The rain taps on the window beside the red chair.", "tick": 1244}
+{"input_id": "C04", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "A truck turns slowly under the streetlight.", "tick": 1245}
+{"input_id": "B07", "kind": "base_repeat", "phase": "probe_mixture", "text": "The boundary holds while the signal moves across.", "tick": 1246}
+{"input_id": "C03", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "The candle melts beside a blue notebook.", "tick": 1247}
+{"input_id": "I04", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "Transfer begins before the path becomes stable.", "tick": 1248}
+{"input_id": "I01", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The boundary blocks the signal and denies passage.", "tick": 1249}
+{"input_id": "B02", "kind": "base_repeat", "phase": "probe_mixture", "text": "A stable boundary lets the signal pass.", "tick": 1250}
+{"input_id": "B00", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge holds while the signal crosses.", "tick": 1251}
+{"input_id": "I00", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The bridge breaks before the signal can cross.", "tick": 1252}
+{"input_id": "C01", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "The rain taps on the window beside the red chair.", "tick": 1253}
+{"input_id": "B06", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge marks the crossing and then releases.", "tick": 1254}
+{"input_id": "P04", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The crossing proceeds after the path settles.", "tick": 1255}
+{"input_id": "B00", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge holds while the signal crosses.", "tick": 1256}
+{"input_id": "S00", "kind": "social_affective", "phase": "probe_mixture", "text": "A child laughs beside a sleeping dog.", "tick": 1257}
+{"input_id": "C01", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "The rain taps on the window beside the red chair.", "tick": 1258}
+{"input_id": "B03", "kind": "base_repeat", "phase": "probe_mixture", "text": "The crossing waits until the boundary is steady.", "tick": 1259}
+{"input_id": "P02", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The span remains fixed until the crossing is complete.", "tick": 1260}
+{"input_id": "I03", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The crossing collapses before the latch can hold.", "tick": 1261}
+{"input_id": "B05", "kind": "base_repeat", "phase": "probe_mixture", "text": "The held path admits the next signal.", "tick": 1262}
+{"input_id": "C02", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "A stone rolls down the hill into cold water.", "tick": 1263}
+{"input_id": "B00", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge holds while the signal crosses.", "tick": 1264}
+{"input_id": "S04", "kind": "social_affective", "phase": "probe_mixture", "text": "A brother waits while his sister sings.", "tick": 1265}
+{"input_id": "B01", "kind": "base_repeat", "phase": "probe_mixture", "text": "The gate opens after the bridge holds.", "tick": 1266}
+{"input_id": "B07", "kind": "base_repeat", "phase": "probe_mixture", "text": "The boundary holds while the signal moves across.", "tick": 1267}
+{"input_id": "I01", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The boundary blocks the signal and denies passage.", "tick": 1268}
+{"input_id": "B05", "kind": "base_repeat", "phase": "probe_mixture", "text": "The held path admits the next signal.", "tick": 1269}
+{"input_id": "P01", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "A firm edge allows the signal to continue.", "tick": 1270}
+{"input_id": "B04", "kind": "base_repeat", "phase": "probe_mixture", "text": "A latch keeps the path stable before transfer.", "tick": 1271}
+{"input_id": "C01", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "The rain taps on the window beside the red chair.", "tick": 1272}
+{"input_id": "C00", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "The cup falls and shatters on the kitchen floor.", "tick": 1273}
+{"input_id": "P00", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The pathway stays steady while the message moves through.", "tick": 1274}
+{"input_id": "B05", "kind": "base_repeat", "phase": "probe_mixture", "text": "The held path admits the next signal.", "tick": 1275}
+{"input_id": "B04", "kind": "base_repeat", "phase": "probe_mixture", "text": "A latch keeps the path stable before transfer.", "tick": 1276}
+{"input_id": "P01", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "A firm edge allows the signal to continue.", "tick": 1277}
+{"input_id": "I05", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The signal leaves while the boundary breaks.", "tick": 1278}
+{"input_id": "P01", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "A firm edge allows the signal to continue.", "tick": 1279}
+{"input_id": "B00", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge holds while the signal crosses.", "tick": 1280}
+{"input_id": "S01", "kind": "social_affective", "phase": "probe_mixture", "text": "Two friends argue quietly at the table.", "tick": 1281}
+{"input_id": "P00", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The pathway stays steady while the message moves through.", "tick": 1282}
+{"input_id": "C00", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "The cup falls and shatters on the kitchen floor.", "tick": 1283}
+{"input_id": "B00", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge holds while the signal crosses.", "tick": 1284}
+{"input_id": "S05", "kind": "social_affective", "phase": "probe_mixture", "text": "The neighbor waves from the open doorway.", "tick": 1285}
+{"input_id": "C01", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "The rain taps on the window beside the red chair.", "tick": 1286}
+{"input_id": "C05", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "The orange peel curls beside the metal spoon.", "tick": 1287}
+{"input_id": "P02", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The span remains fixed until the crossing is complete.", "tick": 1288}
+{"input_id": "S00", "kind": "social_affective", "phase": "probe_mixture", "text": "A child laughs beside a sleeping dog.", "tick": 1289}
+{"input_id": "B00", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge holds while the signal crosses.", "tick": 1290}
+{"input_id": "B05", "kind": "base_repeat", "phase": "probe_mixture", "text": "The held path admits the next signal.", "tick": 1291}
+{"input_id": "B06", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge marks the crossing and then releases.", "tick": 1292}
+{"input_id": "P00", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The pathway stays steady while the message moves through.", "tick": 1293}
+{"input_id": "S01", "kind": "social_affective", "phase": "probe_mixture", "text": "Two friends argue quietly at the table.", "tick": 1294}
+{"input_id": "B03", "kind": "base_repeat", "phase": "probe_mixture", "text": "The crossing waits until the boundary is steady.", "tick": 1295}
+{"input_id": "I00", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The bridge breaks before the signal can cross.", "tick": 1296}
+{"input_id": "B01", "kind": "base_repeat", "phase": "probe_mixture", "text": "The gate opens after the bridge holds.", "tick": 1297}
+{"input_id": "I00", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The bridge breaks before the signal can cross.", "tick": 1298}
+{"input_id": "S02", "kind": "social_affective", "phase": "probe_mixture", "text": "The old woman smiles at the noisy street.", "tick": 1299}
+{"input_id": "B06", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge marks the crossing and then releases.", "tick": 1300}
+{"input_id": "B02", "kind": "base_repeat", "phase": "probe_mixture", "text": "A stable boundary lets the signal pass.", "tick": 1301}
+{"input_id": "C04", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "A truck turns slowly under the streetlight.", "tick": 1302}
+{"input_id": "S01", "kind": "social_affective", "phase": "probe_mixture", "text": "Two friends argue quietly at the table.", "tick": 1303}
+{"input_id": "B06", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge marks the crossing and then releases.", "tick": 1304}
+{"input_id": "P05", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The bridge keeps the transfer stable.", "tick": 1305}
+{"input_id": "S00", "kind": "social_affective", "phase": "probe_mixture", "text": "A child laughs beside a sleeping dog.", "tick": 1306}
+{"input_id": "C00", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "The cup falls and shatters on the kitchen floor.", "tick": 1307}
+{"input_id": "B01", "kind": "base_repeat", "phase": "probe_mixture", "text": "The gate opens after the bridge holds.", "tick": 1308}
+{"input_id": "C05", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "The orange peel curls beside the metal spoon.", "tick": 1309}
+{"input_id": "B04", "kind": "base_repeat", "phase": "probe_mixture", "text": "A latch keeps the path stable before transfer.", "tick": 1310}
+{"input_id": "B05", "kind": "base_repeat", "phase": "probe_mixture", "text": "The held path admits the next signal.", "tick": 1311}
+{"input_id": "I04", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "Transfer begins before the path becomes stable.", "tick": 1312}
+{"input_id": "B00", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge holds while the signal crosses.", "tick": 1313}
+{"input_id": "B07", "kind": "base_repeat", "phase": "probe_mixture", "text": "The boundary holds while the signal moves across.", "tick": 1314}
+{"input_id": "B07", "kind": "base_repeat", "phase": "probe_mixture", "text": "The boundary holds while the signal moves across.", "tick": 1315}
+{"input_id": "B04", "kind": "base_repeat", "phase": "probe_mixture", "text": "A latch keeps the path stable before transfer.", "tick": 1316}
+{"input_id": "B05", "kind": "base_repeat", "phase": "probe_mixture", "text": "The held path admits the next signal.", "tick": 1317}
+{"input_id": "P02", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The span remains fixed until the crossing is complete.", "tick": 1318}
+{"input_id": "B07", "kind": "base_repeat", "phase": "probe_mixture", "text": "The boundary holds while the signal moves across.", "tick": 1319}
+{"input_id": "I04", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "Transfer begins before the path becomes stable.", "tick": 1320}
+{"input_id": "B01", "kind": "base_repeat", "phase": "probe_mixture", "text": "The gate opens after the bridge holds.", "tick": 1321}
+{"input_id": "B01", "kind": "base_repeat", "phase": "probe_mixture", "text": "The gate opens after the bridge holds.", "tick": 1322}
+{"input_id": "P00", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The pathway stays steady while the message moves through.", "tick": 1323}
+{"input_id": "S02", "kind": "social_affective", "phase": "probe_mixture", "text": "The old woman smiles at the noisy street.", "tick": 1324}
+{"input_id": "I04", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "Transfer begins before the path becomes stable.", "tick": 1325}
+{"input_id": "I02", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The gate closes after the bridge fails.", "tick": 1326}
+{"input_id": "P04", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The crossing proceeds after the path settles.", "tick": 1327}
+{"input_id": "S00", "kind": "social_affective", "phase": "probe_mixture", "text": "A child laughs beside a sleeping dog.", "tick": 1328}
+{"input_id": "B03", "kind": "base_repeat", "phase": "probe_mixture", "text": "The crossing waits until the boundary is steady.", "tick": 1329}
+{"input_id": "S05", "kind": "social_affective", "phase": "probe_mixture", "text": "The neighbor waves from the open doorway.", "tick": 1330}
+{"input_id": "P04", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The crossing proceeds after the path settles.", "tick": 1331}
+{"input_id": "P05", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The bridge keeps the transfer stable.", "tick": 1332}
+{"input_id": "P01", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "A firm edge allows the signal to continue.", "tick": 1333}
+{"input_id": "S04", "kind": "social_affective", "phase": "probe_mixture", "text": "A brother waits while his sister sings.", "tick": 1334}
+{"input_id": "B01", "kind": "base_repeat", "phase": "probe_mixture", "text": "The gate opens after the bridge holds.", "tick": 1335}
+{"input_id": "C05", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "The orange peel curls beside the metal spoon.", "tick": 1336}
+{"input_id": "S05", "kind": "social_affective", "phase": "probe_mixture", "text": "The neighbor waves from the open doorway.", "tick": 1337}
+{"input_id": "B01", "kind": "base_repeat", "phase": "probe_mixture", "text": "The gate opens after the bridge holds.", "tick": 1338}
+{"input_id": "S00", "kind": "social_affective", "phase": "probe_mixture", "text": "A child laughs beside a sleeping dog.", "tick": 1339}
+{"input_id": "B04", "kind": "base_repeat", "phase": "probe_mixture", "text": "A latch keeps the path stable before transfer.", "tick": 1340}
+{"input_id": "I04", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "Transfer begins before the path becomes stable.", "tick": 1341}
+{"input_id": "B05", "kind": "base_repeat", "phase": "probe_mixture", "text": "The held path admits the next signal.", "tick": 1342}
+{"input_id": "B02", "kind": "base_repeat", "phase": "probe_mixture", "text": "A stable boundary lets the signal pass.", "tick": 1343}
+{"input_id": "C00", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "The cup falls and shatters on the kitchen floor.", "tick": 1344}
+{"input_id": "S00", "kind": "social_affective", "phase": "probe_mixture", "text": "A child laughs beside a sleeping dog.", "tick": 1345}
+{"input_id": "C01", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "The rain taps on the window beside the red chair.", "tick": 1346}
+{"input_id": "S03", "kind": "social_affective", "phase": "probe_mixture", "text": "The teacher comforts the nervous student.", "tick": 1347}
+{"input_id": "B03", "kind": "base_repeat", "phase": "probe_mixture", "text": "The crossing waits until the boundary is steady.", "tick": 1348}
+{"input_id": "B02", "kind": "base_repeat", "phase": "probe_mixture", "text": "A stable boundary lets the signal pass.", "tick": 1349}
+{"input_id": "P02", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The span remains fixed until the crossing is complete.", "tick": 1350}
+{"input_id": "B02", "kind": "base_repeat", "phase": "probe_mixture", "text": "A stable boundary lets the signal pass.", "tick": 1351}
+{"input_id": "B03", "kind": "base_repeat", "phase": "probe_mixture", "text": "The crossing waits until the boundary is steady.", "tick": 1352}
+{"input_id": "B03", "kind": "base_repeat", "phase": "probe_mixture", "text": "The crossing waits until the boundary is steady.", "tick": 1353}
+{"input_id": "B07", "kind": "base_repeat", "phase": "probe_mixture", "text": "The boundary holds while the signal moves across.", "tick": 1354}
+{"input_id": "I03", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The crossing collapses before the latch can hold.", "tick": 1355}
+{"input_id": "B00", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge holds while the signal crosses.", "tick": 1356}
+{"input_id": "B04", "kind": "base_repeat", "phase": "probe_mixture", "text": "A latch keeps the path stable before transfer.", "tick": 1357}
+{"input_id": "I00", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The bridge breaks before the signal can cross.", "tick": 1358}
+{"input_id": "C00", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "The cup falls and shatters on the kitchen floor.", "tick": 1359}
+{"input_id": "S02", "kind": "social_affective", "phase": "probe_mixture", "text": "The old woman smiles at the noisy street.", "tick": 1360}
+{"input_id": "C01", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "The rain taps on the window beside the red chair.", "tick": 1361}
+{"input_id": "S03", "kind": "social_affective", "phase": "probe_mixture", "text": "The teacher comforts the nervous student.", "tick": 1362}
+{"input_id": "B03", "kind": "base_repeat", "phase": "probe_mixture", "text": "The crossing waits until the boundary is steady.", "tick": 1363}
+{"input_id": "P02", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The span remains fixed until the crossing is complete.", "tick": 1364}
+{"input_id": "B04", "kind": "base_repeat", "phase": "probe_mixture", "text": "A latch keeps the path stable before transfer.", "tick": 1365}
+{"input_id": "B01", "kind": "base_repeat", "phase": "probe_mixture", "text": "The gate opens after the bridge holds.", "tick": 1366}
+{"input_id": "B06", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge marks the crossing and then releases.", "tick": 1367}
+{"input_id": "I03", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The crossing collapses before the latch can hold.", "tick": 1368}
+{"input_id": "B05", "kind": "base_repeat", "phase": "probe_mixture", "text": "The held path admits the next signal.", "tick": 1369}
+{"input_id": "B02", "kind": "base_repeat", "phase": "probe_mixture", "text": "A stable boundary lets the signal pass.", "tick": 1370}
+{"input_id": "C02", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "A stone rolls down the hill into cold water.", "tick": 1371}
+{"input_id": "B00", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge holds while the signal crosses.", "tick": 1372}
+{"input_id": "P01", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "A firm edge allows the signal to continue.", "tick": 1373}
+{"input_id": "C03", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "The candle melts beside a blue notebook.", "tick": 1374}
+{"input_id": "S00", "kind": "social_affective", "phase": "probe_mixture", "text": "A child laughs beside a sleeping dog.", "tick": 1375}
+{"input_id": "I03", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The crossing collapses before the latch can hold.", "tick": 1376}
+{"input_id": "B07", "kind": "base_repeat", "phase": "probe_mixture", "text": "The boundary holds while the signal moves across.", "tick": 1377}
+{"input_id": "B06", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge marks the crossing and then releases.", "tick": 1378}
+{"input_id": "I01", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The boundary blocks the signal and denies passage.", "tick": 1379}
+{"input_id": "B03", "kind": "base_repeat", "phase": "probe_mixture", "text": "The crossing waits until the boundary is steady.", "tick": 1380}
+{"input_id": "C02", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "A stone rolls down the hill into cold water.", "tick": 1381}
+{"input_id": "B07", "kind": "base_repeat", "phase": "probe_mixture", "text": "The boundary holds while the signal moves across.", "tick": 1382}
+{"input_id": "B02", "kind": "base_repeat", "phase": "probe_mixture", "text": "A stable boundary lets the signal pass.", "tick": 1383}
+{"input_id": "I01", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The boundary blocks the signal and denies passage.", "tick": 1384}
+{"input_id": "B02", "kind": "base_repeat", "phase": "probe_mixture", "text": "A stable boundary lets the signal pass.", "tick": 1385}
+{"input_id": "B01", "kind": "base_repeat", "phase": "probe_mixture", "text": "The gate opens after the bridge holds.", "tick": 1386}
+{"input_id": "B06", "kind": "base_repeat", "phase": "probe_mixture", "text": "The bridge marks the crossing and then releases.", "tick": 1387}
+{"input_id": "I03", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The crossing collapses before the latch can hold.", "tick": 1388}
+{"input_id": "S04", "kind": "social_affective", "phase": "probe_mixture", "text": "A brother waits while his sister sings.", "tick": 1389}
+{"input_id": "B03", "kind": "base_repeat", "phase": "probe_mixture", "text": "The crossing waits until the boundary is steady.", "tick": 1390}
+{"input_id": "B01", "kind": "base_repeat", "phase": "probe_mixture", "text": "The gate opens after the bridge holds.", "tick": 1391}
+{"input_id": "C01", "kind": "concrete_unrelated", "phase": "probe_mixture", "text": "The rain taps on the window beside the red chair.", "tick": 1392}
+{"input_id": "I00", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The bridge breaks before the signal can cross.", "tick": 1393}
+{"input_id": "I00", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The bridge breaks before the signal can cross.", "tick": 1394}
+{"input_id": "I01", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The boundary blocks the signal and denies passage.", "tick": 1395}
+{"input_id": "I03", "kind": "symbolic_inversion", "phase": "probe_mixture", "text": "The crossing collapses before the latch can hold.", "tick": 1396}
+{"input_id": "B05", "kind": "base_repeat", "phase": "probe_mixture", "text": "The held path admits the next signal.", "tick": 1397}
+{"input_id": "P02", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The span remains fixed until the crossing is complete.", "tick": 1398}
+{"input_id": "P04", "kind": "paraphrase_same", "phase": "probe_mixture", "text": "The crossing proceeds after the path settles.", "tick": 1399}

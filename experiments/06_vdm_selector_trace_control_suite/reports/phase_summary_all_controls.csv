@@ -1,0 +1,7 @@
+run,phase,ticks,witness_ticks,witness_rate,mean_gate_pressure,mean_release_score
+readable_semantic,probe_mixture,400,4,0.01,-0.2827315,-0.36723150000000004
+readable_semantic,stable_curriculum,1000,5,0.005,-0.37272000000000005,-0.45252000000000003
+opaque_token,probe_mixture,400,49,0.1225,1.2526644999999998,1.0006645
+opaque_token,stable_curriculum,1000,119,0.119,1.2889146,1.0497146
+shuffled_words,probe_mixture,400,29,0.0725,0.37958225,0.29608225
+shuffled_words,stable_curriculum,1000,64,0.064,0.47243499999999994,0.394635
