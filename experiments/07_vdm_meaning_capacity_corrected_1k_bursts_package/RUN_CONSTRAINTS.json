@@ -1,0 +1,11 @@
+{
+  "neurons": 1000,
+  "walkers": 1200,
+  "walker_neuron_ratio": 1.2,
+  "burst_size": 300,
+  "base_ticks": 1000,
+  "probe_ticks": 800,
+  "seed": 20260627,
+  "hops": 2,
+  "release_threshold": 1.15
+}

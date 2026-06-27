@@ -1,0 +1,274 @@
+{
+  "category_formation": {
+    "baseline": [
+      "granite basalt shale limestone sandstone marble slate",
+      "mountain boulder cobble pebble sand silt clay",
+      "river delta basin canyon ridge valley plateau",
+      "igneous sedimentary metamorphic mineral crystal stratum",
+      "erosion deposition compression uplift fracture weathering",
+      "bedrock gravel sediment layer fossil vein fault"
+    ],
+    "novel": [
+      "molecule atom ion proton electron neutron valence bond",
+      "organism organ tissue cell nucleus chromosome gene protein",
+      "sentence phrase word letter quote bracket comma period",
+      "premise inference conclusion proof counterexample axiom lemma",
+      "orbit mass velocity acceleration force energy momentum field",
+      "enzyme membrane receptor synapse dendrite axon signal impulse"
+    ],
+    "facts": [
+      "A boulder is larger than a cobble.",
+      "A cobble is larger than a pebble.",
+      "Silt is finer than sand.",
+      "Clay is finer than silt.",
+      "An atom can form an ion by gaining or losing electrons.",
+      "A chromosome carries many genes.",
+      "A sentence can contain several phrases.",
+      "A proof uses premises to reach a conclusion.",
+      "Basalt is an igneous rock.",
+      "Limestone is a sedimentary rock."
+    ],
+    "questions": [
+      "What is larger than a cobble?",
+      "What is larger than a pebble?",
+      "What is finer than sand?",
+      "What is finer than silt?",
+      "What can an atom become by gaining or losing electrons?",
+      "What carries many genes?",
+      "What can contain several phrases?",
+      "What uses premises to reach a conclusion?",
+      "What kind of rock is basalt?",
+      "What kind of rock is limestone?"
+    ],
+    "multilingual": {
+      "en": [
+        "The boulder is larger than the cobble.",
+        "The sentence contains a phrase.",
+        "The atom loses an electron.",
+        "The proof reaches a conclusion."
+      ],
+      "es": [
+        "La roca grande es mayor que el guijarro.",
+        "La oración contiene una frase.",
+        "El átomo pierde un electrón.",
+        "La prueba llega a una conclusión."
+      ],
+      "de": [
+        "Der Felsblock ist größer als der Kiesel.",
+        "Der Satz enthält eine Phrase.",
+        "Das Atom verliert ein Elektron.",
+        "Der Beweis erreicht eine Schlussfolgerung."
+      ],
+      "la": [
+        "Saxum maius est quam calculus.",
+        "Sententia phrasim continet.",
+        "Atomus electronem amittit.",
+        "Probatio conclusionem attingit."
+      ]
+    }
+  },
+  "hierarchy_ordering": {
+    "baseline": [
+      "mountain boulder cobble pebble sand silt clay",
+      "organism organ tissue cell nucleus chromosome gene",
+      "book chapter paragraph sentence phrase word letter",
+      "galaxy star planet continent country city street house",
+      "molecule atom nucleus proton quark",
+      "forest tree branch leaf vein cell molecule atom"
+    ],
+    "novel": [
+      "clay mountain silt boulder pebble sand cobble",
+      "gene organism chromosome tissue cell organ nucleus",
+      "letter book sentence chapter word paragraph phrase",
+      "house galaxy city planet street country continent",
+      "quark molecule proton atom nucleus",
+      "atom forest molecule branch cell tree leaf"
+    ],
+    "facts": [
+      "A mountain is larger than a boulder.",
+      "A boulder is larger than a cobble.",
+      "A cobble is larger than a pebble.",
+      "A pebble is larger than a grain of sand.",
+      "A book contains chapters.",
+      "A chapter contains paragraphs.",
+      "A paragraph contains sentences.",
+      "A sentence contains words.",
+      "An organism contains organs.",
+      "An organ contains tissues."
+    ],
+    "questions": [
+      "What is larger than a boulder?",
+      "What is larger than a cobble?",
+      "What is larger than a pebble?",
+      "What is larger than a grain of sand?",
+      "What contains chapters?",
+      "What contains paragraphs?",
+      "What contains sentences?",
+      "What contains words?",
+      "What contains organs?",
+      "What contains tissues?"
+    ],
+    "multilingual": {
+      "en": [
+        "The mountain contains the boulder in the larger scale.",
+        "The sentence contains words.",
+        "The organism contains organs.",
+        "The book contains chapters."
+      ],
+      "es": [
+        "La montaña contiene la roca en una escala mayor.",
+        "La oración contiene palabras.",
+        "El organismo contiene órganos.",
+        "El libro contiene capítulos."
+      ],
+      "de": [
+        "Der Berg enthält den Felsblock in größerem Maßstab.",
+        "Der Satz enthält Wörter.",
+        "Der Organismus enthält Organe.",
+        "Das Buch enthält Kapitel."
+      ],
+      "la": [
+        "Mons saxum maiore ordine continet.",
+        "Sententia verba continet.",
+        "Organismus organa continet.",
+        "Liber capitula continet."
+      ]
+    }
+  },
+  "missing_closure_analogy": {
+    "baseline": [
+      "The quote opens and closes with matching marks.",
+      "The bracket opens and closes before the line ends.",
+      "The circuit closes and current can flow.",
+      "The electron shell is filled and the atom is stable.",
+      "The proof begins with premises and closes with conclusion.",
+      "The function opens a scope and returns before closing."
+    ],
+    "novel": [
+      "The quote opens but the closing mark is missing.",
+      "The bracket opens but never closes.",
+      "The circuit is broken and current cannot flow.",
+      "The atom is missing an electron and becomes an ion.",
+      "The proof has a premise but no conclusion.",
+      "The function opens scope and never returns."
+    ],
+    "facts": [
+      "A closing quote resolves an open quotation.",
+      "A closing bracket resolves an open bracket.",
+      "A closed circuit permits current to flow.",
+      "An ion can form when an atom loses an electron.",
+      "A conclusion resolves a proof path.",
+      "A missing delimiter leaves a structure incomplete.",
+      "A broken circuit prevents current flow.",
+      "An unclosed scope leaves a program region unresolved.",
+      "A valence vacancy can make an atom reactive.",
+      "A missing end mark creates an open boundary."
+    ],
+    "questions": [
+      "What resolves an open quotation?",
+      "What resolves an open bracket?",
+      "What permits current to flow?",
+      "What can form when an atom loses an electron?",
+      "What resolves a proof path?",
+      "What leaves a structure incomplete?",
+      "What prevents current flow?",
+      "What leaves a program region unresolved?",
+      "What can make an atom reactive?",
+      "What creates an open boundary?"
+    ],
+    "multilingual": {
+      "en": [
+        "The quote is missing its closing mark.",
+        "The circuit is open and current stops.",
+        "The atom loses an electron.",
+        "The bracket is unclosed."
+      ],
+      "es": [
+        "La cita pierde su marca de cierre.",
+        "El circuito está abierto y la corriente se detiene.",
+        "El átomo pierde un electrón.",
+        "El corchete queda sin cerrar."
+      ],
+      "de": [
+        "Das Zitat verliert sein Schlusszeichen.",
+        "Der Stromkreis ist offen und der Strom stoppt.",
+        "Das Atom verliert ein Elektron.",
+        "Die Klammer bleibt ungeschlossen."
+      ],
+      "la": [
+        "Citatio signum clausum amittit.",
+        "Circuitus apertus est et cursus sistit.",
+        "Atomus electronem amittit.",
+        "Uncus non clauditur."
+      ]
+    }
+  },
+  "cross_domain_mapping": {
+    "baseline": [
+      "A graph edge is removed during an intervention.",
+      "A bridge carries a signal across a gap.",
+      "A quote mark closes an open phrase.",
+      "An electron completes a valence shell.",
+      "A counterexample breaks a universal claim.",
+      "A boundary separates one region from another."
+    ],
+    "novel": [
+      "A missing electron is like a missing closing quote.",
+      "A broken bridge is like a deleted graph edge.",
+      "A counterexample is like a fracture in a proof bridge.",
+      "A boundary in text is like a membrane in a cell.",
+      "A valence gap is like an unfinished sentence.",
+      "A graph intervention is like cutting a causal bridge."
+    ],
+    "facts": [
+      "A causal intervention can remove an edge from a graph.",
+      "A missing electron can create an ion.",
+      "A missing closing quote leaves a sentence boundary open.",
+      "A counterexample can defeat a universal claim.",
+      "A membrane separates inside from outside.",
+      "A bridge connects two separated regions.",
+      "A proof connects premises to a conclusion.",
+      "A fracture breaks continuity in a material.",
+      "A metaphor maps structure from one domain to another.",
+      "A boundary controls what may pass between regions."
+    ],
+    "questions": [
+      "What can remove an edge from a graph?",
+      "What can create an ion?",
+      "What leaves a sentence boundary open?",
+      "What can defeat a universal claim?",
+      "What separates inside from outside?",
+      "What connects two separated regions?",
+      "What connects premises to a conclusion?",
+      "What breaks continuity in a material?",
+      "What maps structure from one domain to another?",
+      "What controls what may pass between regions?"
+    ],
+    "multilingual": {
+      "en": [
+        "A missing electron is like a missing closing quote.",
+        "A bridge is like a graph edge.",
+        "A membrane is a boundary.",
+        "A proof is a bridge from premises."
+      ],
+      "es": [
+        "Un electrón faltante es como una comilla final faltante.",
+        "Un puente es como una arista de grafo.",
+        "Una membrana es un límite.",
+        "Una prueba es un puente desde premisas."
+      ],
+      "de": [
+        "Ein fehlendes Elektron ist wie ein fehlendes Schlusszeichen.",
+        "Eine Brücke ist wie eine Graphkante.",
+        "Eine Membran ist eine Grenze.",
+        "Ein Beweis ist eine Brücke von Prämissen."
+      ],
+      "la": [
+        "Electron deest sicut signum clausum deest.",
+        "Pons est sicut margo graphii.",
+        "Membrana terminus est.",
+        "Probatio est pons ex praemissis."
+      ]
+    }
+  }
+}

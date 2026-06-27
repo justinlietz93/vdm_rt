@@ -1,0 +1,178 @@
+[
+  {
+    "ticks": 1800,
+    "witnesses": 97,
+    "witness_rate": 0.05388888888888889,
+    "mean_gate_pressure": 0.8290423333333333,
+    "mean_release_score": 0.6488756666666667,
+    "branch": "category_formation",
+    "run_kind": "baseline_then_novel",
+    "final_h5": "/mnt/data/vdm_meaning_capacity_corrected_1k_bursts/runs/category_formation/baseline_then_novel/state_1800.h5",
+    "bursts": 6
+  },
+  {
+    "ticks": 1800,
+    "witnesses": 71,
+    "witness_rate": 0.03944444444444444,
+    "mean_gate_pressure": 0.7899450555555556,
+    "mean_release_score": 0.5950561666666667,
+    "branch": "category_formation",
+    "run_kind": "no_baseline_test",
+    "final_h5": "/mnt/data/vdm_meaning_capacity_corrected_1k_bursts/runs/category_formation/no_baseline_test/state_1800.h5",
+    "bursts": 6
+  },
+  {
+    "ticks": 1800,
+    "witnesses": 6,
+    "witness_rate": 0.0033333333333333335,
+    "mean_gate_pressure": 0.49796522222222217,
+    "mean_release_score": 0.4085763333333334,
+    "branch": "category_formation",
+    "run_kind": "facts_then_questions",
+    "final_h5": "/mnt/data/vdm_meaning_capacity_corrected_1k_bursts/runs/category_formation/facts_then_questions/state_1800.h5",
+    "bursts": 6
+  },
+  {
+    "ticks": 1800,
+    "witnesses": 50,
+    "witness_rate": 0.027777777777777776,
+    "mean_gate_pressure": 0.6777993888888889,
+    "mean_release_score": 0.5195771666666666,
+    "branch": "category_formation",
+    "run_kind": "multilingual_random",
+    "final_h5": "/mnt/data/vdm_meaning_capacity_corrected_1k_bursts/runs/category_formation/multilingual_random/state_1800.h5",
+    "bursts": 6
+  },
+  {
+    "ticks": 1800,
+    "witnesses": 3,
+    "witness_rate": 0.0016666666666666668,
+    "mean_gate_pressure": 0.4219762222222222,
+    "mean_release_score": 0.326754,
+    "branch": "hierarchy_ordering",
+    "run_kind": "baseline_then_novel",
+    "final_h5": "/mnt/data/vdm_meaning_capacity_corrected_1k_bursts/runs/hierarchy_ordering/baseline_then_novel/state_1800.h5",
+    "bursts": 6
+  },
+  {
+    "ticks": 1800,
+    "witnesses": 2,
+    "witness_rate": 0.0011111111111111111,
+    "mean_gate_pressure": 0.3673254444444444,
+    "mean_release_score": 0.27626988888888887,
+    "branch": "hierarchy_ordering",
+    "run_kind": "no_baseline_test",
+    "final_h5": "/mnt/data/vdm_meaning_capacity_corrected_1k_bursts/runs/hierarchy_ordering/no_baseline_test/state_1800.h5",
+    "bursts": 6
+  },
+  {
+    "ticks": 1800,
+    "witnesses": 15,
+    "witness_rate": 0.008333333333333333,
+    "mean_gate_pressure": 0.5195268333333334,
+    "mean_release_score": 0.3893046111111111,
+    "branch": "hierarchy_ordering",
+    "run_kind": "facts_then_questions",
+    "final_h5": "/mnt/data/vdm_meaning_capacity_corrected_1k_bursts/runs/hierarchy_ordering/facts_then_questions/state_1800.h5",
+    "bursts": 6
+  },
+  {
+    "ticks": 1800,
+    "witnesses": 66,
+    "witness_rate": 0.03666666666666667,
+    "mean_gate_pressure": 0.7667957777777777,
+    "mean_release_score": 0.6115735555555556,
+    "branch": "hierarchy_ordering",
+    "run_kind": "multilingual_random",
+    "final_h5": "/mnt/data/vdm_meaning_capacity_corrected_1k_bursts/runs/hierarchy_ordering/multilingual_random/state_1800.h5",
+    "bursts": 6
+  },
+  {
+    "ticks": 1800,
+    "witnesses": 23,
+    "witness_rate": 0.012777777777777779,
+    "mean_gate_pressure": 0.4014977222222222,
+    "mean_release_score": 0.29383105555555555,
+    "branch": "missing_closure_analogy",
+    "run_kind": "baseline_then_novel",
+    "final_h5": "/mnt/data/vdm_meaning_capacity_corrected_1k_bursts/runs/missing_closure_analogy/baseline_then_novel/state_1800.h5",
+    "bursts": 6
+  },
+  {
+    "ticks": 1800,
+    "witnesses": 10,
+    "witness_rate": 0.005555555555555556,
+    "mean_gate_pressure": 0.3707617222222222,
+    "mean_release_score": 0.2755395,
+    "branch": "missing_closure_analogy",
+    "run_kind": "no_baseline_test",
+    "final_h5": "/mnt/data/vdm_meaning_capacity_corrected_1k_bursts/runs/missing_closure_analogy/no_baseline_test/state_1800.h5",
+    "bursts": 6
+  },
+  {
+    "ticks": 1800,
+    "witnesses": 19,
+    "witness_rate": 0.010555555555555556,
+    "mean_gate_pressure": 0.6474433333333333,
+    "mean_release_score": 0.5500544444444445,
+    "branch": "missing_closure_analogy",
+    "run_kind": "facts_then_questions",
+    "final_h5": "/mnt/data/vdm_meaning_capacity_corrected_1k_bursts/runs/missing_closure_analogy/facts_then_questions/state_1800.h5",
+    "bursts": 6
+  },
+  {
+    "ticks": 1800,
+    "witnesses": 95,
+    "witness_rate": 0.05277777777777778,
+    "mean_gate_pressure": 0.8666204444444444,
+    "mean_release_score": 0.7158426666666666,
+    "branch": "missing_closure_analogy",
+    "run_kind": "multilingual_random",
+    "final_h5": "/mnt/data/vdm_meaning_capacity_corrected_1k_bursts/runs/missing_closure_analogy/multilingual_random/state_1800.h5",
+    "bursts": 6
+  },
+  {
+    "ticks": 1800,
+    "witnesses": 22,
+    "witness_rate": 0.012222222222222223,
+    "mean_gate_pressure": 0.49128144444444444,
+    "mean_release_score": 0.4093925555555556,
+    "branch": "cross_domain_mapping",
+    "run_kind": "baseline_then_novel",
+    "final_h5": "/mnt/data/vdm_meaning_capacity_corrected_1k_bursts/runs/cross_domain_mapping/baseline_then_novel/state_1800.h5",
+    "bursts": 6
+  },
+  {
+    "ticks": 1800,
+    "witnesses": 18,
+    "witness_rate": 0.01,
+    "mean_gate_pressure": 0.5244818888888889,
+    "mean_release_score": 0.4454818888888889,
+    "branch": "cross_domain_mapping",
+    "run_kind": "no_baseline_test",
+    "final_h5": "/mnt/data/vdm_meaning_capacity_corrected_1k_bursts/runs/cross_domain_mapping/no_baseline_test/state_1800.h5",
+    "bursts": 6
+  },
+  {
+    "ticks": 1800,
+    "witnesses": 26,
+    "witness_rate": 0.014444444444444444,
+    "mean_gate_pressure": 0.5853282222222221,
+    "mean_release_score": 0.49605044444444446,
+    "branch": "cross_domain_mapping",
+    "run_kind": "facts_then_questions",
+    "final_h5": "/mnt/data/vdm_meaning_capacity_corrected_1k_bursts/runs/cross_domain_mapping/facts_then_questions/state_1800.h5",
+    "bursts": 6
+  },
+  {
+    "ticks": 1800,
+    "witnesses": 33,
+    "witness_rate": 0.018333333333333333,
+    "mean_gate_pressure": 0.6302698888888888,
+    "mean_release_score": 0.5458810000000001,
+    "branch": "cross_domain_mapping",
+    "run_kind": "multilingual_random",
+    "final_h5": "/mnt/data/vdm_meaning_capacity_corrected_1k_bursts/runs/cross_domain_mapping/multilingual_random/state_1800.h5",
+    "bursts": 6
+  }
+]
