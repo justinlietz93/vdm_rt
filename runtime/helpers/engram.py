@@ -11,7 +11,7 @@ See LICENSE file for full terms.
 Runtime helper: engram load and start-step derivation.
 
 Behavior:
-- maybe_load_engram(nx, path): loads engram state into connectome (and ADC if present), logs outcome.
+- maybe_load_engram(nx, path): loads engram state into connectome and required ADC, logging outcome.
 - derive_start_step(nx, path): derives starting tick index based on provided path or existing state_* files.
 
 This module provides the real implementations migrated from the legacy runtime_helpers monolith.
@@ -28,8 +28,8 @@ from vdm_rt.core.memory import load_engram as _load_engram_state
 
 def maybe_load_engram(nx: Any, load_engram_path: Optional[str]) -> None:
     """
-    If a path is provided, load the engram into nx.connectome (and nx.adc when present),
-    logging the result into nx.logger for UI confirmation. Mirrors legacy behavior.
+    If a path is provided, load the engram into nx.connectome and nx.adc,
+    logging the result into nx.logger. Missing ADC is a runtime error.
     """
     if not load_engram_path:
         return
@@ -61,6 +61,7 @@ def maybe_load_engram(nx: Any, load_engram_path: Optional[str]) -> None:
             )
         except Exception:
             pass
+        raise
 
 
 def derive_start_step(nx: Any, load_engram_path: Optional[str]) -> int:

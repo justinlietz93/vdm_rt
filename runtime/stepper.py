@@ -16,6 +16,7 @@ Behavior:
 - No logging or IO here. Pure computation + state updates on the nx object.
 """
 
+from dataclasses import dataclass
 from typing import Any, Dict, Tuple
 
 from vdm_rt.config import config_float
@@ -25,6 +26,61 @@ from vdm_rt.core.signals import (
     compute_td_signal as _comp_td,
     compute_firing_var as _comp_fvar,
 )
+
+
+@dataclass(frozen=True)
+class SIEGateInputs:
+    """
+    Inputs available at the pre-step gate boundary.
+
+    The cached SIE v2 value is from a prior SparseConnectome.step() call. Fresh
+    SIE v2 is produced after this gate is applied, so it cannot influence this
+    tick without changing the runtime time relationship.
+    """
+
+    runtime_valence_01: float
+    cached_sie_v2_valence_01: float
+
+
+@dataclass(frozen=True)
+class SIEGateDecision:
+    gate: float
+    runtime_valence_01: float
+    cached_sie_v2_valence_01: float
+
+
+def _clamp01(value: float) -> float:
+    return max(0.0, min(1.0, float(value)))
+
+
+def select_sie_gate(inputs: SIEGateInputs) -> SIEGateDecision:
+    """
+    Preserve the current SIE gate relationship.
+
+    Runtime SIE owns the current tick drive packet. SIE v2 contributes only as
+    the cached intrinsic valence from the prior connectome step. The gate is the
+    clamped maximum of those two values.
+    """
+    runtime_valence = _clamp01(inputs.runtime_valence_01)
+    cached_sie_v2_valence = _clamp01(inputs.cached_sie_v2_valence_01)
+    return SIEGateDecision(
+        gate=_clamp01(max(runtime_valence, cached_sie_v2_valence)),
+        runtime_valence_01=runtime_valence,
+        cached_sie_v2_valence_01=cached_sie_v2_valence,
+    )
+
+
+def _read_cached_sie_v2_valence(connectome: Any) -> float:
+    """
+    Read the intrinsic SIE v2 valence produced by a prior connectome step.
+
+    SparseConnectome computes SIE v2 after applying the current tick's gate,
+    so this cached value is intentionally a prior-tick signal at this boundary.
+    """
+    try:
+        return float(getattr(connectome, "_last_sie2_valence", 0.0))
+    except Exception:
+        return 0.0
 
 
 def compute_step_and_metrics(nx: Any, t: float, step: int, novelty_scale: float = 1.0) -> Tuple[Dict[str, Any], Dict[str, Any]]:
@@ -58,7 +114,7 @@ def compute_step_and_metrics(nx: Any, t: float, step: int, novelty_scale: float 
     except Exception:
         firing_var = None
 
-    # 4) SIE drive
+    # 4) Runtime SIE drive. This is the current-tick global drive packet.
     try:
         drive = nx.sie.get_drive(
             W=None,
@@ -69,17 +125,21 @@ def compute_step_and_metrics(nx: Any, t: float, step: int, novelty_scale: float 
             density_override=density,
             novelty_scale=float(novelty_scale),
         )
-        sie_drive = float(drive.get("valence_01", 1.0))
+        runtime_sie_valence = float(drive.get("valence_01", 1.0))
     except Exception:
         drive = {"valence_01": 1.0}
-        sie_drive = 1.0
+        runtime_sie_valence = 1.0
 
-    # Prefer SIE v2 when available
-    try:
-        sie2 = float(getattr(getattr(nx, "connectome", None), "_last_sie2_valence", 0.0))
-    except Exception:
-        sie2 = 0.0
-    sie_gate = max(0.0, min(1.0, max(sie_drive, sie2)))
+    # SIE v2 is computed inside SparseConnectome.step() after this gate is
+    # applied. The value read here is therefore the prior intrinsic valence.
+    cached_sie_v2_valence = _read_cached_sie_v2_valence(getattr(nx, "connectome", None))
+    gate_decision = select_sie_gate(
+        SIEGateInputs(
+            runtime_valence_01=runtime_sie_valence,
+            cached_sie_v2_valence_01=cached_sie_v2_valence,
+        )
+    )
+    sie_gate = gate_decision.gate
 
     # 5) advance connectome
     try:
@@ -121,6 +181,8 @@ def compute_step_and_metrics(nx: Any, t: float, step: int, novelty_scale: float 
     # Expose sie_gate
     try:
         m["sie_gate"] = float(sie_gate)
+        m["sie_runtime_valence_01"] = float(gate_decision.runtime_valence_01)
+        m["sie_v2_cached_valence_01"] = float(gate_decision.cached_sie_v2_valence_01)
     except Exception:
         pass
 
@@ -134,4 +196,9 @@ def compute_step_and_metrics(nx: Any, t: float, step: int, novelty_scale: float 
     return m, drive
 
 
-__all__ = ["compute_step_and_metrics"]
+__all__ = [
+    "SIEGateDecision",
+    "SIEGateInputs",
+    "compute_step_and_metrics",
+    "select_sie_gate",
+]

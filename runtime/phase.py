@@ -225,7 +225,9 @@ def poll_control(nx) -> None:
         phase_idx = int(data.get("phase", getattr(nx, "_phase", {}).get("phase", 0)))
         prof = default_phase_profiles().get(phase_idx, {})
 
-        # One-shot engram load if requested by control plane
+        # One-shot engram load if requested by control plane. ADC is required
+        # checkpoint state; failures must stop the runtime rather than continue
+        # from a partial restore.
         try:
             load_p = data.get("load_engram", None)
             if isinstance(load_p, str) and load_p.strip():
@@ -257,8 +259,21 @@ def poll_control(nx) -> None:
                     data = data2
                 except Exception:
                     pass
-        except Exception:
-            pass
+        except Exception as e:
+            try:
+                nx.logger.info(
+                    "engram_load_error",
+                    extra={
+                        "extra": {
+                            "tick": int(getattr(nx, "_emit_step", 0)),
+                            "err": str(e),
+                            "path": str(data.get("load_engram", "")),
+                        }
+                    },
+                )
+            except Exception:
+                pass
+            raise
 
         # Overlay any explicit fields from file (skip reserved keys)
         for k, v in data.items():

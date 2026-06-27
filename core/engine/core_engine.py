@@ -37,7 +37,6 @@ from vdm_rt.core.cortex.maps.inhibitionmap import InhibitionMap as _InhMap
 from vdm_rt.core.cortex.maps.trailmap import TrailMap as _TrailMap
 from vdm_rt.core.cortex.maps.memorymap import MemoryMap as _MemMap
 from vdm_rt.core.signals import (
-    compute_active_edge_density as _sig_density,
     compute_td_signal as _sig_td,
     compute_firing_var as _sig_fvar,
 )
@@ -407,17 +406,6 @@ class CoreEngine:
         except Exception:
             return None
 
-    # --- Numeric helpers (wrap core.signals) ---
-    def compute_active_edge_density(self) -> Tuple[int, float]:
-        try:
-            N = int(getattr(self._nx, "N", 0))
-        except Exception:
-            N = 0
-        try:
-            return _sig_density(getattr(self._nx, "connectome", None), N)
-        except Exception:
-            return 0, 0.0
-
     def compute_td_signal(
         self, prev_E: int | None, E: int, vt_prev: float | None = None, vt_last: float | None = None
     ) -> float:
@@ -488,7 +476,7 @@ class CoreEngine:
 
     def engram_load(self, path: str) -> None:
         """
-        Pass-through to the existing engram loader with ADC included when available.
+        Pass-through to the existing engram loader with required ADC state.
         Mirrors the call used in Nexus, preserving logs/events and behavior.
         """
         nx = self._nx
@@ -499,7 +487,7 @@ class CoreEngine:
         self, path: Optional[str] = None, step: Optional[int] = None, fmt: Optional[str] = None
     ) -> str:
         """
-        Pass-through to the existing checkpoint saver. Saves into nx.run_dir using the legacy naming scheme.
+        Pass-through to the existing checkpoint saver. Saves into nx.run_dir using the runtime naming scheme.
         Arguments:
           - path: advisory only (ignored by the legacy saver, which chooses its own path under run_dir)
           - step: when None, the caller should provide an explicit step; if missing, a safe default is used (0)

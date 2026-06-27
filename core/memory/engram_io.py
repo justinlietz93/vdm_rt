@@ -11,20 +11,16 @@ import json
 import numpy as np
 from typing import List, Tuple
 
-# Optional HDF5 backend (preferred)
+from vdm_rt.core.sparse_connectome import SparseConnectome
+
+# HDF5 dependency gate for runtime checkpoints.
 try:
     import h5py  # type: ignore
     HAVE_H5 = True
 except Exception:
     HAVE_H5 = False
 
-# Import ADC dataclasses for (de)serialization
-try:
-    from .adc import Territory as ADCTerritory, Boundary as ADCBoundary, _EWMA as _ADC_EWMA  # type: ignore
-except Exception:
-    ADCTerritory = None  # type: ignore
-    ADCBoundary = None  # type: ignore
-    _ADC_EWMA = None  # type: ignore
+from vdm_rt.core.adc import Territory as ADCTerritory, Boundary as ADCBoundary, _EWMA as _ADC_EWMA
 
 
 def _adj_to_csr(adj: List[np.ndarray], N: int) -> Tuple[np.ndarray, np.ndarray]:
@@ -137,14 +133,16 @@ def _adc_to_dict(adc) -> dict:
             "boundaries": bounds,
             "frontier_counter": fcnt,
         }
-    except Exception:
-        return {}
+    except Exception as exc:
+        raise RuntimeError(f"Failed to serialize required ADC checkpoint state: {exc}") from exc
 
 
 def _adc_load_from_dict(adc, state: dict) -> None:
     """Populate ADC internals from a previously serialized dict."""
-    if adc is None or not isinstance(state, dict):
-        return
+    if adc is None:
+        raise RuntimeError("ADC is required when loading runtime checkpoints")
+    if not isinstance(state, dict):
+        raise ValueError("Checkpoint ADC state must be a JSON object")
     try:
         terr_d = {}
         max_id = 0
@@ -157,17 +155,16 @@ def _adc_load_from_dict(adc, state: dict) -> None:
                 sj = t.get("s_stats", {})
                 w_stats = _ewma_from_dict(wj)
                 s_stats = _ewma_from_dict(sj)
-                if ADCTerritory is not None:
-                    terr = ADCTerritory(
-                        key=(str(dom), int(cov)),
-                        id=tid,
-                        mass=float(t.get("mass", 0.0)),
-                        conf=float(t.get("conf", 0.0)),
-                        ttl=int(t.get("ttl", 0)),
-                        w_stats=w_stats if w_stats is not None else (_ADC_EWMA(alpha=0.15) if _ADC_EWMA else None),  # type: ignore
-                        s_stats=s_stats if s_stats is not None else (_ADC_EWMA(alpha=0.15) if _ADC_EWMA else None),  # type: ignore
-                    )
-                    terr_d[(str(dom), int(cov))] = terr
+                terr = ADCTerritory(
+                    key=(str(dom), int(cov)),
+                    id=tid,
+                    mass=float(t.get("mass", 0.0)),
+                    conf=float(t.get("conf", 0.0)),
+                    ttl=int(t.get("ttl", 0)),
+                    w_stats=w_stats if w_stats is not None else _ADC_EWMA(alpha=0.15),
+                    s_stats=s_stats if s_stats is not None else _ADC_EWMA(alpha=0.15),
+                )
+                terr_d[(str(dom), int(cov))] = terr
             except Exception:
                 continue
         bnd_d = {}
@@ -177,15 +174,14 @@ def _adc_load_from_dict(adc, state: dict) -> None:
                 c = int(b.get("b", 0))
                 cut = _ewma_from_dict(b.get("cut_stats", {}))
                 chrn = _ewma_from_dict(b.get("churn", {}))
-                if ADCBoundary is not None:
-                    bnd = ADCBoundary(
-                        a=min(a, c),
-                        b=max(a, c),
-                        cut_stats=cut if cut is not None else (_ADC_EWMA(alpha=0.2) if _ADC_EWMA else None),  # type: ignore
-                        churn=chrn if chrn is not None else (_ADC_EWMA(alpha=0.2) if _ADC_EWMA else None),  # type: ignore
-                        ttl=int(b.get("ttl", 0)),
-                    )
-                    bnd_d[(min(a, c), max(a, c))] = bnd
+                bnd = ADCBoundary(
+                    a=min(a, c),
+                    b=max(a, c),
+                    cut_stats=cut if cut is not None else _ADC_EWMA(alpha=0.2),
+                    churn=chrn if chrn is not None else _ADC_EWMA(alpha=0.2),
+                    ttl=int(b.get("ttl", 0)),
+                )
+                bnd_d[(min(a, c), max(a, c))] = bnd
             except Exception:
                 continue
         fcnt = {}
@@ -203,27 +199,37 @@ def _adc_load_from_dict(adc, state: dict) -> None:
         except Exception:
             id_seq = max_id + 1
         setattr(adc, "_id_seq", max(1, id_seq))
-    except Exception:
-        return
+    except Exception as exc:
+        raise RuntimeError(f"Failed to load required ADC checkpoint state: {exc}") from exc
 
 
-def save_checkpoint(run_dir: str, step: int, connectome, fmt: str = "h5", adc=None) -> str:
+def _require_adc(adc):
+    if adc is None:
+        raise RuntimeError("ADC is required for runtime checkpoint save/load")
+    return adc
+
+
+def _require_sparse_connectome(connectome):
+    if not isinstance(connectome, SparseConnectome):
+        raise TypeError("Runtime checkpoints require SparseConnectome")
+    return connectome
+
+
+def save_checkpoint(run_dir: str, step: int, connectome, fmt: str = "h5", *, adc) -> str:
     """
-    Save runtime state (engram) for dense or sparse backends.
+    Save sparse runtime state (engram).
 
     Args:
         run_dir: run directory
         step: tick index
-        connectome: Connectome or SparseConnectome
+        connectome: SparseConnectome
         fmt: "h5"
-        adc: Optional ADC instance to persist alongside the connectome
+        adc: ADC instance to persist alongside the connectome; required
     """
-    os.makedirs(run_dir, exist_ok=True)
-    backend = "sparse" if hasattr(connectome, "adj") else "dense"
     fmt = str(fmt or "h5").lower()
-
     if fmt != "h5":
         raise ValueError(f"Unsupported checkpoint format {fmt!r}; runtime checkpoints must be h5")
+    adc = _require_adc(adc)
 
     if not HAVE_H5:
         raise RuntimeError(
@@ -231,55 +237,47 @@ def save_checkpoint(run_dir: str, step: int, connectome, fmt: str = "h5", adc=No
             "`pip install -r requirements.txt`."
         )
 
+    connectome = _require_sparse_connectome(connectome)
+    os.makedirs(run_dir, exist_ok=True)
     path = os.path.join(run_dir, f"state_{step}.h5")
-    _save_h5(path, connectome, backend, adc)
+    _save_h5(path, connectome, adc)
     return path
 
 
-def _save_h5(path: str, connectome, backend: str, adc=None):
+def _save_h5(path: str, connectome, adc):
+    adc = _require_adc(adc)
+    connectome = _require_sparse_connectome(connectome)
     with h5py.File(path, "w") as f:
         # Metadata as attributes
-        f.attrs["backend"] = backend
+        f.attrs["backend"] = "sparse"
         f.attrs["N"] = int(connectome.N)
         f.attrs["k"] = int(getattr(connectome, "k", 0))
         f.attrs["threshold"] = float(getattr(connectome, "threshold", 0.0))
         f.attrs["lambda_omega"] = float(getattr(connectome, "lambda_omega", 0.0))
         f.attrs["dtype"] = "float32"
 
-        if backend == "dense":
-            g = f.create_group("dense")
-            g.create_dataset("W", data=connectome.W.astype(np.float32, copy=False), compression="gzip")
-            g.create_dataset("A", data=connectome.A.astype(np.int8, copy=False), compression="gzip")
-            g.create_dataset("E", data=connectome.E.astype(np.float32, copy=False), compression="gzip")
-        else:
-            # Sparse: store neighbor lists as CSR
-            row_ptr, col_idx = _adj_to_csr(connectome.adj, int(connectome.N))
-            g = f.create_group("sparse")
-            g.create_dataset("W", data=connectome.W.astype(np.float32, copy=False), compression="gzip")
-            g.create_dataset("row_ptr", data=row_ptr, compression="gzip")
-            g.create_dataset("col_idx", data=col_idx, compression="gzip")
+        row_ptr, col_idx = _adj_to_csr(connectome.adj, int(connectome.N))
+        g = f.create_group("sparse")
+        g.create_dataset("W", data=connectome.W.astype(np.float32, copy=False), compression="gzip")
+        g.create_dataset("row_ptr", data=row_ptr, compression="gzip")
+        g.create_dataset("col_idx", data=col_idx, compression="gzip")
 
-        # Optional: persist ADC in a single JSON dataset for portability
-        if adc is not None:
-            try:
-                state_json = json.dumps(_adc_to_dict(adc))
-                f.create_dataset("adc_json", data=state_json, dtype=h5py.string_dtype(encoding="utf-8"))
-            except Exception:
-                pass
+        state_json = json.dumps(_adc_to_dict(adc))
+        f.create_dataset("adc_json", data=state_json, dtype=h5py.string_dtype(encoding="utf-8"))
 
 
-def load_engram(path: str, connectome, adc=None) -> None:
+def load_engram(path: str, connectome, *, adc) -> None:
     """
     Load an engram from an H5 checkpoint and populate the provided connectome instance.
-    If ADC state is present and 'adc' is provided, populate it as well.
+    ADC state is required and is populated alongside the connectome.
 
-    - Dense: sets W, A, E, threshold
     - Sparse: sets W, adj (neighbor lists), threshold
-    - ADC (optional): territories, boundaries, counters
+    - ADC: territories, boundaries, counters
     """
     p = str(path)
     if not p.lower().endswith(".h5"):
         raise ValueError("Engram checkpoints must be H5 files ending in .h5")
+    adc = _require_adc(adc)
     if not HAVE_H5:
         raise RuntimeError("h5py not installed but .h5 requested")
     _load_h5(p, connectome, adc)
@@ -296,9 +294,23 @@ def _apply_common_attrs(meta: dict, connectome):
         connectome.lambda_omega = float(meta["lambda_omega"])
 
 
-def _load_h5(path: str, connectome, adc=None):
+def _load_h5(path: str, connectome, adc):
+    adc = _require_adc(adc)
+    connectome = _require_sparse_connectome(connectome)
     with h5py.File(path, "r") as f:
-        backend = f.attrs.get("backend", "dense")
+        ds = f.get("adc_json", None)
+        if ds is None:
+            raise ValueError("Checkpoint is missing required ADC state dataset 'adc_json'")
+        raw = ds[()]
+        if isinstance(raw, bytes):
+            raw = raw.decode("utf-8", errors="ignore")
+        adc_state = json.loads(raw)
+
+        backend = f.attrs.get("backend", "")
+        if isinstance(backend, bytes):
+            backend = backend.decode("utf-8", errors="ignore")
+        if str(backend) != "sparse":
+            raise ValueError(f"Unsupported checkpoint backend {backend!r}; runtime checkpoints must be sparse")
         meta = {
             "N": int(f.attrs.get("N", connectome.N)),
             "threshold": float(f.attrs.get("threshold", getattr(connectome, "threshold", 0.0))),
@@ -306,27 +318,10 @@ def _load_h5(path: str, connectome, adc=None):
         }
         _apply_common_attrs(meta, connectome)
 
-        if backend == "dense":
-            g = f["dense"]
-            connectome.W = g["W"][...].astype(np.float32, copy=False)
-            connectome.A = g["A"][...].astype(np.int8, copy=False)
-            connectome.E = g["E"][...].astype(np.float32, copy=False)
-        else:
-            g = f["sparse"]
-            connectome.W = g["W"][...].astype(np.float32, copy=False)
-            row_ptr = g["row_ptr"][...]
-            col_idx = g["col_idx"][...]
-            connectome.adj = _csr_to_adj(row_ptr, col_idx, int(connectome.N))
+        g = f["sparse"]
+        connectome.W = g["W"][...].astype(np.float32, copy=False)
+        row_ptr = g["row_ptr"][...]
+        col_idx = g["col_idx"][...]
+        connectome.adj = _csr_to_adj(row_ptr, col_idx, int(connectome.N))
 
-        # Load ADC if present
-        if adc is not None:
-            try:
-                ds = f.get("adc_json", None)
-                if ds is not None:
-                    raw = ds[()]
-                    if isinstance(raw, bytes):
-                        raw = raw.decode("utf-8", errors="ignore")
-                    state = json.loads(raw)
-                    _adc_load_from_dict(adc, state)
-            except Exception:
-                pass
+        _adc_load_from_dict(adc, adc_state)
