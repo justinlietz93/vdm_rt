@@ -46,18 +46,16 @@ def prune_checkpoints(run_dir: str, keep: int, last_path: Optional[str] = None) 
     """
     kept = int(max(0, int(keep))) if keep is not None else 0
 
-    # Determine extension (e.g., ".h5" or ".npz")
+    # Determine extension. Runtime checkpoints are H5-only.
     if isinstance(last_path, str) and last_path:
         ext = os.path.splitext(last_path)[1].lower()
     else:
-        # Fallback: prefer ".h5" if present, else ".npz", else empty
+        # Fallback: prune H5 checkpoints when present.
         ext = ""
         try:
             candidates = [fn for fn in os.listdir(run_dir) if fn.startswith("state_")]
             if any(fn.endswith(".h5") for fn in candidates):
                 ext = ".h5"
-            elif any(fn.endswith(".npz") for fn in candidates):
-                ext = ".npz"
         except Exception:
             pass
 

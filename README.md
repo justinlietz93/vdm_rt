@@ -57,8 +57,7 @@ Artifacts land in `runs/<timestamp>/` by default:
 events.jsonl          structured runtime logs
 utd_events.jsonl      explicit motor-event audit records when a motor port emits
 phase.json           optional external control-plane input when present
-state_<step>.h5       checkpoint when --checkpoint-every is enabled and h5py is available
-state_<step>.npz      checkpoint fallback
+state_<step>.h5       checkpoint when --checkpoint-every is enabled
 ```
 
 ## Runtime boundaries

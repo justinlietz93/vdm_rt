@@ -104,7 +104,6 @@ def test_build_cmd_defers_omitted_booleans_to_config(tmp_path):
 
 def test_build_cmd_preserves_explicit_boolean_overrides(tmp_path):
     pm = ProcessManager(str(tmp_path / "runs"))
-    cmd = pm._build_cmd({"use_time_dynamics": False, "control_server": True})
+    cmd = pm._build_cmd({"use_time_dynamics": False})
 
     assert "--no-time-dynamics" in cmd
-    assert "--control-server" in cmd

@@ -40,4 +40,3 @@ def test_cli_defaults_come_from_config_files() -> None:
     assert args.checkpoint_every == config_int("persistence.checkpoint_every", 0)
     assert args.checkpoint_keep == config_int("persistence.checkpoint_keep", 5)
     assert args.checkpoint_format == config_str("persistence.checkpoint_format", "h5")
-    assert args.control_server == config_bool("control.server_enabled", False)

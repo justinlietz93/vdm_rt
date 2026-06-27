@@ -13,6 +13,7 @@ reports
 .arachnid_scans
 
 # Experiments
-experiments/03_vdm_sentence_shift_selector/codebase/vdm_rt-main
-experiments/02_orthad_selector_trace_fresh_model/codebase/vdm_rt-main
-experiments/01_vdm_rt_working_orthad_sensorimotor_repo/vdm_rt-main
+experiments/vdm_rt-main
+experiments/*/vdm_rt-main
+experiments/*/*/vdm_rt-main
+experiments/*/*/*/vdm_rt-main

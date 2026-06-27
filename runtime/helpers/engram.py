@@ -52,8 +52,8 @@ def derive_start_step(nx: Any, load_engram_path: Optional[str]) -> int:
     new snapshots. Mirrors original logic including filename parsing and fallback scan.
 
     Policy:
-    - If load_engram_path points to a state file named like state_<step>.(h5|npz), return step+1
-    - Else scan nx.run_dir for the highest state_<step>.(h5|npz) and return highest+1
+    - If load_engram_path points to a state file named like state_<step>.h5, return step+1
+    - Else scan nx.run_dir for the highest state_<step>.h5 and return highest+1
     - Else return 0
     """
     try:
@@ -61,7 +61,7 @@ def derive_start_step(nx: Any, load_engram_path: Optional[str]) -> int:
         lp = str(load_engram_path) if load_engram_path else None
         if lp and os.path.isfile(lp):
             base = os.path.basename(lp)
-            m = re.search(r"state_(\d+)\.(h5|npz)$", base)
+            m = re.search(r"state_(\d+)\.h5$", base)
             if m:
                 s = int(m.group(1))
         if s is None:
@@ -69,7 +69,7 @@ def derive_start_step(nx: Any, load_engram_path: Optional[str]) -> int:
             for fn in os.listdir(nx.run_dir):
                 if not fn.startswith("state_"):
                     continue
-                m2 = re.search(r"state_(\d+)\.(h5|npz)$", fn)
+                m2 = re.search(r"state_(\d+)\.h5$", fn)
                 if m2:
                     ss = int(m2.group(1))
                     if ss > max_s:

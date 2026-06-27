@@ -27,11 +27,6 @@ from .core.adc import ADC
 from .core.proprioception.events import EventDrivenMetrics as _EvtMetrics
 from .runtime.helpers import maybe_load_engram as _maybe_load_engram, derive_start_step as _derive_start_step
 from .runtime.loop import run_loop as _run_loop
-# Core signals seam (B1 detector apply)
-try:
-    from .core.control_server import ControlServer  # optional UI
-except Exception:
-    ControlServer = None
 
 
 def _cfg_int(value, key: str, default: int) -> int:
@@ -71,7 +66,7 @@ class Nexus:
                  ttl_init: int | None = None, split_patience: int | None = None,
                  stim_amp: float | None = None, stim_decay: float | None = None,
                  checkpoint_format: str | None = None, checkpoint_keep: int | None = None,
-                 load_engram_path: str | None = None, start_control_server: bool | None = None):
+                 load_engram_path: str | None = None):
         self.run_dir = run_dir
         self.N = _cfg_int(N, "launch.neurons", 1000)
         self.k = _cfg_int(k, "launch.k", 12)
@@ -101,10 +96,14 @@ class Nexus:
         split_patience = _cfg_int(split_patience, "adc.split_patience", 6)
         stim_amp = _cfg_float(stim_amp, "stimulus.amp", 0.05)
         stim_decay = _cfg_float(stim_decay, "stimulus.decay", 0.90)
-        checkpoint_format = _cfg_str(checkpoint_format, "persistence.checkpoint_format", "h5")
+        checkpoint_format = _cfg_str(checkpoint_format, "persistence.checkpoint_format", "h5").lower()
+        if checkpoint_format != "h5":
+            raise ValueError(
+                f"Unsupported checkpoint format {checkpoint_format!r}; "
+                "runtime checkpoints must be h5"
+            )
         checkpoint_keep = _cfg_int(checkpoint_keep, "persistence.checkpoint_keep", 5)
         load_engram_path = _cfg_optional_str(load_engram_path, "persistence.load_engram")
-        start_control_server = _cfg_bool(start_control_server, "control.server_enabled", False)
         self.cold_head_k = config_int("maps.head_k", 256)
         self.cold_half_life_ticks = config_int("maps.half_life_ticks", 200)
         self.trail_half_life_ticks = config_int("maps.trail_half_life_ticks", 50)
@@ -114,17 +113,6 @@ class Nexus:
         self.logger = get_logger("nexus", os.path.join(self.run_dir, "events.jsonl"))
         self.ute = UTE()
         self.utd = UTD(self.run_dir)
-        # Start local control server only when requested (default: off)
-        self._control_server = None
-        if bool(start_control_server) and ControlServer is not None:
-            try:
-                self._control_server = ControlServer(self.run_dir)
-                try:
-                    self.logger.info("control_server_started", extra={"extra": {"url": getattr(self._control_server, "url", "")}})
-                except Exception:
-                    pass
-            except Exception:
-                self._control_server = None
 
         from vdm_rt.core.sparse_connectome import SparseConnectome
 
@@ -143,7 +131,7 @@ class Nexus:
         self.sie = SelfImprovementEngine(self.N)
         # Engram persistence config
         self.checkpoint_every = int(checkpoint_every)
-        self.checkpoint_format = str(checkpoint_format).lower()
+        self.checkpoint_format = str(checkpoint_format)
         self.checkpoint_keep = int(max(0, checkpoint_keep))
         # External stimulation amplitude. Receptor-node selection belongs to the
         # caller or future receptor port, not the old text decoder.
@@ -249,11 +237,6 @@ class Nexus:
                     pass
         finally:
             self.utd.close()
-            try:
-                if getattr(self, "_control_server", None):
-                    self._control_server.stop()
-            except Exception:
-                pass
 
 def make_parser():
     from .cli.args import make_parser as _mp

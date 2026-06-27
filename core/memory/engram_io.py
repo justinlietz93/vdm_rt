@@ -215,24 +215,24 @@ def save_checkpoint(run_dir: str, step: int, connectome, fmt: str = "h5", adc=No
         run_dir: run directory
         step: tick index
         connectome: Connectome or SparseConnectome
-        fmt: "h5" (preferred) or "npz" (compat)
+        fmt: "h5"
         adc: Optional ADC instance to persist alongside the connectome
     """
     os.makedirs(run_dir, exist_ok=True)
     backend = "sparse" if hasattr(connectome, "adj") else "dense"
+    fmt = str(fmt or "h5").lower()
 
-    if fmt.lower() == "h5":
-        if not HAVE_H5:
-            # Fallback transparently to npz if h5py isn't available
-            fmt = "npz"
-        else:
-            path = os.path.join(run_dir, f"state_{step}.h5")
-            _save_h5(path, connectome, backend, adc)
-            return path
+    if fmt != "h5":
+        raise ValueError(f"Unsupported checkpoint format {fmt!r}; runtime checkpoints must be h5")
 
-    # default/fallback npz
-    path = os.path.join(run_dir, f"state_{step}.npz")
-    _save_npz(path, connectome, backend, adc)
+    if not HAVE_H5:
+        raise RuntimeError(
+            "h5py is required for H5 checkpoints. Install runtime requirements with "
+            "`pip install -r requirements.txt`."
+        )
+
+    path = os.path.join(run_dir, f"state_{step}.h5")
+    _save_h5(path, connectome, backend, adc)
     return path
 
 
@@ -268,72 +268,9 @@ def _save_h5(path: str, connectome, backend: str, adc=None):
                 pass
 
 
-def _save_npz(path: str, connectome, backend: str, adc=None):
-    adc_json = None
-    if adc is not None:
-        try:
-            adc_json = json.dumps(_adc_to_dict(adc))
-        except Exception:
-            adc_json = None
-
-    if backend == "dense":
-        if adc_json is None:
-            np.savez_compressed(
-                path,
-                backend="dense",
-                N=int(connectome.N),
-                k=int(getattr(connectome, "k", 0)),
-                threshold=float(getattr(connectome, "threshold", 0.0)),
-                lambda_omega=float(getattr(connectome, "lambda_omega", 0.0)),
-                W=connectome.W.astype(np.float32, copy=False),
-                A=connectome.A.astype(np.int8, copy=False),
-                E=connectome.E.astype(np.float32, copy=False),
-            )
-        else:
-            np.savez_compressed(
-                path,
-                backend="dense",
-                N=int(connectome.N),
-                k=int(getattr(connectome, "k", 0)),
-                threshold=float(getattr(connectome, "threshold", 0.0)),
-                lambda_omega=float(getattr(connectome, "lambda_omega", 0.0)),
-                W=connectome.W.astype(np.float32, copy=False),
-                A=connectome.A.astype(np.int8, copy=False),
-                E=connectome.E.astype(np.float32, copy=False),
-                adc_json=adc_json,
-            )
-    else:
-        row_ptr, col_idx = _adj_to_csr(connectome.adj, int(connectome.N))
-        if adc_json is None:
-            np.savez_compressed(
-                path,
-                backend="sparse",
-                N=int(connectome.N),
-                k=int(getattr(connectome, "k", 0)),
-                threshold=float(getattr(connectome, "threshold", 0.0)),
-                lambda_omega=float(getattr(connectome, "lambda_omega", 0.0)),
-                W=connectome.W.astype(np.float32, copy=False),
-                row_ptr=row_ptr,
-                col_idx=col_idx,
-            )
-        else:
-            np.savez_compressed(
-                path,
-                backend="sparse",
-                N=int(connectome.N),
-                k=int(getattr(connectome, "k", 0)),
-                threshold=float(getattr(connectome, "threshold", 0.0)),
-                lambda_omega=float(getattr(connectome, "lambda_omega", 0.0)),
-                W=connectome.W.astype(np.float32, copy=False),
-                row_ptr=row_ptr,
-                col_idx=col_idx,
-                adc_json=adc_json,
-            )
-
-
 def load_engram(path: str, connectome, adc=None) -> None:
     """
-    Load an engram from .h5 or .npz and populate the provided connectome instance.
+    Load an engram from an H5 checkpoint and populate the provided connectome instance.
     If ADC state is present and 'adc' is provided, populate it as well.
 
     - Dense: sets W, A, E, threshold
@@ -341,13 +278,11 @@ def load_engram(path: str, connectome, adc=None) -> None:
     - ADC (optional): territories, boundaries, counters
     """
     p = str(path)
-    if p.lower().endswith(".h5"):
-        if not HAVE_H5:
-            raise RuntimeError("h5py not installed but .h5 requested")
-        _load_h5(p, connectome, adc)
-        return
-    # npz fallback
-    _load_npz(p, connectome, adc)
+    if not p.lower().endswith(".h5"):
+        raise ValueError("Engram checkpoints must be H5 files ending in .h5")
+    if not HAVE_H5:
+        raise RuntimeError("h5py not installed but .h5 requested")
+    _load_h5(p, connectome, adc)
 
 
 def _apply_common_attrs(meta: dict, connectome):
@@ -395,46 +330,3 @@ def _load_h5(path: str, connectome, adc=None):
                     _adc_load_from_dict(adc, state)
             except Exception:
                 pass
-
-
-def _load_npz(path: str, connectome, adc=None):
-    data = np.load(path, allow_pickle=False)
-    backend = str(data.get("backend", "dense"))
-    meta = {
-        "N": int(data.get("N", connectome.N)),
-        "threshold": float(data.get("threshold", getattr(connectome, "threshold", 0.0))),
-        "lambda_omega": float(data.get("lambda_omega", getattr(connectome, "lambda_omega", 0.0))),
-    }
-    _apply_common_attrs(meta, connectome)
-    if backend == "dense":
-        connectome.W = data["W"].astype(np.float32, copy=False)
-        connectome.A = data["A"].astype(np.int8, copy=False)
-        connectome.E = data["E"].astype(np.float32, copy=False)
-    else:
-        connectome.W = data["W"].astype(np.float32, copy=False)
-        row_ptr = data["row_ptr"]
-        col_idx = data["col_idx"]
-        connectome.adj = _csr_to_adj(row_ptr, col_idx, int(connectome.N))
-
-    # Load ADC if present
-    if adc is not None:
-        try:
-            if hasattr(data, "files") and "adc_json" in data.files:
-                raw = data["adc_json"]
-                # raw could be 0-d array of str/bytes
-                if isinstance(raw, np.ndarray):
-                    if raw.dtype.kind in ("U", "S") and raw.shape == ():
-                        raw_val = raw.item()
-                    else:
-                        raw_val = raw.tolist()
-                        if isinstance(raw_val, list) and raw_val:
-                            raw_val = raw_val[0]
-                else:
-                    raw_val = raw
-                if isinstance(raw_val, bytes):
-                    raw_val = raw_val.decode("utf-8", errors="ignore")
-                if isinstance(raw_val, (str,)):
-                    state = json.loads(raw_val)
-                    _adc_load_from_dict(adc, state)
-        except Exception:
-            pass

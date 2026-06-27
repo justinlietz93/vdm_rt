@@ -304,9 +304,9 @@ def run_loop(nx: Any, t0: float, step: int, duration_s: Optional[int] = None) ->
                 except Exception:
                     nx._evt_metrics = None
 
-        # Start status HTTP endpoint (always; idempotent; safe no-op on error)
+        # Start status HTTP endpoint only when configured; idempotent; safe no-op on error.
         try:
-            _maybe_start_status_http(nx, force=True)
+            _maybe_start_status_http(nx)
         except Exception:
             pass
 
@@ -826,11 +826,10 @@ def run_loop(nx: Any, t0: float, step: int, duration_s: Optional[int] = None) ->
             except Exception:
                 pass
 
-            # Checkpointing + retention (delegated)
-            try:
-                _save_tick_checkpoint(nx, int(step))
-            except Exception:
-                pass
+            # Checkpointing + retention. Checkpoint write failures are fatal:
+            # continuing after a configured retention failure makes the run state
+            # look durable when it is not.
+            _save_tick_checkpoint(nx, int(step))
 
             # micro-profiler finalize
             try:

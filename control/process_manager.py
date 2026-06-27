@@ -109,7 +109,6 @@ class ProcessManager:
         add("--checkpoint-keep", profile.get("checkpoint_keep"), str)
         add("--checkpoint-format", profile.get("checkpoint_format"), str)
         add("--duration", profile.get("duration"), str)
-        add_bool("--control-server", "--no-control-server", "control_server")
         # explicit run dir (resume)
         add("--run-dir", profile.get("run_dir"), str)
         # optional: load existing engram (folder or file path; runtime normalizes)

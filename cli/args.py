@@ -76,10 +76,6 @@ def make_parser() -> argparse.ArgumentParser:
 
     # Engram loader (optional)
     p.add_argument('--load-engram', dest='load_engram', type=str, default=_optional_str("persistence.load_engram"))
-    # Optional embedded control server (disabled by default to avoid duplicate UI)
-    p.add_argument('--control-server', dest='control_server', action='store_true')
-    p.add_argument('--no-control-server', dest='control_server', action='store_false')
-    p.set_defaults(control_server=config_bool("control.server_enabled", False))
     # Allow explicit reuse of an existing run directory (resume), otherwise a new timestamp dir is used
     p.add_argument('--run-dir', dest='run_dir', type=str, default=_optional_str("launch.run_dir"))
 
