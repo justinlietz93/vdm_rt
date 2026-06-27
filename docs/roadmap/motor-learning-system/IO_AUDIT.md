@@ -27,9 +27,9 @@ they must not be hidden by decoder removal.
 | `runtime/helpers/speak.py`, lexical state in `nexus.py`, and the lexicon save call in `runtime/loop/main.py` | deleted or removed | These callers made the prohibited decoder live. The release gate no longer composes content. |
 | `io/actuators/macros.py`, `runtime/emitters.py`, `runtime/helpers/macro_board.py`, and macro smoke output | deleted from the live output path | The macro registry and its canned text emitters were not an actuator basis. |
 | `io/actuators/thoughts.py` and thought smoke output | deleted | It had no runtime producer beyond optional smoke material and was not required provenance logging. |
-| `io/cognition/stimulus.py` and the text portion of `runtime/helpers/ingest.py` | deleted or disabled | The unique-symbol mapping is removed. `process_messages()` now counts messages only; it does not stimulate the connectome or echo through UTD. |
+| `io/cognition/stimulus.py` and the text portion of `runtime/helpers/ingest.py` | deleted or disabled | The unique-symbol mapping is removed. `process_messages()` does not map text. It accepts only explicit receptor/stimulation node-index fields, which the loop can pass to `SparseConnectome.stimulate_indices()`, and it does not echo through UTD. |
 | `io/ute.py` | boundary port only | UTE now exposes an explicit queue and no stdin, chat-inbox, or synthetic ticker source. |
-| `io/utd.py` and `runtime/helpers/emission.py` | boundary port only | The status/text/macro emission helper is deleted. UTD has no text or macro API and records only explicit motor events. |
+| `io/utd.py` and `runtime/helpers/emission.py` | boundary port only | The status/text/macro emission helper is deleted. UTD has no text or macro API and records only explicit `utd_actuation` rows in `motor_traces.jsonl.zst`. |
 | `io/logging/rolling_jsonl.py` | keep | Bounded external audit logging is allowed when it does not feed cognition or stand in for reafference. |
 
 ## Static Reachability
@@ -54,7 +54,11 @@ authoring under live runtime roots. It proves:
 1. No live output path imports the composer, speaker, lexicon, phrase bank, or macro emitter.
 2. The runtime has no release-time sentence composition or `say` macro path.
 3. Input receipt never causes outbound UTD emission.
-4. The remaining UTE and UTD surfaces are documented as incomplete receptor and actuator ports, not compliant motor-learning implementations.
+4. Explicit receptor-node indices can stimulate the connectome without restoring text mapping.
+5. The remaining UTE and UTD surfaces are documented as incomplete receptor and actuator ports, not compliant motor-learning implementations.
 
 This audit does not claim that the future motor actuator, articulation trace,
-or sequential receptor is implemented. Those remain roadmap work.
+or sequential receptor is implemented. The live loop now records stimulation,
+efferent observation-node summaries, and optional attached-actuator witness/UTD
+handoffs into `motor_traces.jsonl.zst`; a default actuator implementation
+remains roadmap work.

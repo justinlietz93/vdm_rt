@@ -54,10 +54,10 @@ python -m vdm_rt.run_nexus --neurons 800 --hz 10 --domain biology_consciousness 
 Artifacts land in `runs/<timestamp>/` by default:
 
 ```text
-events.jsonl          structured runtime logs
-utd_events.jsonl      explicit motor-event audit records when a motor port emits
-phase.json           optional external control-plane input when present
-state_<step>.h5       checkpoint when --checkpoint-every is enabled
+events.jsonl.zst            internal runtime dynamics as compressed JSONL
+motor_traces.jsonl.zst      UTE, efferent, afferent, actuator, witness, and UTD trace rows
+phase.json                  optional external control-plane input when present
+state_<step>.h5             checkpoint when --checkpoint-every is enabled
 ```
 
 ## Runtime boundaries

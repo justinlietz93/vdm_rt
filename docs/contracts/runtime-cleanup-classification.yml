@@ -197,7 +197,8 @@ entries:
     evidence:
       - The mapping skipped repeated symbols before creating indices.
       - The file was deleted from the importable runtime tree.
-      - runtime/helpers/ingest.py no longer maps text into connectome indices.
+      - runtime/helpers/ingest.py no longer maps text into connectome indices; it accepts only explicit receptor/stimulation node-index fields.
+      - runtime/loop/main.py records successful explicit-index stimulation under trace_kind="stimulation" in motor_traces.jsonl.zst.
       - The source authority requires sequential, repetition-preserving receptor slices.
     follow_up: Replace with a bounded receptor-slice port when implementing the receptor rewrite; do not preserve the unique-symbol mapping.
 
@@ -214,10 +215,11 @@ entries:
   - path: io/utd.py
     class: port
     state: motor_event_boundary_only
-    role: Explicit motor-event audit boundary.
+    role: Explicit UTD actuation producer for the sensorimotor trace.
     evidence:
       - Text emission, macro registration, macro persistence, and input echo behavior were removed.
-      - UTD now records explicit motor events only.
+      - UTD now records explicit actuation rows only, under trace_kind="utd_actuation" in motor_traces.jsonl.zst.
+      - runtime/loop/main.py can forward emitted attached-actuator witness events through UTD; no default actuator implementation is installed here.
       - The source authority requires fixed actuator primitives and actuator events, not a text decoder.
     follow_up: Replace with an actuator-transducer contract during the motor rewrite.
 

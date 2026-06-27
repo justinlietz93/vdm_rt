@@ -26,7 +26,8 @@ Returns:
 - last step index (int) after the loop completes/breaks
 """
 
-from typing import Any, Dict, Set, Tuple, Optional
+from typing import Any, Dict, Iterable, List, Set, Tuple, Optional
+import hashlib
 import time
 
 from vdm_rt.config import config_bool, config_float, config_int
@@ -66,6 +67,146 @@ from vdm_rt.core.memory import MemoryField
 
 # Development strictness gate: raise swallowed exceptions when enabled
 STRICT = config_bool("runtime.strict", False)
+
+
+def _bounded_ints(values: Iterable[Any], limit: int = 64) -> List[int]:
+    out: List[int] = []
+    seen: Set[int] = set()
+    for value in values or []:
+        try:
+            item = int(value)
+        except Exception:
+            continue
+        if item in seen:
+            continue
+        seen.add(item)
+        out.append(item)
+        if len(out) >= int(max(0, limit)):
+            break
+    return out
+
+
+def _bounded_int_sequence(values: Iterable[Any], limit: int = 64) -> List[int]:
+    out: List[int] = []
+    for value in values or []:
+        try:
+            item = int(value)
+        except Exception:
+            continue
+        out.append(item)
+        if len(out) >= int(max(0, limit)):
+            break
+    return out
+
+
+def _hash_ints(values: Iterable[Any]) -> str:
+    ints = sorted(_bounded_ints(values, limit=4096))
+    raw = ",".join(str(i) for i in ints).encode("utf-8")
+    return hashlib.sha256(raw).hexdigest()[:16]
+
+
+def _observation_nodes(obs_batch: Iterable[Any], limit: int = 4096) -> List[int]:
+    nodes: List[int] = []
+    for obs in obs_batch or []:
+        try:
+            raw_nodes = getattr(obs, "nodes", None)
+            if raw_nodes is None and isinstance(obs, dict):
+                raw_nodes = obs.get("nodes")
+            nodes.extend(
+                _bounded_int_sequence(raw_nodes or [], limit=max(0, limit - len(nodes)))
+            )
+            if len(nodes) >= int(max(0, limit)):
+                break
+        except Exception:
+            continue
+    return nodes
+
+
+def _record_motor_trace(nx: Any, method_name: str, record: Dict[str, Any]) -> bool:
+    try:
+        trace = getattr(nx, "motor_trace", None)
+        method = getattr(trace, method_name, None)
+        if method is None:
+            return False
+        return bool(method(dict(record or {})))
+    except Exception:
+        return False
+
+
+def _call_observe_nodes(actuator: Any, nodes: List[int], step: int, metrics: Dict[str, Any]) -> Any:
+    fn = getattr(actuator, "observe_nodes", None)
+    if fn is None:
+        fn = getattr(actuator, "observe", None)
+    if fn is None:
+        return None
+    try:
+        return fn(nodes, tick=int(step), metrics=metrics)
+    except TypeError:
+        try:
+            return fn(nodes, int(step))
+        except TypeError:
+            return fn(nodes)
+
+
+def _maybe_observe_motor_actuator(
+    nx: Any,
+    step: int,
+    obs_nodes: List[int],
+    metrics: Dict[str, Any],
+) -> None:
+    if not obs_nodes:
+        return
+    actuator = None
+    for name in ("motor_actuator", "fixed_group_actuator", "actuator"):
+        candidate = getattr(nx, name, None)
+        if candidate is not None:
+            actuator = candidate
+            break
+    if actuator is None:
+        return
+
+    try:
+        result = _call_observe_nodes(actuator, obs_nodes, int(step), metrics)
+    except Exception:
+        return
+    if result is None:
+        return
+
+    if isinstance(result, dict):
+        trace_record = dict(result)
+        emitted = trace_record.pop("emitted", [])
+    else:
+        trace_record = {"result": repr(result)}
+        emitted = []
+
+    if isinstance(emitted, dict):
+        emitted = [emitted]
+    try:
+        emitted_list = [dict(ev) for ev in (emitted or []) if isinstance(ev, dict)]
+    except Exception:
+        emitted_list = []
+
+    trace_record.update(
+        {
+            "tick": int(step),
+            "obs_nodes_count": int(len(obs_nodes)),
+            "obs_nodes_unique": int(len(set(obs_nodes))),
+            "obs_nodes_sample": _bounded_ints(obs_nodes, limit=32),
+            "emitted_count": int(len(emitted_list)),
+        }
+    )
+    _record_motor_trace(nx, "record_actuator_trace", trace_record)
+
+    utd = getattr(nx, "utd", None)
+    for event in emitted_list:
+        event.setdefault("tick", int(step))
+        _record_motor_trace(nx, "record_witness_event", event)
+        try:
+            emit = getattr(utd, "emit_motor_event", None)
+            if emit is not None:
+                emit(dict(event))
+        except Exception:
+            continue
 
 
 def _maybe_run_revgsp(nx: Any, metrics: Dict[str, Any], step: int) -> None:
@@ -329,6 +470,7 @@ def run_loop(nx: Any, t0: float, step: int, duration_s: Optional[int] = None) ->
                 _pc = time.time
             _t0 = _pc()
             tick_start = time.time()
+            obs_nodes_for_motor: List[int] = []
 
             # 1) ingest
             msgs = nx.ute.poll()
@@ -338,7 +480,21 @@ def run_loop(nx: Any, t0: float, step: int, duration_s: Optional[int] = None) ->
             # inject the accumulated stimulation before the learning step
             if stim_idxs:
                 try:
-                    nx.connectome.stimulate_indices(sorted(stim_idxs), amp=float(getattr(nx, "stim_amp", 0.05)))
+                    stim_nodes = sorted(int(i) for i in stim_idxs)
+                    stim_amp = float(getattr(nx, "stim_amp", 0.05))
+                    nx.connectome.stimulate_indices(stim_nodes, amp=stim_amp)
+                    _record_motor_trace(
+                        nx,
+                        "record_stimulation",
+                        {
+                            "tick": int(step),
+                            "stim_count": int(len(stim_nodes)),
+                            "stim_hash": _hash_ints(stim_nodes),
+                            "stim_nodes_sample": _bounded_ints(stim_nodes, limit=32),
+                            "amp": float(stim_amp),
+                            "ute_in_count": int(ute_in_count),
+                        },
+                    )
                 except Exception:
                     pass
 
@@ -389,6 +545,24 @@ def run_loop(nx: Any, t0: float, step: int, duration_s: Optional[int] = None) ->
                         void_topic_symbols |= vts
                 except Exception:
                     pass
+                try:
+                    obs_batch = getattr(nx, "_last_obs_batch", None) or []
+                    obs_nodes_for_motor = _observation_nodes(obs_batch)
+                    if obs_nodes_for_motor:
+                        _record_motor_trace(
+                            nx,
+                            "record_efferent_dynamics",
+                            {
+                                "tick": int(step),
+                                "obs_count": int(len(obs_batch)),
+                                "obs_nodes_count": int(len(obs_nodes_for_motor)),
+                                "obs_nodes_unique": int(len(set(obs_nodes_for_motor))),
+                                "obs_nodes_hash": _hash_ints(obs_nodes_for_motor),
+                                "obs_nodes_sample": _bounded_ints(obs_nodes_for_motor, limit=32),
+                            },
+                        )
+                except Exception:
+                    obs_nodes_for_motor = []
             except Exception:
                 pass
 
@@ -705,6 +879,13 @@ def run_loop(nx: Any, t0: float, step: int, duration_s: Optional[int] = None) ->
             except Exception:
                 pass
 
+            # 3d) Optional actuator boundary. If a real actuator object is attached,
+            # observe the current tick's node activity and emit witness/UTD rows.
+            try:
+                _maybe_observe_motor_actuator(nx, int(step), obs_nodes_for_motor, m)
+            except Exception:
+                pass
+
             # Attach SIE top-level fields and components (parity)
             try:
                 m["sie_total_reward"] = float(drive.get("total_reward", 0.0))
@@ -745,33 +926,13 @@ def run_loop(nx: Any, t0: float, step: int, duration_s: Optional[int] = None) ->
                 m["phase"] = 0
 
             # Emitter contexts
-            m["t"] = step
+            m["tick"] = int(step)
+            m["t"] = int(step)
+            m["wall_time_s"] = float(tick_start)
+            m["ts"] = float(tick_start)
+            m["run_elapsed_s"] = max(0.0, float(tick_start) - float(t0))
             m["ute_in_count"] = int(ute_in_count)
             m["ute_text_count"] = int(ute_text_count)
-
-            # Spool stats (Zip spooler) - expose in status snapshot (UI can show back-pressure)
-            try:
-                utd = getattr(nx, "utd", None)
-                writer = getattr(utd, "_writer", None)
-                stats = None
-                # Prefer direct stats(); also handle nested writer._writer
-                if writer is not None and hasattr(writer, "stats"):
-                    stats = writer.stats()  # type: ignore[attr-defined]
-                elif writer is not None and hasattr(writer, "_writer") and hasattr(writer._writer, "stats"):
-                    try:
-                        stats = writer._writer.stats()  # type: ignore[attr-defined]
-                    except Exception:
-                        stats = None
-                if isinstance(stats, dict):
-                    # Namespaced to avoid collisions
-                    m["utd_spool"] = {
-                        "buffer_bytes": int(stats.get("buffer_bytes", 0)),
-                        "zip_bytes": int(stats.get("zip_bytes", 0)),
-                        "zip_entries": int(stats.get("zip_entries", 0)),
-                        "ring_bytes": int(stats.get("ring_bytes", 0)),
-                    }
-            except Exception:
-                pass
 
             try:
                 nx._emit_step = int(step)
@@ -851,7 +1012,15 @@ def run_loop(nx: Any, t0: float, step: int, duration_s: Optional[int] = None) ->
 
             if duration_s is not None and (time.time() - t0) > duration_s:
                 try:
-                    nx.logger.info("nexus_duration_reached", extra={"extra": {"duration_s": int(duration_s)}})
+                    nx.logger.info(
+                        "nexus_duration_reached",
+                        extra={
+                            "extra": {
+                                "tick": int(step),
+                                "duration_s": int(duration_s),
+                            }
+                        },
+                    )
                 except Exception:
                     pass
                 break

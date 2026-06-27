@@ -8,11 +8,14 @@ Commercial use of proprietary VDM code requires written permission from Justin K
 See LICENSE file for full terms.
 """
 
+import os
 import queue
 import threading
 from typing import Any, Dict
 
 from vdm_rt.config import config_int
+from vdm_rt.io.motor_trace import MotorTraceLog
+
 
 class UTE:
     """Universal Temporal Encoder.
@@ -20,16 +23,37 @@ class UTE:
 
     The old stdin/chat-inbox/ticker readers are intentionally absent. Tested
     receptor paths should enqueue explicit receptor events through push().
+    The observed receptor stream is recorded into motor_traces.jsonl.zst.
     """
     def __init__(
         self,
+        run_dir: str | None = None,
         queue_maxsize: int | None = None,
         poll_max_items: int | None = None,
+        motor_trace: MotorTraceLog | None = None,
     ):
-        queue_size = config_int("ute.queue_maxsize", 1024) if queue_maxsize is None else int(queue_maxsize)
+        self.run_dir = str(run_dir) if run_dir is not None else None
+        if self.run_dir:
+            os.makedirs(self.run_dir, exist_ok=True)
+        self.motor_trace = motor_trace or (
+            MotorTraceLog(self.run_dir) if self.run_dir else None
+        )
+        self.input_stream_path = (
+            self.motor_trace.path if self.motor_trace is not None else None
+        )
+        queue_size = (
+            config_int("ute.queue_maxsize", 1024)
+            if queue_maxsize is None
+            else int(queue_maxsize)
+        )
         self.q = queue.Queue(maxsize=max(1, queue_size))
         self._stop = threading.Event()
-        self.poll_max_items = max(1, config_int("ute.poll_max_items", 32) if poll_max_items is None else int(poll_max_items))
+        self.poll_max_items = max(
+            1,
+            config_int("ute.poll_max_items", 32)
+            if poll_max_items is None
+            else int(poll_max_items),
+        )
 
     def start(self):
         return None
@@ -40,9 +64,20 @@ class UTE:
     def push(self, event: Dict[str, Any]) -> bool:
         if self._stop.is_set():
             return False
+        rec = dict(event or {})
         try:
-            self.q.put_nowait(dict(event))
-            return True
+            self.q.put_nowait(rec)
+        except Exception:
+            return False
+        self.record_input(rec)
+        return True
+
+    def record_input(self, record: Dict[str, Any]) -> bool:
+        """Append a receptor-stream row to motor_traces.jsonl.zst."""
+        if self.motor_trace is None:
+            return False
+        try:
+            return self.motor_trace.record_ute_input(dict(record or {}))
         except Exception:
             return False
 

@@ -47,6 +47,31 @@ REMOVED_PATHS = [
     "core/text_utils.py",
 ]
 
+REMOVED_BYTECODE_STEMS = {
+    "composer",
+    "speaker",
+    "stimulus",
+    "idf",
+    "store",
+    "macros",
+    "thoughts",
+    "emitters",
+    "speak",
+    "macro_board",
+    "emission",
+    "smoke",
+    "text_utils",
+}
+
+REMOVED_BYTECODE_PARENTS = {
+    "io/actuators/__pycache__",
+    "io/cognition/__pycache__",
+    "io/lexicon/__pycache__",
+    "runtime/__pycache__",
+    "runtime/helpers/__pycache__",
+    "core/__pycache__",
+}
+
 FORBIDDEN_IMPORT_PREFIXES = (
     "vdm_rt.io.cognition.composer",
     "vdm_rt.io.cognition.speaker",
@@ -87,6 +112,23 @@ def test_removed_decoder_authoring_files_are_absent() -> None:
     root = _package_root()
     offenders = [path for path in REMOVED_PATHS if (root / path).exists()]
     assert not offenders, "Removed decoder/authorship files still exist:\n" + "\n".join(offenders)
+
+
+def test_removed_decoder_authoring_bytecode_is_absent() -> None:
+    root = _package_root()
+    offenders: list[str] = []
+    for path in root.rglob("*.pyc"):
+        if "__pycache__" not in path.parts:
+            continue
+        parent = path.parent.relative_to(root).as_posix()
+        if parent not in REMOVED_BYTECODE_PARENTS:
+            continue
+        stem = path.name.split(".")[0]
+        if stem in REMOVED_BYTECODE_STEMS or (
+            parent == "io/actuators/__pycache__" and stem == "__init__"
+        ):
+            offenders.append(path.relative_to(root).as_posix())
+    assert not offenders, "Removed decoder/authorship bytecode still exists:\n" + "\n".join(offenders)
 
 
 def test_live_code_does_not_import_or_call_decoder_authorship() -> None:

@@ -33,8 +33,8 @@ PYTHONPATH=. pytest -q vdm_rt/tests
 A run directory contains structured runtime artifacts such as:
 
 ```text
-events.jsonl
-utd_events.jsonl
+events.jsonl.zst
+motor_traces.jsonl.zst
 phase.json
 state_<step>.h5
 ```

@@ -24,8 +24,7 @@ Current files:
 - `learning.toml` - experimental REVGSP/GDSP adapter controls; the default SparseConnectome path does not yet satisfy their required substrate contract.
 - `scouts.toml` - void-walker scout budgets and per-scout enable flags.
 - `io.toml` - receptor queue, HTTP status, and Redis status output.
-- `logging.toml` - JSONL and zip spool limits. `events.jsonl` uses the
-  `events_*` limits, names containing `utd` use `utd_*`, and other JSONL files
-  use `log_*`; `roll_check_every = 1` enforces active-file caps after each write.
-  `zip_spool = true` instead selects the zip-buffer strategy and uses
-  `zip_buffer_bytes` and `zip_ring_bytes` for those standard writers.
+- `logging.toml` - JSONL-in-zstd runtime log limits. `events.jsonl.zst` uses
+  the `events_*` limits, `motor_traces.jsonl.zst` uses `motor_trace_*`, and
+  other compressed JSONL files use `log_*`; the MiB caps are enforced against
+  the uncompressed JSONL payload size.

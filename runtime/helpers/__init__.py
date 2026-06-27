@@ -8,13 +8,10 @@ Commercial use of proprietary VDM code requires written permission from Justin K
 See LICENSE file for full terms.
 
 
-Runtime helpers package (modularized).
+Runtime helpers package.
 
-Transitional re-exports:
-- During migration away from the monolith [runtime_helpers.py](../runtime_helpers.py), we re-export
-  its functions here to provide a stable import path:
-    from vdm_rt.runtime.helpers import process_messages, emit_status_and_macro, ...
-- New helpers live as separate modules under this package.
+Helpers exposed here support runtime orchestration only. Output authorship,
+macro emission, and decoder-style speaking helpers are intentionally absent.
 """
 
 from __future__ import annotations
@@ -25,7 +22,6 @@ from .ingest import process_messages
 from .checkpointing import save_tick_checkpoint
 
 __all__ = [
-    # Transitional re-exports
     "maybe_load_engram",
     "derive_start_step",
     "process_messages",

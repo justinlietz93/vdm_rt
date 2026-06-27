@@ -1,0 +1,177 @@
+{
+  "seed": 424242,
+  "sets": {
+    "base_stable": [
+      {
+        "input_id": "B00",
+        "text": "The bridge holds while the signal crosses."
+      },
+      {
+        "input_id": "B01",
+        "text": "The gate opens after the bridge holds."
+      },
+      {
+        "input_id": "B02",
+        "text": "A stable boundary lets the signal pass."
+      },
+      {
+        "input_id": "B03",
+        "text": "The crossing waits until the boundary is steady."
+      },
+      {
+        "input_id": "B04",
+        "text": "A latch keeps the path stable before transfer."
+      },
+      {
+        "input_id": "B05",
+        "text": "The held path admits the next signal."
+      },
+      {
+        "input_id": "B06",
+        "text": "The bridge marks the crossing and then releases."
+      },
+      {
+        "input_id": "B07",
+        "text": "The boundary holds while the signal moves across."
+      }
+    ],
+    "base_repeat": [
+      {
+        "input_id": "B00",
+        "text": "The bridge holds while the signal crosses."
+      },
+      {
+        "input_id": "B01",
+        "text": "The gate opens after the bridge holds."
+      },
+      {
+        "input_id": "B02",
+        "text": "A stable boundary lets the signal pass."
+      },
+      {
+        "input_id": "B03",
+        "text": "The crossing waits until the boundary is steady."
+      },
+      {
+        "input_id": "B04",
+        "text": "A latch keeps the path stable before transfer."
+      },
+      {
+        "input_id": "B05",
+        "text": "The held path admits the next signal."
+      },
+      {
+        "input_id": "B06",
+        "text": "The bridge marks the crossing and then releases."
+      },
+      {
+        "input_id": "B07",
+        "text": "The boundary holds while the signal moves across."
+      }
+    ],
+    "paraphrase_same": [
+      {
+        "input_id": "P00",
+        "text": "The pathway stays steady while the message moves through."
+      },
+      {
+        "input_id": "P01",
+        "text": "A firm edge allows the signal to continue."
+      },
+      {
+        "input_id": "P02",
+        "text": "The span remains fixed until the crossing is complete."
+      },
+      {
+        "input_id": "P03",
+        "text": "A held route lets the next pulse pass."
+      },
+      {
+        "input_id": "P04",
+        "text": "The crossing proceeds after the path settles."
+      },
+      {
+        "input_id": "P05",
+        "text": "The bridge keeps the transfer stable."
+      }
+    ],
+    "symbolic_inversion": [
+      {
+        "input_id": "I00",
+        "text": "The bridge breaks before the signal can cross."
+      },
+      {
+        "input_id": "I01",
+        "text": "The boundary blocks the signal and denies passage."
+      },
+      {
+        "input_id": "I02",
+        "text": "The gate closes after the bridge fails."
+      },
+      {
+        "input_id": "I03",
+        "text": "The crossing collapses before the latch can hold."
+      },
+      {
+        "input_id": "I04",
+        "text": "Transfer begins before the path becomes stable."
+      },
+      {
+        "input_id": "I05",
+        "text": "The signal leaves while the boundary breaks."
+      }
+    ],
+    "concrete_unrelated": [
+      {
+        "input_id": "C00",
+        "text": "The cup falls and shatters on the kitchen floor."
+      },
+      {
+        "input_id": "C01",
+        "text": "The rain taps on the window beside the red chair."
+      },
+      {
+        "input_id": "C02",
+        "text": "A stone rolls down the hill into cold water."
+      },
+      {
+        "input_id": "C03",
+        "text": "The candle melts beside a blue notebook."
+      },
+      {
+        "input_id": "C04",
+        "text": "A truck turns slowly under the streetlight."
+      },
+      {
+        "input_id": "C05",
+        "text": "The orange peel curls beside the metal spoon."
+      }
+    ],
+    "social_affective": [
+      {
+        "input_id": "S00",
+        "text": "A child laughs beside a sleeping dog."
+      },
+      {
+        "input_id": "S01",
+        "text": "Two friends argue quietly at the table."
+      },
+      {
+        "input_id": "S02",
+        "text": "The old woman smiles at the noisy street."
+      },
+      {
+        "input_id": "S03",
+        "text": "The teacher comforts the nervous student."
+      },
+      {
+        "input_id": "S04",
+        "text": "A brother waits while his sister sings."
+      },
+      {
+        "input_id": "S05",
+        "text": "The neighbor waves from the open doorway."
+      }
+    ]
+  }
+}

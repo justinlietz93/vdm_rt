@@ -15,9 +15,10 @@ import time, os, sys
 # - External integrations continue to import Nexus and make_parser from this module (no change required).
 # - Event-driven metrics and void cold scouts are controlled by config/*.toml.
 from .config import config_bool, config_float, config_int, config_str
-from .utils.logging_setup import get_logger
+from .utils.logging_setup import get_logger, set_logger_run_start
 from .io.ute import UTE
 from .io.utd import UTD
+from .io.motor_trace import MotorTraceLog
 from .core.metrics import StreamingZEMA
 from .core.void_dynamics_adapter import get_domain_modulation
 from .core.sie import SelfImprovementEngine
@@ -111,8 +112,9 @@ class Nexus:
 
         os.makedirs(self.run_dir, exist_ok=True)
         self.logger = get_logger("nexus", os.path.join(self.run_dir, "events.jsonl"))
-        self.ute = UTE()
-        self.utd = UTD(self.run_dir)
+        self.motor_trace = MotorTraceLog(self.run_dir)
+        self.ute = UTE(self.run_dir, motor_trace=self.motor_trace)
+        self.utd = UTD(self.run_dir, motor_trace=self.motor_trace)
 
         from vdm_rt.core.sparse_connectome import SparseConnectome
 
@@ -190,7 +192,15 @@ class Nexus:
         try:
             self.start_step = int(_derive_start_step(self, load_engram_path))
             try:
-                self.logger.info("resume_step", extra={"extra": {"start_step": int(self.start_step)}})
+                self.logger.info(
+                    "resume_step",
+                    extra={
+                        "extra": {
+                            "tick": int(self.start_step),
+                            "start_step": int(self.start_step),
+                        }
+                    },
+                )
             except Exception:
                 pass
         except Exception:
@@ -217,19 +227,60 @@ class Nexus:
         return _poll_control_impl(self)
     
     def run(self, duration_s:int=None):
-        self.ute.start()
-        self.logger.info("nexus_started", extra={"extra": {"N": self.N, "k": self.k, "hz": self.hz, "domain": self.domain, "dom_mod": self.dom_mod}})
-        try:
-            self.logger.info("checkpoint_config", extra={"extra": {"every": int(getattr(self, "checkpoint_every", 0)), "keep": int(getattr(self, "checkpoint_keep", 0)), "format": str(getattr(self, "checkpoint_format", ""))}})
-        except Exception:
-            pass
         t0 = time.time()
         step0 = int(getattr(self, "start_step", 0))
+        try:
+            self.run_start_wall_time_s = float(t0)
+            set_logger_run_start(self.logger, float(t0))
+            if hasattr(self, "motor_trace"):
+                self.motor_trace.set_run_clock(float(t0))
+            if hasattr(self.utd, "set_run_clock"):
+                self.utd.set_run_clock(float(t0))
+        except Exception:
+            pass
+        self.ute.start()
+        self.logger.info(
+            "nexus_started",
+            extra={
+                "extra": {
+                    "tick": int(step0),
+                    "N": self.N,
+                    "k": self.k,
+                    "hz": self.hz,
+                    "domain": self.domain,
+                    "dom_mod": self.dom_mod,
+                    "wall_time_s": float(t0),
+                    "run_elapsed_s": 0.0,
+                }
+            },
+        )
+        try:
+            self.logger.info(
+                "checkpoint_config",
+                extra={
+                    "extra": {
+                        "tick": int(step0),
+                        "every": int(getattr(self, "checkpoint_every", 0)),
+                        "keep": int(getattr(self, "checkpoint_keep", 0)),
+                        "format": str(getattr(self, "checkpoint_format", "")),
+                    }
+                },
+            )
+        except Exception:
+            pass
         try:
             _ = _run_loop(self, t0, step0, duration_s)
         except Exception as e:
             try:
-                self.logger.info("nexus_fatal", extra={"extra": {"err": str(e)}})
+                self.logger.info(
+                    "nexus_fatal",
+                    extra={
+                        "extra": {
+                            "tick": int(getattr(self, "_emit_step", step0)),
+                            "err": str(e),
+                        }
+                    },
+                )
             except Exception:
                 try:
                     print("[nexus] fatal", str(e), file=sys.stderr, flush=True)

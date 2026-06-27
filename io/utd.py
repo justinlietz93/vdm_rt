@@ -7,47 +7,42 @@ research while ensuring commercial applications are aligned with the project's e
 Commercial use of proprietary VDM code requires written permission from Justin K. Lietz.
 See LICENSE file for full terms.
 """
-import json, os
+import os
 from typing import Any, Dict
 
-from vdm_rt.config import config_bool
-from vdm_rt.io.logging.rolling_jsonl import RollingJsonlWriter
-try:
-    # Prefer zip spooler when available
-    from vdm_rt.io.logging.rolling_jsonl import RollingZipJsonlWriter  # type: ignore
-except Exception:
-    RollingZipJsonlWriter = None  # type: ignore
+from vdm_rt.io.motor_trace import MotorTraceLog
+
 
 class UTD:
     """Universal Transduction Device boundary.
 
     This port records explicit motor events only. It does not provide text
     emission, macro registration, sentence composition, or input echo.
+    Records are written to motor_traces.jsonl.zst as raw trace rows with
+    trace_kind="utd_actuation".
     """
-    def __init__(self, run_dir: str):
+    def __init__(
+        self,
+        run_dir: str,
+        run_start_wall_time_s: float | None = None,
+        motor_trace: MotorTraceLog | None = None,
+    ):
         self.run_dir = run_dir
         os.makedirs(self.run_dir, exist_ok=True)
-        self.path = os.path.join(self.run_dir, 'utd_events.jsonl')
-        # Prefer zip-spooled writer to bound disk pressure; fallback to rolling JSONL
-        use_zip = config_bool("logging.zip_spool", True)
-        try:
-            if use_zip and RollingZipJsonlWriter is not None:  # type: ignore
-                self._writer = RollingZipJsonlWriter(self.path)  # type: ignore
-            else:
-                self._writer = RollingJsonlWriter(self.path)
-        except Exception:
-            # Safe fallback
-            self._writer = RollingJsonlWriter(self.path)
+        self.motor_trace = motor_trace or MotorTraceLog(
+            self.run_dir,
+            run_start_wall_time_s=run_start_wall_time_s,
+        )
+        self.path = self.motor_trace.path
+
+    def set_run_clock(self, run_start_wall_time_s: float) -> None:
+        self.motor_trace.set_run_clock(run_start_wall_time_s)
 
     def emit_motor_event(self, event: Dict[str, Any]) -> bool:
-        rec = {"type": "motor_event", "event": dict(event or {})}
         try:
-            line = json.dumps(rec, ensure_ascii=False)
-            self._writer.write_line(line)
-            return True
+            return self.motor_trace.record_utd_actuation(dict(event or {}))
         except Exception:
             return False
 
     def close(self):
-        # RollingJsonlWriter does not keep a persistent file handle.
         return None

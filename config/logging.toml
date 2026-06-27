@@ -1,32 +1,31 @@
-# Runtime file logging and spool limits.
+# Runtime file logging and compressed JSONL segment limits.
 
 [logging]
-# Choose the active-file strategy for standard event and UTD writers.
-# true: use zip_buffer_bytes/zip_ring_bytes and append rotated buffers to a zip.
-# false: use the category-specific rolling limits below and archive old lines.
-zip_spool = true
+# Runtime logs are JSONL records compressed immediately with zstd. Active files
+# use the .jsonl.zst suffix; archived rotated segments keep the same suffix.
+# Runtime records use tick for endogenous model time, and wall_time_s plus
+# run_elapsed_s for external clock time.
+compression = "zstd"
+zstd_level = 3
 
-# Rolling JSONL caps, in MiB where the name says mb. Zero line caps mean
-# "unset; use byte caps". Active files are checked after every write by
-# default, so small diagnostic runs honor these limits immediately.
+# Active compressed streams rotate when their uncompressed JSONL payload reaches
+# the configured MiB cap. Zero line caps mean "unset; use byte caps".
 #
-# Category selection is filename-based: events.jsonl uses events_*, files whose
-# names contain "utd" use utd_*, and all other JSONL files use log_*.
+# Category selection is filename-based: events.jsonl uses events_*,
+# motor_traces.jsonl uses motor_trace_*, and all other JSONL files use log_*.
 events_max_mb = 256
 events_max_lines = 0
+motor_trace_max_mb = 256
+motor_trace_max_lines = 0
+log_max_mb = 256
+log_max_lines = 0
+
+# Retained for the plain JSONL debug writer only; the default zstd writer checks
+# rotation after every record.
 events_archive_segment_mb = 512
 events_archive_segment_lines = 0
-utd_max_mb = 256
-utd_max_lines = 0
-utd_archive_segment_mb = 512
-utd_archive_segment_lines = 0
-log_max_mb = 128
-log_max_lines = 0
+motor_trace_archive_segment_mb = 512
+motor_trace_archive_segment_lines = 0
 log_archive_segment_mb = 256
 log_archive_segment_lines = 0
 roll_check_every = 1
-
-# Zip spooler byte caps. Values are exact positive byte limits; use a small
-# value for a quick local rotation test and a larger value for normal runs.
-zip_buffer_bytes = 1048576
-zip_ring_bytes = 65536
