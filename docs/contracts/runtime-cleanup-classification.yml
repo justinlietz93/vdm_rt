@@ -214,10 +214,10 @@ entries:
   - path: io/utd.py
     class: port
     state: motor_event_boundary_only
-    role: Explicit motor-event audit boundary.
+    role: Explicit UTD actuation producer for the sensorimotor trace.
     evidence:
       - Text emission, macro registration, macro persistence, and input echo behavior were removed.
-      - UTD now records explicit motor events only.
+      - UTD now records explicit actuation rows only, under trace_kind="utd_actuation" in motor_traces.jsonl.zst.
       - The source authority requires fixed actuator primitives and actuator events, not a text decoder.
     follow_up: Replace with an actuator-transducer contract during the motor rewrite.
 

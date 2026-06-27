@@ -34,8 +34,7 @@ A run directory contains structured runtime artifacts such as:
 
 ```text
 events.jsonl.zst
-ute_input_stream.jsonl.zst
-utd_events.jsonl.zst
+motor_traces.jsonl.zst
 phase.json
 state_<step>.h5
 ```

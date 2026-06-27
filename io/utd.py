@@ -8,10 +8,9 @@ Commercial use of proprietary VDM code requires written permission from Justin K
 See LICENSE file for full terms.
 """
 import os
-import time
 from typing import Any, Dict
 
-from vdm_rt.io.logging.rolling_jsonl import RollingZstdJsonlWriter
+from vdm_rt.io.motor_trace import MotorTraceLog
 
 
 class UTD:
@@ -19,37 +18,29 @@ class UTD:
 
     This port records explicit motor events only. It does not provide text
     emission, macro registration, sentence composition, or input echo.
-    Records are written directly to utd_events.jsonl.zst as raw event
-    dictionaries, matching the Orthad selector-trace harness.
+    Records are written to motor_traces.jsonl.zst as raw trace rows with
+    trace_kind="utd_actuation".
     """
-    def __init__(self, run_dir: str, run_start_wall_time_s: float | None = None):
+    def __init__(
+        self,
+        run_dir: str,
+        run_start_wall_time_s: float | None = None,
+        motor_trace: MotorTraceLog | None = None,
+    ):
         self.run_dir = run_dir
         os.makedirs(self.run_dir, exist_ok=True)
-        self.run_start_wall_time_s = (
-            float(run_start_wall_time_s)
-            if run_start_wall_time_s is not None
-            else time.time()
+        self.motor_trace = motor_trace or MotorTraceLog(
+            self.run_dir,
+            run_start_wall_time_s=run_start_wall_time_s,
         )
-        self._log = RollingZstdJsonlWriter(
-            os.path.join(self.run_dir, "utd_events.jsonl")
-        )
-        self.path = self._log.base_path
+        self.path = self.motor_trace.path
 
     def set_run_clock(self, run_start_wall_time_s: float) -> None:
-        self.run_start_wall_time_s = float(run_start_wall_time_s)
+        self.motor_trace.set_run_clock(run_start_wall_time_s)
 
     def emit_motor_event(self, event: Dict[str, Any]) -> bool:
         try:
-            rec = dict(event or {})
-            now = time.time()
-            rec.setdefault("wall_time_s", now)
-            rec.setdefault("ts", rec.get("wall_time_s", now))
-            rec.setdefault(
-                "run_elapsed_s",
-                max(0.0, float(rec["wall_time_s"]) - self.run_start_wall_time_s),
-            )
-            self._log.write_record(rec)
-            return True
+            return self.motor_trace.record_utd_actuation(dict(event or {}))
         except Exception:
             return False
 

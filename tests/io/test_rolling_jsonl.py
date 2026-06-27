@@ -108,6 +108,21 @@ def test_zstd_writer_uses_configured_uncompressed_byte_limits(monkeypatch, tmp_p
     assert Path(writer.base_path).name == "events.jsonl.zst"
 
 
+def test_motor_trace_writer_uses_motor_trace_limits(monkeypatch, tmp_path: Path) -> None:
+    _configure_logging(
+        monkeypatch,
+        tmp_path,
+        "[logging]\n"
+        "motor_trace_max_mb = 3\n"
+        "log_max_mb = 99\n",
+    )
+    path = tmp_path / "run" / "motor_traces.jsonl"
+    writer = RollingZstdJsonlWriter(str(path))
+
+    assert writer.max_main_bytes == 3 * 1024 * 1024
+    assert Path(writer.base_path).name == "motor_traces.jsonl.zst"
+
+
 def test_zstd_writer_rotates_on_uncompressed_byte_cap(tmp_path: Path) -> None:
     path = tmp_path / "run" / "events.jsonl"
     writer = RollingZstdJsonlWriter(str(path), max_main_bytes=16)

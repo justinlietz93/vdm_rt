@@ -29,7 +29,7 @@ they must not be hidden by decoder removal.
 | `io/actuators/thoughts.py` and thought smoke output | deleted | It had no runtime producer beyond optional smoke material and was not required provenance logging. |
 | `io/cognition/stimulus.py` and the text portion of `runtime/helpers/ingest.py` | deleted or disabled | The unique-symbol mapping is removed. `process_messages()` now counts messages only; it does not stimulate the connectome or echo through UTD. |
 | `io/ute.py` | boundary port only | UTE now exposes an explicit queue and no stdin, chat-inbox, or synthetic ticker source. |
-| `io/utd.py` and `runtime/helpers/emission.py` | boundary port only | The status/text/macro emission helper is deleted. UTD has no text or macro API and records only explicit motor events. |
+| `io/utd.py` and `runtime/helpers/emission.py` | boundary port only | The status/text/macro emission helper is deleted. UTD has no text or macro API and records only explicit `utd_actuation` rows in `motor_traces.jsonl.zst`. |
 | `io/logging/rolling_jsonl.py` | keep | Bounded external audit logging is allowed when it does not feed cognition or stand in for reafference. |
 
 ## Static Reachability

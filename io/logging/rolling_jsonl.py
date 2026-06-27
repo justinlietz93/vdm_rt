@@ -12,7 +12,7 @@ Rolling JSONL writers with bounded main files and archival segments.
 
 - Maintains capped active JSONL streams.
 - The default runtime writer stores JSONL records immediately in zstd-compressed
-  files (e.g., events.jsonl.zst, utd_events.jsonl.zst).
+  files (e.g., events.jsonl.zst, motor_traces.jsonl.zst).
 - A plain JSONL debug writer remains available when explicitly configured.
 - When the active file exceeds the configured size or line cap, the oldest lines
   are archived for the plain writer; the zstd writer rotates the active
@@ -94,8 +94,8 @@ class RollingJsonlWriter:
         base_name = os.path.basename(self.base_path).lower()
         if base_name == "events.jsonl":
             cat = "EVENTS"
-        elif "utd" in base_name:
-            cat = "UTD"
+        elif base_name == "motor_traces.jsonl":
+            cat = "MOTOR_TRACE"
         else:
             cat = "LOG"
 
@@ -109,8 +109,8 @@ class RollingJsonlWriter:
         if max_main_bytes is None:
             if cat == "EVENTS":
                 max_main_bytes = _cfg_int("logging.events_max_mb", 256)
-            elif cat == "UTD":
-                max_main_bytes = _cfg_int("logging.utd_max_mb", 256)
+            elif cat == "MOTOR_TRACE":
+                max_main_bytes = _cfg_int("logging.motor_trace_max_mb", 256)
             else:
                 max_main_bytes = _cfg_int("logging.log_max_mb", 128)
             max_main_bytes = int(max_main_bytes) * 1024 * 1024 if max_main_bytes else None
@@ -118,8 +118,8 @@ class RollingJsonlWriter:
         if max_main_lines is None:
             if cat == "EVENTS":
                 max_main_lines = _cfg_int("logging.events_max_lines", None)
-            elif cat == "UTD":
-                max_main_lines = _cfg_int("logging.utd_max_lines", None)
+            elif cat == "MOTOR_TRACE":
+                max_main_lines = _cfg_int("logging.motor_trace_max_lines", None)
             else:
                 max_main_lines = _cfg_int("logging.log_max_lines", None)
 
@@ -130,8 +130,8 @@ class RollingJsonlWriter:
         if archive_segment_max_bytes is None:
             if cat == "EVENTS":
                 archive_segment_max_bytes = _cfg_int("logging.events_archive_segment_mb", 512)
-            elif cat == "UTD":
-                archive_segment_max_bytes = _cfg_int("logging.utd_archive_segment_mb", 512)
+            elif cat == "MOTOR_TRACE":
+                archive_segment_max_bytes = _cfg_int("logging.motor_trace_archive_segment_mb", 512)
             else:
                 archive_segment_max_bytes = _cfg_int("logging.log_archive_segment_mb", 256)
             archive_segment_max_bytes = (
@@ -141,8 +141,8 @@ class RollingJsonlWriter:
         if archive_segment_max_lines is None:
             if cat == "EVENTS":
                 archive_segment_max_lines = _cfg_int("logging.events_archive_segment_lines", None)
-            elif cat == "UTD":
-                archive_segment_max_lines = _cfg_int("logging.utd_archive_segment_lines", None)
+            elif cat == "MOTOR_TRACE":
+                archive_segment_max_lines = _cfg_int("logging.motor_trace_archive_segment_lines", None)
             else:
                 archive_segment_max_lines = _cfg_int("logging.log_archive_segment_lines", None)
 
@@ -394,8 +394,8 @@ class RollingZstdJsonlWriter:
             base_name = base_name[:-4]
         if base_name == "events.jsonl":
             cat = "EVENTS"
-        elif "utd" in base_name:
-            cat = "UTD"
+        elif base_name == "motor_traces.jsonl":
+            cat = "MOTOR_TRACE"
         else:
             cat = "LOG"
 
@@ -408,8 +408,8 @@ class RollingZstdJsonlWriter:
         if max_main_bytes is None:
             if cat == "EVENTS":
                 max_main_bytes = _cfg_int("logging.events_max_mb", 256)
-            elif cat == "UTD":
-                max_main_bytes = _cfg_int("logging.utd_max_mb", 256)
+            elif cat == "MOTOR_TRACE":
+                max_main_bytes = _cfg_int("logging.motor_trace_max_mb", 256)
             else:
                 max_main_bytes = _cfg_int("logging.log_max_mb", 256)
             max_main_bytes = int(max_main_bytes) * 1024 * 1024 if max_main_bytes else None
@@ -417,8 +417,8 @@ class RollingZstdJsonlWriter:
         if max_main_lines is None:
             if cat == "EVENTS":
                 max_main_lines = _cfg_int("logging.events_max_lines", None)
-            elif cat == "UTD":
-                max_main_lines = _cfg_int("logging.utd_max_lines", None)
+            elif cat == "MOTOR_TRACE":
+                max_main_lines = _cfg_int("logging.motor_trace_max_lines", None)
             else:
                 max_main_lines = _cfg_int("logging.log_max_lines", None)
 
