@@ -1,0 +1,9 @@
+branch,run,tick,witness,id,utterance,family,leaf,form,strength,cosine,bonus,score,distance,rank
+category_formation,baseline_then_novel,1557,W4_0088,utt_0007_e6444fe71562,I sense I have met this before.,recognition,faint_recognition,direct,high,0.669426679611206,0.0,0.669426679611206,0.3305733203887939,1
+category_formation,baseline_then_novel,1557,W4_0088,utt_0003_46f527ce48d4,I feel this is familiar.,recognition,faint_recognition,direct,high,0.6661689281463623,0.0,0.6661689281463623,0.3338310718536377,2
+category_formation,baseline_then_novel,1557,W4_0088,utt_0015_cdfcf789dd6b,I feel a weak match forming.,recognition,faint_recognition,direct,high,0.6659777164459229,0.0,0.6659777164459229,0.3340222835540771,3
+category_formation,baseline_then_novel,1557,W4_0088,utt_0011_3fed7806ff52,I recognize a faint shape here.,recognition,faint_recognition,direct,high,0.6656620502471924,0.0,0.6656620502471924,0.3343379497528076,4
+category_formation,baseline_then_novel,1557,W4_0088,utt_0006_d18206eb0efb,I think I sense I have met this before.,recognition,faint_recognition,medium,medium,0.6648582220077515,0.0,0.6648582220077515,0.3351417779922485,5
+category_formation,baseline_then_novel,1557,W4_0088,utt_0002_e679cb75713e,I think I feel this is familiar.,recognition,faint_recognition,medium,medium,0.6616563200950623,0.0,0.6616563200950623,0.3383436799049377,6
+category_formation,baseline_then_novel,1557,W4_0088,utt_0014_61d7cbb4be62,I think I feel a weak match forming.,recognition,faint_recognition,medium,medium,0.661381721496582,0.0,0.661381721496582,0.3386182785034179,7
+category_formation,baseline_then_novel,1557,W4_0088,utt_0010_75b291f2dba3,I think I recognize a faint shape here.,recognition,faint_recognition,medium,medium,0.6610589027404785,0.0,0.6610589027404785,0.3389410972595215,8

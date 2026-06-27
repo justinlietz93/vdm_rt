@@ -1,0 +1,17 @@
+branch,run,witnesses,mean_rows,median_rows,top_family,top_family_count,mean_family_margin,median_family_margin,mean_unique_families_top8,median_top1_family_count_in_top8
+category_formation,baseline_then_novel,97,17.97938144329897,13.0,recognition,41,0.003097318112850189,0.0026546120643615723,1.175257731958763,8.0
+category_formation,facts_then_questions,6,292.3333333333333,259.0,familiarity,5,,,1.0,8.0
+category_formation,multilingual_random,50,35.42,19.5,readiness,19,0.004252940416336087,0.004252940416336087,1.04,8.0
+category_formation,no_baseline_test,71,25.070422535211268,16.0,familiarity,19,0.006806964675585443,0.005542770028114347,1.1690140845070423,8.0
+cross_domain_mapping,baseline_then_novel,22,81.5909090909091,25.0,familiarity,16,0.0006937384605407715,0.0006937384605407715,1.0454545454545454,8.0
+cross_domain_mapping,facts_then_questions,26,67.23076923076923,22.0,readiness,12,,,1.0,8.0
+cross_domain_mapping,multilingual_random,33,52.121212121212125,25.0,familiarity,15,0.005186617374420166,0.004141688346862793,1.1515151515151516,8.0
+cross_domain_mapping,no_baseline_test,18,95.55555555555556,80.0,familiarity,15,0.004487216472625732,0.004487216472625732,1.0555555555555556,8.0
+hierarchy_ordering,baseline_then_novel,3,37.666666666666664,35.0,familiarity,2,0.003699660301208496,0.003699660301208496,1.3333333333333333,8.0
+hierarchy_ordering,facts_then_questions,15,114.33333333333333,106.0,familiarity,11,,,1.0,8.0
+hierarchy_ordering,multilingual_random,66,27.257575757575758,15.0,readiness,19,0.00288410484790802,0.0022733956575393677,1.106060606060606,8.0
+hierarchy_ordering,no_baseline_test,2,300.5,300.5,familiarity,2,,,1.0,8.0
+missing_closure_analogy,baseline_then_novel,23,77.08695652173913,26.0,familiarity,14,0.0052169362703959055,0.005358517169952393,1.2608695652173914,8.0
+missing_closure_analogy,facts_then_questions,19,86.3157894736842,57.0,familiarity,12,,,1.0,8.0
+missing_closure_analogy,multilingual_random,95,18.852631578947367,12.0,readiness,54,0.005282275378704078,0.004152476787567139,1.0842105263157895,8.0
+missing_closure_analogy,no_baseline_test,10,167.1,113.5,familiarity,9,,,1.0,8.0
