@@ -8,8 +8,6 @@ See LICENSE file for full terms.
 
 import numpy as np
 
-from vdm_rt.config import config_float, config_int
-
 def compute_metrics(connectome):
    """
    Rule Ref: Blueprint Rule 4.1 (Pathology Detection Mechanisms)
@@ -48,81 +46,3 @@ def connectome_entropy(connectome) -> float:
    # Numerical stability
    p = np.clip(p, 1e-12, 1.0)
    return float(-(p * np.log(p)).sum())
-
-
-# --- Streaming z-score detector for first-difference of a scalar series (tick-based) ---
-# This keeps state across ticks to detect "spikes" in a topology metric such as
-# cyclomatic complexity (a B1 proxy). It is void-faithful: no tokens, only graph-native signals.
-import math as _math
-
-class StreamingZEMA:
-    """
-    EMA-based z-score detector on first differences of a scalar time series.
-
-    Parameters (tick-based):
-    - half_life_ticks: EMA half-life in ticks (controls smoothing window)
-    - z_spike: z-threshold to enter spiking
-    - hysteresis: subtract from z_spike to exit spiking (prevents chatter)
-    - min_interval_ticks: minimum ticks between spike fires (cooldown)
-    """
-    def __init__(
-        self,
-        half_life_ticks: int | None = None,
-        z_spike: float | None = None,
-        hysteresis: float | None = None,
-        min_interval_ticks: int | None = None,
-    ):
-        half_life_ticks = config_int("events.streaming_z_half_life_ticks", 50) if half_life_ticks is None else int(half_life_ticks)
-        z_spike = config_float("events.streaming_z_spike", 3.0) if z_spike is None else float(z_spike)
-        hysteresis = config_float("events.streaming_z_hysteresis", 1.0) if hysteresis is None else float(hysteresis)
-        min_interval_ticks = config_int("events.streaming_z_min_interval_ticks", 10) if min_interval_ticks is None else int(min_interval_ticks)
-        self.alpha = 1.0 - _math.exp(_math.log(0.5) / float(max(1, int(half_life_ticks))))
-        self.z_spike = float(z_spike)
-        self.hysteresis = float(max(0.0, hysteresis))
-        self.min_interval = int(max(1, int(min_interval_ticks)))
-
-        self.mu = 0.0        # EMA mean of delta
-        self.var = 1e-8      # EMA variance of delta
-        self.prev = None     # previous value for delta computation
-        self._spiking = False
-        self.last_fire_tick = -10**12
-
-    def update(self, value: float, tick: int):
-        v = float(value)
-        if self.prev is None:
-            self.prev = v
-            return {
-                "value": v, "delta": 0.0, "mu": self.mu,
-                "sigma": self.var ** 0.5, "z": 0.0, "spike": False
-            }
-
-        d = v - self.prev
-        self.prev = v
-
-        a = self.alpha
-        # EMA on first-difference
-        self.mu = (1.0 - a) * self.mu + a * d
-        diff = d - self.mu
-        self.var = (1.0 - a) * self.var + a * (diff * diff)
-        sigma = (self.var if self.var > 1e-24 else 1e-24) ** 0.5
-        z = diff / sigma
-
-        # Hysteresis + cooldown
-        fire = False
-        high = self.z_spike
-        low = max(0.0, self.z_spike - self.hysteresis)
-        if not self._spiking and z >= high and (int(tick) - int(self.last_fire_tick)) >= self.min_interval:
-            self._spiking = True
-            self.last_fire_tick = int(tick)
-            fire = True
-        elif self._spiking and z <= low:
-            self._spiking = False
-
-        return {
-            "value": v,
-            "delta": float(d),
-            "mu": float(self.mu),
-            "sigma": float(sigma),
-            "z": float(z),
-            "spike": bool(fire),
-        }

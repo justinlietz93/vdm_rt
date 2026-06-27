@@ -26,8 +26,8 @@ parity, and it is not a replacement for an import or smoke gate.
 
 `nexus.py` constructs `SparseConnectome` and `SelfImprovementEngine`.
 `SparseConnectome` invokes the intrinsic `sie_v2` rule. The runtime loop imports
-void scouts and invokes optional GDSP/REVGSP adapters. These are live paths and
-are classified `keep`.
+void scouts and no longer invokes the removed CSR GDSP/REV-GSP adapters. These
+remaining paths are classified `keep`.
 
 `core/adc.py` is also a live boundary: checkpoint restoration imports its
 territory and boundary state types. The classification does not infer that ADC
@@ -81,14 +81,15 @@ requirements merely because they exist in the old file.
 - `core/structural_homeostasis.py` is unwired and expects the retired dense
   `A`/`E` interface. `SparseConnectome` carries a narrower pruning/bridging
   implementation internally, so the repair goal is only partial.
-- `core/void_b1.py` has a sparse-capable topology packet producer but no runtime
-  caller. The default path instead detects spikes in `complexity_cycles`; it
-  does not emit Void B1's Euler-rank, triangle, or active-node packet.
-- GDSP and REV-GSP are disabled by default and do not accept the default
-  `SparseConnectome` state. Their runtime flags currently do not establish an
-  operational plasticity path.
-- `core/diagnostics.py` has no caller and requires the retired dense adjacency
-  interface. Its diagnostic goal needs a sparse readout decision.
+- `core/void_b1.py` owns the live `StreamingZEMA` B1Z detector and preserves a
+  planned topology packet. The default path detects spikes in
+  `complexity_cycles`; it does not yet emit Void B1's Euler-rank, triangle, or
+  active-node packet.
+- The old CSR GDSP/REV-GSP adapter files and their runtime flags were removed
+  because they did not accept the default `SparseConnectome` state.
+- `core/diagnostics.py` was removed because it had no caller and required the
+  retired dense adjacency interface. Its diagnostic goal needs a sparse readout
+  decision if it is still wanted.
 
 ### Removed paths and dependency state
 
@@ -96,22 +97,21 @@ The frontend, visualization package, and WebSocket map helpers are absent and
 already covered by runtime-prune guards. `requirements.txt` contains neither
 Torch nor a GPU package.
 
-The local `venv` can import `vdm_rt`, `SparseConnectome`, and ADC, but its SIE
-import stops at `ModuleNotFoundError: scipy`. `scipy` is declared in
-`requirements.txt`; this is a local environment provisioning gap, not evidence
-against the classification. The Phase 3 import gates remain open until a clean
-environment with all declared dependencies is exercised.
+The local `venv` can import `vdm_rt`, `SparseConnectome`, ADC, and SIE without
+SciPy. SciPy is no longer declared as a runtime dependency because the default
+sparse substrate uses NumPy arrays and adjacency lists rather than SciPy sparse
+matrices.
 
 ## Dispositions
 
 | Surface | Class | Reason | Required next action |
 | --- | --- | --- | --- |
-| `SparseConnectome`, ADC, SIE/SIE v2, void maps/scouts, neuroplasticity | `keep` | Active runtime ownership | Add importability guards before cleanup moves. |
+| `SparseConnectome`, ADC, SIE/SIE v2, void maps/scouts | `keep` | Active runtime ownership | Add importability guards before cleanup moves. |
 | `core/substrate/` source | `preserved archive` | Statically isolated dense/Torch implementation with unclosed goals | Keep under `docs/sources/legacy-substrate-neurogenesis/`; do not delete until coverage closes. |
 | Sparse population management | `unmet` | No fixed-size sparse executor can grow or retire nodes | Build bounded sparse/event-fed behavior. |
 | Node/spike dynamics, intrinsic plasticity, synaptic scaling | `unmet` | No compatible state or operator exists on SparseConnectome | Assign a sparse-native owner or explicitly retire each goal. |
 | `core/global_system.py` | `archive` candidate | Statically isolated ADC/SIE variant with partial successors | Close ADC and territory-conditioned-valence coverage first. |
-| Growth, homeostasis, B1, GDSP/REV-GSP | `unwired` or `partial` | Implementations exist but are not operational on the default substrate | Establish one compatible owner and an enabled-path test. |
+| Growth, homeostasis, B1, sparse structural plasticity | `unwired` or `partial` | The retained goals need SparseConnectome-native owners | Establish one compatible owner and an enabled-path test before adding config flags. |
 | Frontend, visualization, WebSocket map helpers | `delete` | Removed runtime contamination | Retain and extend absence guards. |
 
 ## Open Evidence

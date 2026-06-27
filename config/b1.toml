@@ -1,9 +1,11 @@
-# B1 topology detector defaults. These configure the live StreamingZEMA
-# topology-spike detector; they do not trigger text output.
+# B1 topology defaults. z/hysteresis/cooldown/half-life configure the live
+# StreamingZEMA topology-spike detector; they do not trigger text output.
+# sample_edges is reserved for the planned VoidB1Meter topology packet and is
+# not consumed by default runtime telemetry until that packet has tests.
 
 [b1]
-sample_edges = 4096
 half_life_ticks = 50
 z = 1.0
 hysteresis = 1.0
 cooldown_ticks = 10
+sample_edges = 4096

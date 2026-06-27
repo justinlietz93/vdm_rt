@@ -1,0 +1,8 @@
+{"tick": 0, "neuron_scores": {"0": 0.9, "44": 0.95}}
+{"tick": 1, "neuron_scores": {"0": 0.0, "44": 0.0}}
+{"tick": 2, "neuron_scores": {"0": 0.9, "77": 0.95}}
+{"tick": 3, "neuron_scores": {"0": 0.0, "77": 0.0}}
+{"tick": 4, "neuron_scores": {"0": 0.9, "5": 0.95}}
+{"tick": 5, "neuron_scores": {"0": 0.0, "5": 0.0}}
+{"tick": 6, "neuron_scores": {"1": 0.9}}
+{"tick": 7, "neuron_scores": {"1": 0.9}, "intent_text": "I think I hold attention here.", "witness_event": true}

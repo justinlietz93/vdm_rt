@@ -14,14 +14,12 @@ Current files:
 - `runtime.toml` - cross-cutting loop, event, and territory knobs.
 - `sparse_connectome.toml` - sparse graph maintenance controls.
 - `adc.toml` - announcement bus and ADC defaults.
-- `b1.toml` - reserved Void B1 topology-meter defaults; not consumed by the default runtime until B1 ownership is resolved.
 - `stimulus.toml` - explicit receptor-node stimulation defaults.
-- `b1.toml` - live topology detector defaults.
+- `b1.toml` - live B1Z detector defaults plus reserved topology-packet sample cap.
 - `maps.toml` - event map and memory/trail view defaults.
 - `sie.toml` - Self-Improvement Engine runtime defaults.
 - `persistence.toml` - checkpoint and resume defaults.
 - `control.toml` - embedded control-plane defaults.
-- `learning.toml` - experimental REVGSP/GDSP adapter controls; the default SparseConnectome path does not yet satisfy their required substrate contract.
 - `scouts.toml` - void-walker scout budgets and per-scout enable flags.
 - `io.toml` - receptor queue, HTTP status, and Redis status output.
 - `logging.toml` - JSONL-in-zstd runtime log limits. `events.jsonl.zst` uses

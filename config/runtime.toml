@@ -34,13 +34,6 @@ vt_head_k = 256
 b1_min_interval_ticks = 1
 ewma_alpha = 0.05
 
-# Generic topology-delta detector defaults used by StreamingZEMA when callers
-# do not pass detector-specific overrides.
-streaming_z_half_life_ticks = 50
-streaming_z_spike = 3.0
-streaming_z_hysteresis = 1.0
-streaming_z_min_interval_ticks = 10
-
 [territory]
 # Head size for event-folded cohesion territories.
 head_k = 512

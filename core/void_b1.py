@@ -6,7 +6,11 @@ This research is protected under a dual-license to foster open academic
 research while ensuring commercial applications are aligned with the project's ethical principles. Commercial use requires written permission from Justin K. Lietz.
 See LICENSE file for full terms.
 
-Void-faithful, streaming B1 surrogate and Euler-rank estimate.
+Void-faithful B1 detector and planned topology packet.
+
+Only `StreamingZEMA` is live in the default runtime today. `VoidB1Meter` keeps
+the intended topology-packet surface in one B1 module, but its packet is not
+wired into telemetry until sparse behavior and cost are tested.
 
 Design goals
 - No dense NxN; use adjacency lists or the connectome's active-edge iterator
@@ -31,7 +35,7 @@ from typing import Iterable, List, Tuple, Dict, Any, Optional
 
 import numpy as np
 from .primitives.dsu import DSU as _DSU
-from vdm_rt.config import config_int
+from vdm_rt.config import config_float, config_int
 
 
 def _count_intersection_sorted(a: np.ndarray, b: np.ndarray) -> int:
@@ -56,6 +60,78 @@ def _count_intersection_sorted(a: np.ndarray, b: np.ndarray) -> int:
 def _alpha_from_half_life(half_life_ticks: int) -> float:
     hl = max(1, int(half_life_ticks))
     return 1.0 - math.exp(math.log(0.5) / float(hl))
+
+
+class StreamingZEMA:
+    """
+    EMA-based z-score detector on first differences of the live B1 scalar.
+
+    This is the current runtime B1Z detector. The topology packet below is the
+    broader target surface, but this class owns the live `b1_z` path.
+    """
+    def __init__(
+        self,
+        half_life_ticks: int | None = None,
+        z_spike: float | None = None,
+        hysteresis: float | None = None,
+        min_interval_ticks: int | None = None,
+    ):
+        half_life_ticks = config_int("b1.half_life_ticks", 50) if half_life_ticks is None else int(half_life_ticks)
+        z_spike = config_float("b1.z", 1.0) if z_spike is None else float(z_spike)
+        hysteresis = config_float("b1.hysteresis", 1.0) if hysteresis is None else float(hysteresis)
+        min_interval_ticks = config_int("b1.cooldown_ticks", 10) if min_interval_ticks is None else int(min_interval_ticks)
+        self.alpha = _alpha_from_half_life(half_life_ticks)
+        self.z_spike = float(z_spike)
+        self.hysteresis = float(max(0.0, hysteresis))
+        self.min_interval = int(max(1, int(min_interval_ticks)))
+
+        self.mu = 0.0
+        self.var = 1e-8
+        self.prev = None
+        self._spiking = False
+        self.last_fire_tick = -10**12
+
+    def update(self, value: float, tick: int):
+        v = float(value)
+        if self.prev is None:
+            self.prev = v
+            return {
+                "value": v,
+                "delta": 0.0,
+                "mu": self.mu,
+                "sigma": self.var ** 0.5,
+                "z": 0.0,
+                "spike": False,
+            }
+
+        d = v - self.prev
+        self.prev = v
+
+        a = self.alpha
+        self.mu = (1.0 - a) * self.mu + a * d
+        diff = d - self.mu
+        self.var = (1.0 - a) * self.var + a * (diff * diff)
+        sigma = (self.var if self.var > 1e-24 else 1e-24) ** 0.5
+        z = diff / sigma
+
+        fire = False
+        high = self.z_spike
+        low = max(0.0, self.z_spike - self.hysteresis)
+        if not self._spiking and z >= high and (int(tick) - int(self.last_fire_tick)) >= self.min_interval:
+            self._spiking = True
+            self.last_fire_tick = int(tick)
+            fire = True
+        elif self._spiking and z <= low:
+            self._spiking = False
+
+        return {
+            "value": v,
+            "delta": float(d),
+            "mu": float(self.mu),
+            "sigma": float(sigma),
+            "z": float(z),
+            "spike": bool(fire),
+        }
 
 
 class _Reservoir:
@@ -93,6 +169,10 @@ class VoidB1Meter:
     - Maintains EMA of b1_raw to produce void_b1 in [0,1]
     - Computes euler_rank = E_active - V_active + C_active (cycles count)
     - Estimates triangles_per_edge over a bounded reservoir of active edges
+
+    TODO: Before routing this packet into runtime telemetry, add tests that
+    validate sparse edge iteration, Euler-rank/cycle semantics, triangle
+    reservoir behavior, and bounded per-tick cost on SparseConnectome.
 
     Parameters
     - sample_edges: maximum number of active edges sampled per tick
@@ -207,6 +287,10 @@ class VoidB1Meter:
     ) -> Dict[str, Any]:
         """
         Small-N fallback using masks; cost is acceptable only for validation runs.
+
+        TODO: Keep this path out of the default runtime. If the topology packet
+        becomes live, either prove this branch cannot run for SparseConnectome
+        or split dense validation into a non-runtime test helper.
         """
         N = int(A.shape[0])
         th = float(threshold)

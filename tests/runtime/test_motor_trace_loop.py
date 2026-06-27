@@ -137,8 +137,6 @@ def test_run_loop_records_sensorimotor_handoff_rows(monkeypatch) -> None:
     monkeypatch.setattr(loop_main, "_maybe_start_status_http", lambda *_args, **_kwargs: None)
     monkeypatch.setattr(loop_main, "_maybe_publish_status_redis", lambda *_args, **_kwargs: None)
     monkeypatch.setattr(loop_main, "_save_tick_checkpoint", lambda *_args, **_kwargs: None)
-    monkeypatch.setattr(loop_main, "_maybe_run_revgsp", lambda *_args, **_kwargs: None)
-    monkeypatch.setattr(loop_main, "_maybe_run_gdsp", lambda *_args, **_kwargs: None)
 
     trace = _Trace()
     actuator = _Actuator()

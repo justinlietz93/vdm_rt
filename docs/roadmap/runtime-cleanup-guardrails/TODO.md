@@ -19,7 +19,7 @@ This checklist protects the fresh independent runtime identity. It is allowed to
 
 - [x] Step 0.2.1 — Add policy that `SparseConnectome` is the live runtime substrate.
 - [x] Step 0.2.2 — Add policy that void walkers and void maps are core runtime systems.
-- [x] Step 0.2.3 — Add policy that ADC, SIE, GDSP/REVGSP, bus/event spine, and headless runtime must remain live concepts.
+- [x] Step 0.2.3 — Add policy that ADC, SIE, sparse structural-plasticity capability, bus/event spine, and headless runtime must remain live concepts.
 - [x] Step 0.2.4 — Add policy that old frontend, visualization adapters, WebSocket map streaming, torch, and dense substrate backends are not live runtime concepts.
 
 ### Task 0.3 — Prove Capability Ownership Before Removal

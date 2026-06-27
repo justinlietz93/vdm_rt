@@ -12,7 +12,7 @@ The runtime currently has parallel signal paths: `AnnounceBus`, `Observation`, `
 - [ ] Step 0.1.1 — Inventory `SparseConnectome._void_traverse()` observation producers.
 - [ ] Step 0.1.2 — Inventory runtime scout producers under `core/cortex/void_walkers/`.
 - [ ] Step 0.1.3 — Inventory map producers under `core/cortex/maps/`.
-- [ ] Step 0.1.4 — Inventory GDSP/REVGSP and SIE outputs that should become spine-visible.
+- [ ] Step 0.1.4 — Inventory SIE and future sparse structural-plasticity outputs that should become spine-visible.
 - [ ] Step 0.1.5 — Inventory future motor-learning event needs.
 
 ### Task 0.2 — List reducers

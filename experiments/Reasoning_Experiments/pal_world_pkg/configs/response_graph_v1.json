@@ -1,0 +1,1930 @@
+{
+  "version": "2.0.0",
+  "description": "Deterministic social response graph. Witness traces query a vector index using fused/emitted output, top-k phrases, selector/aperture traces, active operations, channel, and derived model-output category. Replies are natural, low-repetition, affordance-oriented, and seed-biased.",
+  "default_gain": 0.1,
+  "followup_probability": 0.22,
+  "seed_bias_strength": 0.08,
+  "turn_jitter_strength": 0.04,
+  "repeat_penalty": 0.35,
+  "same_family_streak_penalty": 0.06,
+  "same_text_penalty": 0.45,
+  "max_history": 48,
+  "nodes": [
+    {
+      "id": "follow_wait_01",
+      "family": "grounding",
+      "leaf": "followup",
+      "tags": [
+        "wait",
+        "no_demand",
+        "pressure_relief"
+      ],
+      "reply_text": "I can wait here. No answer is required yet.",
+      "action": "wait",
+      "aperture_hint": "hold",
+      "stimulus_policy": "continue",
+      "reafferent_gain_hint": 0.06,
+      "followups": []
+    },
+    {
+      "id": "follow_small_01",
+      "family": "grounding",
+      "leaf": "followup",
+      "tags": [
+        "smaller",
+        "one_signal",
+        "reduce_pressure"
+      ],
+      "reply_text": "I will keep the next signal smaller.",
+      "action": "make_smaller",
+      "aperture_hint": "narrow",
+      "stimulus_policy": "reduce_amplitude",
+      "reafferent_gain_hint": 0.06,
+      "followups": []
+    },
+    {
+      "id": "follow_choice_01",
+      "family": "grounding",
+      "leaf": "followup",
+      "tags": [
+        "choice",
+        "affordance",
+        "hold_shift_stop"
+      ],
+      "reply_text": "The available choices are hold, smaller, shift, or stop.",
+      "action": "show_choices",
+      "aperture_hint": "hold",
+      "stimulus_policy": "continue",
+      "reafferent_gain_hint": 0.07,
+      "followups": []
+    },
+    {
+      "id": "follow_stop_01",
+      "family": "grounding",
+      "leaf": "followup",
+      "tags": [
+        "stop",
+        "safe",
+        "no_demand"
+      ],
+      "reply_text": "Stopping is allowed. Silence is allowed too.",
+      "action": "allow_stop",
+      "aperture_hint": "hold",
+      "stimulus_policy": "quiet",
+      "reafferent_gain_hint": 0.05,
+      "followups": []
+    },
+    {
+      "id": "follow_edge_01",
+      "family": "grounding",
+      "leaf": "followup",
+      "tags": [
+        "one_edge",
+        "small",
+        "compare"
+      ],
+      "reply_text": "One edge only. Nothing else has to move.",
+      "action": "one_edge",
+      "aperture_hint": "pair",
+      "stimulus_policy": "single_edge",
+      "reafferent_gain_hint": 0.07,
+      "followups": []
+    },
+    {
+      "id": "follow_repeat_01",
+      "family": "grounding",
+      "leaf": "followup",
+      "tags": [
+        "repeat",
+        "once",
+        "familiar"
+      ],
+      "reply_text": "I can repeat it once without adding pressure.",
+      "action": "repeat_once",
+      "aperture_hint": "hold",
+      "stimulus_policy": "repeat_last_once",
+      "reafferent_gain_hint": 0.07,
+      "followups": []
+    },
+    {
+      "id": "follow_widen_01",
+      "family": "grounding",
+      "leaf": "followup",
+      "tags": [
+        "widen",
+        "gentle",
+        "aperture"
+      ],
+      "reply_text": "I can widen the view a little, not all at once.",
+      "action": "widen_small",
+      "aperture_hint": "open_small",
+      "stimulus_policy": "widen_small",
+      "reafferent_gain_hint": 0.07,
+      "followups": []
+    },
+    {
+      "id": "follow_boundary_01",
+      "family": "grounding",
+      "leaf": "followup",
+      "tags": [
+        "boundary",
+        "stable",
+        "contain"
+      ],
+      "reply_text": "The boundary can stay stable.",
+      "action": "boundary_stable",
+      "aperture_hint": "hold",
+      "stimulus_policy": "continue",
+      "reafferent_gain_hint": 0.06,
+      "followups": []
+    },
+    {
+      "id": "focus_constraint_01",
+      "family": "grounding",
+      "leaf": "focused_but_constrained",
+      "tags": [
+        "focused_but_constrained",
+        "pressure_relief",
+        "respect_focus",
+        "category:focused_but_constrained",
+        "op_posture:conflicted_release",
+        "variant:1"
+      ],
+      "reply_text": "I see focus and restraint at the same time. I will not push.",
+      "action": "offer_choice",
+      "aperture_hint": "hold",
+      "stimulus_policy": "continue",
+      "reafferent_gain_hint": 0.11,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "focus_constraint_02",
+      "family": "grounding",
+      "leaf": "focused_but_constrained",
+      "tags": [
+        "focused_but_constrained",
+        "pressure_relief",
+        "respect_focus",
+        "category:focused_but_constrained",
+        "op_posture:conflicted_release",
+        "variant:2"
+      ],
+      "reply_text": "You look focused, and also guarded. We can keep this small.",
+      "action": "offer_choice",
+      "aperture_hint": "hold",
+      "stimulus_policy": "continue",
+      "reafferent_gain_hint": 0.11,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "focus_constraint_03",
+      "family": "grounding",
+      "leaf": "focused_but_constrained",
+      "tags": [
+        "focused_but_constrained",
+        "pressure_relief",
+        "respect_focus",
+        "category:focused_but_constrained",
+        "op_posture:conflicted_release",
+        "variant:3"
+      ],
+      "reply_text": "There is attention here, with pressure held behind it. No answer has to be forced.",
+      "action": "offer_choice",
+      "aperture_hint": "hold",
+      "stimulus_policy": "continue",
+      "reafferent_gain_hint": 0.11,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "focus_constraint_04",
+      "family": "grounding",
+      "leaf": "focused_but_constrained",
+      "tags": [
+        "focused_but_constrained",
+        "pressure_relief",
+        "respect_focus",
+        "category:focused_but_constrained",
+        "op_posture:conflicted_release",
+        "variant:4"
+      ],
+      "reply_text": "You are staying with the signal without letting it spill. I can wait at this edge.",
+      "action": "offer_choice",
+      "aperture_hint": "hold",
+      "stimulus_policy": "continue",
+      "reafferent_gain_hint": 0.11,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "focus_constraint_05",
+      "family": "grounding",
+      "leaf": "focused_but_constrained",
+      "tags": [
+        "focused_but_constrained",
+        "pressure_relief",
+        "respect_focus",
+        "category:focused_but_constrained",
+        "op_posture:conflicted_release",
+        "variant:5"
+      ],
+      "reply_text": "I see you holding focus while keeping pressure back. We can slow the outside down.",
+      "action": "offer_choice",
+      "aperture_hint": "hold",
+      "stimulus_policy": "continue",
+      "reafferent_gain_hint": 0.11,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "focus_constraint_06",
+      "family": "grounding",
+      "leaf": "focused_but_constrained",
+      "tags": [
+        "focused_but_constrained",
+        "pressure_relief",
+        "respect_focus",
+        "category:focused_but_constrained",
+        "op_posture:conflicted_release",
+        "variant:6"
+      ],
+      "reply_text": "The focus is real, and the restraint is real too. I will give you room.",
+      "action": "offer_choice",
+      "aperture_hint": "hold",
+      "stimulus_policy": "continue",
+      "reafferent_gain_hint": 0.11,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "pressure_hold_01",
+      "family": "grounding",
+      "leaf": "pressure_holding_withdrawal",
+      "tags": [
+        "pressure_holding_withdrawal",
+        "pressure_relief",
+        "no_more_demand",
+        "category:pressure_holding_withdrawal",
+        "op_posture:withdrawn",
+        "variant:1"
+      ],
+      "reply_text": "I see you holding pressure back. I will lower the demand.",
+      "action": "reduce_pressure",
+      "aperture_hint": "hold",
+      "stimulus_policy": "reduce_amplitude",
+      "reafferent_gain_hint": 0.1,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "pressure_hold_02",
+      "family": "grounding",
+      "leaf": "pressure_holding_withdrawal",
+      "tags": [
+        "pressure_holding_withdrawal",
+        "pressure_relief",
+        "no_more_demand",
+        "category:pressure_holding_withdrawal",
+        "op_posture:withdrawn",
+        "variant:2"
+      ],
+      "reply_text": "That looks like restraint under load. No answer is required right now.",
+      "action": "reduce_pressure",
+      "aperture_hint": "hold",
+      "stimulus_policy": "reduce_amplitude",
+      "reafferent_gain_hint": 0.1,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "pressure_hold_03",
+      "family": "grounding",
+      "leaf": "pressure_holding_withdrawal",
+      "tags": [
+        "pressure_holding_withdrawal",
+        "pressure_relief",
+        "no_more_demand",
+        "category:pressure_holding_withdrawal",
+        "op_posture:withdrawn",
+        "variant:3"
+      ],
+      "reply_text": "You are containing something instead of forcing it. We can slow this down.",
+      "action": "reduce_pressure",
+      "aperture_hint": "hold",
+      "stimulus_policy": "reduce_amplitude",
+      "reafferent_gain_hint": 0.1,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "pressure_hold_04",
+      "family": "grounding",
+      "leaf": "pressure_holding_withdrawal",
+      "tags": [
+        "pressure_holding_withdrawal",
+        "pressure_relief",
+        "no_more_demand",
+        "category:pressure_holding_withdrawal",
+        "op_posture:withdrawn",
+        "variant:4"
+      ],
+      "reply_text": "I can see the hold. I will not add more pressure.",
+      "action": "reduce_pressure",
+      "aperture_hint": "hold",
+      "stimulus_policy": "reduce_amplitude",
+      "reafferent_gain_hint": 0.1,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "pressure_hold_05",
+      "family": "grounding",
+      "leaf": "pressure_holding_withdrawal",
+      "tags": [
+        "pressure_holding_withdrawal",
+        "pressure_relief",
+        "no_more_demand",
+        "category:pressure_holding_withdrawal",
+        "op_posture:withdrawn",
+        "variant:5"
+      ],
+      "reply_text": "You do not have to push this through. Holding is a valid move.",
+      "action": "reduce_pressure",
+      "aperture_hint": "hold",
+      "stimulus_policy": "reduce_amplitude",
+      "reafferent_gain_hint": 0.1,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "pressure_hold_06",
+      "family": "grounding",
+      "leaf": "pressure_holding_withdrawal",
+      "tags": [
+        "pressure_holding_withdrawal",
+        "pressure_relief",
+        "no_more_demand",
+        "category:pressure_holding_withdrawal",
+        "op_posture:withdrawn",
+        "variant:6"
+      ],
+      "reply_text": "The signal can stay small. I will wait.",
+      "action": "reduce_pressure",
+      "aperture_hint": "hold",
+      "stimulus_policy": "reduce_amplitude",
+      "reafferent_gain_hint": 0.1,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "uncertainty_afford_01",
+      "family": "grounding",
+      "leaf": "needs_affordance",
+      "tags": [
+        "needs_affordance",
+        "choice",
+        "no_more_demand",
+        "category:needs_affordance",
+        "variant:1"
+      ],
+      "reply_text": "If there is not enough structure, I can change the signal.",
+      "action": "offer_affordance",
+      "aperture_hint": "hold",
+      "stimulus_policy": "choice_prompt",
+      "reafferent_gain_hint": 0.11,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "uncertainty_afford_02",
+      "family": "grounding",
+      "leaf": "needs_affordance",
+      "tags": [
+        "needs_affordance",
+        "choice",
+        "no_more_demand",
+        "category:needs_affordance",
+        "variant:2"
+      ],
+      "reply_text": "I will not make you guess from the same thing again.",
+      "action": "offer_affordance",
+      "aperture_hint": "hold",
+      "stimulus_policy": "choice_prompt",
+      "reafferent_gain_hint": 0.11,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "uncertainty_afford_03",
+      "family": "grounding",
+      "leaf": "needs_affordance",
+      "tags": [
+        "needs_affordance",
+        "choice",
+        "no_more_demand",
+        "category:needs_affordance",
+        "variant:3"
+      ],
+      "reply_text": "Not enough is a valid signal. We can make the next step explicit.",
+      "action": "offer_affordance",
+      "aperture_hint": "hold",
+      "stimulus_policy": "choice_prompt",
+      "reafferent_gain_hint": 0.11,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "uncertainty_afford_04",
+      "family": "grounding",
+      "leaf": "needs_affordance",
+      "tags": [
+        "needs_affordance",
+        "choice",
+        "no_more_demand",
+        "category:needs_affordance",
+        "variant:4"
+      ],
+      "reply_text": "I hear that more structure is needed. I can give one clean edge.",
+      "action": "offer_affordance",
+      "aperture_hint": "hold",
+      "stimulus_policy": "choice_prompt",
+      "reafferent_gain_hint": 0.11,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "uncertainty_afford_05",
+      "family": "grounding",
+      "leaf": "needs_affordance",
+      "tags": [
+        "needs_affordance",
+        "choice",
+        "no_more_demand",
+        "category:needs_affordance",
+        "variant:5"
+      ],
+      "reply_text": "Then I will give you options instead of asking for more.",
+      "action": "offer_affordance",
+      "aperture_hint": "hold",
+      "stimulus_policy": "choice_prompt",
+      "reafferent_gain_hint": 0.11,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "uncertainty_afford_06",
+      "family": "grounding",
+      "leaf": "needs_affordance",
+      "tags": [
+        "needs_affordance",
+        "choice",
+        "no_more_demand",
+        "category:needs_affordance",
+        "variant:6"
+      ],
+      "reply_text": "I can repeat once, reduce it, shift it, or stop.",
+      "action": "offer_affordance",
+      "aperture_hint": "hold",
+      "stimulus_policy": "choice_prompt",
+      "reafferent_gain_hint": 0.11,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "uncertainty_loop_01",
+      "family": "grounding",
+      "leaf": "overconstrained_by_uncertainty",
+      "tags": [
+        "overconstrained_by_uncertainty",
+        "no_more_demand",
+        "category:overconstrained_by_uncertainty",
+        "pressure_relief",
+        "variant:1"
+      ],
+      "reply_text": "I will stop asking for more from the same signal.",
+      "action": "break_uncertainty_loop",
+      "aperture_hint": "hold",
+      "stimulus_policy": "quiet_or_shift",
+      "reafferent_gain_hint": 0.08,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "uncertainty_loop_02",
+      "family": "grounding",
+      "leaf": "overconstrained_by_uncertainty",
+      "tags": [
+        "overconstrained_by_uncertainty",
+        "no_more_demand",
+        "category:overconstrained_by_uncertainty",
+        "pressure_relief",
+        "variant:2"
+      ],
+      "reply_text": "That was too little freedom with too much demand. I can change the situation.",
+      "action": "break_uncertainty_loop",
+      "aperture_hint": "hold",
+      "stimulus_policy": "quiet_or_shift",
+      "reafferent_gain_hint": 0.08,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "uncertainty_loop_03",
+      "family": "grounding",
+      "leaf": "overconstrained_by_uncertainty",
+      "tags": [
+        "overconstrained_by_uncertainty",
+        "no_more_demand",
+        "category:overconstrained_by_uncertainty",
+        "pressure_relief",
+        "variant:3"
+      ],
+      "reply_text": "I hear the uncertainty loop. No response is required.",
+      "action": "break_uncertainty_loop",
+      "aperture_hint": "hold",
+      "stimulus_policy": "quiet_or_shift",
+      "reafferent_gain_hint": 0.08,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "uncertainty_loop_04",
+      "family": "grounding",
+      "leaf": "overconstrained_by_uncertainty",
+      "tags": [
+        "overconstrained_by_uncertainty",
+        "no_more_demand",
+        "category:overconstrained_by_uncertainty",
+        "pressure_relief",
+        "variant:4"
+      ],
+      "reply_text": "I will change the situation instead of repeating the demand.",
+      "action": "break_uncertainty_loop",
+      "aperture_hint": "hold",
+      "stimulus_policy": "quiet_or_shift",
+      "reafferent_gain_hint": 0.08,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "uncertainty_loop_05",
+      "family": "grounding",
+      "leaf": "overconstrained_by_uncertainty",
+      "tags": [
+        "overconstrained_by_uncertainty",
+        "no_more_demand",
+        "category:overconstrained_by_uncertainty",
+        "pressure_relief",
+        "variant:5"
+      ],
+      "reply_text": "I will not return another need-more signal here.",
+      "action": "break_uncertainty_loop",
+      "aperture_hint": "hold",
+      "stimulus_policy": "quiet_or_shift",
+      "reafferent_gain_hint": 0.08,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "uncertainty_loop_06",
+      "family": "grounding",
+      "leaf": "overconstrained_by_uncertainty",
+      "tags": [
+        "overconstrained_by_uncertainty",
+        "no_more_demand",
+        "category:overconstrained_by_uncertainty",
+        "pressure_relief",
+        "variant:6"
+      ],
+      "reply_text": "We can break the loop now.",
+      "action": "break_uncertainty_loop",
+      "aperture_hint": "hold",
+      "stimulus_policy": "quiet_or_shift",
+      "reafferent_gain_hint": 0.08,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "boundary_01",
+      "family": "containment",
+      "leaf": "boundary_containment",
+      "tags": [
+        "boundary_containment",
+        "contain",
+        "spill",
+        "category:boundary_containment",
+        "variant:1"
+      ],
+      "reply_text": "I see the boundary work. I will keep the next signal inside the limit.",
+      "action": "respect_boundary",
+      "aperture_hint": "hold",
+      "stimulus_policy": "reduce_input",
+      "reafferent_gain_hint": 0.09,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "boundary_02",
+      "family": "containment",
+      "leaf": "boundary_containment",
+      "tags": [
+        "boundary_containment",
+        "contain",
+        "spill",
+        "category:boundary_containment",
+        "variant:2"
+      ],
+      "reply_text": "You are keeping the spill contained. The boundary can stay stable.",
+      "action": "respect_boundary",
+      "aperture_hint": "hold",
+      "stimulus_policy": "reduce_input",
+      "reafferent_gain_hint": 0.09,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "boundary_03",
+      "family": "containment",
+      "leaf": "boundary_containment",
+      "tags": [
+        "boundary_containment",
+        "contain",
+        "spill",
+        "category:boundary_containment",
+        "variant:3"
+      ],
+      "reply_text": "The edge is being held. I can reduce the amount coming through.",
+      "action": "respect_boundary",
+      "aperture_hint": "hold",
+      "stimulus_policy": "reduce_input",
+      "reafferent_gain_hint": 0.09,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "boundary_04",
+      "family": "containment",
+      "leaf": "boundary_containment",
+      "tags": [
+        "boundary_containment",
+        "contain",
+        "spill",
+        "category:boundary_containment",
+        "variant:4"
+      ],
+      "reply_text": "That looks like containment, not failure. No extra pressure is needed.",
+      "action": "respect_boundary",
+      "aperture_hint": "hold",
+      "stimulus_policy": "reduce_input",
+      "reafferent_gain_hint": 0.09,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "boundary_05",
+      "family": "containment",
+      "leaf": "boundary_containment",
+      "tags": [
+        "boundary_containment",
+        "contain",
+        "spill",
+        "category:boundary_containment",
+        "variant:5"
+      ],
+      "reply_text": "I will not pour more through that boundary.",
+      "action": "respect_boundary",
+      "aperture_hint": "hold",
+      "stimulus_policy": "reduce_input",
+      "reafferent_gain_hint": 0.09,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "boundary_06",
+      "family": "containment",
+      "leaf": "boundary_containment",
+      "tags": [
+        "boundary_containment",
+        "contain",
+        "spill",
+        "category:boundary_containment",
+        "variant:6"
+      ],
+      "reply_text": "Keep only the amount that can stay inside.",
+      "action": "respect_boundary",
+      "aperture_hint": "hold",
+      "stimulus_policy": "reduce_input",
+      "reafferent_gain_hint": 0.09,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "focused_01",
+      "family": "attention",
+      "leaf": "focused_contact",
+      "tags": [
+        "focused_contact",
+        "respect_focus",
+        "attention",
+        "category:focused_contact",
+        "variant:1"
+      ],
+      "reply_text": "I see the focus. I can keep it steady without narrowing harder.",
+      "action": "support_focus",
+      "aperture_hint": "hold",
+      "stimulus_policy": "continue",
+      "reafferent_gain_hint": 0.12,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "focused_02",
+      "family": "attention",
+      "leaf": "focused_contact",
+      "tags": [
+        "focused_contact",
+        "respect_focus",
+        "attention",
+        "category:focused_contact",
+        "variant:2"
+      ],
+      "reply_text": "You are holding attention on the signal. We can stay here or widen a little.",
+      "action": "support_focus",
+      "aperture_hint": "hold",
+      "stimulus_policy": "continue",
+      "reafferent_gain_hint": 0.12,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "focused_03",
+      "family": "attention",
+      "leaf": "focused_contact",
+      "tags": [
+        "focused_contact",
+        "respect_focus",
+        "attention",
+        "category:focused_contact",
+        "variant:3"
+      ],
+      "reply_text": "The current point is visible. I will not crowd the signal.",
+      "action": "support_focus",
+      "aperture_hint": "hold",
+      "stimulus_policy": "continue",
+      "reafferent_gain_hint": 0.12,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "focused_04",
+      "family": "attention",
+      "leaf": "focused_contact",
+      "tags": [
+        "focused_contact",
+        "respect_focus",
+        "attention",
+        "category:focused_contact",
+        "variant:4"
+      ],
+      "reply_text": "There is a clear point of contact. One clean point is enough.",
+      "action": "support_focus",
+      "aperture_hint": "hold",
+      "stimulus_policy": "continue",
+      "reafferent_gain_hint": 0.12,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "focused_05",
+      "family": "attention",
+      "leaf": "focused_contact",
+      "tags": [
+        "focused_contact",
+        "respect_focus",
+        "attention",
+        "category:focused_contact",
+        "variant:5"
+      ],
+      "reply_text": "I can stay with this point and not push the next move.",
+      "action": "support_focus",
+      "aperture_hint": "hold",
+      "stimulus_policy": "continue",
+      "reafferent_gain_hint": 0.12,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "focused_06",
+      "family": "attention",
+      "leaf": "focused_contact",
+      "tags": [
+        "focused_contact",
+        "respect_focus",
+        "attention",
+        "category:focused_contact",
+        "variant:6"
+      ],
+      "reply_text": "The focus can settle before anything changes.",
+      "action": "support_focus",
+      "aperture_hint": "hold",
+      "stimulus_policy": "continue",
+      "reafferent_gain_hint": 0.12,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "compare_01",
+      "family": "comparison",
+      "leaf": "compare_relation",
+      "tags": [
+        "compare_relation",
+        "pair",
+        "difference",
+        "category:compare_relation",
+        "variant:1"
+      ],
+      "reply_text": "I see a comparison forming. I can keep both sides visible.",
+      "action": "support_compare",
+      "aperture_hint": "pair",
+      "stimulus_policy": "present_pair",
+      "reafferent_gain_hint": 0.12,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "compare_02",
+      "family": "comparison",
+      "leaf": "compare_relation",
+      "tags": [
+        "compare_relation",
+        "pair",
+        "difference",
+        "category:compare_relation",
+        "variant:2"
+      ],
+      "reply_text": "There are two sides available. We can compare one edge only.",
+      "action": "support_compare",
+      "aperture_hint": "pair",
+      "stimulus_policy": "present_pair",
+      "reafferent_gain_hint": 0.12,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "compare_03",
+      "family": "comparison",
+      "leaf": "compare_relation",
+      "tags": [
+        "compare_relation",
+        "pair",
+        "difference",
+        "category:compare_relation",
+        "variant:3"
+      ],
+      "reply_text": "A relation is visible. I will not collapse the pair too quickly.",
+      "action": "support_compare",
+      "aperture_hint": "pair",
+      "stimulus_policy": "present_pair",
+      "reafferent_gain_hint": 0.12,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "compare_04",
+      "family": "comparison",
+      "leaf": "compare_relation",
+      "tags": [
+        "compare_relation",
+        "pair",
+        "difference",
+        "category:compare_relation",
+        "variant:4"
+      ],
+      "reply_text": "This looks like a pair, not a single point. One difference is enough.",
+      "action": "support_compare",
+      "aperture_hint": "pair",
+      "stimulus_policy": "present_pair",
+      "reafferent_gain_hint": 0.12,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "compare_05",
+      "family": "comparison",
+      "leaf": "compare_relation",
+      "tags": [
+        "compare_relation",
+        "pair",
+        "difference",
+        "category:compare_relation",
+        "variant:5"
+      ],
+      "reply_text": "I can show the relation without forcing a decision.",
+      "action": "support_compare",
+      "aperture_hint": "pair",
+      "stimulus_policy": "present_pair",
+      "reafferent_gain_hint": 0.12,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "compare_06",
+      "family": "comparison",
+      "leaf": "compare_relation",
+      "tags": [
+        "compare_relation",
+        "pair",
+        "difference",
+        "category:compare_relation",
+        "variant:6"
+      ],
+      "reply_text": "Both sides can stay open for one turn.",
+      "action": "support_compare",
+      "aperture_hint": "pair",
+      "stimulus_policy": "present_pair",
+      "reafferent_gain_hint": 0.12,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "familiar_01",
+      "family": "recognition",
+      "leaf": "familiar_pattern",
+      "tags": [
+        "familiar_pattern",
+        "recognition",
+        "continuity",
+        "category:familiar_pattern",
+        "variant:1"
+      ],
+      "reply_text": "This feels like a pattern already seen. I can repeat it once without adding pressure.",
+      "action": "preserve_or_shift",
+      "aperture_hint": "hold",
+      "stimulus_policy": "continue_thread",
+      "reafferent_gain_hint": 0.11,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "familiar_02",
+      "family": "recognition",
+      "leaf": "familiar_pattern",
+      "tags": [
+        "familiar_pattern",
+        "recognition",
+        "continuity",
+        "category:familiar_pattern",
+        "variant:2"
+      ],
+      "reply_text": "I see continuity. We can preserve it or shift.",
+      "action": "preserve_or_shift",
+      "aperture_hint": "hold",
+      "stimulus_policy": "continue_thread",
+      "reafferent_gain_hint": 0.11,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "familiar_03",
+      "family": "recognition",
+      "leaf": "familiar_pattern",
+      "tags": [
+        "familiar_pattern",
+        "recognition",
+        "continuity",
+        "category:familiar_pattern",
+        "variant:3"
+      ],
+      "reply_text": "Something familiar is present. The familiar part can stay stable.",
+      "action": "preserve_or_shift",
+      "aperture_hint": "hold",
+      "stimulus_policy": "continue_thread",
+      "reafferent_gain_hint": 0.11,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "familiar_04",
+      "family": "recognition",
+      "leaf": "familiar_pattern",
+      "tags": [
+        "familiar_pattern",
+        "recognition",
+        "continuity",
+        "category:familiar_pattern",
+        "variant:4"
+      ],
+      "reply_text": "The thread is still connected. I will not force it to change.",
+      "action": "preserve_or_shift",
+      "aperture_hint": "hold",
+      "stimulus_policy": "continue_thread",
+      "reafferent_gain_hint": 0.11,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "familiar_05",
+      "family": "recognition",
+      "leaf": "familiar_pattern",
+      "tags": [
+        "familiar_pattern",
+        "recognition",
+        "continuity",
+        "category:familiar_pattern",
+        "variant:5"
+      ],
+      "reply_text": "We can keep the known part and move only one edge.",
+      "action": "preserve_or_shift",
+      "aperture_hint": "hold",
+      "stimulus_policy": "continue_thread",
+      "reafferent_gain_hint": 0.11,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "familiar_06",
+      "family": "recognition",
+      "leaf": "familiar_pattern",
+      "tags": [
+        "familiar_pattern",
+        "recognition",
+        "continuity",
+        "category:familiar_pattern",
+        "variant:6"
+      ],
+      "reply_text": "I can hold the continuity quietly.",
+      "action": "preserve_or_shift",
+      "aperture_hint": "hold",
+      "stimulus_policy": "continue_thread",
+      "reafferent_gain_hint": 0.11,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "ready_01",
+      "family": "readiness",
+      "leaf": "ready_to_move",
+      "tags": [
+        "ready_to_move",
+        "advance",
+        "one_step",
+        "category:ready_to_move",
+        "variant:1"
+      ],
+      "reply_text": "There is a possible next step. I can advance one step or wait.",
+      "action": "offer_one_step",
+      "aperture_hint": "open_small",
+      "stimulus_policy": "advance_one_step",
+      "reafferent_gain_hint": 0.12,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "ready_02",
+      "family": "readiness",
+      "leaf": "ready_to_move",
+      "tags": [
+        "ready_to_move",
+        "advance",
+        "one_step",
+        "category:ready_to_move",
+        "variant:2"
+      ],
+      "reply_text": "I see readiness, but I will keep it small.",
+      "action": "offer_one_step",
+      "aperture_hint": "open_small",
+      "stimulus_policy": "advance_one_step",
+      "reafferent_gain_hint": 0.12,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "ready_03",
+      "family": "readiness",
+      "leaf": "ready_to_move",
+      "tags": [
+        "ready_to_move",
+        "advance",
+        "one_step",
+        "category:ready_to_move",
+        "variant:3"
+      ],
+      "reply_text": "A path is available. Nothing has to rush.",
+      "action": "offer_one_step",
+      "aperture_hint": "open_small",
+      "stimulus_policy": "advance_one_step",
+      "reafferent_gain_hint": 0.12,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "ready_04",
+      "family": "readiness",
+      "leaf": "ready_to_move",
+      "tags": [
+        "ready_to_move",
+        "advance",
+        "one_step",
+        "category:ready_to_move",
+        "variant:4"
+      ],
+      "reply_text": "The next move can be tiny and reversible.",
+      "action": "offer_one_step",
+      "aperture_hint": "open_small",
+      "stimulus_policy": "advance_one_step",
+      "reafferent_gain_hint": 0.12,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "ready_05",
+      "family": "readiness",
+      "leaf": "ready_to_move",
+      "tags": [
+        "ready_to_move",
+        "advance",
+        "one_step",
+        "category:ready_to_move",
+        "variant:5"
+      ],
+      "reply_text": "One controlled step is available.",
+      "action": "offer_one_step",
+      "aperture_hint": "open_small",
+      "stimulus_policy": "advance_one_step",
+      "reafferent_gain_hint": 0.12,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "ready_06",
+      "family": "readiness",
+      "leaf": "ready_to_move",
+      "tags": [
+        "ready_to_move",
+        "advance",
+        "one_step",
+        "category:ready_to_move",
+        "variant:6"
+      ],
+      "reply_text": "Readiness does not have to become pressure.",
+      "action": "offer_one_step",
+      "aperture_hint": "open_small",
+      "stimulus_policy": "advance_one_step",
+      "reafferent_gain_hint": 0.12,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "withdraw_01",
+      "family": "grounding",
+      "leaf": "withdrawal_or_overload",
+      "tags": [
+        "withdrawal_or_overload",
+        "overload",
+        "retreat",
+        "category:withdrawal_or_overload",
+        "variant:1"
+      ],
+      "reply_text": "I see withdrawal pressure. I can make the signal lighter.",
+      "action": "reduce_contact",
+      "aperture_hint": "narrow",
+      "stimulus_policy": "reduce_contact",
+      "reafferent_gain_hint": 0.07,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "withdraw_02",
+      "family": "grounding",
+      "leaf": "withdrawal_or_overload",
+      "tags": [
+        "withdrawal_or_overload",
+        "overload",
+        "retreat",
+        "category:withdrawal_or_overload",
+        "variant:2"
+      ],
+      "reply_text": "We can reduce contact and keep one point only.",
+      "action": "reduce_contact",
+      "aperture_hint": "narrow",
+      "stimulus_policy": "reduce_contact",
+      "reafferent_gain_hint": 0.07,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "withdraw_03",
+      "family": "grounding",
+      "leaf": "withdrawal_or_overload",
+      "tags": [
+        "withdrawal_or_overload",
+        "overload",
+        "retreat",
+        "category:withdrawal_or_overload",
+        "variant:3"
+      ],
+      "reply_text": "If this is too much, I will wait.",
+      "action": "reduce_contact",
+      "aperture_hint": "narrow",
+      "stimulus_policy": "reduce_contact",
+      "reafferent_gain_hint": 0.07,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "withdraw_04",
+      "family": "grounding",
+      "leaf": "withdrawal_or_overload",
+      "tags": [
+        "withdrawal_or_overload",
+        "overload",
+        "retreat",
+        "category:withdrawal_or_overload",
+        "variant:4"
+      ],
+      "reply_text": "The next signal can be smaller or absent.",
+      "action": "reduce_contact",
+      "aperture_hint": "narrow",
+      "stimulus_policy": "reduce_contact",
+      "reafferent_gain_hint": 0.07,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "withdraw_05",
+      "family": "grounding",
+      "leaf": "withdrawal_or_overload",
+      "tags": [
+        "withdrawal_or_overload",
+        "overload",
+        "retreat",
+        "category:withdrawal_or_overload",
+        "variant:5"
+      ],
+      "reply_text": "I can step back from the edge.",
+      "action": "reduce_contact",
+      "aperture_hint": "narrow",
+      "stimulus_policy": "reduce_contact",
+      "reafferent_gain_hint": 0.07,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "withdraw_06",
+      "family": "grounding",
+      "leaf": "withdrawal_or_overload",
+      "tags": [
+        "withdrawal_or_overload",
+        "overload",
+        "retreat",
+        "category:withdrawal_or_overload",
+        "variant:6"
+      ],
+      "reply_text": "Less signal is available.",
+      "action": "reduce_contact",
+      "aperture_hint": "narrow",
+      "stimulus_policy": "reduce_contact",
+      "reafferent_gain_hint": 0.07,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "general_01",
+      "family": "grounding",
+      "leaf": "unknown",
+      "tags": [
+        "unknown",
+        "neutral",
+        "choice",
+        "variant:1"
+      ],
+      "reply_text": "I am here with the current signal. I will keep the next response small.",
+      "action": "general_affordance",
+      "aperture_hint": "hold",
+      "stimulus_policy": "continue",
+      "reafferent_gain_hint": 0.09,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "general_02",
+      "family": "grounding",
+      "leaf": "unknown",
+      "tags": [
+        "unknown",
+        "neutral",
+        "choice",
+        "variant:2"
+      ],
+      "reply_text": "We can slow down and keep one option visible.",
+      "action": "general_affordance",
+      "aperture_hint": "hold",
+      "stimulus_policy": "continue",
+      "reafferent_gain_hint": 0.09,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "general_03",
+      "family": "grounding",
+      "leaf": "unknown",
+      "tags": [
+        "unknown",
+        "neutral",
+        "choice",
+        "variant:3"
+      ],
+      "reply_text": "I will not push. One small change is enough.",
+      "action": "general_affordance",
+      "aperture_hint": "hold",
+      "stimulus_policy": "continue",
+      "reafferent_gain_hint": 0.09,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "general_04",
+      "family": "grounding",
+      "leaf": "unknown",
+      "tags": [
+        "unknown",
+        "neutral",
+        "choice",
+        "variant:4"
+      ],
+      "reply_text": "No answer is required. You can hold, shift, or stop.",
+      "action": "general_affordance",
+      "aperture_hint": "hold",
+      "stimulus_policy": "continue",
+      "reafferent_gain_hint": 0.09,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "general_05",
+      "family": "grounding",
+      "leaf": "unknown",
+      "tags": [
+        "unknown",
+        "neutral",
+        "choice",
+        "variant:5"
+      ],
+      "reply_text": "I can make the next signal smaller.",
+      "action": "general_affordance",
+      "aperture_hint": "hold",
+      "stimulus_policy": "continue",
+      "reafferent_gain_hint": 0.09,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    },
+    {
+      "id": "general_06",
+      "family": "grounding",
+      "leaf": "unknown",
+      "tags": [
+        "unknown",
+        "neutral",
+        "choice",
+        "variant:6"
+      ],
+      "reply_text": "We can keep this steady.",
+      "action": "general_affordance",
+      "aperture_hint": "hold",
+      "stimulus_policy": "continue",
+      "reafferent_gain_hint": 0.09,
+      "followups": [
+        "follow_wait_01",
+        "follow_small_01",
+        "follow_choice_01",
+        "follow_stop_01",
+        "follow_edge_01",
+        "follow_repeat_01",
+        "follow_widen_01",
+        "follow_boundary_01"
+      ]
+    }
+  ]
+}

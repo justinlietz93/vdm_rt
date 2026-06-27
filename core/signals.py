@@ -22,7 +22,7 @@ Rules:
 - These helpers do not mutate external state; they read and derive scalars/dicts.
 
 Migration path:
-- Phase C will move incremental/event-driven implementations into core.{cortex,proprioception,neuroplasticity},
+- Phase C will move incremental/event-driven implementations into core.{cortex,proprioception},
   and these wrappers will dispatch to the new implementations while preserving the same signatures.
 """
 

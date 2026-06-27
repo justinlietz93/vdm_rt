@@ -110,7 +110,7 @@ more immediate runtime work.
 - [ ] Step 4.2.1 — Publish node lifecycle events through runtime event spine.
 - [ ] Step 4.2.2 — Feed lifecycle events to ADC.
 - [ ] Step 4.2.3 — Feed lifecycle events to maps.
-- [ ] Step 4.2.4 — Feed lifecycle events to SIE/GDSP where appropriate.
+- [ ] Step 4.2.4 — Feed lifecycle events to SIE and future sparse structural-plasticity code where appropriate.
 - [ ] Step 4.2.5 — Add smoke telemetry for node growth/cull counts.
 
 ## Phase 5 — Validate Against Original Runtime Intent

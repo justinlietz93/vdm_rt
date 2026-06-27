@@ -56,10 +56,14 @@ The following systems have current runtime execution:
 substrate. Its dynamic-population requirements are preserved for the
 sparse-neurogenesis port, not by retaining its implementation.
 
-`core/growth_arbiter.py`, `core/structural_homeostasis.py`, `core/void_b1.py`,
-and the optional GDSP/REVGSP adapters are retained as capability sources, not
-attested as active default-runtime behavior. Their exact status and required
-ports are in `docs/contracts/runtime-capability-coverage.yml`.
+`core/growth_arbiter.py` and `core/structural_homeostasis.py` are retained as
+capability sources, not attested as active default-runtime behavior.
+`core/void_b1.py` owns the live `StreamingZEMA` B1Z detector and also preserves
+the planned Void B1 topology-packet surface; that packet is not default-runtime
+telemetry until its sparse behavior and bounded cost are tested. The old CSR
+plasticity adapters and dense diagnostics were removed; future structural
+plasticity and diagnostics must be SparseConnectome-native. Exact status and
+required ports are in `docs/contracts/runtime-capability-coverage.yml`.
 
 Do not delete a module only because it appears orphaned in a static graph.
 Record the static evidence, identify the capability owner, and classify the

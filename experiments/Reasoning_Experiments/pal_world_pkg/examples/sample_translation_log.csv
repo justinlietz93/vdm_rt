@@ -1,0 +1,6 @@
+tick,true_top1_phrase,true_top1_family,true_top1_leaf,true_dominant_axes
+10,Do I hold attention here?,attention,hold_attention,"[""attention"",""restraint""]"
+25,I think I keep this contained.,containment,boundary_containment,"[""containment"",""calm""]"
+40,I sense I have met this before.,recognition,faint_recognition,"[""recognition"",""familiarity""]"
+55,I might sense this is still fighting.,conflict,fighting,"[""conflict"",""tension""]"
+70,I think I prevent this from spilling out.,overload,spillover,"[""containment"",""overload""]"

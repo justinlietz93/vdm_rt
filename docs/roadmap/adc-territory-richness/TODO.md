@@ -61,7 +61,7 @@ ADC is connected but underfed. It receives mostly `region_stat` and `cycle_hit`;
 - [ ] Step 3.1.1 — Emit `ADCEvent` through event channel after ADC fold.
 - [ ] Step 3.1.2 — Include territory count, boundary count, cycle hits, and current territory ids.
 - [ ] Step 3.1.3 — Include changed territory ids since previous tick.
-- [ ] Step 3.1.4 — Add tests proving maps and GDSP can read current ADC summary.
+- [ ] Step 3.1.4 — Add tests proving maps and future sparse structural-plasticity code can read current ADC summary.
 
 ### Task 3.2 — Add territory evidence gates
 

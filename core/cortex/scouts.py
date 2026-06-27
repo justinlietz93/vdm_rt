@@ -22,7 +22,6 @@ Key points:
     * HeatScout, ExcitationScout, InhibitionScout
     * ColdMap (from maps.coldmap)
     * BaseScout (interface) via void_walkers.base
-    * GDSPActuator / RevGSP re-exported from core.neuroplasticity (for legacy imports)
 
 Contract compliance:
 - Scouts emit only foldable events: vt_touch, edge_on, and (optionally) spike(+/-)
@@ -60,16 +59,6 @@ try:
 except Exception:  # pragma: no cover
     BaseScout = None  # type: ignore
 
-# Neuroplasticity re-exports for legacy imports
-try:
-    from ..neuroplasticity.gdsp import GDSPActuator
-except Exception:  # pragma: no cover
-    GDSPActuator = None  # type: ignore
-try:
-    from ..neuroplasticity.revgsp import RevGSP
-except Exception:  # pragma: no cover
-    RevGSP = None  # type: ignore
-
 __all__ = [
     "VoidColdScoutWalker",
     "HeatScout",
@@ -82,6 +71,4 @@ __all__ = [
     "SentinelScout",
     "ColdMap",
     "BaseScout",
-    "GDSPActuator",
-    "RevGSP",
 ]

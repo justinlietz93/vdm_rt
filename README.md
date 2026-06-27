@@ -87,12 +87,11 @@ config/launch.toml             command-line launch defaults
 config/sparse_connectome.toml  sparse graph maintenance controls
 config/adc.toml                announcement bus and ADC defaults
 config/stimulus.toml           explicit receptor-node stimulation defaults
-config/b1.toml                 live topology detector defaults
+config/b1.toml                 live B1Z defaults plus reserved topology-packet sample cap
 config/maps.toml               event map and memory/trail view defaults
 config/sie.toml                Self-Improvement Engine runtime defaults
 config/persistence.toml        checkpoint and resume defaults
 config/control.toml            embedded control-plane defaults
-config/learning.toml           optional REVGSP/GDSP adapter controls
 config/scouts.toml             void-walker scout budgets and enable flags
 config/io.toml                 receptor queue, HTTP status, Redis status
 config/logging.toml            JSONL and zip spool limits

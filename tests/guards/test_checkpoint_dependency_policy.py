@@ -47,6 +47,32 @@ def test_runtime_dependency_gate_reports_missing_h5py(monkeypatch: pytest.Monkey
     assert "requirements.txt" in msg
 
 
+def test_scipy_is_not_a_runtime_requirement() -> None:
+    requirement_names = {requirement for requirement, _module in dependencies.RUNTIME_REQUIREMENTS}
+    assert "scipy" not in requirement_names
+
+
+def test_live_runtime_surfaces_do_not_import_scipy() -> None:
+    root = Path(__file__).resolve().parents[2]
+    checked_roots = [
+        root / "core",
+        root / "runtime",
+        root / "io",
+        root / "utils",
+        root / "config",
+    ]
+    offenders = []
+    for checked_root in checked_roots:
+        for path in checked_root.rglob("*.py"):
+            if "__pycache__" in path.parts:
+                continue
+            text = path.read_text(encoding="utf-8", errors="ignore")
+            if "import scipy" in text or "from scipy" in text:
+                offenders.append(path.relative_to(root).as_posix())
+
+    assert offenders == []
+
+
 def test_nexus_rejects_non_h5_checkpoint_format_before_side_effects(tmp_path) -> None:
     run_dir = tmp_path / "bad-format-run"
 

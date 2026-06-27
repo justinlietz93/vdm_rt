@@ -1,0 +1,5 @@
+{"tick":10,"phrase":"Do I hold attention here?","family":"attention","leaf":"hold_attention","dominant_axes":["attention","restraint"]}
+{"tick":25,"phrase":"I think I keep this contained.","family":"containment","leaf":"boundary_containment","dominant_axes":["containment","calm"]}
+{"tick":40,"phrase":"I sense I have met this before.","family":"recognition","leaf":"faint_recognition","dominant_axes":["recognition","familiarity"]}
+{"tick":55,"phrase":"I might sense this is still fighting.","family":"conflict","leaf":"fighting","dominant_axes":["conflict","tension"]}
+{"tick":70,"phrase":"I think I prevent this from spilling out.","family":"overload","leaf":"spillover","dominant_axes":["containment","overload"]}

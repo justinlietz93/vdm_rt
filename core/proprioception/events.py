@@ -51,7 +51,7 @@ import random
 
 from vdm_rt.config import config_float, config_int
 # Allowed core import
-from vdm_rt.core.metrics import StreamingZEMA  # existing Z detector in core
+from vdm_rt.core.void_b1 import StreamingZEMA
 
 
 # ----------------------------- Event Types -----------------------------------

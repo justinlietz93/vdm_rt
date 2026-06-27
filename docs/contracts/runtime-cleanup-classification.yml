@@ -87,13 +87,23 @@ entries:
       - runtime cleanup policy retains maps as a core runtime system.
     follow_up: Protect with an importability guard before moving other code.
 
-  - path: core/neuroplasticity/
-    class: keep
-    state: capability-closure-required
-    role: Optional REVGSP and GDSP source pending a SparseConnectome-native adapter contract.
+  - path: core/neuroplasticity/revgsp.py
+    class: delete
+    state: removed_from_live_tree
+    role: Retired CSR substrate plasticity adapter.
     evidence:
-      - runtime/loop/main.py exposes optional adapter paths, but the default SparseConnectome does not satisfy their required substrate state.
-    follow_up: See structural_plasticity_adapters in runtime-capability-coverage.yml before calling this live runtime behavior.
+      - The adapter expected synaptic_weights, eligibility_traces, neuron_polarities, spike_train, and spike_phases that the default SparseConnectome does not provide.
+      - The optional runtime adapter path and config/learning.toml were removed.
+    follow_up: Reintroduce structural plasticity only as a SparseConnectome-native implementation with enabled-path tests.
+
+  - path: core/neuroplasticity/gdsp.py
+    class: delete
+    state: removed_from_live_tree
+    role: Retired CSR substrate structural-plasticity adapter.
+    evidence:
+      - The adapter expected synaptic_weights, persistent_synapses, synapse_pruning_timers, eligibility_traces, and firing_rates that the default SparseConnectome does not provide.
+      - The optional runtime adapter path and config/learning.toml were removed.
+    follow_up: Reintroduce structural plasticity only as a SparseConnectome-native implementation with enabled-path tests.
 
   - path: core/growth_arbiter.py
     class: port
@@ -115,21 +125,21 @@ entries:
 
   - path: core/void_b1.py
     class: keep
-    state: unwired
-    role: Sparse-capable topology packet producer.
+    state: live_b1z_with_unwired_packet
+    role: Single B1 module containing the live StreamingZEMA B1Z detector and the planned topology-packet surface.
     evidence:
-      - No static runtime import was found.
-      - The default runtime uses StreamingZEMA over complexity_cycles instead.
-    follow_up: Resolve B1 ownership before removing its source or presenting config/b1.toml as active runtime control.
+      - Nexus and EventDrivenMetrics use StreamingZEMA for live B1Z.
+      - VoidB1Meter is intentionally not wired into runtime telemetry yet.
+    follow_up: Add sparse behavior, semantic, and bounded-cost tests before routing VoidB1Meter packet fields into runtime telemetry.
 
   - path: core/diagnostics.py
-    class: port
-    state: dense_interface_only
-    role: Physics diagnostic source requiring a sparse readout decision.
+    class: delete
+    state: removed_from_live_tree
+    role: Retired dense-adjacency diagnostic module.
     evidence:
       - No static runtime or test import was found.
-      - The current entrypoints require dense A and optionally E.
-    follow_up: Classify as external diagnostics or port its readout surface to SparseConnectome.
+      - Its entrypoints required dense A and optionally E, while SparseConnectome exposes W plus sparse adjacency lists.
+    follow_up: Build sparse diagnostics as a new readout over SparseConnectome, event maps, or offline H5 analysis if needed.
 
   - path: core/cortex/void_walkers/frontier_scout.py
     class: delete

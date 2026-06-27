@@ -10,7 +10,6 @@ from pathlib import Path
 
 RUNTIME_REQUIREMENTS: tuple[tuple[str, str], ...] = (
     ("numpy", "numpy"),
-    ("scipy", "scipy"),
     ("h5py", "h5py"),
     ("zstandard", "zstandard"),
 )
@@ -32,8 +31,7 @@ def assert_runtime_requirements_installed(requirements_path: str | Path | None =
     Stop runtime launch when required runtime packages are missing.
 
     The runtime writes H5 checkpoints, compressed JSONL logs, and relies on
-    NumPy/SciPy for connectome state and sparse operations, so these are hard
-    launch requirements.
+    NumPy for connectome state, so these are hard launch requirements.
     """
     missing = missing_runtime_requirements()
     if not missing:

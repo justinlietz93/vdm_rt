@@ -117,7 +117,7 @@
 *   `InhibitionMap.snapshot` must return a dictionary with "inh_head", "inh_p95", "inh_p99", "inh_max", and "inh_count" keys.
 *   The `MemoryMap.snapshot` method must return a dictionary with "memory_head", "memory_p95", "memory_p99", "memory_max", "memory_count", and "memory_dict" keys.
 *   `run_scouts_once` must accept optional `seeds` and `map_heads`.
-*   The facade (scouts.py) must expose `VoidColdScoutWalker` (aliasing `ColdScout`), `HeatScout`, `ExcitationScout`, `InhibitionScout`, `VoidRayScout`, `MemoryRayScout`, `FrontierScout`, `CycleHunterScout`, `SentinelScout`, `ColdMap`, `BaseScout`, `GDSPActuator`, and `RevGSP`.
+*   The facade (scouts.py) must expose `VoidColdScoutWalker` (aliasing `ColdScout`), `HeatScout`, `ExcitationScout`, `InhibitionScout`, `VoidRayScout`, `MemoryRayScout`, `FrontierScout`, `CycleHunterScout`, `SentinelScout`, `ColdMap`, and `BaseScout`.
 *   `TrailMap.snapshot` must include "trail_head" and "trail_dict" keys.
 *   `TrailMap.snapshot` must export a bounded snapshot including both the head list and the working-set dictionary.
 *   The `trail_dict` in `TrailMap.snapshot` must be bounded by `keep_max`.

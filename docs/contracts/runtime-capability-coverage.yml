@@ -170,37 +170,38 @@ capabilities:
       triangle, active-node, and smoothed Void B1 evidence.
     coverage: partial
     evidence:
-      - The default runtime runs a StreamingZEMA detector over complexity_cycles.
-      - VoidB1Meter is not imported by live code; config/b1.toml currently has no runtime consumer.
-      - The default B1 path does not emit the richer topology packet from VoidB1Meter.
+      - The default runtime runs core/void_b1.py::StreamingZEMA over complexity_cycles.
+      - config/b1.toml is consumed by the live StreamingZEMA B1Z detector path.
+      - core/void_b1.py also preserves the intended VoidB1Meter topology packet surface.
+      - The default B1 path does not yet emit VoidB1Meter's Euler-rank, triangle, and active-node packet.
     required_port:
-      - Decide whether VoidB1Meter is the authoritative B1 producer.
-      - If retained, wire its packet into telemetry and the event spine without duplicate B1 ownership.
+      - Test sparse edge iteration, Euler-rank/cycle semantics, triangle reservoir behavior, and bounded per-tick cost before wiring the packet.
+      - Wire the packet into telemetry and the event spine only with an enabled-path regression test.
 
-  - id: structural_plasticity_adapters
+  - id: sparse_structural_plasticity
     source_paths:
-      - core/neuroplasticity/revgsp.py
-      - core/neuroplasticity/gdsp.py
-      - runtime/loop/main.py
+      - core/sparse_connectome.py
+      - core/proprioception/territory.py
     goal: Apply optional territory-aware, sparse structural plasticity to the default runtime substrate.
     coverage: unmet
     evidence:
-      - Both adapters are disabled by default in config/learning.toml.
-      - GDSP is rejected before invocation because SparseConnectome lacks synaptic_weights, persistent_synapses, synapse_pruning_timers, eligibility_traces, and firing_rates.
-      - REV-GSP expects synaptic_weights, eligibility_traces, neuron_polarities, spike_train, and spike_phases that the default Nexus path does not provide.
+      - The old REV-GSP/GDSP adapter files and config/learning.toml were removed because they targeted a retired CSR substrate contract.
+      - SparseConnectome exposes W plus adjacency lists, not synaptic_weights, persistent_synapses, synapse_pruning_timers, eligibility_traces, firing_rates, spike_train, or spike_phases.
+      - TerritoryUF can provide bounded territory samples, but no sparse-native structural-plasticity owner consumes them.
     required_port:
-      - Define a SparseConnectome-native adapter contract and signal sources.
-      - Add enabled-path tests that prove a real mutation or remove the exposed activation path.
+      - Define a SparseConnectome-native structural-plasticity contract and signal sources.
+      - Add enabled-path tests that prove a real mutation before adding runtime config flags.
 
-  - id: physics_diagnostics
+  - id: sparse_physics_diagnostics
     source_paths:
-      - core/diagnostics.py
+      - core/sparse_connectome.py
+      - core/cortex/maps/
     goal: Derive mass-gap and pulse-speed readouts from runtime graph and activity evidence.
-    coverage: diagnostic_only
+    coverage: unmet
     evidence:
-      - The module has no static runtime or test caller.
-      - Its current interface requires retired dense adjacency A and, optionally, E.
-    required_decision: Sparse readout adapter, external analysis tool, or archival source classification.
+      - The old core/diagnostics.py module was removed because it required retired dense adjacency A and optionally E.
+      - No sparse-native runtime diagnostic readout currently replaces it.
+    required_decision: Sparse readout adapter over SparseConnectome/event maps, external analysis tool, or explicit retirement.
 
   - id: frontier_scout_naming_shim
     source_paths:

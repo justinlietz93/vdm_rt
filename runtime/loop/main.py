@@ -26,7 +26,7 @@ Returns:
 - last step index (int) after the loop completes/breaks
 """
 
-from typing import Any, Dict, Iterable, List, Set, Tuple, Optional
+from typing import Any, Dict, Iterable, List, Set, Optional
 import hashlib
 import time
 
@@ -38,7 +38,7 @@ from vdm_rt.runtime.events_adapter import (
     adc_metrics_to_event as _adc_event,
 )
 from vdm_rt.core.engine import CoreEngine as _CoreEngine
-from vdm_rt.core.proprioception.events import EventDrivenMetrics as _EvtMetrics, BiasHintEvent as _BiasHintEvent
+from vdm_rt.core.proprioception.events import EventDrivenMetrics as _EvtMetrics
 from vdm_rt.core.cortex.scouts import VoidColdScoutWalker as _VoidScout
 from vdm_rt.core.signals import apply_b1_detector as _apply_b1d
 from vdm_rt.runtime.helpers.ingest import process_messages as _process_messages
@@ -209,192 +209,6 @@ def _maybe_observe_motor_actuator(
             continue
 
 
-def _maybe_run_revgsp(nx: Any, metrics: Dict[str, Any], step: int) -> None:
-    """
-    Best-effort adapter to call RE-VGSP adapt_connectome if available and enabled.
-    - Enabled by config learning.revgsp.enabled (default off).
-    - Auto-detects compatible substrate (nx.substrate or nx.connectome with expected fields).
-    - Filters kwargs to the function signature to avoid mismatches.
-    - Silent no-op on any error or incompatibility.
-    """
-    import inspect  # local to avoid module-level dependency
-    if not config_bool("learning.revgsp.enabled", False):
-        return
-
-    # Use current in-repo implementation only (void-faithful, budgeted)
-    try:
-        from vdm_rt.core.neuroplasticity.revgsp import RevGSP as _RevGSP  # type: ignore
-        _adapt = _RevGSP().adapt_connectome  # method-compatible wrapper
-    except Exception:
-        return
-
-    # Pick a substrate-like object
-    s = getattr(nx, "substrate", None)
-    if s is None:
-        s = getattr(nx, "connectome", None)
-    if s is None:
-        return
-
-    # Build candidate kwargs and filter by signature
-    try:
-        sig = inspect.signature(_adapt)
-        allowed = set(sig.parameters.keys())
-    except Exception:
-        allowed = set()
-
-    # Sources for signals
-    total_reward = float(metrics.get("sie_total_reward", 0.0))
-    plv = metrics.get("evt_plv", None)  # optional; may be absent
-    latency = getattr(nx, "network_latency_estimate", None)
-    if latency is None:
-        latency = {"max": float(getattr(nx, "latency_max", 0.0)), "error": float(getattr(nx, "latency_err", 0.0))}
-
-    # Possible kwargs (include aliases so legacy and new signatures both work)
-    eta_val = config_float("learning.revgsp.eta", float(getattr(nx, "rev_gsp_eta", 1e-3)))
-    lam_val = config_float("learning.revgsp.lambda_decay", float(getattr(nx, "rev_gsp_lambda", 0.99)))
-    twin_ms = config_int("learning.revgsp.time_window_ms", 20)
-    candidates = {
-        "substrate": s,
-        "spike_train": getattr(nx, "recent_spikes", None),
-        "spike_phases": getattr(nx, "spike_phases", None),
-        # legacy name
-        "learning_rate": eta_val,
-        # new wrapper name
-        "base_lr": eta_val,
-        "lambda_decay": lam_val,
-        "total_reward": total_reward,
-        "plv": plv,
-        # legacy name (if any)
-        "network_latency_estimate": latency,
-        # new wrapper name
-        "network_latency": latency,
-        "time_window_ms": twin_ms,
-    }
-    # Filter None values and restrict to signature
-    kwargs = {k: v for k, v in candidates.items() if v is not None and (not allowed or k in allowed)}
-
-    # If the function requires args we didn't provide, it will raise - catch and noop.
-    try:
-        _adapt(**kwargs)
-    except Exception:
-        # Silent by design; adapter is optional and must not disrupt runtime parity.
-        return
-
-
-def _maybe_run_gdsp(nx: Any, metrics: Dict[str, Any], step: int) -> None:
-    """
-    Best-effort adapter to call GDSP synaptic actuator if available and enabled.
-    - Enabled by config learning.gdsp.enabled (default off).
-    - Emergent triggers only (no fixed cadence): activates on b1_spike,
-      |td_signal| >= learning.gdsp.td_threshold, or cohesion_components > 1.
-    - Requires a substrate-like object with the expected sparse fields; else no-op.
-    - Executes homeostatic repairs (if repair_triggered present), growth (when territory provided),
-      and maintenance pruning with T_prune and pruning_threshold.
-    """
-    if not config_bool("learning.gdsp.enabled", False):
-        return
-
-    # Emergent gating only (no fixed cadence or schedulers)
-    try:
-        td = float(metrics.get("td_signal", 0.0))
-    except Exception:
-        td = 0.0
-    b1_spike = bool(metrics.get("b1_spike", metrics.get("evt_b1_spike", False)))
-    try:
-        comp = int(metrics.get("cohesion_components", metrics.get("evt_cohesion_components", 1)))
-    except Exception:
-        comp = 1
-    td_thr = config_float("learning.gdsp.td_threshold", 0.2)
-    if not (b1_spike or abs(td) >= td_thr or comp > 1):
-        return
-
-    # Use current in-repo implementation only (void-faithful, budgeted/territory-scoped)
-    try:
-        from vdm_rt.core.neuroplasticity.gdsp import GDSPActuator as _GDSP  # type: ignore
-        _gdsp = _GDSP()
-        _run_gdsp = _gdsp.run
-    except Exception:
-        return
-
-    # Substrate or connectome compatibility check (sparse CSR fields)
-    s = getattr(nx, "substrate", None)
-    if s is None:
-        s = getattr(nx, "connectome", None)
-    if s is None:
-        return
-
-    def _has(obj, name: str) -> bool:
-        return hasattr(obj, name)
-
-    # Required fields for GDSP to operate safely
-    required = ("synaptic_weights", "persistent_synapses", "synapse_pruning_timers", "eligibility_traces", "firing_rates")
-    if not all(_has(s, r) for r in required):
-        return
-
-    # Build reports (best-effort from current metrics)
-    comp = int(metrics.get("cohesion_components", metrics.get("evt_cohesion_components", 1)))
-    b1_spike = bool(metrics.get("b1_spike", metrics.get("evt_b1_spike", False)))
-    try:
-        b1_z = float(metrics.get("b1_z", metrics.get("evt_b1_z", 0.0)))
-    except Exception:
-        b1_z = 0.0
-    # Heuristic placeholder for persistence (bounded): adapter only
-    b1_persistence = max(0.0, min(1.0, abs(b1_z) / 10.0))
-
-    introspection_report = {
-        "component_count": comp,
-        "b1_persistence": b1_persistence,
-        "repair_triggered": b1_spike,
-        # locus_indices optional; omitted by default
-    }
-    sie_report = {
-        "total_reward": float(metrics.get("sie_total_reward", 0.0)),
-        "td_error": float(metrics.get("td_signal", 0.0)),
-        "novelty": float(metrics.get("vt_entropy", metrics.get("evt_vt_entropy", 0.0))),
-    }
-
-    # Territory indices from event-folded UF if available (bounded; no scans)
-    territory_indices = None
-    try:
-        terr = getattr(nx, "_territories", None)
-        if terr is not None:
-            k_sel = config_int("learning.gdsp.territory_sample_k", 64)
-            sel = terr.sample_any(int(max(0, k_sel)))
-            if isinstance(sel, list) and sel:
-                territory_indices = sel
-    except Exception:
-        territory_indices = None
-    # If triggers fired but no indices, emit a lightweight BiasHintEvent (telemetry-only; optional consumers)
-    try:
-        if territory_indices is None:
-            bus = getattr(nx, "bus", None)
-            if bus is not None:
-                try:
-                    _o = _BiasHintEvent(kind="bias_hint", t=int(step), region="unknown", nodes=tuple(), ttl=2)
-                    bus.publish(_o)
-                except Exception:
-                    pass
-    except Exception:
-        pass
-
-    # Pruning parameters
-    T_prune = config_int("learning.gdsp.prune_ticks", 100)
-    pruning_threshold = config_float("learning.gdsp.prune_threshold", 0.01)
-
-    try:
-        _run_gdsp(
-            substrate=s,
-            introspection_report=introspection_report,
-            sie_report=sie_report,
-            territory_indices=territory_indices,
-            T_prune=T_prune,
-            pruning_threshold=pruning_threshold,
-        )
-    except Exception:
-        # Silent failure to preserve parity
-        return
-
-
 def run_loop(nx: Any, t0: float, step: int, duration_s: Optional[int] = None) -> int:
     """
     Execute the main tick loop on the provided Nexus-like object.
@@ -514,16 +328,6 @@ def run_loop(nx: Any, t0: float, step: int, duration_s: Optional[int] = None) ->
 
             # Compute step and scan-based metrics (parity-preserving)
             m, drive = _compute_step_and_metrics(nx, t, step, novelty_scale=novelty_scale)
-
-            # Optional: Online learner (RE-VGSP) and structural actuator (GDSP) - default OFF
-            try:
-                _maybe_run_revgsp(nx, m, int(step))
-            except Exception:
-                pass
-            try:
-                _maybe_run_gdsp(nx, m, int(step))
-            except Exception:
-                pass
 
             # 3) telemetry fold (bus drain + ADC + optional event metrics + B1)
             void_topic_symbols: Set[Any] = set()

@@ -1,0 +1,37 @@
+{
+  "package_version": "v3",
+  "fixed_surface": {
+    "controls": 4,
+    "characters": 96,
+    "total_neurons_required": 100,
+    "char_range": "printable ASCII chr(32)..chr(126) plus newline",
+    "space_neuron": 4,
+    "digit_0_neuron": 20,
+    "uppercase_A_neuron": 37,
+    "lowercase_a_neuron": 69,
+    "tilde_neuron": 98,
+    "newline_neuron": 99
+  },
+  "demo_hi": {
+    "input_ticks": 8,
+    "appended_chars": [
+      "H",
+      "i",
+      "!"
+    ],
+    "submitted_message": "Hi!",
+    "reafferent_text": "I think I hold attention here.\n[written_message]\nHi!",
+    "pass": true
+  },
+  "full_surface_validation": {
+    "input_ticks": 194,
+    "append_events": 96,
+    "submitted_message_length": 96,
+    "submitted_message_matches_expected": true,
+    "first_10_repr": "' !\"#$%&\\'()'",
+    "last_10_repr": "'vwxyz{|}~\\n'",
+    "reafferent_prefix": "I think I hold attention here.",
+    "pass": true
+  },
+  "pytest_stdout": ".....                                                                    [100%]\n5 passed in 0.20s"
+}

@@ -7,7 +7,7 @@ research while ensuring commercial applications are aligned with the project's e
 See LICENSE file for full terms.
 """
 import numpy as np
-from scipy.sparse import csc_matrix
+from typing import Any
 
 from vdm_rt.config import config_float
 
@@ -65,7 +65,7 @@ class SelfImprovementEngine:
         self.last_drive = None  # stores the latest computed drive packet (see get_drive)
         self._prev_density = None  # for intrinsic TD proxy (density delta)
 
-    def update_and_calculate_valence(self, W: csc_matrix, external_signal: float, time_step: int) -> float:
+    def update_and_calculate_valence(self, W: Any, external_signal: float, time_step: int) -> float:
         """
         Updates the Core's internal state and returns a unified valence signal in [0, 1].
         Backward-compatible with your original API, while also computing a Rule 3 drive packet.
@@ -145,7 +145,7 @@ class SelfImprovementEngine:
         # Center around 0; maintain symmetry
         return float(2.0 * prox - 1.0)
 
-    def get_drive(self, W: csc_matrix, external_signal: float, time_step: int,
+    def get_drive(self, W: Any, external_signal: float, time_step: int,
                   firing_var: float = None, target_var: float = None,
                   weights: dict | None = None,
                   density_override: float | None = None,

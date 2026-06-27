@@ -10,7 +10,7 @@ Void-faithful cohesion territories (incremental, event-folded; no scans).
 - Maintains a union-find structure over observed edge_on-like events
   to approximate connected components ("territories").
 - Keeps a bounded per-component head (reservoir) of member indices to serve
-  territory_indices to actuators (e.g., GDSP) without graph scans.
+  future structural actuators without graph scans.
 - O(1) amortized per observation; no reads of W/CSR/adjacency.
 
 API

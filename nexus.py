@@ -19,7 +19,7 @@ from .utils.logging_setup import get_logger, set_logger_run_start
 from .io.ute import UTE
 from .io.utd import UTD
 from .io.motor_trace import MotorTraceLog
-from .core.metrics import StreamingZEMA
+from .core.void_b1 import StreamingZEMA
 from .core.void_dynamics_adapter import get_domain_modulation
 from .core.sie import SelfImprovementEngine
 from .core.bus import AnnounceBus
@@ -145,7 +145,6 @@ class Nexus:
             pass
 
         # Topology spike detector (tick-based). It does not trigger text output.
-        # Persist half-life for void_b1 meter to keep UX consistent with detector.
         # CLI defaults come from config; explicit caller arguments win here.
         self.b1_half_life_ticks = int(max(1, b1_half_life_ticks))
         self.b1_detector = StreamingZEMA(

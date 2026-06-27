@@ -20,7 +20,7 @@ The current runtime is halfway through a good migration: from scan-heavy global 
 | 2 | `docs/roadmap/runtime-event-spine/TODO.md` | Unify `Observation`, `BaseEvent`, ADC, maps, memory, and future motor events behind one typed event spine. |
 | 3 | `docs/roadmap/adc-territory-richness/TODO.md` | Feed ADC more than `region_stat` and `cycle_hit`; produce `boundary_probe` and `novel_frontier`. |
 | 4 | `docs/roadmap/scout-map-ownership/TODO.md` | Keep void walkers/maps as core systems, remove duplicate scout ownership, and route scout products globally. |
-| 5 | `docs/roadmap/memory-gdsp-territory/TODO.md` | Fix memory ownership, stale observation reuse, GDSP one-tick territory lag, dead `bias_hint` shape, and engram resume integrity. |
+| 5 | `docs/roadmap/memory-gdsp-territory/TODO.md` | Fix memory ownership, stale observation reuse, structural-plasticity territory timing, dead `bias_hint` shape, and engram resume integrity. |
 | 6 | `docs/roadmap/loop-scan-reduction/TODO.md` | Replace repeated full graph scans with sparse cached snapshots and reducer-fed metrics. |
 | 7 | `docs/roadmap/sparse-neurogenesis/TODO.md` | Recover dynamic node growth/culling as sparse-native runtime code without torch or dense substrate ownership. |
 | 8 | `docs/roadmap/repo-scan-upgrades/TODO.md` | Add scanners for bus schema, hot loops, state ownership, tick order, and contamination policies. |
@@ -44,7 +44,7 @@ Keep:
   void maps
   ADC
   SIE
-  GDSP/REVGSP
+  sparse structural-plasticity capability
   headless runtime
   event spine
 
@@ -65,7 +65,7 @@ This roadmap is complete when:
 - the headless runtime has a typed event spine,
 - ADC receives rich territory-producing events,
 - void walkers/maps are globally visible and not duplicate-owned,
-- GDSP reads current territory data or explicitly declares next-tick scheduling,
+- future sparse structural-plasticity code reads current territory data or explicitly declares next-tick scheduling,
 - engram resume restores real state history or fails loudly instead of silently loading config-only state,
 - repeated scan-heavy metrics are replaced by cached sparse snapshots where safe,
 - torch/dense substrate paths are gone from live runtime,

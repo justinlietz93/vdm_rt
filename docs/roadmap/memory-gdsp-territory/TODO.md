@@ -1,9 +1,9 @@
-# Memory, GDSP, and Territory Timing TODO
+# Memory, Structural Plasticity, and Territory Timing TODO
 
 Status: active draft.
 Source report: `reports/20260622/vdm_rt_void_bus_adc_loop_analysis.md`.
 
-This checklist fixes ownership and timing issues around memory fields, territory folds, GDSP inputs, and stale observations.
+This checklist fixes ownership and timing issues around memory fields, territory folds, future sparse structural-plasticity inputs, and stale observations.
 
 ## Phase 0 — Prove Current Ownership and Timing
 
@@ -14,11 +14,11 @@ This checklist fixes ownership and timing issues around memory fields, territory
 - [ ] Step 0.1.3 — Trace reads from `nx._memory_field` in telemetry fold.
 - [ ] Step 0.1.4 — Add diagnostic telemetry showing which memory field object is active each tick.
 
-### Task 0.2 — GDSP territory timing audit
+### Task 0.2 — Structural-plasticity territory timing audit
 
-- [ ] Step 0.2.1 — Trace when GDSP asks for `territory_indices`.
+- [ ] Step 0.2.1 — Trace when the future sparse structural-plasticity owner asks for `territory_indices`.
 - [ ] Step 0.2.2 — Trace when `TerritoryUF` folds current observations.
-- [ ] Step 0.2.3 — Add test proving current GDSP territory input is one tick stale or prove it has been corrected.
+- [ ] Step 0.2.3 — Add test proving structural-plasticity territory input is current or explicitly next-tick scheduled.
 - [ ] Step 0.2.4 — Trace `bias_hint` publication and consumption.
 
 ## Phase 1 — Fix Memory Ownership
@@ -40,16 +40,16 @@ This checklist fixes ownership and timing issues around memory fields, territory
 
 ## Phase 2 — Fix Territory Timing
 
-### Task 2.1 — Fold territories before GDSP consumes them
+### Task 2.1 — Define structural-plasticity territory timing
 
-- [ ] Step 2.1.1 — Move ADC/TerritoryUF fold before GDSP if GDSP needs current territories.
-- [ ] Step 2.1.2 — Alternatively mark GDSP as explicitly next-tick scheduled and encode that in telemetry.
+- [ ] Step 2.1.1 — Move ADC/TerritoryUF fold before future sparse structural-plasticity code if it needs current territories.
+- [ ] Step 2.1.2 — Alternatively mark sparse structural-plasticity as explicitly next-tick scheduled and encode that in telemetry.
 - [ ] Step 2.1.3 — Add test proving the selected rule.
-- [ ] Step 2.1.4 — Add field `territory_age_ticks` to GDSP telemetry.
+- [ ] Step 2.1.4 — Add field `territory_age_ticks` to structural-plasticity telemetry.
 
 ### Task 2.2 — Make `bias_hint` meaningful or remove it
 
-- [ ] Step 2.2.1 — Decide whether `bias_hint` is an ADC observation, BaseEvent, GDSP-private hint, or deprecated signal.
+- [ ] Step 2.2.1 — Decide whether `bias_hint` is an ADC observation, BaseEvent, structural-plasticity hint, or deprecated signal.
 - [ ] Step 2.2.2 — Route `bias_hint` through the event spine if retained.
 - [ ] Step 2.2.3 — Add consumer tests for retained `bias_hint`.
 - [ ] Step 2.2.4 — Remove `bias_hint` production if no consumer exists.
@@ -68,7 +68,7 @@ This checklist fixes ownership and timing issues around memory fields, territory
 - [ ] Step 3.2.1 — Emit `obs_batch_size` per tick.
 - [ ] Step 3.2.2 — Emit `adc_folded_this_tick` per tick.
 - [ ] Step 3.2.3 — Emit `territory_folded_this_tick` per tick.
-- [ ] Step 3.2.4 — Emit `gdsp_territory_source` per GDSP invocation.
+- [ ] Step 3.2.4 — Emit `structural_plasticity_territory_source` per structural-plasticity invocation.
 
 ## Phase 4 — Engram Resume Integrity
 

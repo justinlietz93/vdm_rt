@@ -1,5 +1,7 @@
-numpy # For numerical operations
-scipy # Sparse matrix operations
-h5py # Engram, saves the models brain
-zstandard # Immediate compressed JSONL runtime logs
-pytest # Testing framework
+numpy # Fast math
+
+# Logging, compression, and state
+h5py # Engram, this is for the models reloadable .h5 state /checkpoint file
+zstandard # Very fast, live compressed JSONL runtime logs
+
+pytest # Testing

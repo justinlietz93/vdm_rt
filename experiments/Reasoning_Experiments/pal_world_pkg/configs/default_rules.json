@@ -1,0 +1,97 @@
+{
+  "version": "0.1.0",
+  "default_gain": 0.22,
+  "families": {
+    "attention": {
+      "reply_text": "Hold attention here. Keep the signal narrow and steady.",
+      "action": "hold_attention",
+      "aperture_hint": "hold_narrow",
+      "stimulus_policy": "repeat_same_point",
+      "reafferent_gain_hint": 0.22
+    },
+    "containment": {
+      "reply_text": "Keep it contained. Let the next signal stay small.",
+      "action": "contain",
+      "aperture_hint": "narrow",
+      "stimulus_policy": "reduce_amplitude",
+      "reafferent_gain_hint": 0.20
+    },
+    "restraint": {
+      "reply_text": "Hold restraint. Do not force the next step.",
+      "action": "restrain",
+      "aperture_hint": "hold",
+      "stimulus_policy": "slow_down",
+      "reafferent_gain_hint": 0.18
+    },
+    "conflict": {
+      "reply_text": "Reduce force. Keep the boundary stable.",
+      "action": "deescalate",
+      "aperture_hint": "narrow",
+      "stimulus_policy": "lower_conflict",
+      "reafferent_gain_hint": 0.16
+    },
+    "recognition": {
+      "reply_text": "Preserve continuity. Treat this as familiar.",
+      "action": "preserve_continuity",
+      "aperture_hint": "hold",
+      "stimulus_policy": "continue_thread",
+      "reafferent_gain_hint": 0.24
+    },
+    "comparison": {
+      "reply_text": "Compare one relation at a time. Keep both sides visible.",
+      "action": "compare",
+      "aperture_hint": "hold",
+      "stimulus_policy": "present_pair",
+      "reafferent_gain_hint": 0.22
+    },
+    "readiness": {
+      "reply_text": "Advance one small step. Keep the path controlled.",
+      "action": "advance",
+      "aperture_hint": "open_small",
+      "stimulus_policy": "advance_one_step",
+      "reafferent_gain_hint": 0.24
+    },
+    "uncertainty": {
+      "reply_text": "Slow down. Repeat the last shape once.",
+      "action": "stabilize_uncertainty",
+      "aperture_hint": "narrow",
+      "stimulus_policy": "repeat_last",
+      "reafferent_gain_hint": 0.18
+    },
+    "completion": {
+      "reply_text": "Close the loop. Preserve the result.",
+      "action": "close_loop",
+      "aperture_hint": "hold",
+      "stimulus_policy": "mark_complete",
+      "reafferent_gain_hint": 0.22
+    },
+    "novelty": {
+      "reply_text": "Mark this as new. Explore one edge only.",
+      "action": "explore_lightly",
+      "aperture_hint": "open_small",
+      "stimulus_policy": "single_edge_probe",
+      "reafferent_gain_hint": 0.20
+    },
+    "avoidance": {
+      "reply_text": "Withdraw one step. Keep contact light.",
+      "action": "withdraw_lightly",
+      "aperture_hint": "narrow",
+      "stimulus_policy": "reduce_contact",
+      "reafferent_gain_hint": 0.16
+    },
+    "overload": {
+      "reply_text": "Narrow the aperture. Let less through.",
+      "action": "reduce_load",
+      "aperture_hint": "narrow",
+      "stimulus_policy": "reduce_input",
+      "reafferent_gain_hint": 0.14
+    },
+    "unknown": {
+      "reply_text": "Stay steady. Continue one tick.",
+      "action": "steady",
+      "aperture_hint": "hold",
+      "stimulus_policy": "continue",
+      "reafferent_gain_hint": 0.18
+    }
+  }
+}
