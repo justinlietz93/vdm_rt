@@ -2,7 +2,7 @@ from __future__ import annotations
 import argparse, os
 from pathlib import Path
 import pandas as pd
-from common import ensure_dir
+from tools.data_analysis.common import ensure_dir
 
 
 def main():

@@ -3,7 +3,7 @@ from __future__ import annotations
 import argparse
 import matplotlib.pyplot as plt
 import pandas as pd
-from common import ensure_dir, load_events_jsonl, parse_dashboard_targets, standardize, two_state_kmeans
+from tools.data_analysis.common import ensure_dir, load_events_jsonl, parse_dashboard_targets, standardize, two_state_kmeans
 
 
 def main():
