@@ -8,10 +8,12 @@ hard:
   - id: M04
     rule: Endogenous cognitive time is sovereign
     requires:
-      - model time remains decoupled from wall time as an externally imposed cadence
-      - runtime changes must not replace endogenous timing with fixed-step substitution
+      - model time remains endogenous and must not be redefined by wall-clock logging fields
+      - wall-clock fields are logging, provenance, and offline-analysis coordinates, not model authorship
+      - tick-indexed physiology remains tick-indexed, including SIE, B1, maps, gates, refractory windows, and EMA half-lives
+      - runtime changes must not replace endogenous timing with fixed-step or wall-clock substitution
       - default per-tick non-cognitive work must not be added without timing-impact evidence
-      - comparison tooling must not redefine the model clock for convenience
+      - comparison tooling must not redefine the endogenous model clock for convenience
     evidence:
       - dev-references/aura-run/tables/sie_v2/sie_v2_scan_summary.csv
       - dev-references/aura-run/json/F8_02_tick_duration_analysis.json

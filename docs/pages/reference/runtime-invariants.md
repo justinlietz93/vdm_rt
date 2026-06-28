@@ -15,7 +15,7 @@ summary: Hard and strong invariants for the headless runtime and motor-learning 
 |---|---|---|
 | M01 | Interface-only coupling | Core does not touch world/UI directly. |
 | M03 | No completion-branch authorship in live path | No live phrase bank, n-gram, lexicon, sentence macro, or completion branch. |
-| M04 | Endogenous cognitive time is sovereign | Model time remains decoupled from wall time as an externally imposed cadence; fixed-step substitution and unmeasured per-tick overhead are rejected. |
+| M04 | Endogenous cognitive time is sovereign | Model time is endogenous; wall-clock fields are logging/provenance/offline-analysis coordinates, not model authorship. Fixed-step substitution and unmeasured per-tick overhead are rejected. |
 | M12 | Text intake preserves full order and repetition | Ordered input must not collapse into a set or semantic dump. |
 | M17 | Actuator basis belongs to the device | Output basis cannot grow from input history. |
 | M18 | Articulation is model-authored before release | Release-time composition is rejected. |
@@ -43,7 +43,7 @@ summary: Hard and strong invariants for the headless runtime and motor-learning 
 Reject implementations where:
 
 - a renderer completes missing text,
-- fixed-step tooling redefines the model clock,
+- fixed-step or wall-clock tooling redefines the endogenous model clock,
 - unmeasured per-tick IO, logging, or actuator work is added to the default timing path,
 - a phrase bank writes live output,
 - gate-open calls a sentence composer,

@@ -13,6 +13,7 @@ These scripts remain in the cleaned package. Run them from the package root with
 - `03_dynamics_timeseries/f13_state_space_recurrence.py`
 - `03_dynamics_timeseries/f7_pending_distinctions_analysis.py`
 - `03_dynamics_timeseries/f8_tick_duration.py`
+- `03_dynamics_timeseries/verify_endogenous_clock.py`
 - `04_higher_order_info/f7_infoflow_higherorder_landscape.py`
 - `05_territory_structure/f3_late_territory_community_phenotypes.py`
 - `06_operator_input_state/d5_1_operator_state_differentiation_no_say.py`

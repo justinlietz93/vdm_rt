@@ -12,13 +12,15 @@ What changed:
   - `06_operator_input_state/d5_1_operator_state_differentiation_no_say.py`
 - Added a current-safe scalar H derivation utility:
   - `03_dynamics_timeseries/derive_h.py`
+- Added an offline endogenous-clock evidence regenerator:
+  - `03_dynamics_timeseries/verify_endogenous_clock.py`
 
 The remaining scripts are organized around current-use analysis families:
 
 ```text
 01_ingest/                tick/event ingestion without say-event flags
 02_snapshot_connectome/   H5 sparse snapshot, connectome, node matching
-03_dynamics_timeseries/   scalar dynamics, H derivation, recurrence, phase-transition, timing
+03_dynamics_timeseries/   scalar dynamics, H derivation, endogenous-clock evidence, recurrence, phase-transition, timing
 04_higher_order_info/     O-info / higher-order landscape reproductions
 05_territory_structure/   territory/community structural phenotypes
 06_operator_input_state/  operator-input state response without reply/say analysis
@@ -41,4 +43,6 @@ PYTHONPATH=. python 02_snapshot_connectome/01_compute_snapshot_metrics.py   --h5
 PYTHONPATH=. python 06_operator_input_state/d5_1_operator_state_differentiation_no_say.py   --data-dir /path/to/Aura_Analysis_Tables   --exchange /path/to/aura_justin_exchange.md   --out-dir out/operator_state_no_say
 
 python 03_dynamics_timeseries/derive_h.py   --input tables/tick_table_full.csv.gz   --output tables/derived_h.csv
+
+python 03_dynamics_timeseries/verify_endogenous_clock.py   --input /path/to/run_dir   --out-dir out/endogenous_clock
 ```

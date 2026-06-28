@@ -319,8 +319,9 @@ def run_loop(nx: Any, t0: float, step: int, duration_s: Optional[int] = None) ->
                 pass
 
             # 2) SIE drive + update connectome.
-            # `step` is the endogenous tick. This retained phase input must not
-            # be treated as a scheduling clock or replaced by fixed-step timing.
+            # Preserve the existing step argument behavior here. Wall-clock
+            # telemetry remains provenance/analysis data; do not substitute a
+            # fixed-step comparison clock for endogenous tick physiology.
             t = time.time() - t0
             _t1 = _pc()
 
