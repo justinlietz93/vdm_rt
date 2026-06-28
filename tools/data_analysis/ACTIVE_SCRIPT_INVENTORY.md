@@ -9,6 +9,7 @@ These scripts remain in the cleaned package. Run them from the package root with
 - `02_snapshot_connectome/run_connectome_geometry_projectionmap_analysis.py`
 - `02_snapshot_connectome/run_node_correspondence_matching.py`
 - `03_dynamics_timeseries/02_four_proofs.py`
+- `03_dynamics_timeseries/derive_h.py`
 - `03_dynamics_timeseries/f13_state_space_recurrence.py`
 - `03_dynamics_timeseries/f7_pending_distinctions_analysis.py`
 - `03_dynamics_timeseries/f8_tick_duration.py`

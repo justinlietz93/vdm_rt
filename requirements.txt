@@ -1,7 +1,16 @@
-numpy # Fast math
+# Base Runtime
+numpy # Numerical computing
 
 # Logging, compression, and state
 h5py # Engram, this is for the models reloadable .h5 state /checkpoint file
 zstandard # Very fast, live compressed JSONL runtime logs
 
-pytest # Testing
+# ---
+
+# Testing
+pytest
+
+# ---
+
+# Data Analysis
+pandas # DataFrame analysis and manipulation

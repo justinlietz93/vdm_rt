@@ -318,8 +318,9 @@ def run_loop(nx: Any, t0: float, step: int, duration_s: Optional[int] = None) ->
             except Exception:
                 pass
 
-            # 2) SIE drive + update connectome
-            # use wall-clock seconds since start as t
+            # 2) SIE drive + update connectome.
+            # `step` is the endogenous tick. This retained phase input must not
+            # be treated as a scheduling clock or replaced by fixed-step timing.
             t = time.time() - t0
             _t1 = _pc()
 
