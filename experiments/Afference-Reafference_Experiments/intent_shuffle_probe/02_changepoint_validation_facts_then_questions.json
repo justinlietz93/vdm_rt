@@ -1,0 +1,63 @@
+{
+  "tracks": {
+    "track3_pre_switch": {
+      "name": "track3_pre_switch",
+      "observables": {
+        "n_ticks": 300,
+        "witness_rate": 0.0,
+        "gate_mean": 0.437806,
+        "gate_var": 0.030558,
+        "release_mean": 0.359139,
+        "op_rates": {
+          "HOLD": 0.5467,
+          "SELECT": 0.0867,
+          "RELEASE": 0.0833,
+          "INHIBIT": 0.0733,
+          "CORRECT": 0.2067,
+          "ADVANCE": 0.0967,
+          "ABORT": 0.4367,
+          "COMPARE": 0.0667,
+          "MERGE": 0.47,
+          "DAMP": 0.5567,
+          "AMPLIFY": 0.0567
+        },
+        "op_entropy": 2.2403,
+        "stability_index": 0.2505
+      }
+    },
+    "track3_post_switch": {
+      "name": "track3_post_switch",
+      "observables": {
+        "n_ticks": 300,
+        "witness_rate": 0.01,
+        "gate_mean": 0.520777,
+        "gate_var": 0.033772,
+        "release_mean": 0.408777,
+        "op_rates": {
+          "HOLD": 0.0733,
+          "SELECT": 0.1333,
+          "RELEASE": 0.19,
+          "INHIBIT": 0.2133,
+          "CORRECT": 0.9433,
+          "ADVANCE": 0.8067,
+          "ABORT": 0.1167,
+          "COMPARE": 0.1567,
+          "MERGE": 0.4467,
+          "DAMP": 0.5167,
+          "AMPLIFY": 0.0867
+        },
+        "op_entropy": 2.241,
+        "stability_index": -0.5231
+      }
+    }
+  },
+  "verdict": {
+    "full_shuffle_stability_delta": null,
+    "switch_stability_delta": -0.7736,
+    "switch_pvalue": 0.0,
+    "change_point_tick": 998.0,
+    "change_point_score": 1.025,
+    "expected_switch_tick": 1000,
+    "reading": "COUPLED: gravitation depends on intent-handle structure (a real choice, not a readout artifact). track3 steps -0.774 in stability at the switch (change-point tick 998 vs expected 1000, p=0.000) -> coupled"
+  }
+}

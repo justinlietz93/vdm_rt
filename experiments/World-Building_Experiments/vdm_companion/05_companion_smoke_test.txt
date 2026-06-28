@@ -1,0 +1,5 @@
+smoke OK
+  posture reaching axes: {'closure_gap': 0.306667, 'search': 0.45, 'curiosity': 0.16, 'need': 0.168667}
+  receptivity score: 1.373214 dominant: search
+  presence atom: ( marker drifts and then
+  null atom    : ( morv phel lieth bero )

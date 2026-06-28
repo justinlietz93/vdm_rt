@@ -1,0 +1,1 @@
+permute_handles self-test OK (multiset preserved, derangement, deterministic)

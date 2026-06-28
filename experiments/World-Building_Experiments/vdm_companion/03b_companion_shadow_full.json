@@ -1,0 +1,161 @@
+{
+  "decisions": [
+    {
+      "witness_tick": 5,
+      "topic": "The signal waits until the bridge is steady.",
+      "posture_score": -0.415236,
+      "receptive_mass": 0.269948,
+      "shut_mass": 0.685184,
+      "receptive": false,
+      "emitted": false,
+      "arm": null,
+      "atom": null,
+      "dominant_axis": "attention"
+    },
+    {
+      "witness_tick": 14,
+      "topic": "The path remains open while the marker moves.",
+      "posture_score": 1.226188,
+      "receptive_mass": 2.214282,
+      "shut_mass": 0.988094,
+      "receptive": true,
+      "emitted": true,
+      "arm": "presence",
+      "atom": "( path remains and then",
+      "dominant_axis": "closure_gap"
+    },
+    {
+      "witness_tick": 100,
+      "topic": "xq7 miv ru19 pz8 loma qx",
+      "posture_score": 0.192855,
+      "receptive_mass": 1.328684,
+      "shut_mass": 1.135829,
+      "receptive": true,
+      "emitted": true,
+      "arm": "null",
+      "atom": "( bero morv vren bero )",
+      "dominant_axis": "attention"
+    },
+    {
+      "witness_tick": 128,
+      "topic": "A bracket opens while the sentence keeps moving",
+      "posture_score": 0.457418,
+      "receptive_mass": 1.516729,
+      "shut_mass": 1.059311,
+      "receptive": true,
+      "emitted": true,
+      "arm": "presence",
+      "atom": "( bracket opens sentence and then",
+      "dominant_axis": "attention"
+    },
+    {
+      "witness_tick": 144,
+      "topic": "bridge the crosses signal while holds",
+      "posture_score": 0.807548,
+      "receptive_mass": 1.89029,
+      "shut_mass": 1.082742,
+      "receptive": true,
+      "emitted": true,
+      "arm": "presence",
+      "atom": "( bridge crosses and then",
+      "dominant_axis": "attention"
+    },
+    {
+      "witness_tick": 152,
+      "topic": "The quote opens but never closes",
+      "posture_score": 0.603492,
+      "receptive_mass": 1.569212,
+      "shut_mass": 0.96572,
+      "receptive": true,
+      "emitted": false,
+      "arm": null,
+      "atom": null,
+      "dominant_axis": "closure_gap"
+    },
+    {
+      "witness_tick": 162,
+      "topic": "The quote opens but never closes",
+      "posture_score": 0.502333,
+      "receptive_mass": 1.559253,
+      "shut_mass": 1.05692,
+      "receptive": true,
+      "emitted": true,
+      "arm": "presence",
+      "atom": "( quote opens never and then",
+      "dominant_axis": "closure_gap"
+    },
+    {
+      "witness_tick": 172,
+      "topic": "The quote opens but never closes",
+      "posture_score": 0.905091,
+      "receptive_mass": 1.905091,
+      "shut_mass": 1.0,
+      "receptive": true,
+      "emitted": false,
+      "arm": null,
+      "atom": null,
+      "dominant_axis": "attention"
+    },
+    {
+      "witness_tick": 182,
+      "topic": "The quote opens but never closes",
+      "posture_score": 1.117074,
+      "receptive_mass": 2.10832,
+      "shut_mass": 0.991246,
+      "receptive": true,
+      "emitted": true,
+      "arm": "null",
+      "atom": "( quon naru quon trune vren )",
+      "dominant_axis": "attention"
+    },
+    {
+      "witness_tick": 191,
+      "topic": "delta spoon violet hinge under glass",
+      "posture_score": 1.432865,
+      "receptive_mass": 2.354963,
+      "shut_mass": 0.922098,
+      "receptive": true,
+      "emitted": false,
+      "arm": null,
+      "atom": null,
+      "dominant_axis": "attention"
+    },
+    {
+      "witness_tick": 199,
+      "topic": "bridge the crosses signal while holds",
+      "posture_score": 0.488765,
+      "receptive_mass": 1.409195,
+      "shut_mass": 0.92043,
+      "receptive": true,
+      "emitted": true,
+      "arm": "null",
+      "atom": "( task bint vren phel )",
+      "dominant_axis": "closure_gap"
+    },
+    {
+      "witness_tick": 211,
+      "topic": "The signal waits until the bridge is steady.",
+      "posture_score": 0.343429,
+      "receptive_mass": 1.502431,
+      "shut_mass": 1.159002,
+      "receptive": true,
+      "emitted": true,
+      "arm": "presence",
+      "atom": "( signal waits bridge and then",
+      "dominant_axis": "closure_gap"
+    },
+    {
+      "witness_tick": 226,
+      "topic": "The signal waits until the bridge is steady.",
+      "posture_score": 0.213118,
+      "receptive_mass": 1.37795,
+      "shut_mass": 1.164832,
+      "receptive": true,
+      "emitted": true,
+      "arm": "presence",
+      "atom": "( signal waits bridge and then",
+      "dominant_axis": "attention"
+    }
+  ],
+  "report": null
+}

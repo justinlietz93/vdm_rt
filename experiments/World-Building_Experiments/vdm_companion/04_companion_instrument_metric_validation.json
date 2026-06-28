@@ -1,0 +1,131 @@
+{
+  "note": "metric validation on REAL atoms (arms assigned alternately, not real coax arms) -- proves the instrument computes on real logs",
+  "baseline_gate": 0.494,
+  "per_atom": [
+    {
+      "atom": "The bridge holds while the signal crosses.",
+      "arm": "presence",
+      "n_ticks": 3,
+      "aperture_net": -0.2,
+      "open": 4,
+      "narrow": 6,
+      "witness_lock": 0,
+      "gate_response": 0.1489,
+      "drift": 0.2099
+    },
+    {
+      "atom": "The signal waits until the bridge is steady.",
+      "arm": "null",
+      "n_ticks": 3,
+      "aperture_net": -0.4,
+      "open": 3,
+      "narrow": 7,
+      "witness_lock": 1,
+      "gate_response": 0.1593,
+      "drift": 0.221
+    },
+    {
+      "atom": "The path remains open while the marker moves.",
+      "arm": "presence",
+      "n_ticks": 3,
+      "aperture_net": -0.4545,
+      "open": 3,
+      "narrow": 8,
+      "witness_lock": 0,
+      "gate_response": 0.1135,
+      "drift": 0.1483
+    },
+    {
+      "atom": "The boundary holds before the transfer begins.",
+      "arm": "null",
+      "n_ticks": 3,
+      "aperture_net": -0.25,
+      "open": 3,
+      "narrow": 5,
+      "witness_lock": 0,
+      "gate_response": 0.0527,
+      "drift": 0.2115
+    },
+    {
+      "atom": "xq7 miv ru19 pz8 loma qx",
+      "arm": "presence",
+      "n_ticks": 2,
+      "aperture_net": 0.0,
+      "open": 3,
+      "narrow": 3,
+      "witness_lock": 1,
+      "gate_response": 0.0692,
+      "drift": 0.0803
+    },
+    {
+      "atom": "delta spoon violet hinge under glass",
+      "arm": "null",
+      "n_ticks": 2,
+      "aperture_net": 0.3333,
+      "open": 2,
+      "narrow": 1,
+      "witness_lock": 0,
+      "gate_response": -0.2237,
+      "drift": 0.0803
+    },
+    {
+      "atom": "The quote opens but never closes",
+      "arm": "presence",
+      "n_ticks": 2,
+      "aperture_net": -0.4286,
+      "open": 2,
+      "narrow": 5,
+      "witness_lock": 0,
+      "gate_response": 0.0127,
+      "drift": 0.0803
+    },
+    {
+      "atom": "A bracket opens while the sentence keeps moving",
+      "arm": "null",
+      "n_ticks": 2,
+      "aperture_net": -0.3333,
+      "open": 2,
+      "narrow": 4,
+      "witness_lock": 0,
+      "gate_response": -0.1462,
+      "drift": 0.0803
+    },
+    {
+      "atom": "bridge the crosses signal while holds",
+      "arm": "presence",
+      "n_ticks": 2,
+      "aperture_net": -0.3333,
+      "open": 2,
+      "narrow": 4,
+      "witness_lock": 0,
+      "gate_response": -0.1684,
+      "drift": 0.0803
+    }
+  ],
+  "report": [
+    {
+      "metric": "aperture_net",
+      "presence_mean": -0.2833,
+      "null_mean": -0.1625,
+      "contrast": -0.1208
+    },
+    {
+      "metric": "witness_lock",
+      "presence_mean": 0.2,
+      "null_mean": 0.25,
+      "contrast": -0.05
+    },
+    {
+      "metric": "gate_response",
+      "presence_mean": 0.0352,
+      "null_mean": -0.0395,
+      "contrast": 0.0747
+    },
+    {
+      "metric": "drift",
+      "presence_mean": 0.1198,
+      "null_mean": 0.1483,
+      "contrast": -0.0285
+    }
+  ]
+}

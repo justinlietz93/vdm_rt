@@ -12,6 +12,11 @@ runs/
 .arachnid_scans
 
 # Experiments
+experiments/*.zip
+experiments/*/*.zip
+experiments/*/*/*.zip
+experiments/*/*/*/*.zip
+
 experiments/vdm_rt-main
 experiments/*/vdm_rt-main
 experiments/*/*/vdm_rt-main

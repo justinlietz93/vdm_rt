@@ -1,0 +1,17 @@
+witness decision points : 13
+receptive               : 12
+would emit               : 9
+posture score range      : -0.415 .. +1.433
+
+first emit decisions:
+{"witness_tick": 14, "topic": "The path remains open while the marker moves.", "score": 1.226188, "dominant": "closure_gap", "arm": "presence", "atom": "( path remains and then"}
+{"witness_tick": 100, "topic": "xq7 miv ru19 pz8 loma qx", "score": 0.192855, "dominant": "attention", "arm": "null", "atom": "( bero morv vren bero )"}
+{"witness_tick": 128, "topic": "A bracket opens while the sentence keeps moving", "score": 0.457418, "dominant": "attention", "arm": "presence", "atom": "( bracket opens sentence and then"}
+{"witness_tick": 144, "topic": "bridge the crosses signal while holds", "score": 0.807548, "dominant": "attention", "arm": "presence", "atom": "( bridge crosses and then"}
+{"witness_tick": 162, "topic": "The quote opens but never closes", "score": 0.502333, "dominant": "closure_gap", "arm": "presence", "atom": "( quote opens never and then"}
+{"witness_tick": 182, "topic": "The quote opens but never closes", "score": 1.117074, "dominant": "attention", "arm": "null", "atom": "( quon naru quon trune vren )"}
+{"witness_tick": 199, "topic": "bridge the crosses signal while holds", "score": 0.488765, "dominant": "closure_gap", "arm": "null", "atom": "( task bint vren phel )"}
+{"witness_tick": 211, "topic": "The signal waits until the bridge is steady.", "score": 0.343429, "dominant": "closure_gap", "arm": "presence", "atom": "( signal waits bridge and then"}
+{"witness_tick": 226, "topic": "The signal waits until the bridge is steady.", "score": 0.213118, "dominant": "attention", "arm": "presence", "atom": "( signal waits bridge and then"}
+
+wrote /mnt/user-data/outputs/analysis_logs/03b_companion_shadow_full.json
