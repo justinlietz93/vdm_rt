@@ -8,28 +8,31 @@ io/
 ├── README.md                      # This file
 ├── utd.py                         # Universal Transduction Device (Final outbound execution gate)
 ├── ute.py                         # Universal Temporal Encoder (Initial inbound receptor queue)
-├── os_router.py                   # 2. <--- CATCHES PACKET FROM UTD ➔ routes to the right driver if needed
+├── os_router.py                   # Future OS command-execution routing placeholder
 
+│
+├── logging/                       # Runtime log writers and readers
+│   ├── sensorimotor_trace.py      # Sensorimotor trace logger for motor_traces.jsonl.zst
+│   ├── rolling_jsonl.py           # Compressed rolling JSONL writers
+│   └── jsonl_reader.py            # Streaming readers for plain/gzip/zstd JSONL
 │
 ├── transduction/                  # THE TRANSLATION MATRIX (Core Neurons ⇄ Channels)
 │   ├── afference.py               # Raw UTE receptor inputs ➔ Fixed input neural indices
 │   ├── reafference.py             # Intercepts self-generated physical execution echoes
+│   ├── reafferent_index.py        # Log-only 2048 posture projection/query surface
 │   │
 │   ├── efference_motor.py         # Outbound neural spikes ➔ CAN bus joint channel coordinates
 │   ├── efference_vocal.py         # Outbound neural spikes ➔ Phoneme/Formant wave frequencies
 │   ├── efference_keyboard.py      # Outbound neural spikes ➔ Row/Column grid key coordinate packets
 │   └── efference_os.py            # Outbound neural spikes ➔ Isolated shell/container execution hooks
 │
-├── actuators/                     # PHYSICAL MOTOR LINKS
-│   └── motor_can_bus.py           # Native bus drivers, joint limits, and hardware links
+├── actuators/                     # PHYSICAL AND VIRTUAL ACTUATOR LINKS
+│   ├── motor_can_bus.py           # Native bus drivers, joint limits, and hardware links
+│   └── virtual_keyboard/          # Keyboard actuator endpoint and raw coordinate grid
 │
 ├── audio/                         # SOUND MODULATION LYSERS
 │   ├── phoneme_generator.py       # Converts vocal trace streams into raw synthetic sound waves
 │   └── sound_driver.py            # Direct interface to OS sound servers (PipeWire / ALSA)
-│
-├── virtual_keyboard/              # CHARACTER INTERFACE
-│   ├── key_matrix.py              # X/Y grid mapping for raw structural character coordination
-│   └── uinput_link.py             # Linux kernel virtual HID injector (/dev/uinput)
 │
 └── OS_interface/                  # COMPUTATIONAL EXECUTION ENDPOINTS
     ├── sandbox_runtime.py         # Secure Docker / Container execution jail for typed code
@@ -42,7 +45,8 @@ io/
 These two files serve as the rigid structural boundaries where software abstraction meets real-world execution.
 
 * ute.py (Universal Temporal Encoder): A thread-safe, queue-style receptor boundary. It strips out legacy streaming protocols and processes raw hardware/virtual input events through push(). It serializes these timeline events directly into compressed high-fidelity storage (motor_traces.jsonl.zst) before passing them forward.
-* utd.py (Universal Transduction Device): The virtual Neuromuscular Junction. It receives explicit actuation payloads, commits them to the chronological trace log under trace_kind="utd_actuation", and commands the downstream physical or virtual endpoints. It has no knowledge of language or macros; it handles raw event emission only.
+* utd.py (Universal Transduction Device): The virtual Neuromuscular Junction. It receives explicit actuation payloads and commits them to the chronological trace log under trace_kind="utd_actuation". It has no knowledge of language, macros, endpoint routing, or OS command execution; it handles raw event emission only.
+* logging/sensorimotor_trace.py: The sensorimotor trace logger. It owns the compressed JSONL sink for receptor, efferent, stimulation, actuator, witness, reafferent, and UTD trace rows.
 
 ### 2. Transduction Layer (io/transduction/)
 The translation matrix of the framework. It ensures that the model does not require an engineered "body schema." Instead, it flattens real-world systems into raw coordinate spaces, allowing the core's internal self-organizing dynamics (e.g., STDP) to learn the topology of the system organically.
@@ -53,25 +57,25 @@ The translation matrix of the framework. It ensures that the model does not requ
 ### 3. Execution Endpoints (Hardware, Sound, Keyboard, OS)
 The "muscles" and "vocal cords" driven by the UTD.
 
-* actuators/: Translates motor coordinate channels into raw digital bus packets (like CAN, SPI, or PWM) to create real mechanical torque.
+* actuators/: Translates coordinate channels into physical or virtual actuator endpoint packets. Virtual keyboard support lives under actuators/virtual_keyboard/.
 * audio/: Receives continuous vocal trace channels and modulates them directly into raw speaker waveforms.
-* virtual_keyboard/: Treats character generation like a physical muscle task. The model coordinates raw traces to fire intersecting points on a 2D [Row, Column] matrix, which are injected into the OS as true keystrokes via /dev/uinput.
+* actuators/virtual_keyboard/: Treats character generation like a physical muscle task. The model coordinates raw traces to fire intersecting points on a 2D [Row, Column] matrix. The current endpoint is a witness renderer; a future hardware/HID link can inject through /dev/uinput.
 * OS_interface/: Takes text written by the virtual keyboard and executes it inside an isolated sandbox environment. Output and terminal results are fed straight back into the UTE queue as sensory afference.
 
 ------------------------------
 
 ### 🔄 Data Lifecycle Example (The Sensorimotor Loop)
 
- [ core/efference/ ]                 # 1. Agnostic Motor Neurons Spike
+ [ core/sensorimotor/efference/ ]    # 1. Agnostic opaque operation/lane pressure
          │
          ▼
- [ io/transduction/efference_* ]     # 2. Transduction maps Spikes to Coordinates
+ [ io/transduction/efference_* ]     # 2. Transduction maps opaque packets to device coordinates
          │
          ▼
  [ io/utd.py ]                       # 3. UTD logs the intention to motor_traces
          │
          ▼
- [ io/virtual_keyboard/ ]            # 4. Driver injects physical OS event
+ [ explicit endpoint route ]         # 4. Endpoint route, when enabled, renders external witness
          │
          ▼ (Physical Actuation Echoes Back)
  [ io/ute.py ]                       # 5. UTE enqueues raw keystroke echo/response
@@ -80,7 +84,7 @@ The "muscles" and "vocal cords" driven by the UTD.
  [ io/transduction/afference.py ]    # 6. Maps raw echo back to fixed Sensory Indices
          │
          ▼
- [ core/afference/ ]                 # 7. Core experiences its own output emergently
+ [ core/sensorimotor/afference/ ]    # 7. Core experiences explicit receptor indices
 
 ------------------------------
 

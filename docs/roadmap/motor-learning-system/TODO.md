@@ -60,7 +60,7 @@ This checklist is the working implementation tracker. The reader-facing version 
 
 ### Task 2.1 — Define actuator basis
 
-- [ ] Step 2.1.1 — Add `core/motor/actuator_basis.py`.
+- [x] Step 2.1.1 — Add `core/sensorimotor/efference/basis.py`.
 - [ ] Step 2.1.2 — Define text/keyboard primitive basis.
 - [ ] Step 2.1.3 — Add basis identity/hash telemetry.
 - [ ] Step 2.1.4 — Add config-free default basis for smoke tests.
@@ -75,10 +75,10 @@ This checklist is the working implementation tracker. The reader-facing version 
 
 ### Task 3.1 — Trace model
 
-- [ ] Step 3.1.1 — Add primitive event type.
-- [ ] Step 3.1.2 — Add trace identity.
-- [ ] Step 3.1.3 — Add ordering pressure/duration fields.
-- [ ] Step 3.1.4 — Add trace serialization for telemetry.
+- [x] Step 3.1.1 — Add primitive event type.
+- [x] Step 3.1.2 — Add trace identity.
+- [x] Step 3.1.3 — Add ordering pressure fields.
+- [x] Step 3.1.4 — Add trace serialization for telemetry.
 
 ### Task 3.2 — Buffer model
 
@@ -105,8 +105,8 @@ This checklist is the working implementation tracker. The reader-facing version 
 
 ### Task 5.1 — Receptor consequence loop
 
-- [ ] Step 5.1.1 — Add action-consequence event type.
-- [ ] Step 5.1.2 — Route rendered witness back through receptor path.
+- [x] Step 5.1.1 — Add action-consequence event type.
+- [x] Step 5.1.2 — Route rendered witness back through receptor path.
 - [ ] Step 5.1.3 — Add explicit no-feedback reason where needed.
 
 ### Task 5.2 — Residual correction

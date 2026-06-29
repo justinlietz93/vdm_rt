@@ -1,0 +1,248 @@
+<mxfile host="app.diagrams.net" pages="3">
+  <diagram name="Page-1" id="zD0fS1wqZhx_YUlmJh_E">
+    <mxGraphModel dx="1021" dy="879" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="sA3U5eMCw8VRzGzSXooD-1" parent="1" style="shape=mxgraph.flowchart.document;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" value="&lt;b&gt;Log Files&lt;/b&gt;&lt;br&gt;(System Logs)" vertex="1">
+          <mxGeometry height="70" width="120" x="20" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="sA3U5eMCw8VRzGzSXooD-2" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontColor=#333333;" value="&lt;b&gt;VDM&lt;/b&gt;" vertex="1">
+          <mxGeometry height="80" width="120" x="20" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="sA3U5eMCw8VRzGzSXooD-3" parent="1" style="swimlane;startSize=28;fillColor=#dae8fc;strokeColor=#6c8ebf;html=1;fontColor=#333333;fontStyle=1;" value="Deterministic Controller Software" vertex="1">
+          <mxGeometry height="360" width="340" x="180" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="sA3U5eMCw8VRzGzSXooD-4" parent="sA3U5eMCw8VRzGzSXooD-3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;" value="&lt;b&gt;Log &amp;amp; Output Monitor&lt;/b&gt;&lt;br&gt;(Every Tick)" vertex="1">
+          <mxGeometry height="60" width="120" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sA3U5eMCw8VRzGzSXooD-5" parent="sA3U5eMCw8VRzGzSXooD-3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;" value="&lt;b&gt;Tick Generator&lt;/b&gt;&lt;br&gt;(System Clock)" vertex="1">
+          <mxGeometry height="60" width="120" x="20" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="sA3U5eMCw8VRzGzSXooD-6" parent="sA3U5eMCw8VRzGzSXooD-3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;" value="&lt;b&gt;State History Merger&lt;/b&gt;&lt;br&gt;(between two witness events)" vertex="1">
+          <mxGeometry height="60" width="140" x="180" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sA3U5eMCw8VRzGzSXooD-7" parent="sA3U5eMCw8VRzGzSXooD-3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;" value="&lt;b&gt;Recency Weighting&lt;/b&gt;&lt;br&gt;(Exponential Decay)" vertex="1">
+          <mxGeometry height="60" width="140" x="180" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="sA3U5eMCw8VRzGzSXooD-8" parent="sA3U5eMCw8VRzGzSXooD-3" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#6c8ebf;" value="&lt;b&gt;Embedding Generator&lt;/b&gt;&lt;br&gt;(Output + History)" vertex="1">
+          <mxGeometry height="60" width="140" x="180" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="sA3U5eMCw8VRzGzSXooD-9" parent="1" style="swimlane;startSize=28;fillColor=#d5e8d4;strokeColor=#82b366;html=1;fontColor=#333333;fontStyle=1;" value="Hierarchical Vector Store (Informative, engaing, conversational, Q&amp;amp;A)" vertex="1">
+          <mxGeometry height="360" width="420" x="560" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="sA3U5eMCw8VRzGzSXooD-10" parent="sA3U5eMCw8VRzGzSXooD-9" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#82b366;" value="&lt;b&gt;Hierarchical Router&lt;/b&gt;&lt;br&gt;(Domain Indexer)" vertex="1">
+          <mxGeometry height="60" width="120" x="20" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sA3U5eMCw8VRzGzSXooD-11" parent="sA3U5eMCw8VRzGzSXooD-9" style="swimlane;startSize=24;fillColor=#f8cecc;strokeColor=#b85450;html=1;fontColor=#333333;" value="STEM Domains (example subjects)" vertex="1">
+          <mxGeometry height="140" width="240" x="160" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sA3U5eMCw8VRzGzSXooD-12" parent="sA3U5eMCw8VRzGzSXooD-11" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;" value="Physics" vertex="1">
+          <mxGeometry height="35" width="100" x="10" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="sA3U5eMCw8VRzGzSXooD-13" parent="sA3U5eMCw8VRzGzSXooD-11" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;" value="Logic" vertex="1">
+          <mxGeometry height="35" width="100" x="120" y="35" as="geometry" />
+        </mxCell>
+        <mxCell id="sA3U5eMCw8VRzGzSXooD-14" parent="sA3U5eMCw8VRzGzSXooD-11" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#b85450;" value="Programming" vertex="1">
+          <mxGeometry height="35" width="110" x="65" y="85" as="geometry" />
+        </mxCell>
+        <mxCell id="sA3U5eMCw8VRzGzSXooD-15" parent="sA3U5eMCw8VRzGzSXooD-9" style="swimlane;startSize=24;fillColor=#fff2cc;strokeColor=#d6b656;html=1;fontColor=#333333;" value="Humanities &amp;amp; Arts" vertex="1">
+          <mxGeometry height="155" width="240" x="160" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="sA3U5eMCw8VRzGzSXooD-16" parent="sA3U5eMCw8VRzGzSXooD-15" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;" value="Philosophy" vertex="1">
+          <mxGeometry height="30" width="100" x="10" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sA3U5eMCw8VRzGzSXooD-17" parent="sA3U5eMCw8VRzGzSXooD-15" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;" value="Music" vertex="1">
+          <mxGeometry height="30" width="100" x="120" y="30" as="geometry" />
+        </mxCell>
+        <mxCell id="sA3U5eMCw8VRzGzSXooD-18" parent="sA3U5eMCw8VRzGzSXooD-15" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;" value="Art" vertex="1">
+          <mxGeometry height="30" width="100" x="10" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="sA3U5eMCw8VRzGzSXooD-19" parent="sA3U5eMCw8VRzGzSXooD-15" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;" value="Writing" vertex="1">
+          <mxGeometry height="30" width="100" x="120" y="70" as="geometry" />
+        </mxCell>
+        <mxCell id="sA3U5eMCw8VRzGzSXooD-20" parent="sA3U5eMCw8VRzGzSXooD-15" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#d6b656;" value="Storytelling" vertex="1">
+          <mxGeometry height="30" width="110" x="65" y="110" as="geometry" />
+        </mxCell>
+        <mxCell id="sA3U5eMCw8VRzGzSXooD-21" edge="1" parent="1" source="sA3U5eMCw8VRzGzSXooD-1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#666666;" target="sA3U5eMCw8VRzGzSXooD-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sA3U5eMCw8VRzGzSXooD-22" edge="1" parent="1" source="sA3U5eMCw8VRzGzSXooD-2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#d79b00;entryX=0;entryY=0.75;entryDx=0;entryDy=0;" target="sA3U5eMCw8VRzGzSXooD-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sA3U5eMCw8VRzGzSXooD-23" edge="1" parent="1" source="sA3U5eMCw8VRzGzSXooD-5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#6c8ebf;" target="sA3U5eMCw8VRzGzSXooD-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sA3U5eMCw8VRzGzSXooD-24" edge="1" parent="1" source="sA3U5eMCw8VRzGzSXooD-4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#6c8ebf;" target="sA3U5eMCw8VRzGzSXooD-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sA3U5eMCw8VRzGzSXooD-25" edge="1" parent="1" source="sA3U5eMCw8VRzGzSXooD-6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#6c8ebf;" target="sA3U5eMCw8VRzGzSXooD-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sA3U5eMCw8VRzGzSXooD-26" edge="1" parent="1" source="sA3U5eMCw8VRzGzSXooD-7" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#6c8ebf;" target="sA3U5eMCw8VRzGzSXooD-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sA3U5eMCw8VRzGzSXooD-27" edge="1" parent="1" source="sA3U5eMCw8VRzGzSXooD-2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#d79b00;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="sA3U5eMCw8VRzGzSXooD-8">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="80" y="320" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sA3U5eMCw8VRzGzSXooD-28" edge="1" parent="1" source="sA3U5eMCw8VRzGzSXooD-8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#82b366;fontStyle=1;" target="sA3U5eMCw8VRzGzSXooD-10" value="Vector Query">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sA3U5eMCw8VRzGzSXooD-29" edge="1" parent="1" source="sA3U5eMCw8VRzGzSXooD-10" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#b85450;" target="sA3U5eMCw8VRzGzSXooD-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sA3U5eMCw8VRzGzSXooD-30" edge="1" parent="1" source="sA3U5eMCw8VRzGzSXooD-10" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#d6b656;" target="sA3U5eMCw8VRzGzSXooD-15">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sA3U5eMCw8VRzGzSXooD-31" edge="1" parent="1" source="sA3U5eMCw8VRzGzSXooD-10" style="edgeStyle=orthogonalEdgeStyle;rounded=1;html=1;strokeColor=#d79b00;fontStyle=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" target="sA3U5eMCw8VRzGzSXooD-2" value="Retrieve &amp;amp; Respond">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="640" y="410" />
+              <mxPoint x="110" y="410" />
+            </Array>
+            <mxPoint x="640" y="150" as="sourcePoint" />
+            <mxPoint x="150" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="QjrVZXbawjcWnbADDtw9" name="Page-2">
+    <mxGraphModel dx="1585" dy="3075" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="IpgPxD4emPKAGwueZkEY-43" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="502" width="1877" x="1005" y="897" as="geometry" />
+        </mxCell>
+        <mxCell id="IpgPxD4emPKAGwueZkEY-84" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="358" width="1795" x="1043" y="925" as="geometry" />
+        </mxCell>
+        <mxCell id="IpgPxD4emPKAGwueZkEY-47" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="480" width="907" x="1056" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="IpgPxD4emPKAGwueZkEY-50" parent="1" style="rounded=1;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="180" width="839" x="1077" y="591" as="geometry" />
+        </mxCell>
+        <mxCell id="IpgPxD4emPKAGwueZkEY-38" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=24;" value="core/" vertex="1">
+          <mxGeometry height="30" width="60" x="1043" y="1323" as="geometry" />
+        </mxCell>
+        <mxCell id="IpgPxD4emPKAGwueZkEY-64" edge="1" parent="1" source="IpgPxD4emPKAGwueZkEY-41" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" target="IpgPxD4emPKAGwueZkEY-56">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IpgPxD4emPKAGwueZkEY-41" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=22;" value="" vertex="1">
+          <mxGeometry height="266" width="384" x="1085" y="990" as="geometry" />
+        </mxCell>
+        <mxCell id="IpgPxD4emPKAGwueZkEY-42" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=24;" value="efference/ (formerly motor/)" vertex="1">
+          <mxGeometry height="30" width="315" x="1112" y="1008" as="geometry" />
+        </mxCell>
+        <mxCell id="IpgPxD4emPKAGwueZkEY-45" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fontSize=24;" value="utd.py" vertex="1">
+          <mxGeometry height="110" width="311" x="1103" y="433" as="geometry" />
+        </mxCell>
+        <mxCell id="IpgPxD4emPKAGwueZkEY-49" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=24;" value="io/" vertex="1">
+          <mxGeometry height="30" width="60" x="1103" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="IpgPxD4emPKAGwueZkEY-51" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=24;" value="transduction/" vertex="1">
+          <mxGeometry height="30" width="60" x="1144" y="609" as="geometry" />
+        </mxCell>
+        <mxCell id="IpgPxD4emPKAGwueZkEY-52" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fontSize=20;" value="basis.py" vertex="1">
+          <mxGeometry height="55" width="132" x="1112" y="1065" as="geometry" />
+        </mxCell>
+        <mxCell id="IpgPxD4emPKAGwueZkEY-53" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fontSize=20;" value="trace.py" vertex="1">
+          <mxGeometry height="58" width="150" x="1263" y="1063.5" as="geometry" />
+        </mxCell>
+        <mxCell id="IpgPxD4emPKAGwueZkEY-87" edge="1" parent="1" source="IpgPxD4emPKAGwueZkEY-55" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" target="IpgPxD4emPKAGwueZkEY-66">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IpgPxD4emPKAGwueZkEY-55" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fontSize=20;" value="afference.py" vertex="1">
+          <mxGeometry height="67" width="196" x="1680" y="651" as="geometry" />
+        </mxCell>
+        <mxCell id="IpgPxD4emPKAGwueZkEY-65" edge="1" parent="1" source="IpgPxD4emPKAGwueZkEY-56" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" target="IpgPxD4emPKAGwueZkEY-45">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IpgPxD4emPKAGwueZkEY-56" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fontSize=20;" value="efference.py" vertex="1">
+          <mxGeometry height="67" width="196" x="1144" y="662" as="geometry" />
+        </mxCell>
+        <mxCell id="IpgPxD4emPKAGwueZkEY-62" edge="1" parent="1" source="IpgPxD4emPKAGwueZkEY-57" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" target="IpgPxD4emPKAGwueZkEY-55">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IpgPxD4emPKAGwueZkEY-63" edge="1" parent="1" source="IpgPxD4emPKAGwueZkEY-57" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" target="IpgPxD4emPKAGwueZkEY-58">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IpgPxD4emPKAGwueZkEY-57" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fontSize=24;" value="ute.py" vertex="1">
+          <mxGeometry height="110" width="314" x="1582" y="433" as="geometry" />
+        </mxCell>
+        <mxCell id="IpgPxD4emPKAGwueZkEY-86" edge="1" parent="1" source="IpgPxD4emPKAGwueZkEY-58" style="edgeStyle=none;curved=1;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontSize=12;startSize=8;endSize=8;" target="IpgPxD4emPKAGwueZkEY-79">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="IpgPxD4emPKAGwueZkEY-58" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fontSize=20;" value="reafference.py" vertex="1">
+          <mxGeometry height="67" width="196" x="1425" y="651" as="geometry" />
+        </mxCell>
+        <mxCell id="IpgPxD4emPKAGwueZkEY-66" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=22;" value="" vertex="1">
+          <mxGeometry height="284" width="745" x="2015" y="990" as="geometry" />
+        </mxCell>
+        <mxCell id="IpgPxD4emPKAGwueZkEY-67" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=24;" value="afference/" vertex="1">
+          <mxGeometry height="30" width="116" x="2032" y="1005" as="geometry" />
+        </mxCell>
+        <mxCell id="IpgPxD4emPKAGwueZkEY-69" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fontSize=20;" value="basis.py" vertex="1">
+          <mxGeometry height="55" width="126" x="2046" y="1055" as="geometry" />
+        </mxCell>
+        <mxCell id="IpgPxD4emPKAGwueZkEY-70" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fontSize=20;" value="trace.py" vertex="1">
+          <mxGeometry height="58" width="125" x="2195" y="1053.5" as="geometry" />
+        </mxCell>
+        <mxCell id="IpgPxD4emPKAGwueZkEY-75" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fontSize=20;" value="sensorimotor_aperture.py" vertex="1">
+          <mxGeometry height="69" width="328" x="2046" y="1140" as="geometry" />
+        </mxCell>
+        <mxCell id="IpgPxD4emPKAGwueZkEY-76" connectable="0" parent="1" style="group" value="" vertex="1">
+          <mxGeometry height="213" width="343" x="2393" y="1018" as="geometry" />
+        </mxCell>
+        <mxCell id="IpgPxD4emPKAGwueZkEY-71" parent="IpgPxD4emPKAGwueZkEY-76" style="rounded=1;whiteSpace=wrap;html=1;fontSize=22;" value="" vertex="1">
+          <mxGeometry height="213" width="343" as="geometry" />
+        </mxCell>
+        <mxCell id="IpgPxD4emPKAGwueZkEY-72" parent="IpgPxD4emPKAGwueZkEY-76" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=24;" value="preprocessing/" vertex="1">
+          <mxGeometry height="30" width="116" x="48" y="17" as="geometry" />
+        </mxCell>
+        <mxCell id="IpgPxD4emPKAGwueZkEY-73" parent="IpgPxD4emPKAGwueZkEY-76" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fontSize=20;" value="sensory_adaptation.py" vertex="1">
+          <mxGeometry height="55" width="273" x="30" y="66.5" as="geometry" />
+        </mxCell>
+        <mxCell id="IpgPxD4emPKAGwueZkEY-74" parent="IpgPxD4emPKAGwueZkEY-76" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fontSize=20;" value="lateral_inhibition.py" vertex="1">
+          <mxGeometry height="55" width="273" x="30" y="141" as="geometry" />
+        </mxCell>
+        <mxCell id="IpgPxD4emPKAGwueZkEY-78" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fontSize=20;" value="observer.py" vertex="1">
+          <mxGeometry height="55" width="227" x="1112" y="1158" as="geometry" />
+        </mxCell>
+        <mxCell id="IpgPxD4emPKAGwueZkEY-79" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fontSize=22;" value="" vertex="1">
+          <mxGeometry height="284" width="488" x="1501" y="987" as="geometry" />
+        </mxCell>
+        <mxCell id="IpgPxD4emPKAGwueZkEY-80" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=24;" value="reafference/" vertex="1">
+          <mxGeometry height="30" width="141" x="1523" y="1011" as="geometry" />
+        </mxCell>
+        <mxCell id="IpgPxD4emPKAGwueZkEY-81" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fontSize=20;" value="loop_basis.py" vertex="1">
+          <mxGeometry height="55" width="205" x="1532" y="1069" as="geometry" />
+        </mxCell>
+        <mxCell id="IpgPxD4emPKAGwueZkEY-82" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fontSize=20;" value="loop_trace.py" vertex="1">
+          <mxGeometry height="55" width="205" x="1747" y="1069" as="geometry" />
+        </mxCell>
+        <mxCell id="IpgPxD4emPKAGwueZkEY-83" parent="1" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;fontSize=20;" value="observation.py" vertex="1">
+          <mxGeometry height="55" width="253" x="1532" y="1158" as="geometry" />
+        </mxCell>
+        <mxCell id="IpgPxD4emPKAGwueZkEY-85" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=24;" value="sensorimotor/" vertex="1">
+          <mxGeometry height="30" width="60" x="1122" y="950" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="Kglw2qSJv6pxFsSMnaq7" name="Page-3">
+    <mxGraphModel dx="447" dy="615" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="_Qh_ADYlnIdZja7CmlrT-1" parent="1" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;fontSize=25;" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;VDM Sensorimotor Feedback&lt;/h1&gt;&lt;hr style=&quot;height: 1px; border-width: 1px 0px 0px; border-style: solid none none; border-color: rgb(220, 223, 229) currentcolor currentcolor; border-image: initial;&quot; data-sfc-root=&quot;ep&quot; data-sfc-pl=&quot;||[]&quot; data-sfc-cb=&quot;&quot;&gt;&lt;h2 role=&quot;heading&quot; data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;Architecture Definitions Glossary&lt;/h2&gt;&lt;h2 role=&quot;heading&quot; data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;1. Input/Output Layer (&lt;code dir=&quot;ltr&quot; style=&quot;background-color: rgb(244, 246, 247); border: 1px solid rgb(244, 246, 247); border-radius: 4px; padding: 2px 4px;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;io/&lt;/code&gt;)&lt;/h2&gt;&lt;div style=&quot;overflow-wrap: break-word; margin: 16px 0px;&quot; data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;The foundational software layer responsible for real-time hardware interfacing, asynchronous buffering, and data stream serialization.&lt;/div&gt;&lt;div data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;div&gt;&lt;/div&gt;&lt;ul&gt;&lt;li data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;span style=&quot;font-weight: bold;&quot; data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;code dir=&quot;ltr&quot; style=&quot;background-color: rgb(244, 246, 247); border: 1px solid rgb(244, 246, 247); border-radius: 4px; padding: 2px 4px;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;utd.py&lt;/code&gt; (Universal Transduction Device):&lt;/span&gt; The final outbound gatekeeper of the software architecture. It functions as the virtual neuromuscular junction, taking concrete, channel-specific payloads and firing them directly to physical or simulated actuators.&lt;/li&gt;&lt;li data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;span style=&quot;font-weight: bold;&quot; data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;code dir=&quot;ltr&quot; style=&quot;background-color: rgb(244, 246, 247); border: 1px solid rgb(244, 246, 247); border-radius: 4px; padding: 2px 4px;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;ute.py&lt;/code&gt; (Universal Temporal Encoder):&lt;/span&gt; The initial inbound receptor boundary. It provides a thread-safe, high-frequency queue that captures raw, timestamped sensory events from physical hardware and streams them to compressed storage (&lt;code dir=&quot;ltr&quot; style=&quot;background-color: rgb(244, 246, 247); border: 1px solid rgb(244, 246, 247); border-radius: 4px; padding: 2px 4px;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;motor_traces.jsonl.zst&lt;/code&gt;).&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;hr style=&quot;height: 1px; border-width: 1px 0px 0px; border-style: solid none none; border-color: rgb(220, 223, 229) currentcolor currentcolor; border-image: initial;&quot; data-sfc-root=&quot;ep&quot; data-sfc-pl=&quot;||[]&quot; data-sfc-cb=&quot;&quot;&gt;&lt;h2 role=&quot;heading&quot; data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;2. Transduction Layer (&lt;code dir=&quot;ltr&quot; style=&quot;background-color: rgb(244, 246, 247); border: 1px solid rgb(244, 246, 247); border-radius: 4px; padding: 2px 4px;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;io/transduction/&lt;/code&gt;)&lt;/h2&gt;&lt;div style=&quot;overflow-wrap: break-word; margin: 16px 0px;&quot; data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;The translation matrix of the system. This layer bridges the gap between the concrete hardware domain (channels/pins) and the abstract neural domain (indices/activation vectors).&lt;/div&gt;&lt;div data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;div&gt;&lt;/div&gt;&lt;ul&gt;&lt;li data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;span style=&quot;font-weight: bold;&quot; data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;code dir=&quot;ltr&quot; style=&quot;background-color: rgb(244, 246, 247); border: 1px solid rgb(244, 246, 247); border-radius: 4px; padding: 2px 4px;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;efference.py&lt;/code&gt;:&lt;/span&gt; The outbound translator. It maps abstract, agnostic motor activation vectors generated by the neural core onto the finite physical actuator channels expected by the hardware.&lt;/li&gt;&lt;li data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;span style=&quot;font-weight: bold;&quot; data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;code dir=&quot;ltr&quot; style=&quot;background-color: rgb(244, 246, 247); border: 1px solid rgb(244, 246, 247); border-radius: 4px; padding: 2px 4px;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;afference.py&lt;/code&gt;:&lt;/span&gt; The inbound translator. It processes raw data packets from the sensory receptors (&lt;code dir=&quot;ltr&quot; style=&quot;background-color: rgb(244, 246, 247); border: 1px solid rgb(244, 246, 247); border-radius: 4px; padding: 2px 4px;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;ute.py&lt;/code&gt;) and maps them directly onto the model&#39;s fixed, unchanging input neural indices.&lt;/li&gt;&lt;li data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;span style=&quot;font-weight: bold;&quot; data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;code dir=&quot;ltr&quot; style=&quot;background-color: rgb(244, 246, 247); border: 1px solid rgb(244, 246, 247); border-radius: 4px; padding: 2px 4px;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;reafference.py&lt;/code&gt;:&lt;/span&gt; The hardware-aware feedback interceptor. It isolates raw sensor telemetry that is explicitly generated by the robot&#39;s own motor movements to feed the dedicated reafference tracking loop.&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;hr style=&quot;height: 1px; border-width: 1px 0px 0px; border-style: solid none none; border-color: rgb(220, 223, 229) currentcolor currentcolor; border-image: initial;&quot; data-sfc-root=&quot;ep&quot; data-sfc-pl=&quot;||[]&quot; data-sfc-cb=&quot;&quot;&gt;&lt;h2 role=&quot;heading&quot; data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;3. Core Sensorimotor Module (&lt;code dir=&quot;ltr&quot; style=&quot;background-color: rgb(244, 246, 247); border: 1px solid rgb(244, 246, 247); border-radius: 4px; padding: 2px 4px;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;core/sensorimotor/&lt;/code&gt;)&lt;/h2&gt;&lt;div style=&quot;overflow-wrap: break-word; margin: 16px 0px;&quot; data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;The completely agnostic, abstract mathematical heart of the framework. It defines the unyielding spatial and temporal boundaries through which the model&#39;s self-organizing and emergent neural dynamics operate.&lt;/div&gt;&lt;h2 role=&quot;heading&quot; data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;A. Efference Directory (&lt;code dir=&quot;ltr&quot; style=&quot;background-color: rgb(244, 246, 247); border: 1px solid rgb(244, 246, 247); border-radius: 4px; padding: 2px 4px;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;/efference/&lt;/code&gt;)&lt;/h2&gt;&lt;div style=&quot;overflow-wrap: break-word; margin: 16px 0px;&quot; data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;Handles the generation, tracking, and passive monitoring of outgoing motor intentions.&lt;/div&gt;&lt;div data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;div&gt;&lt;/div&gt;&lt;ul&gt;&lt;li data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;span style=&quot;font-weight: bold;&quot; data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;code dir=&quot;ltr&quot; style=&quot;background-color: rgb(244, 246, 247); border: 1px solid rgb(244, 246, 247); border-radius: 4px; padding: 2px 4px;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;basis.py&lt;/code&gt;:&lt;/span&gt; The structural blueprint defining the finite set of abstract muscle primitives and output neuron groups. It dictates the spatial dimensions and activation thresholds of the core&#39;s motor workspace.&lt;/li&gt;&lt;li data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;span style=&quot;font-weight: bold;&quot; data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;code dir=&quot;ltr&quot; style=&quot;background-color: rgb(244, 246, 247); border: 1px solid rgb(244, 246, 247); border-radius: 4px; padding: 2px 4px;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;trace.py&lt;/code&gt;:&lt;/span&gt; A high-fidelity ticker tape recording the real-time temporal history of outgoing motor neuron spikes and firing histories.&lt;/li&gt;&lt;li data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;span style=&quot;font-weight: bold;&quot; data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;code dir=&quot;ltr&quot; style=&quot;background-color: rgb(244, 246, 247); border: 1px solid rgb(244, 246, 247); border-radius: 4px; padding: 2px 4px;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;observer.py&lt;/code&gt;:&lt;/span&gt; A passive, non-interfering diagnostics probe that listens to outgoing motor states and logs their baseline execution profiles to the telemetry pipeline without enforcing behavioral rules.&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;h2 role=&quot;heading&quot; data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;B. Reafference Directory (&lt;code dir=&quot;ltr&quot; style=&quot;background-color: rgb(244, 246, 247); border: 1px solid rgb(244, 246, 247); border-radius: 4px; padding: 2px 4px;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;/reafference/&lt;/code&gt;)&lt;/h2&gt;&lt;div style=&quot;overflow-wrap: break-word; margin: 16px 0px;&quot; data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;A dedicated software observability layer built explicitly to monitor and profile how the neural core reacts to its own actions over time.&lt;/div&gt;&lt;div data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;div&gt;&lt;/div&gt;&lt;ul&gt;&lt;li data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;span style=&quot;font-weight: bold;&quot; data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;code dir=&quot;ltr&quot; style=&quot;background-color: rgb(244, 246, 247); border: 1px solid rgb(244, 246, 247); border-radius: 4px; padding: 2px 4px;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;loop_basis.py&lt;/code&gt;:&lt;/span&gt; Registers the structural software handles and pairing configurations monitored across the interactive closed-loop pathway (Motor Neuron Index X → Sensory Neuron Index Y).&lt;/li&gt;&lt;li data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;span style=&quot;font-weight: bold;&quot; data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;code dir=&quot;ltr&quot; style=&quot;background-color: rgb(244, 246, 247); border: 1px solid rgb(244, 246, 247); border-radius: 4px; padding: 2px 4px;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;loop_trace.py&lt;/code&gt;:&lt;/span&gt; A dedicated timeline that logs the isolated internal state shifts and network echoes that occur specifically because of self-generated physical motion.&lt;/li&gt;&lt;li data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;span style=&quot;font-weight: bold;&quot; data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;code dir=&quot;ltr&quot; style=&quot;background-color: rgb(244, 246, 247); border: 1px solid rgb(244, 246, 247); border-radius: 4px; padding: 2px 4px;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;observation.py&lt;/code&gt;:&lt;/span&gt; An analytical telemetry engine that watches the convergence of actions and sensations. It calculates and documents cross-correlation indices and propagation latencies, tracking the emergence of the model&#39;s body schema without biasing its internal mechanics.&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;h2 role=&quot;heading&quot; data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;C. Afference Directory (&lt;code dir=&quot;ltr&quot; style=&quot;background-color: rgb(244, 246, 247); border: 1px solid rgb(244, 246, 247); border-radius: 4px; padding: 2px 4px;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;/afference/&lt;/code&gt;)&lt;/h2&gt;&lt;div style=&quot;overflow-wrap: break-word; margin: 16px 0px;&quot; data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;Handles the gating, filtering, and structuring of raw incoming sensory signals.&lt;/div&gt;&lt;div data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;div&gt;&lt;/div&gt;&lt;ul&gt;&lt;li data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;span style=&quot;font-weight: bold;&quot; data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;code dir=&quot;ltr&quot; style=&quot;background-color: rgb(244, 246, 247); border: 1px solid rgb(244, 246, 247); border-radius: 4px; padding: 2px 4px;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;basis.py&lt;/code&gt;:&lt;/span&gt; The structural registry defining the fixed, unchangeable dimensions and memory layouts of the model&#39;s entry-point (receptor) neurons.&lt;/li&gt;&lt;li data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;span style=&quot;font-weight: bold;&quot; data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;code dir=&quot;ltr&quot; style=&quot;background-color: rgb(244, 246, 247); border: 1px solid rgb(244, 246, 247); border-radius: 4px; padding: 2px 4px;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;trace.py&lt;/code&gt;:&lt;/span&gt; A chronological log of incoming neural indices, presenting a clean temporal pattern of external stimulation for the emergent dynamics to consume.&lt;/li&gt;&lt;li data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;span style=&quot;font-weight: bold;&quot; data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;code dir=&quot;ltr&quot; style=&quot;background-color: rgb(244, 246, 247); border: 1px solid rgb(244, 246, 247); border-radius: 4px; padding: 2px 4px;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;sensorimotor_aperture.py&lt;/code&gt;:&lt;/span&gt; A non-semantic attention gate that dynamically dilates or constricts based on total network activity. It acts as an occlusion layer, protecting the fixed receptor array from saturation or environmental noise without assigning explicit meaning to the channels.&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;h2 role=&quot;heading&quot; data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;D. Preprocessing Sub-Module (&lt;code dir=&quot;ltr&quot; style=&quot;background-color: rgb(244, 246, 247); border: 1px solid rgb(244, 246, 247); border-radius: 4px; padding: 2px 4px;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;/afference/preprocessing/&lt;/code&gt;)&lt;/h2&gt;&lt;div style=&quot;overflow-wrap: break-word; margin: 16px 0px;&quot; data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;Biological-grade signal conditioning loops that clean up raw input arrays before they reach the main core.&lt;/div&gt;&lt;div data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;div&gt;&lt;/div&gt;&lt;ul&gt;&lt;li data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;span style=&quot;font-weight: bold;&quot; data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;code dir=&quot;ltr&quot; style=&quot;background-color: rgb(244, 246, 247); border: 1px solid rgb(244, 246, 247); border-radius: 4px; padding: 2px 4px;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;sensory_adaptation.py&lt;/code&gt;:&lt;/span&gt; Implements non-linear, logarithmic scaling (remodeling the Weber-Fechner Law) to desensitize static inputs and preserve the system&#39;s dynamic perceptual range.&lt;/li&gt;&lt;li data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;span style=&quot;font-weight: bold;&quot; data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;code dir=&quot;ltr&quot; style=&quot;background-color: rgb(244, 246, 247); border: 1px solid rgb(244, 246, 247); border-radius: 4px; padding: 2px 4px;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;lateral_inhibition.py&lt;/code&gt;:&lt;/span&gt; Implements neighborhood contrast enhancement, allowing highly active input indices to mathematically suppress adjacent noisy channels to sharpen signal boundaries.&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;hr style=&quot;height: 1px; border-width: 1px 0px 0px; border-style: solid none none; border-color: rgb(220, 223, 229) currentcolor currentcolor; border-image: initial;&quot; data-sfc-root=&quot;ep&quot; data-sfc-pl=&quot;||[]&quot; data-sfc-cb=&quot;&quot;&gt;&lt;div style=&quot;overflow-wrap: break-word; margin: 16px 0px;&quot; data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;If you&#39;d like to adjust the phrasing of any of these definitions to better highlight specific parts of your &lt;span style=&quot;font-weight: bold;&quot; data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;VDM runtime framework&lt;/span&gt;, let me know! We can also write out the basic Python &lt;span style=&quot;font-weight: bold;&quot; data-sfc-cp=&quot;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;class templates&lt;/span&gt; for the &lt;code dir=&quot;ltr&quot; style=&quot;background-color: rgb(244, 246, 247); border: 1px solid rgb(244, 246, 247); border-radius: 4px; padding: 2px 4px;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;observer&lt;/code&gt; or &lt;code dir=&quot;ltr&quot; style=&quot;background-color: rgb(244, 246, 247); border: 1px solid rgb(244, 246, 247); border-radius: 4px; padding: 2px 4px;&quot; data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;observation&lt;/code&gt; scripts based on this vocabulary.&lt;/div&gt;&lt;div data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;br&gt;&lt;/div&gt;&lt;div data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;/div&gt;&lt;div data-sfc-root=&quot;ep&quot; data-sfc-cb=&quot;&quot;&gt;&lt;/div&gt;&lt;p&gt;.&lt;/p&gt;" vertex="1">
+          <mxGeometry height="2164" width="1101" x="64" y="299" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

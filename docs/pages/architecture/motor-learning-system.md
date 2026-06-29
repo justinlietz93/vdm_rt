@@ -28,26 +28,29 @@ correction                   residual feedback updates future trace formation
 
 ## Target modules
 
-Initial module names are intentionally provisional:
+The IO plan owns the live layout:
 
 ```text
-core/motor/
-  actuator_trace.py          prepared trace data model
-  actuator_basis.py          fixed device degrees of freedom
-  articulation_buffer.py     internal preparation surface
-  selection.py               release/initiation pressure
-  correction.py              residual/error channel
-  skill_metrics.py           entropy, refinement, equivalence, cost
+core/sensorimotor/
+  efference/basis.py         fixed abstract operation/lane basis
+  efference/trace.py         sparse trace pressure and release state
+  efference/observer.py      passive witness-time telemetry copier
+  reafference/loop_trace.py  action/consequence pairing handles
+  afference/trace.py         sparse receptor-index trace
 
-runtime/motor/
-  tick_adapter.py            motor-learning step integration
-  release_pipeline.py        trace -> actuator event flow
-  reafference.py             UTD action -> UTE consequence handoff
+io/transduction/
+  efference_keyboard.py      abstract packet -> keyboard grid packet
+  afference.py               raw receptor units -> explicit receptor indices
+  reafference.py             witness consequence -> receptor events
+  reafferent_index.py        log-only 2048 posture projection
 
-io/actuators/
-  keyboard.py                text/keyboard device pathway
-  text_surface.py            renderer as witness surface, not author
+io/actuators/virtual_keyboard/
+  key_matrix.py              fixed external keyboard surface
+  endpoint.py                renderer/witness surface, not author
 ```
+
+The runtime loop only invokes the attached `observe_nodes(...)` hook and UTD
+port. It does not own the sensorimotor system.
 
 ## Core invariant
 

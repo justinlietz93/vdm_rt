@@ -8,13 +8,20 @@ runtime artifacts while ignoring external clock fields by default.
 from __future__ import annotations
 
 import argparse
-import json
 import math
+import sys
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Sequence, Tuple
 
-import zstandard as zstd
+try:
+    from vdm_rt.io.logging.jsonl_reader import iter_jsonl_rows
+except ModuleNotFoundError:
+    for parent in Path(__file__).resolve().parents:
+        if (parent / "io" / "logging" / "jsonl_reader.py").exists():
+            sys.path.insert(0, str(parent.parent))
+            break
+    from vdm_rt.io.logging.jsonl_reader import iter_jsonl_rows
 
 
 DEFAULT_STREAMS = ("events.jsonl.zst", "motor_traces.jsonl.zst")
@@ -122,22 +129,7 @@ class RunComparison:
 def read_jsonl_zst(path: Path) -> List[Dict[str, Any]]:
     if not path.exists():
         return []
-    dctx = zstd.ZstdDecompressor()
-    with path.open("rb") as fh:
-        try:
-            reader = dctx.stream_reader(fh, read_across_frames=True)
-        except TypeError:
-            reader = dctx.stream_reader(fh)
-        with reader:
-            text = reader.read().decode("utf-8")
-    rows: List[Dict[str, Any]] = []
-    for line in text.splitlines():
-        if not line.strip():
-            continue
-        item = json.loads(line)
-        if isinstance(item, dict):
-            rows.append(item)
-    return rows
+    return list(iter_jsonl_rows(path))
 
 
 def _base_record_key(stream: str, row: Dict[str, Any], index: int) -> RecordKey:
@@ -378,4 +370,3 @@ def main(argv: Sequence[str] | None = None) -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
-

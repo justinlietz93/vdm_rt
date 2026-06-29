@@ -6,7 +6,7 @@ import zstandard as zstd
 
 from vdm_rt.io.ute import UTE
 from vdm_rt.io.utd import UTD
-from vdm_rt.io.motor_trace import MotorTraceLog
+from vdm_rt.io.logging.sensorimotor_trace import SensorimotorTraceLog
 
 
 def _jsonl_zst(path):
@@ -20,8 +20,8 @@ def _jsonl_zst(path):
             return [json.loads(line) for line in reader.read().decode("utf-8").splitlines()]
 
 
-def test_ute_records_motor_trace_input_and_preserves_queue(monkeypatch, tmp_path) -> None:
-    monkeypatch.setattr("vdm_rt.io.motor_trace.time.time", lambda: 101.0)
+def test_ute_records_sensorimotor_trace_input_and_preserves_queue(monkeypatch, tmp_path) -> None:
+    monkeypatch.setattr("vdm_rt.io.logging.sensorimotor_trace.time.time", lambda: 101.0)
     ute = UTE(str(tmp_path), queue_maxsize=4, poll_max_items=4)
     rec = {
         "tick": 0,
@@ -49,7 +49,7 @@ def test_ute_records_motor_trace_input_and_preserves_queue(monkeypatch, tmp_path
 
 
 def test_ute_record_input_classifies_reafference_without_queueing(monkeypatch, tmp_path) -> None:
-    monkeypatch.setattr("vdm_rt.io.motor_trace.time.time", lambda: 112.5)
+    monkeypatch.setattr("vdm_rt.io.logging.sensorimotor_trace.time.time", lambda: 112.5)
     ute = UTE(str(tmp_path), queue_maxsize=4, poll_max_items=4)
     rec = {
         "tick": 1,
@@ -77,7 +77,7 @@ def test_ute_record_input_classifies_reafference_without_queueing(monkeypatch, t
 
 
 def test_utd_records_raw_motor_event_without_wrapper(monkeypatch, tmp_path) -> None:
-    monkeypatch.setattr("vdm_rt.io.motor_trace.time.time", lambda: 112.5)
+    monkeypatch.setattr("vdm_rt.io.logging.sensorimotor_trace.time.time", lambda: 112.5)
     utd = UTD(str(tmp_path), run_start_wall_time_s=100.0)
     event = {
         "tick": 0,
@@ -110,10 +110,10 @@ def test_utd_records_raw_motor_event_without_wrapper(monkeypatch, tmp_path) -> N
     assert not (tmp_path / "utd_events.jsonl.zst").exists()
 
 
-def test_motor_trace_records_reserved_sensorimotor_trace_kinds(monkeypatch, tmp_path) -> None:
+def test_sensorimotor_trace_records_reserved_trace_kinds(monkeypatch, tmp_path) -> None:
     ticks = iter([200.0, 201.0, 202.0, 203.0])
-    monkeypatch.setattr("vdm_rt.io.motor_trace.time.time", lambda: next(ticks))
-    trace = MotorTraceLog(str(tmp_path), run_start_wall_time_s=100.0)
+    monkeypatch.setattr("vdm_rt.io.logging.sensorimotor_trace.time.time", lambda: next(ticks))
+    trace = SensorimotorTraceLog(str(tmp_path), run_start_wall_time_s=100.0)
 
     assert trace.record_efferent_dynamics({"tick": 2, "primitive": "RELEASE"}) is True
     assert trace.record_stimulation({"tick": 2, "stim_count": 9}) is True

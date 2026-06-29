@@ -1,6 +1,8 @@
 __pycache__/
 *.py[cod]
 .pytest_cache/
+.pytest-tmp/
+pytest-of-*/
 .mypy_cache/
 .ruff_cache/
 .venv/
@@ -25,3 +27,4 @@ experiments/*/*/*/vdm_rt-main
 # Secrets
 dev-secrets/*
 dev-references/*
+experiments/Afference-Reafference_Experiments/*

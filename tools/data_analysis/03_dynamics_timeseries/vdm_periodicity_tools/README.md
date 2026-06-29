@@ -15,7 +15,7 @@ They reconstruct the scripts used for the periodicity investigation:
 ## 1. Periodicity scan
 
 ```bash
-python scripts/sie_periodicity_scan.py /path/to/events.jsonl \
+python scripts/sie_periodicity_scan.py /path/to/events.jsonl.zst \
   --signal sie_v2_valence_01 \
   --out-dir analysis/sie_periodicity
 ```
@@ -23,7 +23,7 @@ python scripts/sie_periodicity_scan.py /path/to/events.jsonl \
 If your log has no wall timestamp/elapsed field, pass the nominal rate:
 
 ```bash
-python scripts/sie_periodicity_scan.py /path/to/events.jsonl \
+python scripts/sie_periodicity_scan.py /path/to/events.jsonl.zst \
   --signal sie_v2_valence_01 \
   --hz 10 \
   --out-dir analysis/sie_periodicity
@@ -46,7 +46,7 @@ Outputs:
 ## 2. Wall-clock / endogenous-clock nulls
 
 ```bash
-PYTHONPATH=scripts python scripts/clock_alignment_nulls.py /path/to/events.jsonl \
+PYTHONPATH=scripts python scripts/clock_alignment_nulls.py /path/to/events.jsonl.zst \
   --signal sie_v2_valence_01 \
   --hz 10 \
   --out analysis/clock_nulls_summary.json
@@ -73,8 +73,8 @@ This does not declare guilt. It lists every timing touchpoint so you can inspect
 
 ## Notes
 
-- These scripts are deliberately dependency-light: Python 3, NumPy, Matplotlib.
-- They accept `.jsonl`, `.jsonl.gz`, `.csv`, and `.csv.gz`.
+- These scripts are deliberately dependency-light: Python 3, NumPy, Matplotlib, and zstandard for `.zst` inputs.
+- They accept `.jsonl`, `.jsonl.gz`, `.jsonl.zst`, `.csv`, and `.csv.gz`.
 - They are robust to flat event rows and simple nested rows like `metrics`, `why`, `state`, `connectome`, or `telemetry`.
 - They do not import the runtime.
 - They do not change runtime behavior.

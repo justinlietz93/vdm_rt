@@ -122,9 +122,9 @@ def _observation_nodes(obs_batch: Iterable[Any], limit: int = 4096) -> List[int]
     return nodes
 
 
-def _record_motor_trace(nx: Any, method_name: str, record: Dict[str, Any]) -> bool:
+def _record_sensorimotor_trace(nx: Any, method_name: str, record: Dict[str, Any]) -> bool:
     try:
-        trace = getattr(nx, "motor_trace", None)
+        trace = getattr(nx, "sensorimotor_trace", None)
         method = getattr(trace, method_name, None)
         if method is None:
             return False
@@ -195,12 +195,12 @@ def _maybe_observe_motor_actuator(
             "emitted_count": int(len(emitted_list)),
         }
     )
-    _record_motor_trace(nx, "record_actuator_trace", trace_record)
+    _record_sensorimotor_trace(nx, "record_actuator_trace", trace_record)
 
     utd = getattr(nx, "utd", None)
     for event in emitted_list:
         event.setdefault("tick", int(step))
-        _record_motor_trace(nx, "record_witness_event", event)
+        _record_sensorimotor_trace(nx, "record_witness_event", event)
         try:
             emit = getattr(utd, "emit_motor_event", None)
             if emit is not None:
@@ -297,7 +297,7 @@ def run_loop(nx: Any, t0: float, step: int, duration_s: Optional[int] = None) ->
                     stim_nodes = sorted(int(i) for i in stim_idxs)
                     stim_amp = float(getattr(nx, "stim_amp", 0.05))
                     nx.connectome.stimulate_indices(stim_nodes, amp=stim_amp)
-                    _record_motor_trace(
+                    _record_sensorimotor_trace(
                         nx,
                         "record_stimulation",
                         {
@@ -355,7 +355,7 @@ def run_loop(nx: Any, t0: float, step: int, duration_s: Optional[int] = None) ->
                     obs_batch = getattr(nx, "_last_obs_batch", None) or []
                     obs_nodes_for_motor = _observation_nodes(obs_batch)
                     if obs_nodes_for_motor:
-                        _record_motor_trace(
+                        _record_sensorimotor_trace(
                             nx,
                             "record_efferent_dynamics",
                             {

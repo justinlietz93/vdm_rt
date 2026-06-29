@@ -47,7 +47,7 @@ This roadmap is intentionally written around phases, tasks, and steps. It is not
 
 ### Task 2.1 — Create fixed actuator basis model
 
-- [ ] Add `core/motor/actuator_basis.py`.
+- [x] Add `core/sensorimotor/efference/basis.py`.
 - [ ] Define device-owned primitive dimensions.
 - [ ] Represent text output as keyboard/grapheme/scancode-like actuation, not as a vocabulary.
 - [ ] Add basis hash to telemetry.
@@ -62,13 +62,13 @@ This roadmap is intentionally written around phases, tasks, and steps. It is not
 
 ### Task 3.1 — Add trace data model
 
-- [ ] Add `core/motor/actuator_trace.py`.
-- [ ] Represent primitive, amplitude/pressure, duration/order, and trace identity.
+- [x] Add `core/sensorimotor/efference/trace.py`.
+- [x] Represent primitive, amplitude/pressure, ordering pressure, and trace identity.
 - [ ] Keep trace separate from rendered witness.
 
 ### Task 3.2 — Add articulation buffer
 
-- [ ] Add `core/motor/articulation_buffer.py`.
+- [ ] Add `core/sensorimotor/efference/articulation_buffer.py`.
 - [ ] Permit partial, malformed, competing, or unfinished traces.
 - [ ] Ensure buffer does not require a prebuilt sentence.
 
@@ -90,8 +90,8 @@ This roadmap is intentionally written around phases, tasks, and steps. It is not
 
 ### Task 5.1 — Route action consequences back through UTE
 
-- [ ] Add `runtime/motor/reafference.py`.
-- [ ] Record action consequence as receptor event when externally visible.
+- [x] Add IO-owned `io/transduction/reafference.py`.
+- [x] Record action consequence as receptor event when externally visible.
 - [ ] Add explicit `no_feedback_available` reason when a medium cannot provide feedback.
 
 ### Task 5.2 — Add residual/correction channel

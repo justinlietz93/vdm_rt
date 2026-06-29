@@ -18,7 +18,7 @@ from .config import config_bool, config_float, config_int, config_str
 from .utils.logging_setup import get_logger, set_logger_run_start
 from .io.ute import UTE
 from .io.utd import UTD
-from .io.motor_trace import MotorTraceLog
+from .io.logging.sensorimotor_trace import SensorimotorTraceLog
 from .core.void_b1 import StreamingZEMA
 from .core.void_dynamics_adapter import get_domain_modulation
 from .core.sie import SelfImprovementEngine
@@ -112,9 +112,51 @@ class Nexus:
 
         os.makedirs(self.run_dir, exist_ok=True)
         self.logger = get_logger("nexus", os.path.join(self.run_dir, "events.jsonl"))
-        self.motor_trace = MotorTraceLog(self.run_dir)
-        self.ute = UTE(self.run_dir, motor_trace=self.motor_trace)
-        self.utd = UTD(self.run_dir, motor_trace=self.motor_trace)
+        self.sensorimotor_trace = SensorimotorTraceLog(self.run_dir)
+        self.ute = UTE(self.run_dir, sensorimotor_trace=self.sensorimotor_trace)
+        self.motor_actuator = None
+        self.sensorimotor_selector = None
+        if config_bool("sensorimotor.enabled", True):
+            try:
+                from .core.sensorimotor import EfferenceTraceController
+                from .io.actuators.virtual_keyboard.adapter import KeyboardSensorimotorAdapter
+                from .io.transduction.reafferent_index import ReafferentPostureIndex
+
+                bank = config_str("sensorimotor.posture_index_bank", "").strip()
+                posture_index = ReafferentPostureIndex(
+                    bank_path=bank or None,
+                    k=config_int("sensorimotor.posture_index_k", 8),
+                    tau=config_float("sensorimotor.posture_index_tau", 10.0),
+                )
+                self.sensorimotor_selector = EfferenceTraceController(
+                    n=self.N,
+                    group_size=config_int("sensorimotor.efference_group_size", 8),
+                    salt=f"sensorimotor:efference:{self.seed}",
+                    release_threshold=config_float("sensorimotor.release_threshold", 0.82),
+                    decay=config_float("sensorimotor.selector_decay", 0.965),
+                    cooldown=config_int("sensorimotor.release_cooldown", 8),
+                    current_op_min=config_int("sensorimotor.current_op_min", 2),
+                    current_lane_min=config_int("sensorimotor.current_lane_min", 2),
+                )
+                self.motor_actuator = KeyboardSensorimotorAdapter(
+                    selector=self.sensorimotor_selector,
+                    n=self.N,
+                    seed=self.seed,
+                    spatial_group_size=config_int("sensorimotor.spatial_group_size", 12),
+                    spatial_decay=config_float("sensorimotor.spatial_decay", 0.94),
+                    posture_index=posture_index,
+                )
+            except Exception as ex:
+                self.motor_actuator = None
+                self.sensorimotor_selector = None
+                try:
+                    self.logger.info(
+                        "sensorimotor_init_failed",
+                        extra={"extra": {"err": str(ex)}},
+                    )
+                except Exception:
+                    pass
+        self.utd = UTD(self.run_dir, sensorimotor_trace=self.sensorimotor_trace)
 
         from vdm_rt.core.sparse_connectome import SparseConnectome
 
@@ -231,8 +273,8 @@ class Nexus:
         try:
             self.run_start_wall_time_s = float(t0)
             set_logger_run_start(self.logger, float(t0))
-            if hasattr(self, "motor_trace"):
-                self.motor_trace.set_run_clock(float(t0))
+            if hasattr(self, "sensorimotor_trace"):
+                self.sensorimotor_trace.set_run_clock(float(t0))
             if hasattr(self.utd, "set_run_clock"):
                 self.utd.set_run_clock(float(t0))
         except Exception:

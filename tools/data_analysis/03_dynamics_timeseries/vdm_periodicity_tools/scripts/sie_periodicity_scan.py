@@ -15,17 +15,26 @@ from __future__ import annotations
 
 import argparse
 import csv
-import gzip
 import json
 import math
 import os
 import re
+import sys
 from dataclasses import dataclass, asdict
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Optional, Sequence, Tuple
 
 import numpy as np
+
+try:
+    from vdm_rt.io.logging.jsonl_reader import open_text_stream
+except ModuleNotFoundError:
+    for parent in Path(__file__).resolve().parents:
+        if (parent / "io" / "logging" / "jsonl_reader.py").exists():
+            sys.path.insert(0, str(parent.parent))
+            break
+    from vdm_rt.io.logging.jsonl_reader import open_text_stream
 
 try:
     import matplotlib.pyplot as plt
@@ -61,9 +70,7 @@ NUMERIC_FIELDS = (
 
 
 def _open_text(path: Path):
-    if str(path).endswith(".gz"):
-        return gzip.open(path, "rt", encoding="utf-8", errors="replace")
-    return open(path, "r", encoding="utf-8", errors="replace")
+    return open_text_stream(path)
 
 
 def _parse_timestamp(value: Any) -> Optional[float]:
@@ -243,7 +250,7 @@ def read_csv_any(path: Path, signal: Optional[str] = None) -> List[Dict[str, flo
 
 def read_table(path: Path, signal: Optional[str]) -> List[Dict[str, float]]:
     suffixes = ''.join(path.suffixes)
-    if path.suffix in (".jsonl", ".ndjson") or suffixes.endswith(".jsonl.gz"):
+    if path.suffix in (".jsonl", ".ndjson") or suffixes.endswith(".jsonl.gz") or suffixes.endswith(".jsonl.zst"):
         return read_jsonl(path, signal)
     return read_csv_any(path, signal)
 

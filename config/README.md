@@ -21,7 +21,8 @@ Current files:
 - `persistence.toml` - checkpoint and resume defaults.
 - `control.toml` - embedded control-plane defaults.
 - `scouts.toml` - void-walker scout budgets and per-scout enable flags.
-- `io.toml` - receptor queue, HTTP status, and Redis status output.
+- `io.toml` - receptor queue, IO-owned sensorimotor transduction, HTTP status,
+  and Redis status output.
 - `logging.toml` - JSONL-in-zstd runtime log limits. `events.jsonl.zst` uses
   the `events_*` limits, `motor_traces.jsonl.zst` uses `motor_trace_*`, and
   other compressed JSONL files use `log_*`; the MiB caps are enforced against

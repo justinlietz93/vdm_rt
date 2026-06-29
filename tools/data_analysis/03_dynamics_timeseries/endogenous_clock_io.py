@@ -3,13 +3,22 @@
 from __future__ import annotations
 
 import csv
-import gzip
 import io
 import json
 import math
+import sys
 import zipfile
 from pathlib import Path
 from typing import Any, Iterable, Iterator
+
+try:
+    from vdm_rt.io.logging.jsonl_reader import open_text_stream
+except ModuleNotFoundError:
+    for parent in Path(__file__).resolve().parents:
+        if (parent / "io" / "logging" / "jsonl_reader.py").exists():
+            sys.path.insert(0, str(parent.parent))
+            break
+    from vdm_rt.io.logging.jsonl_reader import open_text_stream
 
 
 SIE_DIR_NAME = "sie_v2"
@@ -70,24 +79,8 @@ def normalize_tick_row(row: dict[str, Any]) -> dict[str, Any] | None:
     return out
 
 
-def _open_text(path: Path):
-    if path.suffix == ".gz":
-        return gzip.open(path, "rt", encoding="utf-8", errors="replace")
-    if path.suffix == ".zst":
-        import zstandard as zstd
-
-        fh = path.open("rb")
-        dctx = zstd.ZstdDecompressor()
-        try:
-            reader = dctx.stream_reader(fh, read_across_frames=True)
-        except TypeError:
-            reader = dctx.stream_reader(fh)
-        return io.TextIOWrapper(reader, encoding="utf-8", errors="replace")
-    return path.open("r", encoding="utf-8", errors="replace")
-
-
 def _iter_jsonl(path: Path) -> Iterator[dict[str, Any]]:
-    with _open_text(path) as fh:
+    with open_text_stream(path) as fh:
         for line in fh:
             line = line.strip()
             if not line:
@@ -103,7 +96,7 @@ def _iter_jsonl(path: Path) -> Iterator[dict[str, Any]]:
 
 
 def _iter_csv(path: Path) -> Iterator[dict[str, Any]]:
-    with _open_text(path) as fh:
+    with open_text_stream(path) as fh:
         reader = csv.DictReader(fh)
         for row in reader:
             normalized = normalize_tick_row(dict(row))

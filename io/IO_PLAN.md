@@ -33,7 +33,7 @@ The architecture is divided into two decoupled environments: hardware-aware tran
         [ efference_*.py ]                 [ afference.py ]
                   │                               ▲
                   ▼                               │
-              [ utd.py ] ───► [ os_router.py ] ───► [ ute.py ]
+              [ utd.py ] ───► [ explicit endpoint routes ] ───► [ ute.py ]
          (Outbound Gate)                     (Inbound Receptor)
                   │                               ▲
                   ▼                               │
@@ -50,13 +50,14 @@ Mantains low-level hardware interfaces, OS subsystem links, and asynchronous tel
 
 * io/utd.py (Universal Transduction Device): The final outbound gate. It commits actuation payloads to logs under trace_kind="utd_actuation" before driving the handlers.
 * io/ute.py (Universal Temporal Encoder): The inbound queue-style receptor boundary. It captures input events and writes them directly to compressed files (motor_traces.jsonl.zst).
-* io/os_router.py: A data traffic controller. It reads the action type emitted by the UTD and dispatches it to the correct low-level endpoint driver.
+* io/logging/sensorimotor_trace.py: The sensorimotor trace logger for receptor, efferent, stimulation, actuator, witness, reafferent, and UTD rows.
+* io/os_router.py: Reserved placeholder for future OS command-execution signals. It is not part of the current keyboard, motor, audio, UTD, or reafference paths.
 * io/transduction/: The translation matrix. It houses the code that maps abstract core neural indices to concrete physical or virtual channel lanes.
 * efference_motor.py / efference_keyboard.py / efference_vocal.py / efference_os.py
    * afference.py / reafference.py
-* io/actuators/: Raw communication bus drivers (CAN bus, SPI, PWM) for joint control.
+* io/actuators/: Raw physical and virtual actuator drivers, including CAN bus links and virtual keyboard endpoints.
 * io/audio/: Converts vocal channel traces directly into synthetic sound waves via system audio layers.
-* io/virtual_keyboard/: Simulates physical keyboard actuation via the Linux kernel's /dev/uinput subsystem.
+* io/actuators/virtual_keyboard/: Simulates physical keyboard actuation via the Linux kernel's /dev/uinput subsystem.
 * io/OS_interface/: Manages an unprivileged Docker runtime container (sandbox_runtime.py) to execute shell commands or code written by the model's virtual typing.
 
 ### 3.2 Core Sensorimotor Module (core/sensorimotor/)
@@ -79,7 +80,7 @@ A hardware-agnostic matrix driven purely by the timing and spatial distribution 
 
 ### 4.1 Keyboard Coordinate Grid
 
-Characters are not mapped to specific neurons. io/virtual_keyboard/key_matrix.py exposes a raw, unmapped 2D spatial layout.
+Characters are not mapped to specific neurons. io/actuators/virtual_keyboard/key_matrix.py exposes a raw, unmapped 2D spatial layout.
 The core sends continuous signals down fixed Row and Column lanes. The transduction layer calculates the center of mass across these lanes to derive a raw [Row, Column] grid intersection. The model must discover through experience which coordinate combinations generate meaningful text feedback on its sensory input.
 
 ### 4.2 Sandboxed Code Execution

@@ -14,3 +14,24 @@ status_maxlen = 2000
 [ute]
 queue_maxsize = 1024
 poll_max_items = 32
+
+[sensorimotor]
+# IO-plan sensorimotor path. The abstract trace lives under core/sensorimotor;
+# keyboard/grid translation, external witness rendering, and reafference live in io/.
+enabled = true
+efference_group_size = 8
+spatial_group_size = 12
+release_threshold = 0.82
+selector_decay = 0.965
+release_cooldown = 8
+current_op_min = 2
+current_lane_min = 2
+spatial_decay = 0.94
+reafference_enabled = true
+reafference_group_size = 1
+
+# Optional log-only 2048 posture bank. Leave blank to project trace rows without
+# querying an utterance bank. Query results must not be submitted to reafference.
+posture_index_bank = ""
+posture_index_k = 8
+posture_index_tau = 10.0

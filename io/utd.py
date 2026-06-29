@@ -10,7 +10,7 @@ See LICENSE file for full terms.
 import os
 from typing import Any, Dict
 
-from vdm_rt.io.motor_trace import MotorTraceLog
+from vdm_rt.io.logging.sensorimotor_trace import SensorimotorTraceLog
 
 
 class UTD:
@@ -25,22 +25,23 @@ class UTD:
         self,
         run_dir: str,
         run_start_wall_time_s: float | None = None,
-        motor_trace: MotorTraceLog | None = None,
+        sensorimotor_trace: SensorimotorTraceLog | None = None,
     ):
         self.run_dir = run_dir
         os.makedirs(self.run_dir, exist_ok=True)
-        self.motor_trace = motor_trace or MotorTraceLog(
+        self.sensorimotor_trace = sensorimotor_trace or SensorimotorTraceLog(
             self.run_dir,
             run_start_wall_time_s=run_start_wall_time_s,
         )
-        self.path = self.motor_trace.path
+        self.path = self.sensorimotor_trace.path
 
     def set_run_clock(self, run_start_wall_time_s: float) -> None:
-        self.motor_trace.set_run_clock(run_start_wall_time_s)
+        self.sensorimotor_trace.set_run_clock(run_start_wall_time_s)
 
     def emit_motor_event(self, event: Dict[str, Any]) -> bool:
         try:
-            return self.motor_trace.record_utd_actuation(dict(event or {}))
+            rec = dict(event or {})
+            return bool(self.sensorimotor_trace.record_utd_actuation(rec))
         except Exception:
             return False
 

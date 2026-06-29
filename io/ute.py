@@ -14,7 +14,7 @@ import threading
 from typing import Any, Dict
 
 from vdm_rt.config import config_int
-from vdm_rt.io.motor_trace import MotorTraceLog
+from vdm_rt.io.logging.sensorimotor_trace import SensorimotorTraceLog
 
 
 class UTE:
@@ -30,16 +30,16 @@ class UTE:
         run_dir: str | None = None,
         queue_maxsize: int | None = None,
         poll_max_items: int | None = None,
-        motor_trace: MotorTraceLog | None = None,
+        sensorimotor_trace: SensorimotorTraceLog | None = None,
     ):
         self.run_dir = str(run_dir) if run_dir is not None else None
         if self.run_dir:
             os.makedirs(self.run_dir, exist_ok=True)
-        self.motor_trace = motor_trace or (
-            MotorTraceLog(self.run_dir) if self.run_dir else None
+        self.sensorimotor_trace = sensorimotor_trace or (
+            SensorimotorTraceLog(self.run_dir) if self.run_dir else None
         )
         self.input_stream_path = (
-            self.motor_trace.path if self.motor_trace is not None else None
+            self.sensorimotor_trace.path if self.sensorimotor_trace is not None else None
         )
         queue_size = (
             config_int("ute.queue_maxsize", 1024)
@@ -74,10 +74,10 @@ class UTE:
 
     def record_input(self, record: Dict[str, Any]) -> bool:
         """Append a receptor-stream row to motor_traces.jsonl.zst."""
-        if self.motor_trace is None:
+        if self.sensorimotor_trace is None:
             return False
         try:
-            return self.motor_trace.record_ute_input(dict(record or {}))
+            return self.sensorimotor_trace.record_ute_input(dict(record or {}))
         except Exception:
             return False
 
